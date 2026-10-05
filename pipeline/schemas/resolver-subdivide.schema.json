@@ -1,0 +1,127 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "chinese-workflow/pipeline/schemas/resolver-subdivide.schema.json",
+ "title": "resolver task subdivide (resolver-subdivide/2)",
+ "description": "Structured output of the resolver's subdivide task (docs/outliner-design.md §5.6): inferred divisions for a leaf whose span is long, or for every leaf in a model-only run, up to three levels deep, and the lines of the leaf's span that belong to none of them. One division per parent; omit a leaf you cannot judge. Merge rules (outline/resolver.py): parent_id must be a listed leaf; children in outline order, depth 1 = a child of the leaf, depth d + 1 = a child of the nearest depth-d division before it; every divided node has at least two children, in text order inside its span, not overlapping (a shared boundary line is allowed); each child confidence < 1 and a non-empty rationale; children become origin 'inferred' nodes with evidence = rationale. Uncovered ranges lie inside the leaf's span between the depth-1 divisions; 'overrun' ranges are reported (resolver report 'overruns') and change no span. A window of a too-long leaf takes depth-1 divisions that begin in its core only; the windows are joined into one division. Version 2 (2026-10-01) adds depth and uncovered. Constraint keywords (minimum, maximum) are enforced client-side; llm.api_schema strips them for the API.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "divisions"
+ ],
+ "properties": {
+  "divisions": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "parent_id",
+     "children",
+     "uncovered"
+    ],
+    "properties": {
+     "parent_id": {
+      "type": "string",
+      "description": "An id listed under 'Leaves to subdivide'."
+     },
+     "children": {
+      "type": "array",
+      "description": "The divisions in outline order (each followed by its own sub-divisions); [] when the leaf reads as one unit.",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "heading_src",
+        "start",
+        "end",
+        "depth",
+        "explained",
+        "confidence",
+        "rationale"
+       ],
+       "properties": {
+        "heading_src": {
+         "type": "string",
+         "description": "Short classical Chinese heading in kepan style (e.g. 初明…, 次…, 後…)."
+        },
+        "start": {
+         "type": "string",
+         "description": "First line of the division's span, a linehead exactly as shown in the request (no ':offset'): root text in sutra mode, the outlined text in self-outlining mode."
+        },
+        "end": {
+         "type": "string",
+         "description": "Last line of the division's span (inclusive), a linehead from the same text as start. In a window: the last line shown when the division runs on past it."
+        },
+        "depth": {
+         "type": "integer",
+         "enum": [
+          1,
+          2,
+          3
+         ],
+         "description": "1 = a child of the leaf; 2 = a child of the nearest depth-1 division before it; 3 = a child of the nearest depth-2 division before it. A window takes depth 1 only."
+        },
+        "explained": {
+         "anyOf": [
+          {
+           "type": "string"
+          },
+          {
+           "type": "null"
+          }
+         ],
+         "description": "Sutra mode: the commentary linehead where the commentary takes this division up, or null. Self-outlining mode: the line inside the division's span where the text's own treatment of it begins, when that is not its first line; null = its start."
+        },
+        "confidence": {
+         "type": "number",
+         "minimum": 0,
+         "maximum": 1,
+         "description": "Calibrated probability that this division is right; the pipeline accepts only values below 1."
+        },
+        "rationale": {
+         "type": "string",
+         "description": "The textual cue relied on, quoting the Chinese; stored as the node's evidence. Must not be empty."
+        }
+       }
+      }
+     },
+     "uncovered": {
+      "type": "array",
+      "description": "Lines of the leaf's span left out of every division (gaps between depth-1 divisions, or before the first or after the last); [] when the divisions cover the span.",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "start",
+        "end",
+        "kind",
+        "rationale"
+       ],
+       "properties": {
+        "start": {
+         "type": "string",
+         "description": "First uncovered line, a linehead from the same text as the divisions."
+        },
+        "end": {
+         "type": "string",
+         "description": "Last uncovered line (inclusive)."
+        },
+        "kind": {
+         "enum": [
+          "paratext",
+          "overrun"
+         ],
+         "description": "paratext: a title, a 卷 heading or colophon, a translator or editor line, a blank or note line. overrun: text that belongs to a division the outline does not list (the leaf's span runs past its own text, e.g. a later sibling the parser missed)."
+        },
+        "rationale": {
+         "type": "string",
+         "description": "Why these lines belong to no division, quoting the Chinese. Must not be empty."
+        }
+       }
+      }
+     }
+    }
+   }
+  }
+ }
+}

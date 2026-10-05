@@ -1,0 +1,589 @@
+{
+ "metadata": {
+  "outline_profile": "zh-kepan",
+  "source_file": "synthetic:none",
+  "source_sha256": null,
+  "text_id": "T9998",
+  "text_title_src": "合成測試疏（SYNTHETIC）",
+  "text_title_en": "Synthetic commentary (SYNTHETIC)",
+  "author": null,
+  "source_language": "lzh",
+  "format_note": "SYNTHETIC TEST FIXTURE for tests/unit/test_eval_score.py (the outline scorer). The text ids T99n9998 (commentary) and T99n9999 (root text) are fictional; every heading, line reference, span and count is invented and says nothing about any real text. Commentary lines: dev p0001a01-p0002a01, validation p0002a01-p0002c01, test p0002c01-p0003a01, reserve from p0003a01 in the synthetic registry tests/fixtures/scorer/registry.synthetic.json.",
+  "id_convention": "zh-kepan: each id token is <sibling_index>_<level> in decimal, tokens joined by '.', e.g. '2_1.1_2.3_3' = second top node -> its first child -> that child's third child; sibling order is the source's order.",
+  "generated_by": "hand-specified 2026-09-27 (synthetic fixture; built with chinese_workflow.common.outline_doc.build_prediction)",
+  "source_document": {
+   "kind": "synthetic",
+   "text_id": "T99n9998",
+   "title": "SYNTHETIC",
+   "url": null,
+   "notes": [
+    "fictional commentary; see format_note"
+   ]
+  },
+  "outline_mode": "sutra",
+  "root_text_id": "T99n9999",
+  "commentary_id": "T99n9998",
+  "scheme_id": "synthetic-fixture",
+  "seeded_by": null,
+  "gold_status": "synthetic-fixture",
+  "licence": {
+   "id": null,
+   "holder": null,
+   "statement": "Synthetic data written in this repository; no third-party text.",
+   "evidence": null
+  },
+  "eval_only": true,
+  "cbeta_release": null,
+  "display_label_rule": "generated: 干支 symbol of the node's level (甲 = 1 … 癸 = 10, 子 = 11 … 亥 = 22) + the sibling ordinal in Chinese numerals 一二三… (R07 F15); null below level 22 or past sibling 99",
+  "node_count": 15,
+  "max_depth": 3,
+  "nodes_per_level": {
+   "1": 3,
+   "2": 8,
+   "3": 4
+  }
+ },
+ "nodes": [
+  {
+   "id": "1_1",
+   "indicator_display": "1₁",
+   "level": 1,
+   "path": [
+    "1_1"
+   ],
+   "parent_id": null,
+   "order": 1,
+   "heading_src": "序分",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001a01",
+     "explained": "T99n9998_p0001a02"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001a01",
+     "end": "T99n9999_p0001a20",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001a01",
+   "notes": [],
+   "sibling_index": 1,
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "甲一"
+  },
+  {
+   "id": "1_1.1_2",
+   "indicator_display": "1₁1₂",
+   "level": 2,
+   "path": [
+    "1_1",
+    "1_2"
+   ],
+   "parent_id": "1_1",
+   "order": 2,
+   "heading_src": "通序",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001a02",
+     "explained": "T99n9998_p0001a02"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001a01",
+     "end": "T99n9999_p0001a05",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001a02",
+   "notes": [],
+   "sibling_index": 1,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "乙一"
+  },
+  {
+   "id": "1_1.2_2",
+   "indicator_display": "1₁2₂",
+   "level": 2,
+   "path": [
+    "1_1",
+    "2_2"
+   ],
+   "parent_id": "1_1",
+   "order": 3,
+   "heading_src": "別序",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001a02",
+     "explained": "T99n9998_p0001a06"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001a06",
+     "end": "T99n9999_p0001a20",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001a02",
+   "notes": [],
+   "sibling_index": 2,
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "乙二"
+  },
+  {
+   "id": "1_1.2_2.1_3",
+   "indicator_display": "1₁2₂1₃",
+   "level": 3,
+   "path": [
+    "1_1",
+    "2_2",
+    "1_3"
+   ],
+   "parent_id": "1_1.2_2",
+   "order": 4,
+   "heading_src": "初段",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001a06",
+     "explained": "T99n9998_p0001a06"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001a06",
+     "end": "T99n9999_p0001a12",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001a06",
+   "notes": [],
+   "sibling_index": 1,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "丙一"
+  },
+  {
+   "id": "1_1.2_2.2_3",
+   "indicator_display": "1₁2₂2₃",
+   "level": 3,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3"
+   ],
+   "parent_id": "1_1.2_2",
+   "order": 5,
+   "heading_src": "後段",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001a06",
+     "explained": "T99n9998_p0001a10"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001a13",
+     "end": "T99n9999_p0001a20",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001a06",
+   "notes": [],
+   "sibling_index": 2,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "丙二"
+  },
+  {
+   "id": "2_1",
+   "indicator_display": "2₁",
+   "level": 1,
+   "path": [
+    "2_1"
+   ],
+   "parent_id": null,
+   "order": 6,
+   "heading_src": "正宗",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001a01",
+     "explained": "T99n9998_p0001b01"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001b01",
+     "end": "T99n9999_p0001c29",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001a01",
+   "notes": [],
+   "sibling_index": 2,
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "甲二"
+  },
+  {
+   "id": "2_1.1_2",
+   "indicator_display": "2₁1₂",
+   "level": 2,
+   "path": [
+    "2_1",
+    "1_2"
+   ],
+   "parent_id": "2_1",
+   "order": 7,
+   "heading_src": "甲段",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001b01",
+     "explained": "T99n9998_p0001b01"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001b01",
+     "end": "T99n9999_p0001b10",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001b01",
+   "notes": [],
+   "sibling_index": 1,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "乙一"
+  },
+  {
+   "id": "2_1.2_2",
+   "indicator_display": "2₁2₂",
+   "level": 2,
+   "path": [
+    "2_1",
+    "2_2"
+   ],
+   "parent_id": "2_1",
+   "order": 8,
+   "heading_src": "乙段",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001b01",
+     "explained": "T99n9998_p0001b05"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001b11",
+     "end": "T99n9999_p0001c10",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001b01",
+   "notes": [],
+   "sibling_index": 2,
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "乙二"
+  },
+  {
+   "id": "2_1.2_2.1_3",
+   "indicator_display": "2₁2₂1₃",
+   "level": 3,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3"
+   ],
+   "parent_id": "2_1.2_2",
+   "order": 9,
+   "heading_src": "乙一",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001b05",
+     "explained": "T99n9998_p0001b05"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001b11",
+     "end": "T99n9999_p0001b20",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001b05",
+   "notes": [],
+   "sibling_index": 1,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "丙一"
+  },
+  {
+   "id": "2_1.2_2.2_3",
+   "indicator_display": "2₁2₂2₃",
+   "level": 3,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3"
+   ],
+   "parent_id": "2_1.2_2",
+   "order": 10,
+   "heading_src": "乙二",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001b05",
+     "explained": "T99n9998_p0001b09"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001b21",
+     "end": "T99n9999_p0001c10",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001b05",
+   "notes": [],
+   "sibling_index": 2,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "丙二"
+  },
+  {
+   "id": "2_1.3_2",
+   "indicator_display": "2₁3₂",
+   "level": 2,
+   "path": [
+    "2_1",
+    "3_2"
+   ],
+   "parent_id": "2_1",
+   "order": 11,
+   "heading_src": "丙段",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001b01",
+     "explained": "T99n9998_p0001b14"
+    },
+    "root_text": {
+     "start": "T99n9999_p0001c11",
+     "end": "T99n9999_p0001c29",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001b01",
+   "notes": [],
+   "sibling_index": 3,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "乙三"
+  },
+  {
+   "id": "3_1",
+   "indicator_display": "3₁",
+   "level": 1,
+   "path": [
+    "3_1"
+   ],
+   "parent_id": null,
+   "order": 12,
+   "heading_src": "流通",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0001a01",
+     "explained": "T99n9998_p0002a05"
+    },
+    "root_text": {
+     "start": "T99n9999_p0002a01",
+     "end": "T99n9999_p0002c29",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0001a01",
+   "notes": [],
+   "sibling_index": 3,
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "甲三"
+  },
+  {
+   "id": "3_1.1_2",
+   "indicator_display": "3₁1₂",
+   "level": 2,
+   "path": [
+    "3_1",
+    "1_2"
+   ],
+   "parent_id": "3_1",
+   "order": 13,
+   "heading_src": "丁段",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0002a05",
+     "explained": "T99n9998_p0002a05"
+    },
+    "root_text": {
+     "start": "T99n9999_p0002a01",
+     "end": "T99n9999_p0002a29",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0002a05",
+   "notes": [],
+   "sibling_index": 1,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "乙一"
+  },
+  {
+   "id": "3_1.2_2",
+   "indicator_display": "3₁2₂",
+   "level": 2,
+   "path": [
+    "3_1",
+    "2_2"
+   ],
+   "parent_id": "3_1",
+   "order": 14,
+   "heading_src": "戊段",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0002a05",
+     "explained": "T99n9998_p0002c05"
+    },
+    "root_text": {
+     "start": "T99n9999_p0002b01",
+     "end": "T99n9999_p0002b29",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0002a05",
+   "notes": [],
+   "sibling_index": 2,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "乙二"
+  },
+  {
+   "id": "3_1.3_2",
+   "indicator_display": "3₁3₂",
+   "level": 2,
+   "path": [
+    "3_1",
+    "3_2"
+   ],
+   "parent_id": "3_1",
+   "order": 15,
+   "heading_src": "己段",
+   "heading_en": "SYNTHETIC",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T99n9998_p0002a05",
+     "explained": "T99n9998_p0003a05"
+    },
+    "root_text": {
+     "start": "T99n9999_p0002c01",
+     "end": "T99n9999_p0002c29",
+     "basis": "manual",
+     "end_basis": null
+    }
+   },
+   "origin": "explicit",
+   "evidence": "SYNTHETIC: invented announcement line T99n9998_p0002a05",
+   "notes": [],
+   "sibling_index": 3,
+   "child_count_announced": null,
+   "extent_announced": null,
+   "node_class": "sutra-span",
+   "flags": [],
+   "source_node_id": null,
+   "display_label": "乙三"
+  }
+ ]
+}

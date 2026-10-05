@@ -1,0 +1,42 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "chinese-workflow/pipeline/schemas/outlined-text.schema.json",
+ "title": "outlined-text sidecar (outlined-text/1)",
+ "description": "The outline plugged back into the target input-text (docs/outliner-design.md §5.5). Offsets are global character offsets into the target's reading text (<text_id>.txt of the ingest stage = chinese_workflow.ingest.lines TextIndex.text over the target span): start inclusive, end exclusive. leaf + preamble spans tile [coverage.start, coverage.end) except the reported gaps; zero-length nodes (listed items never taken up) get no span.",
+ "type": "object",
+ "required": ["schema", "outline_ref", "target", "spans", "gaps", "coverage"],
+ "additionalProperties": false,
+ "properties": {
+  "schema": {"const": "outlined-text/1"},
+  "outline_ref": {"type": "object", "required": ["path", "sha256"], "additionalProperties": false,
+   "properties": {"path": {"type": "string"}, "sha256": {"type": "string"}}},
+  "target": {"type": "object", "required": ["text_id", "role", "sha256", "first_linehead", "last_linehead", "length"],
+   "additionalProperties": false,
+   "properties": {
+    "text_id": {"type": "string", "description": "CBETA file id of the target text"},
+    "role": {"enum": ["root", "commentary"]},
+    "sha256": {"type": "string", "description": "sha256 of the target reading text"},
+    "first_linehead": {"type": "string"},
+    "last_linehead": {"type": "string"},
+    "length": {"type": "integer", "minimum": 0}}},
+  "spans": {"type": "array", "items": {"type": "object",
+   "required": ["node_id", "kind", "char_start", "char_end", "linehead_start", "linehead_end", "resolution"],
+   "additionalProperties": false,
+   "properties": {
+    "node_id": {"type": "string"},
+    "kind": {"enum": ["leaf", "preamble"]},
+    "char_start": {"type": "integer", "minimum": 0},
+    "char_end": {"type": "integer", "minimum": 0},
+    "linehead_start": {"type": "string"},
+    "linehead_end": {"type": "string", "description": "linehead of the last character (inclusive)"},
+    "resolution": {"enum": ["explained", "root_text", "inherited"], "description": "which locator placed the span start: commentary.explained (+ marker offset), root_text.start, or the nearest ancestor's (inherited)"}}}},
+  "gaps": {"type": "array", "items": {"type": "object", "required": ["char_start", "char_end", "reason"],
+   "additionalProperties": false,
+   "properties": {"char_start": {"type": "integer"}, "char_end": {"type": "integer"}, "reason": {"type": "string"}}}},
+  "coverage": {"type": "object", "required": ["start", "end", "chars", "covered", "ratio", "overlaps"],
+   "additionalProperties": false,
+   "properties": {"start": {"type": "integer"}, "end": {"type": "integer"}, "chars": {"type": "integer"},
+    "covered": {"type": "integer"}, "ratio": {"type": "number"}, "overlaps": {"type": "integer"}}},
+  "unplaced": {"type": "array", "items": {"type": "string"}, "description": "node ids with no position in the target (e.g. commentary-internal nodes when the target is the root, or root spans still unmapped)"}
+ }
+}

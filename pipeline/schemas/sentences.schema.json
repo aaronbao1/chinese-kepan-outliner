@@ -1,0 +1,25 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "chinese-workflow/pipeline/schemas/sentences.schema.json",
+ "title": "sentence boundaries (sentences/1)",
+ "description": "Output of the segment stage (docs/outliner-design.md §6). Offsets index the same target reading text as outlined-text.json. Sentences never cross an outlined-text span boundary; every character of a span belongs to exactly one sentence.",
+ "type": "object",
+ "required": ["schema", "strategy", "punctuation_regime", "sentence_rule", "target", "sentences"],
+ "additionalProperties": false,
+ "properties": {
+  "schema": {"const": "sentences/1"},
+  "strategy": {"enum": [1, 2]},
+  "punctuation_regime": {"type": ["string", "null"], "description": "the file's editorialDecl/punctuation (新式標點 …)"},
+  "sentence_rule": {"type": "string", "description": "which delimiters end a sentence, in words"},
+  "target": {"type": "object", "required": ["text_id", "sha256"], "properties": {"text_id": {"type": "string"}, "sha256": {"type": "string"}}},
+  "sentences": {"type": "array", "items": {"type": "object",
+   "required": ["id", "char_start", "char_end", "kind", "node_id"],
+   "additionalProperties": false,
+   "properties": {
+    "id": {"type": "string", "pattern": "^s[0-9]+$"},
+    "char_start": {"type": "integer", "minimum": 0},
+    "char_end": {"type": "integer", "minimum": 0},
+    "kind": {"enum": ["prose", "verse_line", "lemma", "gloss", "heading"]},
+    "node_id": {"type": ["string", "null"], "description": "the outlined-text span (leaf or preamble) holding the sentence; null in a gap"}}}}
+ }
+}

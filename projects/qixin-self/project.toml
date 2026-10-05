@@ -1,0 +1,17 @@
+# 大乘起信論 (T1666, Paramārtha's version) in self-outlining mode: the treatise announces its own divisions
+# (說有五分 … 已說因緣分。次說立義分, R01 formula row shuo-you-n-fen). Outside every split; two parser cases
+# quote it (dev material, allowed). A whole-text run of the pipeline on a text with no gold.
+# Data: CBETA T32n1666 in data/raw/cbeta/ (gitignored). Fetch it and run this project with
+#   bash scripts/quickstart.sh qixin-self
+# or only fetch it with  bash scripts/fetch_cbeta.sh T32n1666
+id = "qixin-self"
+title = "Awakening of Faith (Dasheng qixin lun), self-outlining"
+mode = "self-outlining"
+root = "T32n1666"
+scheme_id = "qixin-self"
+target_role = "root"
+span = "whole"
+source = "tier2"
+
+[resolver]
+adapter = "none"

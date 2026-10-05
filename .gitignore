@@ -1,0 +1,34 @@
+# data: raw corpora and processed derivatives are fetched, not committed
+data/raw/
+data/processed/
+!data/raw/README.md
+!data/processed/README.md
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+dist/
+build/
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# os / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# experiment outputs (keep the README + summary, not the bulk)
+experiments/**/out/
+experiments/**/runs/

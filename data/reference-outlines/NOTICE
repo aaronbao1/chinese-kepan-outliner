@@ -1,0 +1,92 @@
+NOTICE — licences of the gold outlines in data/reference-outlines/
+
+Each gold folder's PROVENANCE.md names its source and licence; this file carries the notices those
+licences require. Nothing here is relicensed permissively. The CBETA notice in item 1 also covers
+the CBETA text committed outside this folder: the fixtures under tests/fixtures/, the recorded
+model answers, and the quotations that README.md's Licence section lists.
+
+1. CBETA-derived golds (headings copied from, and every location a linehead of, CBETA 電子佛典
+   files; currently T0262/kuiji-xuanzan/ and the X0268, P1573 and D8842 cbeta-mulu-kepan/ folders
+   built from CBETA cb:mulu 科判 markup):
+
+   Licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+   (CC BY-NC-SA 4.0), https://creativecommons.org/licenses/by-nc-sa/4.0/
+   Source: CBETA's XML P5 edition (github.com/cbeta-org/xml-p5), release label 2026R2.
+   CBETA Foundation (財團法人佛教電子佛典基金會), https://www.cbeta.org/
+   Every CBETA xml-p5 file header adds: "Available for non-commercial use when distributed with
+   this header intact." CBETA's 版權宣告 asks that redistributed or re-processed material carry
+   the notice and the version information; it is reproduced verbatim below from the snapshot
+   data/raw/cbeta/LICENCE-NOTICE.txt (https://cbeta.org/copyright rendered with pandoc, fetched
+   2026-09-21, sha256 a5eacf591440dfbd7d9d97dcc5bc2092fb0ab62030f3adb24d42e58d43bae849,
+   scripts/CHECKSUMS). Open question to CBETA, not yet answered: whether an outline table of
+   headings and lineheads counts as 改作 under that notice (R02 F7, F29; G8).
+
+2. DILA-YBh-derived golds (outline structure from the 瑜伽師地論資料庫 / Yogācārabhūmi Database of
+   法鼓文理學院 DILA, https://ybh.dila.edu.tw/; currently the T1605 and T1602 ybh-dila/ folders):
+
+   Licence: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0),
+   https://creativecommons.org/licenses/by-sa/4.0/ — per the DILA download-page footer
+   "© CC BY-SA 4.0" under "法鼓文理學院 DILA / 1999-2026" (R04 F29). The older CHIBS mirror's
+   關於本站 page states "CC 姓名標示-相同方式分享 3.0 台灣" instead (R06 S45); the discrepancy
+   is unreconciled and is recorded in each such folder's PROVENANCE.md.
+
+3. sdp (法華經數位資料庫) golds are eval-only and are never placed in this directory
+   (no licence published; R04 F32).
+
+------------------------------------------------------------------------------------------------
+CBETA 版權宣告 (verbatim, release 2026R2 snapshot)
+------------------------------------------------------------------------------------------------
+
+版權宣告
+
+「財團法人佛教電子佛典基金會」（Comprehensive Buddhist Electronic Text Archive
+Foundation，簡稱 CBETA Foundation 或 CBETA 基金會），自 2023 年 8 月 7 日起接續「
+中華電子佛典協會」（Chinese Buddhist Electronic Text Association，簡稱 CBETA）之所有業務與文獻維護，並完整承接其相關權利與數位成果。
+
+一、 CBETA 電子佛典資料庫（以下簡稱本資料庫）使用說明
+
+1.  非營利使用：本資料庫之使用限定於個人或團體非營利性用途。
+2.  再傳播規範：將本資料庫以網路、光碟或其它媒體再傳播、節錄引用及再加工發行時，以不改變實質內容為原則，並需於成品附上本說明及版本資訊，以利使用者查詢相關修訂資訊。
+3.  錯誤回報：若發現本資料庫中任何錯誤之處，請與本會聯絡。
+4.  免責聲明：若因使用本資料庫所產生之任何損害，本會一概不負任何責任。
+5.  核心授權：除下方「二、底本來源與授權分類」中特別註明不適用之文獻外，本資料庫未特別說明處皆採用「Creative Commons 姓名標示-非商業性-相同方式分享 4.0 國際授權條款」釋出。
+
+二、 底本來源與授權分類
+
+本資料庫之底本文獻依授權性質區分為以下兩大類。若您有超出本站 CC 授權範圍之外的利用需求（如商業利用或改作），請逕洽各著作權人或原出版單位：
+
+類別 A：隨本站以創用 CC 條款共同開放之文獻
+
+- 《大正新脩大藏經》（大藏出版株式會社 ©） 第一冊至第八十五冊
+- 《卍新纂續藏經》（株式會社國書刊行會 ©）第一冊至第九十冊
+- 歷代藏經補輯
+  - 《嘉興大藏經》（新文豐出版公司）第一冊至第四十冊
+  - 《房山石經》、《趙城金藏》、《永樂北藏》等等
+- 「國家圖書館善本佛典」（國家圖書館 ©）
+- 《漢譯南傳大藏經》（元亨寺 ©）第一冊至第七十冊
+- 近代新編文獻
+  - 《藏外佛教文獻》（方廣錩 ©）第一輯至第十二輯
+  - 《正史佛教資料類編》（杜斗城 ©）
+  - 《北朝佛教石刻拓片百品》（中央研究院歷史語言研究所 ©）
+  - 《大藏經補編》（藍吉富 ©）第一冊至第三十六冊
+  - 《中國佛寺史志彙刊》（杜潔祥主編，「中國佛教寺廟志數位典藏」專案提供數位版本）
+  - 《中國佛寺志叢刊》（張智等編輯，「中國佛教寺廟志數位典藏」專案提供數位版本）
+
+類別 B：不屬於創用 CC 條款授權之文獻
+
+- 《印順法師佛學著作集》（印順文教基金會 ©）
+- 《呂澂佛學著作集》（呂應中等 ©）
+- 《太虛大師全書》（印順文教基金會 ©）
+- 《演培法師全集》（演培法師全集出版委員會 ©）
+
+本資料庫之建置與流通，承蒙上述各著作權人、出版單位、學術研究機構及相關單位之授權與支持，並蒙眾多佛教團體及志工鼎力協助，方得成就。
+
+CBETA 基金會於此謹致上最深切的謝意。
+
+※ 底本詳細資訊請見藏經代碼說明
+
+  財團法人佛教電子佛典基金會
+  Comprehensive Buddhist Electronic Text Archive Foundation 
+  非賣品‧非營利性使用
+  Priceless, not to be sold‧
+  No Commercial Used Allowed

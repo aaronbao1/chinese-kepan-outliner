@@ -1,0 +1,178 @@
+{
+  "metadata": {
+    "source_file": "synthetic:none",
+    "source_sha256": null,
+    "text_id": null,
+    "text_title_src": "Synthetic base outline (SYNTHETIC — not a real text)",
+    "text_title_en": "Synthetic base outline (SYNTHETIC — not a real text)",
+    "author": null,
+    "source_language": "en",
+    "format_note": "SYNTHETIC TEST FIXTURE, hand-written for tests/unit/test_outline_schema.py and tests/unit/test_outline_render.py: a document of the base independent-outline schema (context/baseline/outline-schema.json; no metadata.outline_profile). Every heading, folio and piece of evidence is invented and says nothing about any real text. Entry format: [indicator with level subscripts – English heading][folio where the entry first appears, folio where it is itself explained].",
+    "origin_note": "Synthetic. 'explicit' nodes pretend to be marked by the fictional source; node 2_1 pretends to be proposed by an outliner (origin 'inferred').",
+    "id_convention": "base: each id token is <value>_<level>, tokens joined by '.', values alternating digits and capital letters by level, e.g. '1_1.B_2.2_3' for 1₁B₂2₃.",
+    "node_count": 6,
+    "max_depth": 3,
+    "nodes_per_level": {
+      "1": 2,
+      "2": 2,
+      "3": 2
+    },
+    "generated_by": "hand-written 2026-10-05 (synthetic fixture; no generator)",
+    "anomalies": []
+  },
+  "nodes": [
+    {
+      "id": "1_1",
+      "indicator_display": "1₁",
+      "level": 1,
+      "path": [
+        "1_1"
+      ],
+      "parent_id": null,
+      "order": 1,
+      "heading_src": "Source heading: opening",
+      "heading_en": "Opening",
+      "source_language": "en",
+      "locations": {
+        "scheme": "acip-folio",
+        "edition": null,
+        "first": "1A",
+        "explained": "1A",
+        "raw": "[1A, 1A]"
+      },
+      "dagger": false,
+      "origin": "explicit",
+      "evidence": "[1₁ – Opening][1A, 1A]",
+      "notes": []
+    },
+    {
+      "id": "1_1.A_2",
+      "indicator_display": "1₁A₂",
+      "level": 2,
+      "path": [
+        "1_1",
+        "A_2"
+      ],
+      "parent_id": "1_1",
+      "order": 2,
+      "heading_src": "Source heading: setting",
+      "heading_en": "Setting",
+      "source_language": "en",
+      "locations": {
+        "scheme": "acip-folio",
+        "edition": null,
+        "first": "1A",
+        "explained": "1B",
+        "raw": "[1A, 1B]"
+      },
+      "dagger": false,
+      "origin": "explicit",
+      "evidence": "[1₁A₂ – Setting][1A, 1B]",
+      "notes": []
+    },
+    {
+      "id": "1_1.B_2",
+      "indicator_display": "1₁B₂",
+      "level": 2,
+      "path": [
+        "1_1",
+        "B_2"
+      ],
+      "parent_id": "1_1",
+      "order": 3,
+      "heading_src": "Source heading: main topic",
+      "heading_en": "Main topic",
+      "source_language": "en",
+      "locations": {
+        "scheme": "acip-folio",
+        "edition": null,
+        "first": "1A",
+        "explained": "2A",
+        "raw": "[1A, 2A]"
+      },
+      "dagger": false,
+      "origin": "explicit",
+      "evidence": "[1₁B₂ – Main topic][1A, 2A]",
+      "notes": []
+    },
+    {
+      "id": "1_1.B_2.1_3",
+      "indicator_display": "1₁B₂1₃",
+      "level": 3,
+      "path": [
+        "1_1",
+        "B_2",
+        "1_3"
+      ],
+      "parent_id": "1_1.B_2",
+      "order": 4,
+      "heading_src": "Source heading: first point",
+      "heading_en": "First point",
+      "source_language": "en",
+      "locations": {
+        "scheme": "acip-folio",
+        "edition": null,
+        "first": "2A",
+        "explained": "2A",
+        "raw": "[2A, 2A]"
+      },
+      "dagger": false,
+      "origin": "explicit",
+      "evidence": "[1₁B₂1₃ – First point][2A, 2A]",
+      "notes": []
+    },
+    {
+      "id": "1_1.B_2.2_3",
+      "indicator_display": "1₁B₂2₃",
+      "level": 3,
+      "path": [
+        "1_1",
+        "B_2",
+        "2_3"
+      ],
+      "parent_id": "1_1.B_2",
+      "order": 5,
+      "heading_src": "Source heading: second point",
+      "heading_en": "Second point",
+      "source_language": "en",
+      "locations": {
+        "scheme": "acip-folio",
+        "edition": null,
+        "first": "2A",
+        "explained": "2B",
+        "raw": "[2A, 2B]"
+      },
+      "dagger": false,
+      "origin": "explicit",
+      "evidence": "[1₁B₂2₃ – Second point][2A, 2B]",
+      "notes": []
+    },
+    {
+      "id": "2_1",
+      "indicator_display": "2₁",
+      "level": 1,
+      "path": [
+        "2_1"
+      ],
+      "parent_id": null,
+      "order": 6,
+      "heading_src": "Source heading: closing",
+      "heading_en": "Closing",
+      "source_language": "en",
+      "locations": {
+        "scheme": "acip-folio",
+        "edition": null,
+        "first": "3A",
+        "explained": "3A",
+        "raw": "[3A, 3A]"
+      },
+      "dagger": false,
+      "origin": "inferred",
+      "evidence": "SYNTHETIC: a closing formula that the fictional source does not number",
+      "notes": [
+        "synthetic: an outliner's proposal (origin 'inferred')"
+      ],
+      "confidence": 0.5
+    }
+  ]
+}

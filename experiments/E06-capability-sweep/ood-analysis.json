@@ -1,0 +1,7603 @@
+{
+ "schema": "e06-ood-analysis/1",
+ "about": "E06 out-of-domain aggregate analysis of the frozen v0 outliner (tag outliner-v0-frozen-2026-10-01 = 8498eb3; pipeline/ imported read-only). AGGREGATE ONLY: counts, shares, histograms and scorer totals; no gold node, heading, label or gold locator is recorded. Scorer rows are copied from runs/<cell>/score-whole.json; everything else is recomputed here from the outline files and the CBETA XML line records.",
+ "generated_by": "experiments/E06-capability-sweep (scratchpad script ood_analysis.py, run with pipeline/.venv)",
+ "MAX_TEXT_CHARS": 40000,
+ "conventions": {
+  "depth": "outline 'level' (1 = top). Scorer per_depth rows are copied as the scorer wrote them.",
+  "start_line": "locations.commentary.explained (= the self line in self-outlining mode), else root_text.start; ':offset' stripped",
+  "segmentation": "line-level 'next-node' rule for gold and predictions alike: a line belongs to the deepest node whose start line is the last at or before it; largest_segment = the largest stretch of text with no finer division (the 'largest-leaf share'), as share of the file's own-edition lines and reading-text characters. pipeline_segmentation = the frozen pipeline's own char-level outlined-text.json for the same cell",
+  "boundary_F1": "structure-agnostic diagnostic the scorer lacks: distinct predicted node start lines (any depth) vs distinct gold node start lines (any depth); t=0 exact line, t=1 within one line in CBETA XML document order; one-to-one (1-D two-pointer, optimal). chance_precision_uniform = share of the file's lines within t of a gold start line; chance_F_uniform = expected F of the same number of start lines drawn uniformly",
+  "line_depth_match": "t=0 multiset match on (start line, level), ignoring parent path; line_only_node_multiset = the same on start line alone (cf. the scorer's locator-only, which is top-down)",
+  "leaked": "tier1-markup / tier2-markup read the original XML whose cb:mulu type=科判 IS the gold: LEAKED diagnostics, not results"
+ },
+ "sets": {
+  "OOD-X0268": {
+   "file": "X11n0268",
+   "gold": "cbeta-mulu-X0268",
+   "gold_sha256_16": "e809b392570b3542",
+   "mode": "locator",
+   "text": {
+    "lines": 10254,
+    "chars": 310630
+   },
+   "gold_aggregate": {
+    "nodes": 2611,
+    "max_depth": 28,
+    "depth_histogram": {
+     "1": 3,
+     "2": 10,
+     "3": 23,
+     "4": 34,
+     "5": 52,
+     "6": 62,
+     "7": 78,
+     "8": 133,
+     "9": 250,
+     "10": 302,
+     "11": 261,
+     "12": 298,
+     "13": 276,
+     "14": 172,
+     "15": 105,
+     "16": 96,
+     "17": 50,
+     "18": 57,
+     "19": 51,
+     "20": 58,
+     "21": 52,
+     "22": 42,
+     "23": 43,
+     "24": 37,
+     "25": 37,
+     "26": 18,
+     "27": 9,
+     "28": 2
+    },
+    "leaves": 1505,
+    "leaf_depth_histogram": {
+     "2": 1,
+     "3": 9,
+     "4": 11,
+     "5": 25,
+     "6": 26,
+     "7": 22,
+     "8": 62,
+     "9": 110,
+     "10": 204,
+     "11": 128,
+     "12": 175,
+     "13": 201,
+     "14": 123,
+     "15": 64,
+     "16": 73,
+     "17": 27,
+     "18": 33,
+     "19": 25,
+     "20": 35,
+     "21": 32,
+     "22": 22,
+     "23": 25,
+     "24": 20,
+     "25": 28,
+     "26": 14,
+     "27": 8,
+     "28": 2
+    },
+    "roots": 3,
+    "mean_children_of_internal": 2.358,
+    "origins": {
+     "imported": 2611
+    },
+    "nodes_per_line": 0.2546,
+    "distinct_start_lines": 1505,
+    "distinct_start_line_share_of_lines": 0.1468,
+    "segmentation": {
+     "segments": 1505,
+     "lines_before_first_node_share": 0.0886,
+     "largest_segment_by_chars": {
+      "lines": 131,
+      "line_share": 0.0128,
+      "chars": 5071,
+      "char_share": 0.0163,
+      "owner_depth": 9,
+      "over_MAX_TEXT_CHARS": false
+     },
+     "largest_segment_by_lines": {
+      "lines": 131,
+      "line_share": 0.0128,
+      "chars": 5071,
+      "char_share": 0.0163,
+      "owner_depth": 9
+     },
+     "median_segment_lines": 4,
+     "segments_over_MAX_TEXT_CHARS": 0,
+     "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+     "line_share_by_owner_depth": {
+      "0": 0.0886,
+      "2": 0.001,
+      "3": 0.008,
+      "4": 0.0197,
+      "5": 0.0126,
+      "6": 0.0162,
+      "7": 0.0121,
+      "8": 0.0531,
+      "9": 0.0793,
+      "10": 0.1153,
+      "11": 0.0738,
+      "12": 0.0924,
+      "13": 0.1289,
+      "14": 0.0711,
+      "15": 0.0406,
+      "16": 0.0382,
+      "17": 0.0131,
+      "18": 0.0183,
+      "19": 0.0221,
+      "20": 0.0232,
+      "21": 0.0166,
+      "22": 0.0114,
+      "23": 0.0147,
+      "24": 0.0087,
+      "25": 0.0089,
+      "26": 0.0064,
+      "27": 0.005,
+      "28": 0.0008
+     }
+    },
+    "boundary_F1_vs_itself": 1.0
+   },
+   "arms": {
+    "tier1": {
+     "cell": "tier1-OOD-X0268",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "57653b86f0880ab5",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 26,
+      "max_depth": 4,
+      "depth_histogram": {
+       "1": 7,
+       "2": 9,
+       "3": 6,
+       "4": 4
+      },
+      "leaves": 21,
+      "leaf_depth_histogram": {
+       "1": 6,
+       "2": 7,
+       "3": 4,
+       "4": 4
+      },
+      "roots": 7,
+      "mean_children_of_internal": 3.8,
+      "origins": {
+       "explicit": 26
+      }
+     },
+     "segmentation": {
+      "segments": 24,
+      "lines_before_first_node_share": 0.0001,
+      "largest_segment_by_chars": {
+       "lines": 9357,
+       "line_share": 0.9125,
+       "chars": 300157,
+       "char_share": 0.9663,
+       "owner_depth": 1,
+       "over_MAX_TEXT_CHARS": true
+      },
+      "largest_segment_by_lines": {
+       "lines": 9357,
+       "line_share": 0.9125,
+       "chars": 300157,
+       "char_share": 0.9663,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 13,
+      "segments_over_MAX_TEXT_CHARS": 1,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.9663,
+      "line_share_by_owner_depth": {
+       "0": 0.0001,
+       "1": 0.9778,
+       "2": 0.0098,
+       "3": 0.0069,
+       "4": 0.0055
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 24,
+      "kinds": {
+       "leaf": 21,
+       "preamble": 3
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 1,
+       "chars": 300157,
+       "char_share": 0.9663,
+       "over_MAX_TEXT_CHARS": true
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 24,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 26
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 24,
+       "gold": 1505,
+       "chance_precision_uniform": 0.1468,
+       "chance_F_uniform": 0.0046
+      },
+      "t=1": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 24,
+       "gold": 1505,
+       "chance_precision_uniform": 0.3629,
+       "chance_F_uniform": 0.0114
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 26,
+       "gold": 2611
+      },
+      "line_only_node_multiset": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 26,
+       "gold": 2611
+      }
+     },
+     "scorer": {
+      "pred_counted": 26,
+      "gold_counted": 2611,
+      "child_count": {
+       "eligible": 0,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 0,
+       "accuracy": null
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "locator_only": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 10
+        },
+        "3": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 23
+        },
+        "4": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 34
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 62
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 78
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 133
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 250
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 302
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 261
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 298
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 276
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 172
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 105
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 96
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 50
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 57
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 51
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 58
+        },
+        "21": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "22": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 42
+        },
+        "23": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 43
+        },
+        "24": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "25": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "26": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 18
+        },
+        "27": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "28": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "locator_only": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 10
+        },
+        "3": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 23
+        },
+        "4": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 34
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 62
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 78
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 133
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 250
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 302
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 261
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 298
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 276
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 172
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 105
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 96
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 50
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 57
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 51
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 58
+        },
+        "21": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "22": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 42
+        },
+        "23": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 43
+        },
+        "24": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "25": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "26": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 18
+        },
+        "27": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "28": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": null
+    },
+    "tier2": {
+     "cell": "tier2-OOD-X0268",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "86b0f7384bccb277",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 26,
+      "max_depth": 4,
+      "depth_histogram": {
+       "1": 7,
+       "2": 9,
+       "3": 6,
+       "4": 4
+      },
+      "leaves": 21,
+      "leaf_depth_histogram": {
+       "1": 6,
+       "2": 7,
+       "3": 4,
+       "4": 4
+      },
+      "roots": 7,
+      "mean_children_of_internal": 3.8,
+      "origins": {
+       "explicit": 26
+      }
+     },
+     "genre_gate": "no-structure",
+     "segmentation": {
+      "segments": 24,
+      "lines_before_first_node_share": 0.0001,
+      "largest_segment_by_chars": {
+       "lines": 9357,
+       "line_share": 0.9125,
+       "chars": 300157,
+       "char_share": 0.9663,
+       "owner_depth": 1,
+       "over_MAX_TEXT_CHARS": true
+      },
+      "largest_segment_by_lines": {
+       "lines": 9357,
+       "line_share": 0.9125,
+       "chars": 300157,
+       "char_share": 0.9663,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 13,
+      "segments_over_MAX_TEXT_CHARS": 1,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.9663,
+      "line_share_by_owner_depth": {
+       "0": 0.0001,
+       "1": 0.9778,
+       "2": 0.0098,
+       "3": 0.0069,
+       "4": 0.0055
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 24,
+      "kinds": {
+       "leaf": 21,
+       "preamble": 3
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 1,
+       "chars": 300157,
+       "char_share": 0.9663,
+       "over_MAX_TEXT_CHARS": true
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 24,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 26
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 24,
+       "gold": 1505,
+       "chance_precision_uniform": 0.1468,
+       "chance_F_uniform": 0.0046
+      },
+      "t=1": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 24,
+       "gold": 1505,
+       "chance_precision_uniform": 0.3629,
+       "chance_F_uniform": 0.0114
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 26,
+       "gold": 2611
+      },
+      "line_only_node_multiset": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 26,
+       "gold": 2611
+      }
+     },
+     "scorer": {
+      "pred_counted": 26,
+      "gold_counted": 2611,
+      "child_count": {
+       "eligible": 0,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 0,
+       "accuracy": null
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "locator_only": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 10
+        },
+        "3": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 23
+        },
+        "4": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 34
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 62
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 78
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 133
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 250
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 302
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 261
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 298
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 276
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 172
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 105
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 96
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 50
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 57
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 51
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 58
+        },
+        "21": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "22": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 42
+        },
+        "23": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 43
+        },
+        "24": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "25": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "26": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 18
+        },
+        "27": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "28": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "locator_only": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 26,
+        "FN": 2611
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 10
+        },
+        "3": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 23
+        },
+        "4": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 34
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 62
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 78
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 133
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 250
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 302
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 261
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 298
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 276
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 172
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 105
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 96
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 50
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 57
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 51
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 58
+        },
+        "21": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "22": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 42
+        },
+        "23": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 43
+        },
+        "24": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "25": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "26": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 18
+        },
+        "27": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "28": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 362,
+      "announcements": 0,
+      "gates": 0,
+      "uddanas": 0,
+      "enters": 0,
+      "enters_unresolved": 0,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 0,
+      "wrappers": 0,
+      "report": 0,
+      "nodes": 0
+     },
+     "genre_gate_evidence": "title '楞嚴經集註'; 10 accepted announcements in 310630 characters (0.03 per 1,000); 0 glossator attributions (X曰：); 註 genre (R07 F2): the title marks a 註 and announcements are sparse"
+    },
+    "hybrid": {
+     "cell": "hybrid-OOD-X0268",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "fd0556293a3ecc84",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 40,
+      "max_depth": 5,
+      "depth_histogram": {
+       "1": 7,
+       "2": 15,
+       "3": 9,
+       "4": 7,
+       "5": 2
+      },
+      "leaves": 30,
+      "leaf_depth_histogram": {
+       "1": 4,
+       "2": 12,
+       "3": 6,
+       "4": 6,
+       "5": 2
+      },
+      "roots": 7,
+      "mean_children_of_internal": 3.3,
+      "origins": {
+       "explicit": 26,
+       "inferred": 14
+      }
+     },
+     "genre_gate": "no-structure",
+     "segmentation": {
+      "segments": 34,
+      "lines_before_first_node_share": 0.0001,
+      "largest_segment_by_chars": {
+       "lines": 9357,
+       "line_share": 0.9125,
+       "chars": 300157,
+       "char_share": 0.9663,
+       "owner_depth": 1,
+       "over_MAX_TEXT_CHARS": true
+      },
+      "largest_segment_by_lines": {
+       "lines": 9357,
+       "line_share": 0.9125,
+       "chars": 300157,
+       "char_share": 0.9663,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 11,
+      "segments_over_MAX_TEXT_CHARS": 1,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.9663,
+      "line_share_by_owner_depth": {
+       "0": 0.0001,
+       "1": 0.9186,
+       "2": 0.0666,
+       "3": 0.0054,
+       "4": 0.0077,
+       "5": 0.0017
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 34,
+      "kinds": {
+       "leaf": 30,
+       "preamble": 4
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 1,
+       "chars": 300157,
+       "char_share": 0.9663,
+       "over_MAX_TEXT_CHARS": true
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 34,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 26,
+      "resolver_inferred": 14
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 34,
+       "gold": 1505,
+       "chance_precision_uniform": 0.1468,
+       "chance_F_uniform": 0.0065
+      },
+      "t=1": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 34,
+       "gold": 1505,
+       "chance_precision_uniform": 0.3629,
+       "chance_F_uniform": 0.016
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 40,
+       "gold": 2611
+      },
+      "line_only_node_multiset": {
+       "P": 0.0,
+       "R": 0.0,
+       "F": 0.0,
+       "TP": 0,
+       "pred": 40,
+       "gold": 2611
+      }
+     },
+     "resolver_added": {
+      "inferred_nodes": 14,
+      "inferred_levels": {
+       "2": 6,
+       "3": 3,
+       "4": 3,
+       "5": 2
+      },
+      "new_distinct_start_lines": 10,
+      "new_lines_on_gold_start_t0": 0,
+      "new_lines_on_gold_start_t1": 0,
+      "gold_levels_at_hit_lines": {
+       "lines_hit": 0,
+       "shallowest_gold_level_at_hit_line": {},
+       "deepest_gold_level_at_hit_line": {}
+      }
+     },
+     "scorer": {
+      "pred_counted": 40,
+      "gold_counted": 2611,
+      "child_count": {
+       "eligible": 0,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 0,
+       "accuracy": null
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 40,
+        "FN": 2611
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 40,
+        "FN": 2611
+       },
+       "locator_only": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 40,
+        "FN": 2611
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 15,
+         "FN": 10
+        },
+        "3": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 23
+        },
+        "4": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 34
+        },
+        "5": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 52
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 62
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 78
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 133
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 250
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 302
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 261
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 298
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 276
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 172
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 105
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 96
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 50
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 57
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 51
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 58
+        },
+        "21": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "22": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 42
+        },
+        "23": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 43
+        },
+        "24": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "25": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "26": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 18
+        },
+        "27": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "28": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 40,
+        "FN": 2611
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 40,
+        "FN": 2611
+       },
+       "locator_only": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 40,
+        "FN": 2611
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 15,
+         "FN": 10
+        },
+        "3": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 23
+        },
+        "4": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 34
+        },
+        "5": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 52
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 62
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 78
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 133
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 250
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 302
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 261
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 298
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 276
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 172
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 105
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 96
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 50
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 57
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 51
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 58
+        },
+        "21": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "22": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 42
+        },
+        "23": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 43
+        },
+        "24": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "25": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "26": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 18
+        },
+        "27": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "28": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 362,
+      "announcements": 0,
+      "gates": 0,
+      "uddanas": 0,
+      "enters": 0,
+      "enters_unresolved": 0,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 0,
+      "wrappers": 0,
+      "report": 0,
+      "nodes": 0
+     },
+     "genre_gate_evidence": "title '楞嚴經集註'; 10 accepted announcements in 310630 characters (0.03 per 1,000); 0 glossator attributions (X曰：); 註 genre (R07 F2): the title marks a 註 and announcements are sparse",
+     "resolver_tasks": {
+      "subdivide": {
+       "requests": 2,
+       "answered": 2,
+       "no_model": 0,
+       "pending": 0,
+       "invalid": 0,
+       "accepted": 5,
+       "rejected": 0,
+       "ignored": 0,
+       "not_answered": 1,
+       "skipped": 1
+      }
+     },
+     "resolver_skipped_reasons": {
+      "span longer than 40000 characters": 1
+     }
+    },
+    "tier1-markup": {
+     "cell": "tier1-markup-OOD-X0268",
+     "status": "failed",
+     "leaked": true,
+     "error_kind": "RuntimeError",
+     "outline_sha256_16": "473d58721346cfc5",
+     "outline_written_but_failed_validation": true,
+     "pred_aggregate": {
+      "nodes": 2637,
+      "max_depth": 28,
+      "depth_histogram": {
+       "1": 10,
+       "2": 19,
+       "3": 29,
+       "4": 38,
+       "5": 52,
+       "6": 62,
+       "7": 78,
+       "8": 133,
+       "9": 250,
+       "10": 302,
+       "11": 261,
+       "12": 298,
+       "13": 276,
+       "14": 172,
+       "15": 105,
+       "16": 96,
+       "17": 50,
+       "18": 57,
+       "19": 51,
+       "20": 58,
+       "21": 52,
+       "22": 42,
+       "23": 43,
+       "24": 37,
+       "25": 37,
+       "26": 18,
+       "27": 9,
+       "28": 2
+      },
+      "leaves": 1526,
+      "leaf_depth_histogram": {
+       "1": 6,
+       "2": 8,
+       "3": 13,
+       "4": 15,
+       "5": 25,
+       "6": 26,
+       "7": 22,
+       "8": 62,
+       "9": 110,
+       "10": 204,
+       "11": 128,
+       "12": 175,
+       "13": 201,
+       "14": 123,
+       "15": 64,
+       "16": 73,
+       "17": 27,
+       "18": 33,
+       "19": 25,
+       "20": 35,
+       "21": 32,
+       "22": 22,
+       "23": 25,
+       "24": 20,
+       "25": 28,
+       "26": 14,
+       "27": 8,
+       "28": 2
+      },
+      "roots": 10,
+      "mean_children_of_internal": 2.3645,
+      "origins": {
+       "explicit": 2637
+      }
+     },
+     "segmentation": {
+      "segments": 1529,
+      "lines_before_first_node_share": 0.0001,
+      "largest_segment_by_chars": {
+       "lines": 131,
+       "line_share": 0.0128,
+       "chars": 5071,
+       "char_share": 0.0163,
+       "owner_depth": 9,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 537,
+       "line_share": 0.0524,
+       "chars": 3466,
+       "char_share": 0.0112,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 4,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.0001,
+       "1": 0.0663,
+       "2": 0.0107,
+       "3": 0.0149,
+       "4": 0.0252,
+       "5": 0.0126,
+       "6": 0.0162,
+       "7": 0.0121,
+       "8": 0.0531,
+       "9": 0.0793,
+       "10": 0.1153,
+       "11": 0.0738,
+       "12": 0.0924,
+       "13": 0.1289,
+       "14": 0.0711,
+       "15": 0.0406,
+       "16": 0.0382,
+       "17": 0.0131,
+       "18": 0.0183,
+       "19": 0.0221,
+       "20": 0.0232,
+       "21": 0.0166,
+       "22": 0.0114,
+       "23": 0.0147,
+       "24": 0.0087,
+       "25": 0.0089,
+       "26": 0.0064,
+       "27": 0.005,
+       "28": 0.0008
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 1529,
+      "kinds": {
+       "leaf": 1526,
+       "preamble": 3
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 9,
+       "chars": 5071,
+       "char_share": 0.0163,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 1529,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 26,
+      "tier1_from_kepan_markup (LEAKED)": 2611
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.9843,
+       "R": 1.0,
+       "F": 0.9921,
+       "TP": 1505,
+       "pred": 1529,
+       "gold": 1505,
+       "chance_precision_uniform": 0.1468,
+       "chance_F_uniform": 0.1479
+      },
+      "t=1": {
+       "P": 0.9843,
+       "R": 1.0,
+       "F": 0.9921,
+       "TP": 1505,
+       "pred": 1529,
+       "gold": 1505,
+       "chance_precision_uniform": 0.3629,
+       "chance_F_uniform": 0.3658
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.9901,
+       "R": 1.0,
+       "F": 0.995,
+       "TP": 2611,
+       "pred": 2637,
+       "gold": 2611
+      },
+      "line_only_node_multiset": {
+       "P": 0.9901,
+       "R": 1.0,
+       "F": 0.995,
+       "TP": 2611,
+       "pred": 2637,
+       "gold": 2611
+      }
+     },
+     "level1_check": {
+      "gold_level1": 3,
+      "pred_level1": 10,
+      "pred_level1_nodes_on_a_gold_level1_line": 3,
+      "kepan_nodes_not_at_a_gold_line_and_level": 0
+     },
+     "sibling_order": {
+      "violations": 0,
+      "where": []
+     },
+     "not_taken_up_repairs_applied": 0,
+     "tier2_stats": null
+    },
+    "tier2-markup": {
+     "cell": "tier2-markup-OOD-X0268",
+     "status": "failed",
+     "leaked": true,
+     "error_kind": "RuntimeError",
+     "outline_sha256_16": "139d18ff70d1ba35",
+     "outline_written_but_failed_validation": true,
+     "pred_aggregate": {
+      "nodes": 2637,
+      "max_depth": 28,
+      "depth_histogram": {
+       "1": 10,
+       "2": 19,
+       "3": 29,
+       "4": 38,
+       "5": 52,
+       "6": 62,
+       "7": 78,
+       "8": 133,
+       "9": 250,
+       "10": 302,
+       "11": 261,
+       "12": 298,
+       "13": 276,
+       "14": 172,
+       "15": 105,
+       "16": 96,
+       "17": 50,
+       "18": 57,
+       "19": 51,
+       "20": 58,
+       "21": 52,
+       "22": 42,
+       "23": 43,
+       "24": 37,
+       "25": 37,
+       "26": 18,
+       "27": 9,
+       "28": 2
+      },
+      "leaves": 1526,
+      "leaf_depth_histogram": {
+       "1": 6,
+       "2": 8,
+       "3": 13,
+       "4": 15,
+       "5": 25,
+       "6": 26,
+       "7": 22,
+       "8": 62,
+       "9": 110,
+       "10": 204,
+       "11": 128,
+       "12": 175,
+       "13": 201,
+       "14": 123,
+       "15": 64,
+       "16": 73,
+       "17": 27,
+       "18": 33,
+       "19": 25,
+       "20": 35,
+       "21": 32,
+       "22": 22,
+       "23": 25,
+       "24": 20,
+       "25": 28,
+       "26": 14,
+       "27": 8,
+       "28": 2
+      },
+      "roots": 10,
+      "mean_children_of_internal": 2.3645,
+      "origins": {
+       "explicit": 2637
+      }
+     },
+     "genre_gate": "no-structure",
+     "segmentation": {
+      "segments": 1529,
+      "lines_before_first_node_share": 0.0001,
+      "largest_segment_by_chars": {
+       "lines": 131,
+       "line_share": 0.0128,
+       "chars": 5071,
+       "char_share": 0.0163,
+       "owner_depth": 9,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 537,
+       "line_share": 0.0524,
+       "chars": 3466,
+       "char_share": 0.0112,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 4,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.0001,
+       "1": 0.0663,
+       "2": 0.0107,
+       "3": 0.0149,
+       "4": 0.0252,
+       "5": 0.0126,
+       "6": 0.0162,
+       "7": 0.0121,
+       "8": 0.0531,
+       "9": 0.0793,
+       "10": 0.1153,
+       "11": 0.0738,
+       "12": 0.0924,
+       "13": 0.1289,
+       "14": 0.0711,
+       "15": 0.0406,
+       "16": 0.0382,
+       "17": 0.0131,
+       "18": 0.0183,
+       "19": 0.0221,
+       "20": 0.0232,
+       "21": 0.0166,
+       "22": 0.0114,
+       "23": 0.0147,
+       "24": 0.0087,
+       "25": 0.0089,
+       "26": 0.0064,
+       "27": 0.005,
+       "28": 0.0008
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 1529,
+      "kinds": {
+       "leaf": 1526,
+       "preamble": 3
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 9,
+       "chars": 5071,
+       "char_share": 0.0163,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 1529,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 26,
+      "tier1_from_kepan_markup (LEAKED)": 2611
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.9843,
+       "R": 1.0,
+       "F": 0.9921,
+       "TP": 1505,
+       "pred": 1529,
+       "gold": 1505,
+       "chance_precision_uniform": 0.1468,
+       "chance_F_uniform": 0.1479
+      },
+      "t=1": {
+       "P": 0.9843,
+       "R": 1.0,
+       "F": 0.9921,
+       "TP": 1505,
+       "pred": 1529,
+       "gold": 1505,
+       "chance_precision_uniform": 0.3629,
+       "chance_F_uniform": 0.3658
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.9901,
+       "R": 1.0,
+       "F": 0.995,
+       "TP": 2611,
+       "pred": 2637,
+       "gold": 2611
+      },
+      "line_only_node_multiset": {
+       "P": 0.9901,
+       "R": 1.0,
+       "F": 0.995,
+       "TP": 2611,
+       "pred": 2637,
+       "gold": 2611
+      }
+     },
+     "level1_check": {
+      "gold_level1": 3,
+      "pred_level1": 10,
+      "pred_level1_nodes_on_a_gold_level1_line": 3,
+      "kepan_nodes_not_at_a_gold_line_and_level": 0
+     },
+     "sibling_order": {
+      "violations": 0,
+      "where": []
+     },
+     "not_taken_up_repairs_applied": 0,
+     "tier2_stats": {
+      "statements": 363,
+      "announcements": 0,
+      "gates": 0,
+      "uddanas": 0,
+      "enters": 0,
+      "enters_unresolved": 0,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 0,
+      "wrappers": 0,
+      "report": 0,
+      "nodes": 0
+     },
+     "genre_gate_evidence": "title '楞嚴經集註'; 10 accepted announcements in 310630 characters (0.03 per 1,000); 0 glossator attributions (X曰：); 註 genre (R07 F2): the title marks a 註 and announcements are sparse"
+    }
+   },
+   "x0268_regions": {
+    "front_matter": {
+     "lines": 336,
+     "line_share": 0.0328,
+     "chars": 7007,
+     "char_share": 0.0226,
+     "over_MAX_TEXT_CHARS": false,
+     "gold_nodes_starting_here": 0,
+     "gold_distinct_start_lines_here": 0,
+     "gold_headings_len_ge4_found_verbatim_here": 0,
+     "distinct_gold_headings_len_ge4_found_verbatim_here": 0,
+     "hybrid_inferred_nodes_starting_here": 11
+    },
+    "chart_unit_6_1": {
+     "lines": 537,
+     "line_share": 0.0524,
+     "chars": 3466,
+     "char_share": 0.0112,
+     "over_MAX_TEXT_CHARS": false,
+     "gold_nodes_starting_here": 0,
+     "gold_distinct_start_lines_here": 0,
+     "gold_headings_len_ge4_found_verbatim_here": 279,
+     "distinct_gold_headings_len_ge4_found_verbatim_here": 236,
+     "hybrid_inferred_nodes_starting_here": 3
+    },
+    "body_unit_7_1": {
+     "lines": 9357,
+     "line_share": 0.9125,
+     "chars": 300157,
+     "char_share": 0.9663,
+     "over_MAX_TEXT_CHARS": true,
+     "gold_nodes_starting_here": 2611,
+     "gold_distinct_start_lines_here": 1505,
+     "gold_headings_len_ge4_found_verbatim_here": 9,
+     "distinct_gold_headings_len_ge4_found_verbatim_here": 2,
+     "hybrid_inferred_nodes_starting_here": 0
+    },
+    "lines_from_body_start_to_first_gold_start": 11,
+    "gold_headings_len_ge4": 2024,
+    "distinct_gold_headings_len_ge4": 1533,
+    "note": "regions are the PREDICTED tier-1 units (front matter = nodes 1_1..5_1, chart = 6_1, body = 7_1); heading counts are punctuation-insensitive substring tests of gold heading_src in each region's reading text (counts only). Method differs from the harness design check ood_label_leak (SUMMARY: 2,059 labels of 4+ characters, 221 found anywhere), which measures labels with their punctuation; the two counts are not interchangeable",
+    "gold_headings_found_verbatim_anywhere_ignoring_punct": 431
+   }
+  },
+  "OOD-P1573": {
+   "file": "P167n1573",
+   "gold": "cbeta-mulu-P1573",
+   "gold_sha256_16": "51a26ff90f2e14af",
+   "mode": "locator",
+   "text": {
+    "lines": 335,
+    "chars": 3675
+   },
+   "gold_aggregate": {
+    "nodes": 127,
+    "max_depth": 14,
+    "depth_histogram": {
+     "1": 2,
+     "2": 5,
+     "3": 10,
+     "4": 12,
+     "5": 9,
+     "6": 6,
+     "7": 9,
+     "8": 17,
+     "9": 9,
+     "10": 12,
+     "11": 12,
+     "12": 7,
+     "13": 8,
+     "14": 9
+    },
+    "leaves": 80,
+    "leaf_depth_histogram": {
+     "2": 1,
+     "3": 5,
+     "4": 8,
+     "5": 7,
+     "6": 4,
+     "7": 3,
+     "8": 13,
+     "9": 5,
+     "10": 7,
+     "11": 9,
+     "12": 4,
+     "13": 5,
+     "14": 9
+    },
+    "roots": 2,
+    "mean_children_of_internal": 2.6596,
+    "origins": {
+     "imported": 127
+    },
+    "nodes_per_line": 0.3791,
+    "distinct_start_lines": 80,
+    "distinct_start_line_share_of_lines": 0.2388,
+    "segmentation": {
+     "segments": 80,
+     "lines_before_first_node_share": 0.0,
+     "largest_segment_by_chars": {
+      "lines": 14,
+      "line_share": 0.0418,
+      "chars": 169,
+      "char_share": 0.046,
+      "owner_depth": 10,
+      "over_MAX_TEXT_CHARS": false
+     },
+     "largest_segment_by_lines": {
+      "lines": 14,
+      "line_share": 0.0418,
+      "chars": 169,
+      "char_share": 0.046,
+      "owner_depth": 10
+     },
+     "median_segment_lines": 4,
+     "segments_over_MAX_TEXT_CHARS": 0,
+     "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+     "line_share_by_owner_depth": {
+      "2": 0.003,
+      "3": 0.0448,
+      "4": 0.0836,
+      "5": 0.0448,
+      "6": 0.0418,
+      "7": 0.0418,
+      "8": 0.1761,
+      "9": 0.0478,
+      "10": 0.1254,
+      "11": 0.1701,
+      "12": 0.0657,
+      "13": 0.0627,
+      "14": 0.0925
+     }
+    },
+    "boundary_F1_vs_itself": 1.0
+   },
+   "arms": {
+    "tier1": {
+     "cell": "tier1-OOD-P1573",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "e283ef680c7941dc",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 2,
+      "max_depth": 1,
+      "depth_histogram": {
+       "1": 2
+      },
+      "leaves": 2,
+      "leaf_depth_histogram": {
+       "1": 2
+      },
+      "roots": 2,
+      "mean_children_of_internal": null,
+      "origins": {
+       "explicit": 2
+      }
+     },
+     "segmentation": {
+      "segments": 2,
+      "lines_before_first_node_share": 0.0,
+      "largest_segment_by_chars": {
+       "lines": 310,
+       "line_share": 0.9254,
+       "chars": 3440,
+       "char_share": 0.9361,
+       "owner_depth": 1,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 310,
+       "line_share": 0.9254,
+       "chars": 3440,
+       "char_share": 0.9361,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 310,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "1": 1.0
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 2,
+      "kinds": {
+       "leaf": 2
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 1,
+       "chars": 3440,
+       "char_share": 0.9361,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 2,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.5,
+       "R": 0.0125,
+       "F": 0.0244,
+       "TP": 1,
+       "pred": 2,
+       "gold": 80,
+       "chance_precision_uniform": 0.2388,
+       "chance_F_uniform": 0.0116
+      },
+      "t=1": {
+       "P": 1.0,
+       "R": 0.025,
+       "F": 0.0488,
+       "TP": 2,
+       "pred": 2,
+       "gold": 80,
+       "chance_precision_uniform": 0.5582,
+       "chance_F_uniform": 0.0272
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.5,
+       "R": 0.0079,
+       "F": 0.0155,
+       "TP": 1,
+       "pred": 2,
+       "gold": 127
+      },
+      "line_only_node_multiset": {
+       "P": 0.5,
+       "R": 0.0079,
+       "F": 0.0155,
+       "TP": 1,
+       "pred": 2,
+       "gold": 127
+      }
+     },
+     "scorer": {
+      "pred_counted": 2,
+      "gold_counted": 127,
+      "child_count": {
+       "eligible": 1,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 1,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.5,
+        "R": 0.007874,
+        "F": 0.015504,
+        "TP": 1,
+        "FP": 1,
+        "FN": 126
+       },
+       "f_f1": {
+        "P": 0.5,
+        "R": 0.007874,
+        "F": 0.015504,
+        "TP": 1,
+        "FP": 1,
+        "FN": 126
+       },
+       "locator_only": {
+        "P": 0.5,
+        "R": 0.007874,
+        "F": 0.015504,
+        "TP": 1,
+        "FP": 1,
+        "FN": 126
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 1
+        },
+        "2": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 10
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 1.0,
+        "R": 0.015748,
+        "F": 0.031008,
+        "TP": 2,
+        "FP": 0,
+        "FN": 125
+       },
+       "f_f1": {
+        "P": 1.0,
+        "R": 0.015748,
+        "F": 0.031008,
+        "TP": 2,
+        "FP": 0,
+        "FN": 125
+       },
+       "locator_only": {
+        "P": 1.0,
+        "R": 0.015748,
+        "F": 0.031008,
+        "TP": 2,
+        "FP": 0,
+        "FN": 125
+       },
+       "per_depth": {
+        "1": {
+         "TP": 2,
+         "FP": 0,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 10
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": null
+    },
+    "tier2": {
+     "cell": "tier2-OOD-P1573",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "33c8a61a15843ad5",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 2,
+      "max_depth": 1,
+      "depth_histogram": {
+       "1": 2
+      },
+      "leaves": 2,
+      "leaf_depth_histogram": {
+       "1": 2
+      },
+      "roots": 2,
+      "mean_children_of_internal": null,
+      "origins": {
+       "explicit": 2
+      }
+     },
+     "genre_gate": "outline",
+     "segmentation": {
+      "segments": 2,
+      "lines_before_first_node_share": 0.0,
+      "largest_segment_by_chars": {
+       "lines": 310,
+       "line_share": 0.9254,
+       "chars": 3440,
+       "char_share": 0.9361,
+       "owner_depth": 1,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 310,
+       "line_share": 0.9254,
+       "chars": 3440,
+       "char_share": 0.9361,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 310,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "1": 1.0
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 2,
+      "kinds": {
+       "leaf": 2
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 1,
+       "chars": 3440,
+       "char_share": 0.9361,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 2,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.5,
+       "R": 0.0125,
+       "F": 0.0244,
+       "TP": 1,
+       "pred": 2,
+       "gold": 80,
+       "chance_precision_uniform": 0.2388,
+       "chance_F_uniform": 0.0116
+      },
+      "t=1": {
+       "P": 1.0,
+       "R": 0.025,
+       "F": 0.0488,
+       "TP": 2,
+       "pred": 2,
+       "gold": 80,
+       "chance_precision_uniform": 0.5582,
+       "chance_F_uniform": 0.0272
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.5,
+       "R": 0.0079,
+       "F": 0.0155,
+       "TP": 1,
+       "pred": 2,
+       "gold": 127
+      },
+      "line_only_node_multiset": {
+       "P": 0.5,
+       "R": 0.0079,
+       "F": 0.0155,
+       "TP": 1,
+       "pred": 2,
+       "gold": 127
+      }
+     },
+     "scorer": {
+      "pred_counted": 2,
+      "gold_counted": 127,
+      "child_count": {
+       "eligible": 1,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 1,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.5,
+        "R": 0.007874,
+        "F": 0.015504,
+        "TP": 1,
+        "FP": 1,
+        "FN": 126
+       },
+       "f_f1": {
+        "P": 0.5,
+        "R": 0.007874,
+        "F": 0.015504,
+        "TP": 1,
+        "FP": 1,
+        "FN": 126
+       },
+       "locator_only": {
+        "P": 0.5,
+        "R": 0.007874,
+        "F": 0.015504,
+        "TP": 1,
+        "FP": 1,
+        "FN": 126
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 1
+        },
+        "2": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 10
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 1.0,
+        "R": 0.015748,
+        "F": 0.031008,
+        "TP": 2,
+        "FP": 0,
+        "FN": 125
+       },
+       "f_f1": {
+        "P": 1.0,
+        "R": 0.015748,
+        "F": 0.031008,
+        "TP": 2,
+        "FP": 0,
+        "FN": 125
+       },
+       "locator_only": {
+        "P": 1.0,
+        "R": 0.015748,
+        "F": 0.031008,
+        "TP": 2,
+        "FP": 0,
+        "FN": 125
+       },
+       "per_depth": {
+        "1": {
+         "TP": 2,
+         "FP": 0,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 10
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 3,
+      "announcements": 0,
+      "gates": 0,
+      "uddanas": 0,
+      "enters": 0,
+      "enters_unresolved": 2,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 0,
+      "wrappers": 0,
+      "report": 2,
+      "nodes": 0
+     },
+     "genre_gate_evidence": "title '修懺要旨'; 0 accepted announcements in 3675 characters (0.00 per 1,000); 0 glossator attributions (X曰：)"
+    },
+    "hybrid": {
+     "cell": "hybrid-OOD-P1573",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "3cfb4a2c147de81b",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 17,
+      "max_depth": 3,
+      "depth_histogram": {
+       "1": 2,
+       "2": 5,
+       "3": 10
+      },
+      "leaves": 15,
+      "leaf_depth_histogram": {
+       "1": 1,
+       "2": 4,
+       "3": 10
+      },
+      "roots": 2,
+      "mean_children_of_internal": 7.5,
+      "origins": {
+       "explicit": 2,
+       "inferred": 15
+      }
+     },
+     "genre_gate": "outline",
+     "segmentation": {
+      "segments": 13,
+      "lines_before_first_node_share": 0.0,
+      "largest_segment_by_chars": {
+       "lines": 122,
+       "line_share": 0.3642,
+       "chars": 1356,
+       "char_share": 0.369,
+       "owner_depth": 3,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 122,
+       "line_share": 0.3642,
+       "chars": 1356,
+       "char_share": 0.369,
+       "owner_depth": 3
+      },
+      "median_segment_lines": 11,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "1": 0.0746,
+       "2": 0.2507,
+       "3": 0.6746
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 13,
+      "kinds": {
+       "leaf": 12,
+       "preamble": 1
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 3,
+       "chars": 1356,
+       "char_share": 0.369,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 13,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2,
+      "resolver_inferred": 15
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.8462,
+       "R": 0.1375,
+       "F": 0.2366,
+       "TP": 11,
+       "pred": 13,
+       "gold": 80,
+       "chance_precision_uniform": 0.2388,
+       "chance_F_uniform": 0.0668
+      },
+      "t=1": {
+       "P": 1.0,
+       "R": 0.1625,
+       "F": 0.2796,
+       "TP": 13,
+       "pred": 13,
+       "gold": 80,
+       "chance_precision_uniform": 0.5582,
+       "chance_F_uniform": 0.1561
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.1765,
+       "R": 0.0236,
+       "F": 0.0417,
+       "TP": 3,
+       "pred": 17,
+       "gold": 127
+      },
+      "line_only_node_multiset": {
+       "P": 0.8235,
+       "R": 0.1102,
+       "F": 0.1944,
+       "TP": 14,
+       "pred": 17,
+       "gold": 127
+      }
+     },
+     "resolver_added": {
+      "inferred_nodes": 15,
+      "inferred_levels": {
+       "2": 5,
+       "3": 10
+      },
+      "new_distinct_start_lines": 11,
+      "new_lines_on_gold_start_t0": 10,
+      "new_lines_on_gold_start_t1": 11,
+      "gold_levels_at_hit_lines": {
+       "lines_hit": 10,
+       "shallowest_gold_level_at_hit_line": {
+        "2": 1,
+        "3": 1,
+        "5": 1,
+        "6": 1,
+        "7": 5,
+        "4": 1
+       },
+       "deepest_gold_level_at_hit_line": {
+        "4": 3,
+        "6": 1,
+        "7": 3,
+        "8": 3
+       }
+      }
+     },
+     "scorer": {
+      "pred_counted": 17,
+      "gold_counted": 127,
+      "child_count": {
+       "eligible": 3,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 3,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.176471,
+        "R": 0.023622,
+        "F": 0.041667,
+        "TP": 3,
+        "FP": 14,
+        "FN": 124
+       },
+       "f_f1": {
+        "P": 0.058824,
+        "R": 0.007874,
+        "F": 0.013889,
+        "TP": 1,
+        "FP": 16,
+        "FN": 126
+       },
+       "locator_only": {
+        "P": 0.823529,
+        "R": 0.110236,
+        "F": 0.194444,
+        "TP": 14,
+        "FP": 3,
+        "FN": 113
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 1
+        },
+        "2": {
+         "TP": 2,
+         "FP": 3,
+         "FN": 3
+        },
+        "3": {
+         "TP": 0,
+         "FP": 10,
+         "FN": 10
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.235294,
+        "R": 0.031496,
+        "F": 0.055556,
+        "TP": 4,
+        "FP": 13,
+        "FN": 123
+       },
+       "f_f1": {
+        "P": 0.117647,
+        "R": 0.015748,
+        "F": 0.027778,
+        "TP": 2,
+        "FP": 15,
+        "FN": 125
+       },
+       "locator_only": {
+        "P": 0.941176,
+        "R": 0.125984,
+        "F": 0.222222,
+        "TP": 16,
+        "FP": 1,
+        "FN": 111
+       },
+       "per_depth": {
+        "1": {
+         "TP": 2,
+         "FP": 0,
+         "FN": 0
+        },
+        "2": {
+         "TP": 2,
+         "FP": 3,
+         "FN": 3
+        },
+        "3": {
+         "TP": 0,
+         "FP": 10,
+         "FN": 10
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 9
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 3,
+      "announcements": 0,
+      "gates": 0,
+      "uddanas": 0,
+      "enters": 0,
+      "enters_unresolved": 2,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 0,
+      "wrappers": 0,
+      "report": 2,
+      "nodes": 0
+     },
+     "genre_gate_evidence": "title '修懺要旨'; 0 accepted announcements in 3675 characters (0.00 per 1,000); 0 glossator attributions (X曰：)",
+     "resolver_tasks": {
+      "subdivide": {
+       "requests": 1,
+       "answered": 1,
+       "no_model": 0,
+       "pending": 0,
+       "invalid": 0,
+       "accepted": 1,
+       "rejected": 0,
+       "ignored": 0,
+       "not_answered": 0,
+       "skipped": 0
+      },
+      "adjudicate": {
+       "requests": 1,
+       "answered": 1,
+       "no_model": 0,
+       "pending": 0,
+       "invalid": 0,
+       "accepted": 2,
+       "rejected": 0,
+       "ignored": 0,
+       "not_answered": 0,
+       "skipped": 0
+      }
+     }
+    },
+    "tier1-markup": {
+     "cell": "tier1-markup-OOD-P1573",
+     "status": "built",
+     "leaked": true,
+     "outline_sha256_16": "a603bfd89dca17a7",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 129,
+      "max_depth": 15,
+      "depth_histogram": {
+       "1": 2,
+       "2": 2,
+       "3": 5,
+       "4": 10,
+       "5": 12,
+       "6": 9,
+       "7": 6,
+       "8": 9,
+       "9": 17,
+       "10": 9,
+       "11": 12,
+       "12": 12,
+       "13": 7,
+       "14": 8,
+       "15": 9
+      },
+      "leaves": 80,
+      "leaf_depth_histogram": {
+       "3": 1,
+       "4": 5,
+       "5": 8,
+       "6": 7,
+       "7": 4,
+       "8": 3,
+       "9": 13,
+       "10": 5,
+       "11": 7,
+       "12": 9,
+       "13": 4,
+       "14": 5,
+       "15": 9
+      },
+      "roots": 2,
+      "mean_children_of_internal": 2.5918,
+      "origins": {
+       "explicit": 129
+      }
+     },
+     "segmentation": {
+      "segments": 81,
+      "lines_before_first_node_share": 0.0,
+      "largest_segment_by_chars": {
+       "lines": 14,
+       "line_share": 0.0418,
+       "chars": 169,
+       "char_share": 0.046,
+       "owner_depth": 11,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 14,
+       "line_share": 0.0418,
+       "chars": 169,
+       "char_share": 0.046,
+       "owner_depth": 11
+      },
+      "median_segment_lines": 3,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "1": 0.003,
+       "3": 0.003,
+       "4": 0.0418,
+       "5": 0.0836,
+       "6": 0.0448,
+       "7": 0.0418,
+       "8": 0.0418,
+       "9": 0.1761,
+       "10": 0.0478,
+       "11": 0.1254,
+       "12": 0.1701,
+       "13": 0.0657,
+       "14": 0.0627,
+       "15": 0.0925
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 81,
+      "kinds": {
+       "leaf": 80,
+       "preamble": 1
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 11,
+       "chars": 169,
+       "char_share": 0.046,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 81,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2,
+      "tier1_from_kepan_markup (LEAKED)": 127
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.9877,
+       "R": 1.0,
+       "F": 0.9938,
+       "TP": 80,
+       "pred": 81,
+       "gold": 80,
+       "chance_precision_uniform": 0.2388,
+       "chance_F_uniform": 0.2403
+      },
+      "t=1": {
+       "P": 0.9877,
+       "R": 1.0,
+       "F": 0.9938,
+       "TP": 80,
+       "pred": 81,
+       "gold": 80,
+       "chance_precision_uniform": 0.5582,
+       "chance_F_uniform": 0.5617
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.3721,
+       "R": 0.378,
+       "F": 0.375,
+       "TP": 48,
+       "pred": 129,
+       "gold": 127
+      },
+      "line_only_node_multiset": {
+       "P": 0.9845,
+       "R": 1.0,
+       "F": 0.9922,
+       "TP": 127,
+       "pred": 129,
+       "gold": 127
+      }
+     },
+     "level1_check": {
+      "gold_level1": 2,
+      "pred_level1": 2,
+      "pred_level1_nodes_on_a_gold_level1_line": 1,
+      "kepan_nodes_not_at_a_gold_line_and_level": 80
+     },
+     "scorer": {
+      "pred_counted": 129,
+      "gold_counted": 127,
+      "child_count": {
+       "eligible": 2,
+       "correct": 0,
+       "wrong": 1,
+       "missing": 1,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.023256,
+        "R": 0.023622,
+        "F": 0.023438,
+        "TP": 3,
+        "FP": 126,
+        "FN": 124
+       },
+       "f_f1": {
+        "P": 0.023256,
+        "R": 0.023622,
+        "F": 0.023438,
+        "TP": 3,
+        "FP": 126,
+        "FN": 124
+       },
+       "locator_only": {
+        "P": 0.984496,
+        "R": 1.0,
+        "F": 0.992188,
+        "TP": 127,
+        "FP": 2,
+        "FN": 0
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 1
+        },
+        "2": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 4
+        },
+        "3": {
+         "TP": 1,
+         "FP": 4,
+         "FN": 9
+        },
+        "4": {
+         "TP": 0,
+         "FP": 10,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 17,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 9
+        },
+        "15": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 0
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.03876,
+        "R": 0.03937,
+        "F": 0.039062,
+        "TP": 5,
+        "FP": 124,
+        "FN": 122
+       },
+       "f_f1": {
+        "P": 0.03876,
+        "R": 0.03937,
+        "F": 0.039062,
+        "TP": 5,
+        "FP": 124,
+        "FN": 122
+       },
+       "locator_only": {
+        "P": 0.984496,
+        "R": 1.0,
+        "F": 0.992188,
+        "TP": 127,
+        "FP": 2,
+        "FN": 0
+       },
+       "per_depth": {
+        "1": {
+         "TP": 2,
+         "FP": 0,
+         "FN": 0
+        },
+        "2": {
+         "TP": 2,
+         "FP": 0,
+         "FN": 3
+        },
+        "3": {
+         "TP": 1,
+         "FP": 4,
+         "FN": 9
+        },
+        "4": {
+         "TP": 0,
+         "FP": 10,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 17,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 9
+        },
+        "15": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 0
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": null
+    },
+    "tier2-markup": {
+     "cell": "tier2-markup-OOD-P1573",
+     "status": "built",
+     "leaked": true,
+     "outline_sha256_16": "4f396d0e9d932a8e",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 129,
+      "max_depth": 15,
+      "depth_histogram": {
+       "1": 2,
+       "2": 2,
+       "3": 5,
+       "4": 10,
+       "5": 12,
+       "6": 9,
+       "7": 6,
+       "8": 9,
+       "9": 17,
+       "10": 9,
+       "11": 12,
+       "12": 12,
+       "13": 7,
+       "14": 8,
+       "15": 9
+      },
+      "leaves": 80,
+      "leaf_depth_histogram": {
+       "3": 1,
+       "4": 5,
+       "5": 8,
+       "6": 7,
+       "7": 4,
+       "8": 3,
+       "9": 13,
+       "10": 5,
+       "11": 7,
+       "12": 9,
+       "13": 4,
+       "14": 5,
+       "15": 9
+      },
+      "roots": 2,
+      "mean_children_of_internal": 2.5918,
+      "origins": {
+       "explicit": 129
+      }
+     },
+     "genre_gate": "outline",
+     "segmentation": {
+      "segments": 81,
+      "lines_before_first_node_share": 0.0,
+      "largest_segment_by_chars": {
+       "lines": 14,
+       "line_share": 0.0418,
+       "chars": 169,
+       "char_share": 0.046,
+       "owner_depth": 11,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 14,
+       "line_share": 0.0418,
+       "chars": 169,
+       "char_share": 0.046,
+       "owner_depth": 11
+      },
+      "median_segment_lines": 3,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "1": 0.003,
+       "3": 0.003,
+       "4": 0.0418,
+       "5": 0.0836,
+       "6": 0.0448,
+       "7": 0.0418,
+       "8": 0.0418,
+       "9": 0.1761,
+       "10": 0.0478,
+       "11": 0.1254,
+       "12": 0.1701,
+       "13": 0.0657,
+       "14": 0.0627,
+       "15": 0.0925
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 81,
+      "kinds": {
+       "leaf": 80,
+       "preamble": 1
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 11,
+       "chars": 169,
+       "char_share": 0.046,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 1.0,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 81,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2,
+      "tier1_from_kepan_markup (LEAKED)": 127
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.9877,
+       "R": 1.0,
+       "F": 0.9938,
+       "TP": 80,
+       "pred": 81,
+       "gold": 80,
+       "chance_precision_uniform": 0.2388,
+       "chance_F_uniform": 0.2403
+      },
+      "t=1": {
+       "P": 0.9877,
+       "R": 1.0,
+       "F": 0.9938,
+       "TP": 80,
+       "pred": 81,
+       "gold": 80,
+       "chance_precision_uniform": 0.5582,
+       "chance_F_uniform": 0.5617
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.3721,
+       "R": 0.378,
+       "F": 0.375,
+       "TP": 48,
+       "pred": 129,
+       "gold": 127
+      },
+      "line_only_node_multiset": {
+       "P": 0.9845,
+       "R": 1.0,
+       "F": 0.9922,
+       "TP": 127,
+       "pred": 129,
+       "gold": 127
+      }
+     },
+     "level1_check": {
+      "gold_level1": 2,
+      "pred_level1": 2,
+      "pred_level1_nodes_on_a_gold_level1_line": 1,
+      "kepan_nodes_not_at_a_gold_line_and_level": 80
+     },
+     "scorer": {
+      "pred_counted": 129,
+      "gold_counted": 127,
+      "child_count": {
+       "eligible": 2,
+       "correct": 0,
+       "wrong": 1,
+       "missing": 1,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.023256,
+        "R": 0.023622,
+        "F": 0.023438,
+        "TP": 3,
+        "FP": 126,
+        "FN": 124
+       },
+       "f_f1": {
+        "P": 0.023256,
+        "R": 0.023622,
+        "F": 0.023438,
+        "TP": 3,
+        "FP": 126,
+        "FN": 124
+       },
+       "locator_only": {
+        "P": 0.984496,
+        "R": 1.0,
+        "F": 0.992188,
+        "TP": 127,
+        "FP": 2,
+        "FN": 0
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 1
+        },
+        "2": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 4
+        },
+        "3": {
+         "TP": 1,
+         "FP": 4,
+         "FN": 9
+        },
+        "4": {
+         "TP": 0,
+         "FP": 10,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 17,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 9
+        },
+        "15": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 0
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.03876,
+        "R": 0.03937,
+        "F": 0.039062,
+        "TP": 5,
+        "FP": 124,
+        "FN": 122
+       },
+       "f_f1": {
+        "P": 0.03876,
+        "R": 0.03937,
+        "F": 0.039062,
+        "TP": 5,
+        "FP": 124,
+        "FN": 122
+       },
+       "locator_only": {
+        "P": 0.984496,
+        "R": 1.0,
+        "F": 0.992188,
+        "TP": 127,
+        "FP": 2,
+        "FN": 0
+       },
+       "per_depth": {
+        "1": {
+         "TP": 2,
+         "FP": 0,
+         "FN": 0
+        },
+        "2": {
+         "TP": 2,
+         "FP": 0,
+         "FN": 3
+        },
+        "3": {
+         "TP": 1,
+         "FP": 4,
+         "FN": 9
+        },
+        "4": {
+         "TP": 0,
+         "FP": 10,
+         "FN": 12
+        },
+        "5": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 9
+        },
+        "6": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 9
+        },
+        "8": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 17
+        },
+        "9": {
+         "TP": 0,
+         "FP": 17,
+         "FN": 9
+        },
+        "10": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 12
+        },
+        "11": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 12
+        },
+        "12": {
+         "TP": 0,
+         "FP": 12,
+         "FN": 7
+        },
+        "13": {
+         "TP": 0,
+         "FP": 7,
+         "FN": 8
+        },
+        "14": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 9
+        },
+        "15": {
+         "TP": 0,
+         "FP": 9,
+         "FN": 0
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 3,
+      "announcements": 0,
+      "gates": 0,
+      "uddanas": 0,
+      "enters": 0,
+      "enters_unresolved": 2,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 0,
+      "wrappers": 0,
+      "report": 2,
+      "nodes": 0
+     },
+     "genre_gate_evidence": "title '修懺要旨'; 0 accepted announcements in 3675 characters (0.00 per 1,000); 0 glossator attributions (X曰：)"
+    }
+   }
+  },
+  "OOD-D8842": {
+   "file": "D14n8842",
+   "gold": "cbeta-mulu-D8842",
+   "gold_sha256_16": "91d4757cab5a64b6",
+   "mode": "locator",
+   "text": {
+    "lines": 182,
+    "chars": 5706
+   },
+   "gold_aggregate": {
+    "nodes": 40,
+    "max_depth": 10,
+    "depth_histogram": {
+     "1": 1,
+     "2": 2,
+     "3": 2,
+     "4": 6,
+     "5": 4,
+     "6": 6,
+     "7": 8,
+     "8": 5,
+     "9": 4,
+     "10": 2
+    },
+    "leaves": 24,
+    "leaf_depth_histogram": {
+     "2": 1,
+     "4": 4,
+     "5": 2,
+     "6": 3,
+     "7": 6,
+     "8": 3,
+     "9": 3,
+     "10": 2
+    },
+    "roots": 1,
+    "mean_children_of_internal": 2.4375,
+    "origins": {
+     "imported": 40
+    },
+    "nodes_per_line": 0.2198,
+    "distinct_start_lines": 35,
+    "distinct_start_line_share_of_lines": 0.1923,
+    "segmentation": {
+     "segments": 35,
+     "lines_before_first_node_share": 0.011,
+     "largest_segment_by_chars": {
+      "lines": 23,
+      "line_share": 0.1264,
+      "chars": 701,
+      "char_share": 0.1229,
+      "owner_depth": 5,
+      "over_MAX_TEXT_CHARS": false
+     },
+     "largest_segment_by_lines": {
+      "lines": 23,
+      "line_share": 0.1264,
+      "chars": 701,
+      "char_share": 0.1229,
+      "owner_depth": 5
+     },
+     "median_segment_lines": 3,
+     "segments_over_MAX_TEXT_CHARS": 0,
+     "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+     "line_share_by_owner_depth": {
+      "0": 0.011,
+      "1": 0.0055,
+      "2": 0.0604,
+      "3": 0.0055,
+      "4": 0.1868,
+      "5": 0.1429,
+      "6": 0.1319,
+      "7": 0.2857,
+      "8": 0.0769,
+      "9": 0.0495,
+      "10": 0.044
+     }
+    },
+    "boundary_F1_vs_itself": 1.0
+   },
+   "arms": {
+    "tier1": {
+     "cell": "tier1-OOD-D8842",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "bafb21840a9d0f1f",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 2,
+      "max_depth": 1,
+      "depth_histogram": {
+       "1": 2
+      },
+      "leaves": 2,
+      "leaf_depth_histogram": {
+       "1": 2
+      },
+      "roots": 2,
+      "mean_children_of_internal": null,
+      "origins": {
+       "explicit": 2
+      }
+     },
+     "segmentation": {
+      "segments": 2,
+      "lines_before_first_node_share": 0.011,
+      "largest_segment_by_chars": {
+       "lines": 174,
+       "line_share": 0.956,
+       "chars": 5598,
+       "char_share": 0.9811,
+       "owner_depth": 1,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 174,
+       "line_share": 0.956,
+       "chars": 5598,
+       "char_share": 0.9811,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 174,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.011,
+       "1": 0.989
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 2,
+      "kinds": {
+       "leaf": 2
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 1,
+       "chars": 5598,
+       "char_share": 0.9811,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 0.9981,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 2,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.5,
+       "R": 0.0286,
+       "F": 0.0541,
+       "TP": 1,
+       "pred": 2,
+       "gold": 35,
+       "chance_precision_uniform": 0.1923,
+       "chance_F_uniform": 0.0208
+      },
+      "t=1": {
+       "P": 0.5,
+       "R": 0.0286,
+       "F": 0.0541,
+       "TP": 1,
+       "pred": 2,
+       "gold": 35,
+       "chance_precision_uniform": 0.4121,
+       "chance_F_uniform": 0.0446
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.5,
+       "R": 0.025,
+       "F": 0.0476,
+       "TP": 1,
+       "pred": 2,
+       "gold": 40
+      },
+      "line_only_node_multiset": {
+       "P": 0.5,
+       "R": 0.025,
+       "F": 0.0476,
+       "TP": 1,
+       "pred": 2,
+       "gold": 40
+      }
+     },
+     "scorer": {
+      "pred_counted": 2,
+      "gold_counted": 40,
+      "child_count": {
+       "eligible": 1,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 1,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "f_f1": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "f_f1": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": null
+    },
+    "tier2": {
+     "cell": "tier2-OOD-D8842",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "883c1a32d7f0b52e",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 2,
+      "max_depth": 1,
+      "depth_histogram": {
+       "1": 2
+      },
+      "leaves": 2,
+      "leaf_depth_histogram": {
+       "1": 2
+      },
+      "roots": 2,
+      "mean_children_of_internal": null,
+      "origins": {
+       "explicit": 2
+      }
+     },
+     "genre_gate": "no-structure",
+     "segmentation": {
+      "segments": 2,
+      "lines_before_first_node_share": 0.011,
+      "largest_segment_by_chars": {
+       "lines": 174,
+       "line_share": 0.956,
+       "chars": 5598,
+       "char_share": 0.9811,
+       "owner_depth": 1,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 174,
+       "line_share": 0.956,
+       "chars": 5598,
+       "char_share": 0.9811,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 174,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.011,
+       "1": 0.989
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 2,
+      "kinds": {
+       "leaf": 2
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 1,
+       "chars": 5598,
+       "char_share": 0.9811,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 0.9981,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 2,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.5,
+       "R": 0.0286,
+       "F": 0.0541,
+       "TP": 1,
+       "pred": 2,
+       "gold": 35,
+       "chance_precision_uniform": 0.1923,
+       "chance_F_uniform": 0.0208
+      },
+      "t=1": {
+       "P": 0.5,
+       "R": 0.0286,
+       "F": 0.0541,
+       "TP": 1,
+       "pred": 2,
+       "gold": 35,
+       "chance_precision_uniform": 0.4121,
+       "chance_F_uniform": 0.0446
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.5,
+       "R": 0.025,
+       "F": 0.0476,
+       "TP": 1,
+       "pred": 2,
+       "gold": 40
+      },
+      "line_only_node_multiset": {
+       "P": 0.5,
+       "R": 0.025,
+       "F": 0.0476,
+       "TP": 1,
+       "pred": 2,
+       "gold": 40
+      }
+     },
+     "scorer": {
+      "pred_counted": 2,
+      "gold_counted": 40,
+      "child_count": {
+       "eligible": 1,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 1,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "f_f1": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "f_f1": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.5,
+        "R": 0.025,
+        "F": 0.047619,
+        "TP": 1,
+        "FP": 1,
+        "FN": 39
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 89,
+      "announcements": 0,
+      "gates": 0,
+      "uddanas": 0,
+      "enters": 0,
+      "enters_unresolved": 0,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 0,
+      "wrappers": 0,
+      "report": 0,
+      "nodes": 0
+     },
+     "genre_gate_evidence": "title '般若心經註解'; 0 accepted announcements in 5706 characters (0.00 per 1,000); 0 glossator attributions (X曰：); 註 genre (R07 F2): the title marks a 註 and announcements are sparse"
+    },
+    "hybrid": {
+     "cell": "hybrid-OOD-D8842",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "3a3336cceb67641a",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 6,
+      "max_depth": 2,
+      "depth_histogram": {
+       "1": 2,
+       "2": 4
+      },
+      "leaves": 5,
+      "leaf_depth_histogram": {
+       "1": 1,
+       "2": 4
+      },
+      "roots": 2,
+      "mean_children_of_internal": 4.0,
+      "origins": {
+       "explicit": 2,
+       "inferred": 4
+      }
+     },
+     "genre_gate": "no-structure",
+     "segmentation": {
+      "segments": 5,
+      "lines_before_first_node_share": 0.011,
+      "largest_segment_by_chars": {
+       "lines": 120,
+       "line_share": 0.6593,
+       "chars": 3806,
+       "char_share": 0.667,
+       "owner_depth": 2,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 120,
+       "line_share": 0.6593,
+       "chars": 3806,
+       "char_share": 0.667,
+       "owner_depth": 2
+      },
+      "median_segment_lines": 13,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.011,
+       "1": 0.033,
+       "2": 0.956
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 5,
+      "kinds": {
+       "leaf": 5
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 2,
+       "chars": 3806,
+       "char_share": 0.667,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 0.9981,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 5,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2,
+      "resolver_inferred": 4
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.6,
+       "R": 0.0857,
+       "F": 0.15,
+       "TP": 3,
+       "pred": 5,
+       "gold": 35,
+       "chance_precision_uniform": 0.1923,
+       "chance_F_uniform": 0.0481
+      },
+      "t=1": {
+       "P": 0.6,
+       "R": 0.0857,
+       "F": 0.15,
+       "TP": 3,
+       "pred": 5,
+       "gold": 35,
+       "chance_precision_uniform": 0.4121,
+       "chance_F_uniform": 0.103
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.1667,
+       "R": 0.025,
+       "F": 0.0435,
+       "TP": 1,
+       "pred": 6,
+       "gold": 40
+      },
+      "line_only_node_multiset": {
+       "P": 0.5,
+       "R": 0.075,
+       "F": 0.1304,
+       "TP": 3,
+       "pred": 6,
+       "gold": 40
+      }
+     },
+     "resolver_added": {
+      "inferred_nodes": 4,
+      "inferred_levels": {
+       "2": 4
+      },
+      "new_distinct_start_lines": 3,
+      "new_lines_on_gold_start_t0": 2,
+      "new_lines_on_gold_start_t1": 2,
+      "gold_levels_at_hit_lines": {
+       "lines_hit": 2,
+       "shallowest_gold_level_at_hit_line": {
+        "4": 1,
+        "6": 1
+       },
+       "deepest_gold_level_at_hit_line": {
+        "4": 1,
+        "6": 1
+       }
+      }
+     },
+     "scorer": {
+      "pred_counted": 6,
+      "gold_counted": 40,
+      "child_count": {
+       "eligible": 1,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 1,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.166667,
+        "R": 0.025,
+        "F": 0.043478,
+        "TP": 1,
+        "FP": 5,
+        "FN": 39
+       },
+       "f_f1": {
+        "P": 0.166667,
+        "R": 0.025,
+        "F": 0.043478,
+        "TP": 1,
+        "FP": 5,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.5,
+        "R": 0.075,
+        "F": 0.130435,
+        "TP": 3,
+        "FP": 3,
+        "FN": 37
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 2
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.5,
+        "R": 0.075,
+        "F": 0.130435,
+        "TP": 3,
+        "FP": 3,
+        "FN": 37
+       },
+       "f_f1": {
+        "P": 0.166667,
+        "R": 0.025,
+        "F": 0.043478,
+        "TP": 1,
+        "FP": 5,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.666667,
+        "R": 0.1,
+        "F": 0.173913,
+        "TP": 4,
+        "FP": 2,
+        "FN": 36
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 1,
+         "FN": 0
+        },
+        "2": {
+         "TP": 2,
+         "FP": 2,
+         "FN": 0
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 89,
+      "announcements": 0,
+      "gates": 0,
+      "uddanas": 0,
+      "enters": 0,
+      "enters_unresolved": 0,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 0,
+      "wrappers": 0,
+      "report": 0,
+      "nodes": 0
+     },
+     "genre_gate_evidence": "title '般若心經註解'; 0 accepted announcements in 5706 characters (0.00 per 1,000); 0 glossator attributions (X曰：); 註 genre (R07 F2): the title marks a 註 and announcements are sparse",
+     "resolver_tasks": {
+      "subdivide": {
+       "requests": 1,
+       "answered": 1,
+       "no_model": 0,
+       "pending": 0,
+       "invalid": 0,
+       "accepted": 1,
+       "rejected": 0,
+       "ignored": 0,
+       "not_answered": 0,
+       "skipped": 0
+      }
+     }
+    },
+    "tier1-markup": {
+     "cell": "tier1-markup-OOD-D8842",
+     "status": "built",
+     "leaked": true,
+     "outline_sha256_16": "9239a945980d987f",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 42,
+      "max_depth": 10,
+      "depth_histogram": {
+       "1": 3,
+       "2": 2,
+       "3": 2,
+       "4": 6,
+       "5": 4,
+       "6": 6,
+       "7": 8,
+       "8": 5,
+       "9": 4,
+       "10": 2
+      },
+      "leaves": 26,
+      "leaf_depth_histogram": {
+       "1": 2,
+       "2": 1,
+       "4": 4,
+       "5": 2,
+       "6": 3,
+       "7": 6,
+       "8": 3,
+       "9": 3,
+       "10": 2
+      },
+      "roots": 3,
+      "mean_children_of_internal": 2.4375,
+      "origins": {
+       "explicit": 42
+      }
+     },
+     "segmentation": {
+      "segments": 36,
+      "lines_before_first_node_share": 0.011,
+      "largest_segment_by_chars": {
+       "lines": 17,
+       "line_share": 0.0934,
+       "chars": 668,
+       "char_share": 0.1171,
+       "owner_depth": 7,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 17,
+       "line_share": 0.0934,
+       "chars": 668,
+       "char_share": 0.1171,
+       "owner_depth": 7
+      },
+      "median_segment_lines": 3,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.011,
+       "1": 0.0385,
+       "2": 0.0604,
+       "3": 0.0055,
+       "4": 0.1868,
+       "5": 0.1099,
+       "6": 0.1319,
+       "7": 0.2857,
+       "8": 0.0769,
+       "9": 0.0495,
+       "10": 0.044
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 25,
+      "kinds": {
+       "leaf": 25
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 7,
+       "chars": 668,
+       "char_share": 0.1171,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 0.9981,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 36,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2,
+      "tier1_from_kepan_markup (LEAKED)": 40
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.9722,
+       "R": 1.0,
+       "F": 0.9859,
+       "TP": 35,
+       "pred": 36,
+       "gold": 35,
+       "chance_precision_uniform": 0.1923,
+       "chance_F_uniform": 0.195
+      },
+      "t=1": {
+       "P": 0.9722,
+       "R": 1.0,
+       "F": 0.9859,
+       "TP": 35,
+       "pred": 36,
+       "gold": 35,
+       "chance_precision_uniform": 0.4121,
+       "chance_F_uniform": 0.4179
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.9524,
+       "R": 1.0,
+       "F": 0.9756,
+       "TP": 40,
+       "pred": 42,
+       "gold": 40
+      },
+      "line_only_node_multiset": {
+       "P": 0.9524,
+       "R": 1.0,
+       "F": 0.9756,
+       "TP": 40,
+       "pred": 42,
+       "gold": 40
+      }
+     },
+     "level1_check": {
+      "gold_level1": 1,
+      "pred_level1": 3,
+      "pred_level1_nodes_on_a_gold_level1_line": 2,
+      "kepan_nodes_not_at_a_gold_line_and_level": 0
+     },
+     "scorer": {
+      "pred_counted": 42,
+      "gold_counted": 40,
+      "child_count": {
+       "eligible": 1,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 1,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.02381,
+        "R": 0.025,
+        "F": 0.02439,
+        "TP": 1,
+        "FP": 41,
+        "FN": 39
+       },
+       "f_f1": {
+        "P": 0.02381,
+        "R": 0.025,
+        "F": 0.02439,
+        "TP": 1,
+        "FP": 41,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.952381,
+        "R": 1.0,
+        "F": 0.97561,
+        "TP": 40,
+        "FP": 2,
+        "FN": 0
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 2,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        },
+        "3": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 5,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.02381,
+        "R": 0.025,
+        "F": 0.02439,
+        "TP": 1,
+        "FP": 41,
+        "FN": 39
+       },
+       "f_f1": {
+        "P": 0.02381,
+        "R": 0.025,
+        "F": 0.02439,
+        "TP": 1,
+        "FP": 41,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.952381,
+        "R": 1.0,
+        "F": 0.97561,
+        "TP": 40,
+        "FP": 2,
+        "FN": 0
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 2,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        },
+        "3": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 5,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": null
+    },
+    "tier2-markup": {
+     "cell": "tier2-markup-OOD-D8842",
+     "status": "built",
+     "leaked": true,
+     "outline_sha256_16": "d8cee1015ae005f6",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 42,
+      "max_depth": 10,
+      "depth_histogram": {
+       "1": 3,
+       "2": 2,
+       "3": 2,
+       "4": 6,
+       "5": 4,
+       "6": 6,
+       "7": 8,
+       "8": 5,
+       "9": 4,
+       "10": 2
+      },
+      "leaves": 26,
+      "leaf_depth_histogram": {
+       "1": 2,
+       "2": 1,
+       "4": 4,
+       "5": 2,
+       "6": 3,
+       "7": 6,
+       "8": 3,
+       "9": 3,
+       "10": 2
+      },
+      "roots": 3,
+      "mean_children_of_internal": 2.4375,
+      "origins": {
+       "explicit": 42
+      }
+     },
+     "genre_gate": "no-structure",
+     "segmentation": {
+      "segments": 36,
+      "lines_before_first_node_share": 0.011,
+      "largest_segment_by_chars": {
+       "lines": 17,
+       "line_share": 0.0934,
+       "chars": 668,
+       "char_share": 0.1171,
+       "owner_depth": 7,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 17,
+       "line_share": 0.0934,
+       "chars": 668,
+       "char_share": 0.1171,
+       "owner_depth": 7
+      },
+      "median_segment_lines": 3,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.011,
+       "1": 0.0385,
+       "2": 0.0604,
+       "3": 0.0055,
+       "4": 0.1868,
+       "5": 0.1099,
+       "6": 0.1319,
+       "7": 0.2857,
+       "8": 0.0769,
+       "9": 0.0495,
+       "10": 0.044
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 25,
+      "kinds": {
+       "leaf": 25
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 7,
+       "chars": 668,
+       "char_share": 0.1171,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 0.9981,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 36,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 2,
+      "tier1_from_kepan_markup (LEAKED)": 40
+     },
+     "boundary_F1_lines": {
+      "t=0": {
+       "P": 0.9722,
+       "R": 1.0,
+       "F": 0.9859,
+       "TP": 35,
+       "pred": 36,
+       "gold": 35,
+       "chance_precision_uniform": 0.1923,
+       "chance_F_uniform": 0.195
+      },
+      "t=1": {
+       "P": 0.9722,
+       "R": 1.0,
+       "F": 0.9859,
+       "TP": 35,
+       "pred": 36,
+       "gold": 35,
+       "chance_precision_uniform": 0.4121,
+       "chance_F_uniform": 0.4179
+      }
+     },
+     "line_depth_match_t0": {
+      "line_and_depth": {
+       "P": 0.9524,
+       "R": 1.0,
+       "F": 0.9756,
+       "TP": 40,
+       "pred": 42,
+       "gold": 40
+      },
+      "line_only_node_multiset": {
+       "P": 0.9524,
+       "R": 1.0,
+       "F": 0.9756,
+       "TP": 40,
+       "pred": 42,
+       "gold": 40
+      }
+     },
+     "level1_check": {
+      "gold_level1": 1,
+      "pred_level1": 3,
+      "pred_level1_nodes_on_a_gold_level1_line": 2,
+      "kepan_nodes_not_at_a_gold_line_and_level": 0
+     },
+     "scorer": {
+      "pred_counted": 42,
+      "gold_counted": 40,
+      "child_count": {
+       "eligible": 1,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 1,
+       "accuracy": 0.0
+      },
+      "t=0": {
+       "s_f1": {
+        "P": 0.02381,
+        "R": 0.025,
+        "F": 0.02439,
+        "TP": 1,
+        "FP": 41,
+        "FN": 39
+       },
+       "f_f1": {
+        "P": 0.02381,
+        "R": 0.025,
+        "F": 0.02439,
+        "TP": 1,
+        "FP": 41,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.952381,
+        "R": 1.0,
+        "F": 0.97561,
+        "TP": 40,
+        "FP": 2,
+        "FN": 0
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 2,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        },
+        "3": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 5,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      },
+      "t=1": {
+       "s_f1": {
+        "P": 0.02381,
+        "R": 0.025,
+        "F": 0.02439,
+        "TP": 1,
+        "FP": 41,
+        "FN": 39
+       },
+       "f_f1": {
+        "P": 0.02381,
+        "R": 0.025,
+        "F": 0.02439,
+        "TP": 1,
+        "FP": 41,
+        "FN": 39
+       },
+       "locator_only": {
+        "P": 0.952381,
+        "R": 1.0,
+        "F": 0.97561,
+        "TP": 40,
+        "FP": 2,
+        "FN": 0
+       },
+       "per_depth": {
+        "1": {
+         "TP": 1,
+         "FP": 2,
+         "FN": 0
+        },
+        "2": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        },
+        "3": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        },
+        "4": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 6
+        },
+        "5": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 4
+        },
+        "6": {
+         "TP": 0,
+         "FP": 6,
+         "FN": 6
+        },
+        "7": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 8
+        },
+        "8": {
+         "TP": 0,
+         "FP": 5,
+         "FN": 5
+        },
+        "9": {
+         "TP": 0,
+         "FP": 4,
+         "FN": 4
+        },
+        "10": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 2
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 89,
+      "announcements": 0,
+      "gates": 0,
+      "uddanas": 0,
+      "enters": 0,
+      "enters_unresolved": 0,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 0,
+      "wrappers": 0,
+      "report": 0,
+      "nodes": 0
+     },
+     "genre_gate_evidence": "title '般若心經註解'; 0 accepted announcements in 5706 characters (0.00 per 1,000); 0 glossator attributions (X曰：); 註 genre (R07 F2): the title marks a 註 and announcements are sparse"
+    }
+   }
+  },
+  "OOD-T1605": {
+   "file": "T31n1605",
+   "gold": "ybh-T1605",
+   "gold_sha256_16": "dccbb6344c1dffc7",
+   "mode": "structure",
+   "text": {
+    "lines": 2724,
+    "chars": 49093
+   },
+   "gold_aggregate": {
+    "nodes": 2605,
+    "max_depth": 24,
+    "depth_histogram": {
+     "1": 3,
+     "2": 4,
+     "3": 6,
+     "4": 16,
+     "5": 30,
+     "6": 60,
+     "7": 89,
+     "8": 115,
+     "9": 214,
+     "10": 300,
+     "11": 378,
+     "12": 253,
+     "13": 203,
+     "14": 204,
+     "15": 198,
+     "16": 157,
+     "17": 107,
+     "18": 52,
+     "19": 84,
+     "20": 43,
+     "21": 33,
+     "22": 35,
+     "23": 13,
+     "24": 8
+    },
+    "leaves": 1688,
+    "leaf_depth_histogram": {
+     "1": 1,
+     "2": 2,
+     "3": 1,
+     "4": 2,
+     "5": 14,
+     "6": 23,
+     "7": 45,
+     "8": 49,
+     "9": 97,
+     "10": 164,
+     "11": 291,
+     "12": 184,
+     "13": 130,
+     "14": 138,
+     "15": 147,
+     "16": 115,
+     "17": 85,
+     "18": 31,
+     "19": 69,
+     "20": 32,
+     "21": 21,
+     "22": 29,
+     "23": 10,
+     "24": 8
+    },
+    "roots": 3,
+    "mean_children_of_internal": 2.8375,
+    "origins": {
+     "imported": 2605
+    },
+    "nodes_per_line": 0.9563,
+    "segmentation": null,
+    "boundary_F1": "impossible: DILA YBh -kp.txt carries no Taishō anchors; every gold node has locations.scheme none and flag unmapped (no start line to compare)",
+    "heading_verbatim_in_text": {
+     "headings": 2605,
+     "verbatim_exact_share": 0.4549,
+     "verbatim_ignoring_punct": 1195,
+     "verbatim_ignoring_punct_share": 0.4587,
+     "len_ge5_verbatim_ignoring_punct_share": 0.1469,
+     "len_ge5_n": 701,
+     "distinct": 1892,
+     "distinct_verbatim_ignoring_punct_share": 0.3985,
+     "median_len_chars_no_punct": 3,
+     "by_length_no_punct": {
+      "1-2": {
+       "n": 1058,
+       "verbatim": 775,
+       "share": 0.7325
+      },
+      "3-4": {
+       "n": 846,
+       "verbatim": 317,
+       "share": 0.3747
+      },
+      "5-8": {
+       "n": 591,
+       "verbatim": 94,
+       "share": 0.1591
+      },
+      "9+": {
+       "n": 110,
+       "verbatim": 9,
+       "share": 0.0818
+      }
+     }
+    }
+   },
+   "arms": {
+    "tier1": {
+     "cell": "tier1-OOD-T1605",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "84ac9a408f499faa",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 10,
+      "max_depth": 2,
+      "depth_histogram": {
+       "1": 2,
+       "2": 8
+      },
+      "leaves": 8,
+      "leaf_depth_histogram": {
+       "2": 8
+      },
+      "roots": 2,
+      "mean_children_of_internal": 4.0,
+      "origins": {
+       "explicit": 10
+      }
+     },
+     "segmentation": {
+      "segments": 8,
+      "lines_before_first_node_share": 0.0022,
+      "largest_segment_by_chars": {
+       "lines": 1056,
+       "line_share": 0.3877,
+       "chars": 19018,
+       "char_share": 0.3874,
+       "owner_depth": 2,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 1056,
+       "line_share": 0.3877,
+       "chars": 19018,
+       "char_share": 0.3874,
+       "owner_depth": 2
+      },
+      "median_segment_lines": 181,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.0022,
+       "2": 0.9978
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 8,
+      "kinds": {
+       "leaf": 8
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 2,
+       "chars": 19018,
+       "char_share": 0.3874,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 0.999,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 8,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 10
+     },
+     "heading_verbatim_in_text": {
+      "headings": 10,
+      "verbatim_exact_share": 0.0,
+      "verbatim_ignoring_punct": 0,
+      "verbatim_ignoring_punct_share": 0.0,
+      "len_ge5_verbatim_ignoring_punct_share": null,
+      "len_ge5_n": 0,
+      "distinct": 10,
+      "distinct_verbatim_ignoring_punct_share": 0.0,
+      "median_len_chars_no_punct": 4,
+      "by_length_no_punct": {
+       "3-4": {
+        "n": 10,
+        "verbatim": 0,
+        "share": 0.0
+       }
+      }
+     },
+     "heading_verbatim_by_source": {
+      "tier1": {
+       "n": 10,
+       "verbatim": 0,
+       "share": 0.0
+      }
+     },
+     "pred_headings_equal_some_gold_heading": {
+      "nodes": 0,
+      "by_origin": {},
+      "length_no_punct_histogram": {}
+     },
+     "heading_only_F_upper_bound_from_counts": 0.0076,
+     "scorer": {
+      "pred_counted": 10,
+      "gold_counted": 2605,
+      "child_count": {
+       "eligible": 0,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 0,
+       "accuracy": null
+      },
+      "structure": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 10,
+        "FN": 2605
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 10,
+        "FN": 2605
+       },
+       "heading_only": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 10,
+        "FN": 2605
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 4
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 6
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 16
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 30
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 60
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 89
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 115
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 214
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 300
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 378
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 253
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 203
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 204
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 198
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 157
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 107
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 84
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 43
+        },
+        "21": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 33
+        },
+        "22": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 35
+        },
+        "23": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 13
+        },
+        "24": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": null
+    },
+    "tier2": {
+     "cell": "tier2-OOD-T1605",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "a3762e1af67e9064",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 28,
+      "max_depth": 5,
+      "depth_histogram": {
+       "1": 2,
+       "2": 8,
+       "3": 5,
+       "4": 8,
+       "5": 5
+      },
+      "leaves": 20,
+      "leaf_depth_histogram": {
+       "2": 6,
+       "3": 2,
+       "4": 7,
+       "5": 5
+      },
+      "roots": 2,
+      "mean_children_of_internal": 3.25,
+      "origins": {
+       "explicit": 28
+      }
+     },
+     "genre_gate": "outline",
+     "segmentation": {
+      "segments": 19,
+      "lines_before_first_node_share": 0.0004,
+      "largest_segment_by_chars": {
+       "lines": 497,
+       "line_share": 0.1825,
+       "chars": 9091,
+       "char_share": 0.1852,
+       "owner_depth": 4,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 497,
+       "line_share": 0.1825,
+       "chars": 9091,
+       "char_share": 0.1852,
+       "owner_depth": 4
+      },
+      "median_segment_lines": 39,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.0004,
+       "2": 0.5907,
+       "3": 0.0881,
+       "4": 0.2764,
+       "5": 0.0444
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 17,
+      "kinds": {
+       "preamble": 3,
+       "leaf": 14
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 4,
+       "chars": 9091,
+       "char_share": 0.1852,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 0.999,
+      "nodes_unplaced": 9
+     },
+     "pred_distinct_start_lines": 19,
+     "nodes_without_start_line": 1,
+     "node_source": {
+      "tier1": 10,
+      "tier2_or_other_explicit": 18
+     },
+     "heading_verbatim_in_text": {
+      "headings": 28,
+      "verbatim_exact_share": 0.6429,
+      "verbatim_ignoring_punct": 18,
+      "verbatim_ignoring_punct_share": 0.6429,
+      "len_ge5_verbatim_ignoring_punct_share": 1.0,
+      "len_ge5_n": 10,
+      "distinct": 28,
+      "distinct_verbatim_ignoring_punct_share": 0.6429,
+      "median_len_chars_no_punct": 4,
+      "by_length_no_punct": {
+       "3-4": {
+        "n": 18,
+        "verbatim": 8,
+        "share": 0.4444
+       },
+       "5-8": {
+        "n": 9,
+        "verbatim": 9,
+        "share": 1.0
+       },
+       "9+": {
+        "n": 1,
+        "verbatim": 1,
+        "share": 1.0
+       }
+      }
+     },
+     "heading_verbatim_by_source": {
+      "tier1": {
+       "n": 10,
+       "verbatim": 0,
+       "share": 0.0
+      },
+      "tier2": {
+       "n": 18,
+       "verbatim": 18,
+       "share": 1.0
+      }
+     },
+     "pred_headings_equal_some_gold_heading": {
+      "nodes": 3,
+      "by_origin": {
+       "explicit": 3
+      },
+      "length_no_punct_histogram": {
+       "4": 2,
+       "7": 1
+      }
+     },
+     "heading_only_F_upper_bound_from_counts": 0.0213,
+     "scorer": {
+      "pred_counted": 28,
+      "gold_counted": 2605,
+      "child_count": {
+       "eligible": 0,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 0,
+       "accuracy": null
+      },
+      "structure": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 28,
+        "FN": 2605
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 28,
+        "FN": 2605
+       },
+       "heading_only": {
+        "P": 0.107143,
+        "R": 0.001152,
+        "F": 0.002279,
+        "TP": 3,
+        "FP": 25,
+        "FN": 2602
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 4
+        },
+        "3": {
+         "TP": 0,
+         "FP": 5,
+         "FN": 6
+        },
+        "4": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 16
+        },
+        "5": {
+         "TP": 0,
+         "FP": 5,
+         "FN": 30
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 60
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 89
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 115
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 214
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 300
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 378
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 253
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 203
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 204
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 198
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 157
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 107
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 84
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 43
+        },
+        "21": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 33
+        },
+        "22": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 35
+        },
+        "23": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 13
+        },
+        "24": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 356,
+      "announcements": 1,
+      "gates": 1,
+      "uddanas": 1,
+      "enters": 5,
+      "enters_unresolved": 5,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 103,
+      "wrappers": 2,
+      "report": 5,
+      "nodes": 18
+     },
+     "genre_gate_evidence": "title '大乘阿毘達磨集論'; 3 accepted announcements in 49093 characters (0.06 per 1,000); 0 glossator attributions (X曰：)"
+    },
+    "hybrid": {
+     "cell": "hybrid-OOD-T1605",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "fd0060385f08f92b",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 86,
+      "max_depth": 5,
+      "depth_histogram": {
+       "1": 2,
+       "2": 8,
+       "3": 37,
+       "4": 29,
+       "5": 10
+      },
+      "leaves": 69,
+      "leaf_depth_histogram": {
+       "3": 32,
+       "4": 27,
+       "5": 10
+      },
+      "roots": 2,
+      "mean_children_of_internal": 4.9412,
+      "origins": {
+       "explicit": 28,
+       "inferred": 58
+      }
+     },
+     "genre_gate": "outline",
+     "segmentation": {
+      "segments": 69,
+      "lines_before_first_node_share": 0.0004,
+      "largest_segment_by_chars": {
+       "lines": 445,
+       "line_share": 0.1634,
+       "chars": 8024,
+       "char_share": 0.1634,
+       "owner_depth": 2,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 445,
+       "line_share": 0.1634,
+       "chars": 8024,
+       "char_share": 0.1634,
+       "owner_depth": 2
+      },
+      "median_segment_lines": 7,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.0004,
+       "2": 0.2937,
+       "3": 0.2772,
+       "4": 0.2023,
+       "5": 0.2265
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 67,
+      "kinds": {
+       "preamble": 5,
+       "leaf": 62
+      },
+      "largest_span": {
+       "kind": "preamble",
+       "node_depth": 2,
+       "chars": 8024,
+       "char_share": 0.1634,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 0.999,
+      "nodes_unplaced": 10
+     },
+     "pred_distinct_start_lines": 69,
+     "nodes_without_start_line": 1,
+     "node_source": {
+      "tier1": 10,
+      "tier2_or_other_explicit": 18,
+      "resolver_inferred": 58
+     },
+     "heading_verbatim_in_text": {
+      "headings": 86,
+      "verbatim_exact_share": 0.3953,
+      "verbatim_ignoring_punct": 34,
+      "verbatim_ignoring_punct_share": 0.3953,
+      "len_ge5_verbatim_ignoring_punct_share": 0.25,
+      "len_ge5_n": 52,
+      "distinct": 86,
+      "distinct_verbatim_ignoring_punct_share": 0.3953,
+      "median_len_chars_no_punct": 6,
+      "by_length_no_punct": {
+       "1-2": {
+        "n": 4,
+        "verbatim": 4,
+        "share": 1.0
+       },
+       "3-4": {
+        "n": 30,
+        "verbatim": 17,
+        "share": 0.5667
+       },
+       "5-8": {
+        "n": 42,
+        "verbatim": 12,
+        "share": 0.2857
+       },
+       "9+": {
+        "n": 10,
+        "verbatim": 1,
+        "share": 0.1
+       }
+      }
+     },
+     "heading_verbatim_by_source": {
+      "resolver_inferred": {
+       "n": 58,
+       "verbatim": 16,
+       "share": 0.2759
+      },
+      "tier1": {
+       "n": 10,
+       "verbatim": 0,
+       "share": 0.0
+      },
+      "tier2": {
+       "n": 18,
+       "verbatim": 18,
+       "share": 1.0
+      }
+     },
+     "pred_headings_equal_some_gold_heading": {
+      "nodes": 17,
+      "by_origin": {
+       "explicit": 3,
+       "inferred": 14
+      },
+      "length_no_punct_histogram": {
+       "2": 4,
+       "3": 5,
+       "4": 5,
+       "5": 1,
+       "6": 1,
+       "7": 1
+      }
+     },
+     "heading_only_F_upper_bound_from_counts": 0.0639,
+     "scorer": {
+      "pred_counted": 86,
+      "gold_counted": 2605,
+      "child_count": {
+       "eligible": 0,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 0,
+       "accuracy": null
+      },
+      "structure": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 86,
+        "FN": 2605
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 86,
+        "FN": 2605
+       },
+       "heading_only": {
+        "P": 0.197674,
+        "R": 0.006526,
+        "F": 0.012635,
+        "TP": 17,
+        "FP": 69,
+        "FN": 2588
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 2,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 8,
+         "FN": 4
+        },
+        "3": {
+         "TP": 0,
+         "FP": 37,
+         "FN": 6
+        },
+        "4": {
+         "TP": 0,
+         "FP": 29,
+         "FN": 16
+        },
+        "5": {
+         "TP": 0,
+         "FP": 10,
+         "FN": 30
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 60
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 89
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 115
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 214
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 300
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 378
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 253
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 203
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 204
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 198
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 157
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 107
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 52
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 84
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 43
+        },
+        "21": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 33
+        },
+        "22": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 35
+        },
+        "23": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 13
+        },
+        "24": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 8
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": {
+      "statements": 356,
+      "announcements": 1,
+      "gates": 1,
+      "uddanas": 1,
+      "enters": 5,
+      "enters_unresolved": 5,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 103,
+      "wrappers": 2,
+      "report": 5,
+      "nodes": 18
+     },
+     "genre_gate_evidence": "title '大乘阿毘達磨集論'; 3 accepted announcements in 49093 characters (0.06 per 1,000); 0 glossator attributions (X曰：)",
+     "resolver_tasks": {
+      "subdivide": {
+       "requests": 7,
+       "answered": 7,
+       "no_model": 0,
+       "pending": 0,
+       "invalid": 0,
+       "accepted": 8,
+       "rejected": 0,
+       "ignored": 0,
+       "not_answered": 2,
+       "skipped": 0
+      },
+      "adjudicate": {
+       "requests": 3,
+       "answered": 3,
+       "no_model": 0,
+       "pending": 0,
+       "invalid": 0,
+       "accepted": 1,
+       "rejected": 0,
+       "ignored": 4,
+       "not_answered": 0,
+       "skipped": 0
+      }
+     }
+    }
+   }
+  },
+  "OOD-T1602": {
+   "file": "T31n1602",
+   "gold": "ybh-T1602",
+   "gold_sha256_16": "81014a18e3d7f08c",
+   "mode": "structure",
+   "text": {
+    "lines": 8955,
+    "chars": 160026
+   },
+   "gold_aggregate": {
+    "nodes": 2594,
+    "max_depth": 20,
+    "depth_histogram": {
+     "1": 3,
+     "2": 3,
+     "3": 7,
+     "4": 11,
+     "5": 20,
+     "6": 59,
+     "7": 146,
+     "8": 173,
+     "9": 261,
+     "10": 434,
+     "11": 488,
+     "12": 384,
+     "13": 198,
+     "14": 163,
+     "15": 67,
+     "16": 50,
+     "17": 50,
+     "18": 35,
+     "19": 37,
+     "20": 5
+    },
+    "leaves": 1885,
+    "leaf_depth_histogram": {
+     "1": 2,
+     "5": 5,
+     "6": 21,
+     "7": 83,
+     "8": 112,
+     "9": 128,
+     "10": 316,
+     "11": 407,
+     "12": 330,
+     "13": 151,
+     "14": 140,
+     "15": 49,
+     "16": 36,
+     "17": 36,
+     "18": 28,
+     "19": 36,
+     "20": 5
+    },
+    "roots": 3,
+    "mean_children_of_internal": 3.6544,
+    "origins": {
+     "imported": 2594
+    },
+    "nodes_per_line": 0.2897,
+    "segmentation": null,
+    "boundary_F1": "impossible: DILA YBh -kp.txt carries no Taishō anchors; every gold node has locations.scheme none and flag unmapped (no start line to compare)",
+    "heading_verbatim_in_text": {
+     "headings": 2594,
+     "verbatim_exact_share": 0.5933,
+     "verbatim_ignoring_punct": 1567,
+     "verbatim_ignoring_punct_share": 0.6041,
+     "len_ge5_verbatim_ignoring_punct_share": 0.4536,
+     "len_ge5_n": 776,
+     "distinct": 2015,
+     "distinct_verbatim_ignoring_punct_share": 0.6283,
+     "median_len_chars_no_punct": 3,
+     "by_length_no_punct": {
+      "1-2": {
+       "n": 926,
+       "verbatim": 648,
+       "share": 0.6998
+      },
+      "3-4": {
+       "n": 892,
+       "verbatim": 567,
+       "share": 0.6357
+      },
+      "5-8": {
+       "n": 669,
+       "verbatim": 308,
+       "share": 0.4604
+      },
+      "9+": {
+       "n": 107,
+       "verbatim": 44,
+       "share": 0.4112
+      }
+     }
+    }
+   },
+   "arms": {
+    "tier1": {
+     "cell": "tier1-OOD-T1602",
+     "status": "built",
+     "leaked": false,
+     "outline_sha256_16": "c91a042d9c1500a5",
+     "outline_written_but_failed_validation": false,
+     "pred_aggregate": {
+      "nodes": 11,
+      "max_depth": 1,
+      "depth_histogram": {
+       "1": 11
+      },
+      "leaves": 11,
+      "leaf_depth_histogram": {
+       "1": 11
+      },
+      "roots": 11,
+      "mean_children_of_internal": null,
+      "origins": {
+       "explicit": 11
+      }
+     },
+     "segmentation": {
+      "segments": 11,
+      "lines_before_first_node_share": 0.0008,
+      "largest_segment_by_chars": {
+       "lines": 3738,
+       "line_share": 0.4174,
+       "chars": 67057,
+       "char_share": 0.419,
+       "owner_depth": 1,
+       "over_MAX_TEXT_CHARS": true
+      },
+      "largest_segment_by_lines": {
+       "lines": 3738,
+       "line_share": 0.4174,
+       "chars": 67057,
+       "char_share": 0.419,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 263,
+      "segments_over_MAX_TEXT_CHARS": 1,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.419,
+      "line_share_by_owner_depth": {
+       "0": 0.0008,
+       "1": 0.9992
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 11,
+      "kinds": {
+       "leaf": 11
+      },
+      "largest_span": {
+       "kind": "leaf",
+       "node_depth": 1,
+       "chars": 67057,
+       "char_share": 0.419,
+       "over_MAX_TEXT_CHARS": true
+      },
+      "coverage_ratio": 0.9997,
+      "nodes_unplaced": 0
+     },
+     "pred_distinct_start_lines": 11,
+     "nodes_without_start_line": 0,
+     "node_source": {
+      "tier1": 11
+     },
+     "heading_verbatim_in_text": {
+      "headings": 11,
+      "verbatim_exact_share": 0.0,
+      "verbatim_ignoring_punct": 0,
+      "verbatim_ignoring_punct_share": 0.0,
+      "len_ge5_verbatim_ignoring_punct_share": 0.0,
+      "len_ge5_n": 8,
+      "distinct": 11,
+      "distinct_verbatim_ignoring_punct_share": 0.0,
+      "median_len_chars_no_punct": 5,
+      "by_length_no_punct": {
+       "3-4": {
+        "n": 3,
+        "verbatim": 0,
+        "share": 0.0
+       },
+       "5-8": {
+        "n": 8,
+        "verbatim": 0,
+        "share": 0.0
+       }
+      }
+     },
+     "heading_verbatim_by_source": {
+      "tier1": {
+       "n": 11,
+       "verbatim": 0,
+       "share": 0.0
+      }
+     },
+     "pred_headings_equal_some_gold_heading": {
+      "nodes": 0,
+      "by_origin": {},
+      "length_no_punct_histogram": {}
+     },
+     "heading_only_F_upper_bound_from_counts": 0.0084,
+     "scorer": {
+      "pred_counted": 11,
+      "gold_counted": 2594,
+      "child_count": {
+       "eligible": 0,
+       "correct": 0,
+       "wrong": 0,
+       "missing": 0,
+       "accuracy": null
+      },
+      "structure": {
+       "s_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 11,
+        "FN": 2594
+       },
+       "f_f1": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 11,
+        "FN": 2594
+       },
+       "heading_only": {
+        "P": 0.0,
+        "R": 0.0,
+        "F": 0.0,
+        "TP": 0,
+        "FP": 11,
+        "FN": 2594
+       },
+       "per_depth": {
+        "1": {
+         "TP": 0,
+         "FP": 11,
+         "FN": 3
+        },
+        "2": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 3
+        },
+        "3": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 7
+        },
+        "4": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 11
+        },
+        "5": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 20
+        },
+        "6": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 59
+        },
+        "7": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 146
+        },
+        "8": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 173
+        },
+        "9": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 261
+        },
+        "10": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 434
+        },
+        "11": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 488
+        },
+        "12": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 384
+        },
+        "13": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 198
+        },
+        "14": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 163
+        },
+        "15": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 67
+        },
+        "16": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 50
+        },
+        "17": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 50
+        },
+        "18": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 35
+        },
+        "19": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 37
+        },
+        "20": {
+         "TP": 0,
+         "FP": 0,
+         "FN": 5
+        }
+       },
+       "absorbed_into_merged_range": 0
+      }
+     },
+     "tier2_stats": null
+    },
+    "tier2": {
+     "cell": "tier2-OOD-T1602",
+     "status": "failed",
+     "leaked": false,
+     "error_kind": "RuntimeError",
+     "outline_sha256_16": "4666cd17adfa1dd4",
+     "outline_written_but_failed_validation": true,
+     "pred_aggregate": {
+      "nodes": 117,
+      "max_depth": 10,
+      "depth_histogram": {
+       "1": 11,
+       "2": 5,
+       "3": 21,
+       "4": 24,
+       "5": 5,
+       "6": 9,
+       "7": 8,
+       "8": 17,
+       "9": 11,
+       "10": 6
+      },
+      "leaves": 86,
+      "leaf_depth_histogram": {
+       "1": 7,
+       "3": 7,
+       "4": 23,
+       "5": 3,
+       "6": 8,
+       "7": 7,
+       "8": 15,
+       "9": 10,
+       "10": 6
+      },
+      "roots": 11,
+      "mean_children_of_internal": 3.4194,
+      "origins": {
+       "explicit": 117
+      }
+     },
+     "genre_gate": "outline",
+     "segmentation": {
+      "segments": 90,
+      "lines_before_first_node_share": 0.0008,
+      "largest_segment_by_chars": {
+       "lines": 1386,
+       "line_share": 0.1548,
+       "chars": 24802,
+       "char_share": 0.155,
+       "owner_depth": 1,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "largest_segment_by_lines": {
+       "lines": 1386,
+       "line_share": 0.1548,
+       "chars": 24802,
+       "char_share": 0.155,
+       "owner_depth": 1
+      },
+      "median_segment_lines": 16,
+      "segments_over_MAX_TEXT_CHARS": 0,
+      "char_share_in_segments_over_MAX_TEXT_CHARS": 0.0,
+      "line_share_by_owner_depth": {
+       "0": 0.0008,
+       "1": 0.4456,
+       "2": 0.0051,
+       "3": 0.1664,
+       "4": 0.1244,
+       "5": 0.0047,
+       "6": 0.0404,
+       "7": 0.02,
+       "8": 0.0915,
+       "9": 0.0965,
+       "10": 0.0047
+      }
+     },
+     "pipeline_segmentation": {
+      "spans": 45,
+      "kinds": {
+       "preamble": 13,
+       "leaf": 32
+      },
+      "largest_span": {
+       "kind": "preamble",
+       "node_depth": 5,
+       "chars": 35218,
+       "char_share": 0.2201,
+       "over_MAX_TEXT_CHARS": false
+      },
+      "coverage_ratio": 0.9997,
+      "nodes_unplaced": 72
+     },
+     "pred_distinct_start_lines": 90,
+     "nodes_without_start_line": 12,
+     "node_source": {
+      "tier1": 11,
+      "tier2_or_other_explicit": 106
+     },
+     "heading_verbatim_in_text": {
+      "headings": 117,
+      "verbatim_exact_share": 0.906,
+      "verbatim_ignoring_punct": 106,
+      "verbatim_ignoring_punct_share": 0.906,
+      "len_ge5_verbatim_ignoring_punct_share": 0.8873,
+      "len_ge5_n": 71,
+      "distinct": 108,
+      "distinct_verbatim_ignoring_punct_share": 0.8981,
+      "median_len_chars_no_punct": 5,
+      "by_length_no_punct": {
+       "1-2": {
+        "n": 18,
+        "verbatim": 18,
+        "share": 1.0
+       },
+       "3-4": {
+        "n": 28,
+        "verbatim": 25,
+        "share": 0.8929
+       },
+       "5-8": {
+        "n": 52,
+        "verbatim": 44,
+        "share": 0.8462
+       },
+       "9+": {
+        "n": 19,
+        "verbatim": 19,
+        "share": 1.0
+       }
+      }
+     },
+     "heading_verbatim_by_source": {
+      "tier1": {
+       "n": 11,
+       "verbatim": 0,
+       "share": 0.0
+      },
+      "tier2": {
+       "n": 106,
+       "verbatim": 106,
+       "share": 1.0
+      }
+     },
+     "pred_headings_equal_some_gold_heading": {
+      "nodes": 17,
+      "by_origin": {
+       "explicit": 17
+      },
+      "length_no_punct_histogram": {
+       "1": 1,
+       "2": 2,
+       "3": 6,
+       "4": 1,
+       "5": 7
+      }
+     },
+     "heading_only_F_upper_bound_from_counts": 0.0863,
+     "sibling_order": {
+      "violations": 1,
+      "where": [
+       {
+        "level": 8,
+        "sibling_index": 5,
+        "siblings": 17
+       }
+      ]
+     },
+     "not_taken_up_repairs_applied": 12,
+     "tier2_stats": {
+      "statements": 2251,
+      "announcements": 18,
+      "gates": 0,
+      "uddanas": 8,
+      "enters": 65,
+      "enters_unresolved": 13,
+      "closes": 0,
+      "lemmas": 0,
+      "rejected": 167,
+      "wrappers": 4,
+      "report": 29,
+      "nodes": 106
+     },
+     "genre_gate_evidence": "title '顯揚聖教論'; 27 accepted announcements in 160026 characters (0.17 per 1,000); 0 glossator attributions (X曰：)"
+    },
+    "hybrid": {
+     "cell": "hybrid-OOD-T1602",
+     "status": "failed",
+     "leaked": false,
+     "error_kind": "ValueError"
+    }
+   },
+   "t1602_bug": {
+    "where": "pipeline/src/chinese_workflow/outline/tier2/parser.py:743-762 _self_mode_order",
+    "description": "Self-outlining mode requires explained positions to be non-decreasing among siblings. _self_mode_order repairs a violation only for an item that was listed but never entered (`and not c.entered`, line 750): it nulls that item's explained position. When the out-of-order item WAS entered (taken up in the text), nothing repairs it; the tier-2 outline then fails validation [sibling-order], pipeline.py:269-270 raises (tier2) and resolver.py:1215-1218 refuses the input outline (hybrid)."
+   }
+  }
+ },
+ "summary": {
+  "OOD-X0268": {
+   "why_near_zero": [
+    "tier 2 adds nothing: genre gate decision no-structure (title '楞嚴經集註'; 10 accepted announcements in 310630 characters (0.03 per 1,000); 0 glossator attributions (X曰：); 註 genre (R07 F2): the title marks a 註 and announcements are sparse); tier1 and tier2 outlines are identical (26 nodes, depth 4, 21 leaves) vs gold 2611 nodes, depth 28, 1505 leaves.",
+    "the body (tier-1 unit 7_1) is one leaf of 9357 lines (91.2% of lines) and 300157 characters (96.6% of characters, 7.5x MAX_TEXT_CHARS=40000); the resolver skips it ({'span longer than 40000 characters': 1}) and every one of the gold's 2611 nodes (1505 distinct start lines) starts inside it; the gold's first start line is 11 lines after the body's first line.",
+    "hybrid's 14 inferred nodes start in the front matter (11) and the printed chart unit 6_1 (3), none in the body; 0 of its 10 new start lines are gold start lines at t=0 or t=1.",
+    "the printed 科 chart (unit 6_1, 537 lines, 3466 characters) holds 0 gold start lines but 236 of the gold's 1533 distinct headings of 4+ characters verbatim (punctuation-insensitive), against 2 in the body text: the chart restates the gold's labels where no gold node sits."
+   ],
+   "boundary_F1_t0_t1": {
+    "tier1": [
+     0.0,
+     0.0
+    ],
+    "tier2": [
+     0.0,
+     0.0
+    ],
+    "hybrid": [
+     0.0,
+     0.0
+    ]
+   },
+   "boundary_chance_F_t0_t1_hybrid": [
+    0.0065,
+    0.016
+   ],
+   "gold_largest_segment_line_share": 0.0128,
+   "pred_largest_segment_line_share": {
+    "tier1": 0.9125,
+    "tier2": 0.9125,
+    "hybrid": 0.9125
+   }
+  },
+  "OOD-P1573": {
+   "why_near_zero": [
+    "tier 1 finds 2 level-1 nodes only (no 科判 markup in the README input); tier 2 adds none (genre gate outline: title '修懺要旨'; 0 accepted announcements in 3675 characters (0.00 per 1,000); 0 glossator attributions (X曰：)). The largest predicted segment is 92.5% of lines vs 4.2% for the gold's largest; gold 127 nodes, depth 14, 80 distinct start lines on 335 lines.",
+    "hybrid adds 15 inferred nodes at levels {'2': 5, '3': 10}; 11 new distinct start lines, of which 10 are gold start lines at t=0 (11 at t=1). At those lines the shallowest gold level is {2: 1, 3: 1, 5: 1, 6: 1, 7: 5, 4: 1}, so placed at levels 2/3 they mostly fail the (line, depth, parent path) key: S-F1 t=0 TP 3 (line+depth match TP 3) while the node-level locator-only TP is 14."
+   ],
+   "boundary_F1": {
+    "tier1": {
+     "t0": 0.0244,
+     "t1": 0.0488,
+     "P_t0": 0.5
+    },
+    "tier2": {
+     "t0": 0.0244,
+     "t1": 0.0488,
+     "P_t0": 0.5
+    },
+    "hybrid": {
+     "t0": 0.2366,
+     "t1": 0.2796,
+     "P_t0": 0.8462
+    }
+   },
+   "boundary_chance": {
+    "precision_t0": 0.2388,
+    "F_t0_hybrid": 0.0668
+   },
+   "S_F1_t0": {
+    "tier1": 0.015504,
+    "tier2": 0.015504,
+    "hybrid": 0.041667
+   },
+   "locator_only_F_t0": {
+    "tier1": 0.015504,
+    "tier2": 0.015504,
+    "hybrid": 0.194444
+   }
+  },
+  "OOD-D8842": {
+   "why_near_zero": [
+    "tier 1 finds 2 level-1 nodes only (no 科判 markup in the README input); tier 2 adds none (genre gate no-structure: title '般若心經註解'; 0 accepted announcements in 5706 characters (0.00 per 1,000); 0 glossator attributions (X曰：); 註 genre (R07 F2): the title marks a 註 and announcements are sparse). The largest predicted segment is 95.6% of lines vs 12.6% for the gold's largest; gold 40 nodes, depth 10, 35 distinct start lines on 182 lines.",
+    "hybrid adds 4 inferred nodes at levels {'2': 4}; 3 new distinct start lines, of which 2 are gold start lines at t=0 (2 at t=1). At those lines the shallowest gold level is {4: 1, 6: 1}, so placed at levels 2 they mostly fail the (line, depth, parent path) key: S-F1 t=0 TP 1 (line+depth match TP 1) while the node-level locator-only TP is 3."
+   ],
+   "boundary_F1": {
+    "tier1": {
+     "t0": 0.0541,
+     "t1": 0.0541,
+     "P_t0": 0.5
+    },
+    "tier2": {
+     "t0": 0.0541,
+     "t1": 0.0541,
+     "P_t0": 0.5
+    },
+    "hybrid": {
+     "t0": 0.15,
+     "t1": 0.15,
+     "P_t0": 0.6
+    }
+   },
+   "boundary_chance": {
+    "precision_t0": 0.1923,
+    "F_t0_hybrid": 0.0481
+   },
+   "S_F1_t0": {
+    "tier1": 0.047619,
+    "tier2": 0.047619,
+    "hybrid": 0.043478
+   },
+   "locator_only_F_t0": {
+    "tier1": 0.047619,
+    "tier2": 0.047619,
+    "hybrid": 0.130435
+   }
+  },
+  "OOD-T1605": {
+   "gold": {
+    "nodes": 2605,
+    "max_depth": 24,
+    "leaves": 1688,
+    "nodes_per_text_line": 0.9563
+   },
+   "gold_heading_src_verbatim_in_text": {
+    "all": 0.4587,
+    "exact_with_punct": 0.4549,
+    "len_ge5": 0.1469,
+    "len_ge5_n": 701,
+    "by_length": {
+     "1-2": {
+      "n": 1058,
+      "verbatim": 775,
+      "share": 0.7325
+     },
+     "3-4": {
+      "n": 846,
+      "verbatim": 317,
+      "share": 0.3747
+     },
+     "5-8": {
+      "n": 591,
+      "verbatim": 94,
+      "share": 0.1591
+     },
+     "9+": {
+      "n": 110,
+      "verbatim": 9,
+      "share": 0.0818
+     }
+    }
+   },
+   "arms": {
+    "tier1": {
+     "status": "built",
+     "nodes": 10,
+     "max_depth": 2,
+     "structure_S_F1": 0.0,
+     "heading_only_F": 0.0,
+     "heading_only_TP": 0,
+     "heading_only_F_upper_bound_from_counts": 0.0076,
+     "pred_headings_equal_some_gold_heading": 0,
+     "pred_heading_verbatim_by_source": {
+      "tier1": {
+       "n": 10,
+       "verbatim": 0,
+       "share": 0.0
+      }
+     }
+    },
+    "tier2": {
+     "status": "built",
+     "nodes": 28,
+     "max_depth": 5,
+     "structure_S_F1": 0.0,
+     "heading_only_F": 0.002279,
+     "heading_only_TP": 3,
+     "heading_only_F_upper_bound_from_counts": 0.0213,
+     "pred_headings_equal_some_gold_heading": 3,
+     "pred_heading_verbatim_by_source": {
+      "tier1": {
+       "n": 10,
+       "verbatim": 0,
+       "share": 0.0
+      },
+      "tier2": {
+       "n": 18,
+       "verbatim": 18,
+       "share": 1.0
+      }
+     }
+    },
+    "hybrid": {
+     "status": "built",
+     "nodes": 86,
+     "max_depth": 5,
+     "structure_S_F1": 0.0,
+     "heading_only_F": 0.012635,
+     "heading_only_TP": 17,
+     "heading_only_F_upper_bound_from_counts": 0.0639,
+     "pred_headings_equal_some_gold_heading": 17,
+     "pred_heading_verbatim_by_source": {
+      "resolver_inferred": {
+       "n": 58,
+       "verbatim": 16,
+       "share": 0.2759
+      },
+      "tier1": {
+       "n": 10,
+       "verbatim": 0,
+       "share": 0.0
+      },
+      "tier2": {
+       "n": 18,
+       "verbatim": 18,
+       "share": 1.0
+      }
+     }
+    }
+   },
+   "boundary_F1": "impossible: DILA YBh -kp.txt carries no Taishō anchors; every gold node has locations.scheme none and flag unmapped (no start line to compare)"
+  },
+  "OOD-T1602": {
+   "gold": {
+    "nodes": 2594,
+    "max_depth": 20,
+    "leaves": 1885,
+    "nodes_per_text_line": 0.2897
+   },
+   "gold_heading_src_verbatim_in_text": {
+    "all": 0.6041,
+    "exact_with_punct": 0.5933,
+    "len_ge5": 0.4536,
+    "len_ge5_n": 776,
+    "by_length": {
+     "1-2": {
+      "n": 926,
+      "verbatim": 648,
+      "share": 0.6998
+     },
+     "3-4": {
+      "n": 892,
+      "verbatim": 567,
+      "share": 0.6357
+     },
+     "5-8": {
+      "n": 669,
+      "verbatim": 308,
+      "share": 0.4604
+     },
+     "9+": {
+      "n": 107,
+      "verbatim": 44,
+      "share": 0.4112
+     }
+    }
+   },
+   "arms": {
+    "tier1": {
+     "status": "built",
+     "nodes": 11,
+     "max_depth": 1,
+     "structure_S_F1": 0.0,
+     "heading_only_F": 0.0,
+     "heading_only_TP": 0,
+     "heading_only_F_upper_bound_from_counts": 0.0084,
+     "pred_headings_equal_some_gold_heading": 0,
+     "pred_heading_verbatim_by_source": {
+      "tier1": {
+       "n": 11,
+       "verbatim": 0,
+       "share": 0.0
+      }
+     }
+    },
+    "tier2": {
+     "status": "failed",
+     "nodes": 117,
+     "max_depth": 10,
+     "structure_S_F1": null,
+     "heading_only_F": null,
+     "heading_only_TP": null,
+     "heading_only_F_upper_bound_from_counts": 0.0863,
+     "pred_headings_equal_some_gold_heading": 17,
+     "pred_heading_verbatim_by_source": {
+      "tier1": {
+       "n": 11,
+       "verbatim": 0,
+       "share": 0.0
+      },
+      "tier2": {
+       "n": 106,
+       "verbatim": 106,
+       "share": 1.0
+      }
+     }
+    },
+    "hybrid": {
+     "status": "failed",
+     "nodes": null,
+     "max_depth": null,
+     "structure_S_F1": null,
+     "heading_only_F": null,
+     "heading_only_TP": null,
+     "heading_only_F_upper_bound_from_counts": null,
+     "pred_headings_equal_some_gold_heading": null,
+     "pred_heading_verbatim_by_source": null
+    }
+   },
+   "boundary_F1": "impossible: DILA YBh -kp.txt carries no Taishō anchors; every gold node has locations.scheme none and flag unmapped (no start line to compare)",
+   "bug": {
+    "where": "pipeline/src/chinese_workflow/outline/tier2/parser.py:743-762 _self_mode_order",
+    "description": "Self-outlining mode requires explained positions to be non-decreasing among siblings. _self_mode_order repairs a violation only for an item that was listed but never entered (`and not c.entered`, line 750): it nulls that item's explained position. When the out-of-order item WAS entered (taken up in the text), nothing repairs it; the tier-2 outline then fails validation [sibling-order], pipeline.py:269-270 raises (tier2) and resolver.py:1215-1218 refuses the input outline (hybrid).",
+    "failing_outline_nodes": 117,
+    "failing_outline_max_depth": 10,
+    "sibling_order_violations": 1,
+    "violation_at": [
+     {
+      "level": 8,
+      "sibling_index": 5,
+      "siblings": 17
+     }
+    ],
+    "not_taken_up_repairs_already_applied": 12,
+    "lost": "one out-of-order pair of entered siblings (1 of 117 nodes) discards the whole tier2 outline and the hybrid arm built on it"
+   }
+  },
+  "LEAKED_markup": {
+   "OOD-X0268": {
+    "tier1-markup": {
+     "status": "failed",
+     "boundary_F1_t0": 0.9921,
+     "line_and_depth_F_t0": 0.995,
+     "S_F1_t0": null,
+     "locator_only_F_t0": null,
+     "level1_check": {
+      "gold_level1": 3,
+      "pred_level1": 10,
+      "pred_level1_nodes_on_a_gold_level1_line": 3,
+      "kepan_nodes_not_at_a_gold_line_and_level": 0
+     }
+    },
+    "tier2-markup": {
+     "status": "failed",
+     "boundary_F1_t0": 0.9921,
+     "line_and_depth_F_t0": 0.995,
+     "S_F1_t0": null,
+     "locator_only_F_t0": null,
+     "level1_check": {
+      "gold_level1": 3,
+      "pred_level1": 10,
+      "pred_level1_nodes_on_a_gold_level1_line": 3,
+      "kepan_nodes_not_at_a_gold_line_and_level": 0
+     }
+    }
+   },
+   "OOD-P1573": {
+    "tier1-markup": {
+     "status": "built",
+     "boundary_F1_t0": 0.9938,
+     "line_and_depth_F_t0": 0.375,
+     "S_F1_t0": 0.023438,
+     "locator_only_F_t0": 0.992188,
+     "level1_check": {
+      "gold_level1": 2,
+      "pred_level1": 2,
+      "pred_level1_nodes_on_a_gold_level1_line": 1,
+      "kepan_nodes_not_at_a_gold_line_and_level": 80
+     }
+    },
+    "tier2-markup": {
+     "status": "built",
+     "boundary_F1_t0": 0.9938,
+     "line_and_depth_F_t0": 0.375,
+     "S_F1_t0": 0.023438,
+     "locator_only_F_t0": 0.992188,
+     "level1_check": {
+      "gold_level1": 2,
+      "pred_level1": 2,
+      "pred_level1_nodes_on_a_gold_level1_line": 1,
+      "kepan_nodes_not_at_a_gold_line_and_level": 80
+     }
+    }
+   },
+   "OOD-D8842": {
+    "tier1-markup": {
+     "status": "built",
+     "boundary_F1_t0": 0.9859,
+     "line_and_depth_F_t0": 0.9756,
+     "S_F1_t0": 0.02439,
+     "locator_only_F_t0": 0.97561,
+     "level1_check": {
+      "gold_level1": 1,
+      "pred_level1": 3,
+      "pred_level1_nodes_on_a_gold_level1_line": 2,
+      "kepan_nodes_not_at_a_gold_line_and_level": 0
+     }
+    },
+    "tier2-markup": {
+     "status": "built",
+     "boundary_F1_t0": 0.9859,
+     "line_and_depth_F_t0": 0.9756,
+     "S_F1_t0": 0.02439,
+     "locator_only_F_t0": 0.97561,
+     "level1_check": {
+      "gold_level1": 1,
+      "pred_level1": 3,
+      "pred_level1_nodes_on_a_gold_level1_line": 2,
+      "kepan_nodes_not_at_a_gold_line_and_level": 0
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,113 @@
+# work	adjudicated level-1 count (root text's division as announced/applied in juan 1)	note (read on 2026-09-22 from out/api/juans_<work>_1.json; regex candidates in level1_matches.tsv, contexts in level1_checks.txt)
+# vocabulary: integer = count announced; "3" = tripartite 序/正/流通 or another 3-fold; a|b = two schemes presented; none = no level-1 division of the root text in juan 1 (注-type, 玄義/遊意/宗要 essay, or sub-commentary on a 疏); none-in-juan1 = division stated in a later fascicle or juan 1 is preliminaries only
+T1693	none	注-type (人本欲生經註), no division
+T1694	none	注-type (陰持入經註), no division
+T1695	3	於此經中略有三分 (序分 …); 理趣分 述讚
+T1696	none	遊意 essay (明體凡有四釋 is doctrinal)
+T1697	none	宗要 essay; 此經六百有十六分 describes the 大般若's own 16 assemblies, not a kēpàn
+T1698	3	就此一經開為三段，序、正、流通; also lists Vasubandhu's 12 分 (…十二流通分)
+T1699	3	此經序、正、流通三分具足; rejects the 北土 12-分 and 6-章 schemes at length
+T1700	3	Asaṅga 七義句: 此七之初三科判此經，總有三段 (labels 善現讚嘆… non-tripartite)
+T1701	3	後釋經文准常三分：初、序分，二、正宗分，三、流通分; 正宗 then by 七義句
+T1702	none	刊定記 (sub-commentary on T1701); juan 1 preliminaries
+T1703	3	tripartition present only as CBETA cb:mulu nodes 序分/正宗分/流通分 (works/toc); running text rejects the 32 分 (分三十二分者…故不取焉) and follows 天親's 27 疑 — no announcement formula
+T1704	3	第五分文解釋者，經文有三：初序分、二正宗、三流通
+T1705	3	此經八品，〈序品〉為序分，〈觀空〉下六品為正說分，〈囑累品〉為流通分 (also in CBETA mulu 分:3)
+T1706	3	神寶記 (sub-commentary) restates T1705: 二正分三分…有序分焉、有正宗焉、有流通焉
+T1707	3	此經有八品，分為三段：第一〈序品〉即為序分；第二〈觀空品〉下六品為正說分；第三…
+T1708	3	今判此經，依《佛地論》大分為三 (教起因緣/聖教所說/依教奉行); records 本記 大分為四 (發起/正說/王得護國/流通)
+T1709	3	今判此經，依彼三分：一教起因緣分…; records 真諦記 大分為四 and 道安 三分
+T1710	2|3	Kuiji gives two readings: 勝空者言…略有二分; 如應者言…總有三分 (心經)
+T1711	3	於此經中總有三分 (能觀智/所觀境/…), 圓測 心經贊
+T1712	2	此既心經，是以無序及流通也。文中分二，初顯了般若，後…祕密般若 (法藏)
+T1713	none	連珠記 (sub-commentary on T1712); notes 慈恩: 三分二序，故皆遺闕
+T1714	none	註解, no division
+T1715	3	序 / 正說 (方便 … 分別功德 彌勒說偈, 凡有十四品半) / 流通 (十一品半); CBETA mulu 分:3
+T1716	none	玄義 (no text division)
+T1717	none	釋籤 (sub-commentary on 玄義)
+T1718	3	天台智者分文為三 (序 1 品 / 正 15.5 品 / 流通 11.5 品) + co-equal 又一時分為二 (迹/本), each with 序正流通
+T1719	3	文句記 (sub-commentary) restates 安公…始分三段，謂序、正、流通 and follows 文句
+T1720	none	玄論 (六門 essay)
+T1721	3	推文考義，三段最長，宜須用之 (adopts 序正流通 after criticising it); records 印法師 4 段, 光宅 3×2 = 6 段, 河西 5 門
+T1722	none	遊意 essay (義有二章 is doctrinal)
+T1723	3	今為二解：初一品名序分，次八品名正宗…餘十九品總名流通; alt. 正宗 = 一乘境 (12 品)/行 (2 品)/果 (5 品); cites 古遵 2-fold, 吉藏 and 淨法師 3-fold
+T1724	none	義決 (sub-commentary on 玄贊)
+T1725	none	宗要 (略開六門 essay)
+T1726	none	玄義
+T1727	none	玄義記
+T1728	3	普門品 chapter commentary: 今師有時亦作三段…但分為三章 (無盡意問/佛答/持地歎)；或為四章；或作二段 — 3 with alternatives 4 and 2
+T1729	none	義疏記 (sub-commentary)
+T1730	3	略開四門 preface; then 序分文竟。正說之中大分為二 — 序分/正說 (tripartite) applied
+T1731	none	遊意 essay
+T1732	3	隨文釋者，此一部教，大分有三：謂序、正、流通 (智儼 搜玄記)
+T1733	none-in-juan1	將釋此經略開十門; 隨文解釋 is gate 10, later
+T1734	none	綱目
+T1735	none-in-juan1	十門 preamble; 別解文義 (三分) begins in juan 4 (R01 F2)
+T1736	none	演義鈔 divides the 疏 (將釋此疏，大分為四) and maps it to 序/正/流通 為疏三分 — not the sūtra
+T1737	3	又束三十九品以為三分：初〈世主妙嚴品〉為序分，二〈現相品〉已下為正宗分，三從〈入法界品〉…
+T1738	none	頌釋章
+T1739	none-in-juan1	新華嚴經論 juan 1 = 十門 preamble
+T1740	none	大意略敘
+T1741	none	決疑論
+T1742	none	骨目 (會/品 listing)
+T1743	none	lecture record
+T1744	3	今略明三說：一分為七分、二開為二章、三開為三段; adopts 序分/正說分/流通分 spans (從初至…名序分…)
+T1745	3	此經始終，文別有三：序、正、流通 (慧遠)
+T1746	3	大判經例則有三段，謂序、正、流通 (吉藏)
+T1747	none	宗要 (略開四門)
+T1748	3	今觀此一部之經，宜作三分 (說經因起分/問答廣說分/…); rejects 有說 大開十分 and a 3-分 variant
+T1749	3	此經始終，文別有三，謂序、正、流通 (慧遠)
+T1750	3	分文為三：序、正、流通 (智顗 觀經疏)
+T1751	none	妙宗鈔 (sub-commentary)
+T1752	3	此經例為三段：序、正、流通 (吉藏)
+T1753	none-in-juan1	玄義分; the four-part 序/正宗/得益/流通 division with 從…至… spans is in juan 2 序分義 (R01 F2, S13)
+T1754	none-in-juan1	juan 1 = 玄義 (元照)
+T1755	3	分文三段，序、正、流通 (智顗 阿彌陀經義記)
+T1756	3	經開三分：一由序、二正體、三流通 (慧淨)
+T1757	3	今判此經，遵之往古亦為三節，謂序、正、流通; then maps 大悲經 five 分 (信/聞/時/主/處…) onto them
+T1758	3	此經之中總有三段 (窺基 通贊疏)
+T1759	3	文有三分：序、正、流通 (元曉)
+T1760	3	numbered headings only: 序 (六事) … 爾時下，二、正宗分 … 舍利弗下，三、流通分 (智圓) — no count formula
+T1761	3	次釋經文，大分三分：初至大眾俱為序分…正宗分…流通 (元照)
+T1762	3	入文為三：初序分、二正宗分、三流通分 (智旭)
+T1763	3|5	集解 collects masters: 曇濟 大判凡有三段 (勸/問/答分), 僧宗 經之始末凡有五別
+T1764	5	此經始終，文別有五：一者序分、二「純陀」下開宗顯德分… (慧遠)
+T1765	none	玄義
+T1766	none	發源機要 (sub-commentary)
+T1767	none-in-juan1	灌頂 涅槃疏 juan 1 reaches only 序 sub-divisions (通序/別序; 從「二月十五日」下，第二別序); tripartition implied, level-1 statement not in juan 1
+T1768	none	遊意 essay
+T1769	none	宗要
+T1770	none-in-juan1	古迹記 juan 1: no division statement matched
+T1771	none	遊意
+T1772	3	今此經中總有三分 (說經因起分/…) (窺基 上生經贊)
+T1773	none	宗要
+T1774	2	三彌勒經疏: 第五隨文解釋者，總分為二 (上生經 / 下生+成佛經); each sūtra then 略有三門 (來意/釋名/講文) gates
+T1775	none	注-type (肇曰/什曰 glosses), no division
+T1776	3	此之八分，要攝唯是序、正、流通; 於中進退凡有五階 = five views on the 正宗 boundary (慧遠 維摩義記)
+T1777	none	玄疏
+T1778	3	正分經者，經無大小例有三段，謂序、正、流通 (維摩經略疏)
+T1779	none	垂裕記 (sub-commentary)
+T1780	none	玄論 (釋名題/論宗旨/論會處 …)
+T1781	3	此經品凡十四，亦裁三別 (序 4 品/正說 6 品/流通 4 品); 通開此經雖有四會，唯例《華嚴》亦開三分 (吉藏)
+T1782	3	今科為三：初之一品，說經緣起分；次十一品，正陳本宗分；後之二品，讚授流通分 (窺基)
+T1783	none	玄義; 將釋此經，大分為二：初釋題、二釋文 is the commentary's own plan
+T1784	none	拾遺記 (sub-commentary)
+T1785	3	此四卷文，總有十八品，舊來分割盈縮不同 (江北諸師…); 夫三段者不可杜斷隔絕 — adopts 序/正/流通 with own boundaries
+T1786	none	文句記 (sub-commentary)
+T1787	3	此四卷中大判有三段：第一〈序品〉即是序說分；第二…正說分；第三〈讚佛〉一品，是流通說 (吉藏)
+T1788	3	依真諦判分為三分：初之一品是序分，十九品為正說，後兩品屬流通 (慧沼)
+T1789	none	註解 (宗泐)
+T1790	none	玄義 (法藏)
+T1791	3	自下正釋經文義，分為三：謂序、正、流通也 (寶臣 注入楞伽 — a 注 that does divide)
+T1792	none-in-juan1	將解此經，先開四段 (教起所因/藏乘所攝/辨定宗旨/正解經文) — gates; juan 1 is 3,214 chars
+T1793	3	此經三分：初明由序；一心聽下，是其正宗；阿難白佛當何名下，是其流通 (慧遠 溫室經義記)
+T1794	none	註四十二章經
+T1795	3	此下正釋經文。總分三分：謂序、正、流通 (宗密 圓覺略疏)
+T1796	none-in-juan1	大日經疏 juan 1: no level-1 statement matched
+T1797	3	此中有三分，謂序、正、流通。第一品是序、次三品是正說、末後一品是流通
+T1798	2	此瑜伽經大分為二：初偈頌總相歸讚、次長行等自他利行 (金剛頂經義訣)
+T1799	3	此下第十、別解文義。准常三分，謂序、正、流通 (子璿)
+T1800	3	分文為三：從如是至令得無患，是序分。第二…名正說分。第三…名流通分 (智顗 請觀音經疏)
+T1801	none	闡義鈔 (sub-commentary)
+T1802	3	three 大段: 序 (通序/別序) / 正說神呪，是受藥門 / 第三大段明修行方法，是利益門 (慧沼); quotes 道安 三段 and 天親 十二章
+T1803	3	此經一部，分為三分 (教起因緣分/聖教所說分/…), 佛地論 labels (法崇)

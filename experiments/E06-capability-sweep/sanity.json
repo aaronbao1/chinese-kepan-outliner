@@ -1,0 +1,2067 @@
+{
+ "schema": "e06-sanity/1",
+ "generated": "2026-10-01T09:36:54+00:00",
+ "script": "experiments/E06-capability-sweep/sanity_e06.py",
+ "frozen": {
+  "tag": "outliner-v0-frozen-2026-10-01",
+  "tag_commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+  "pipeline_identical_to_tag": true,
+  "pipeline_commit": {
+   "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "dirty": true
+  }
+ },
+ "seed": 20261001,
+ "note": "Aggregate numbers only. Gold vs itself is not an outliner look (no prediction scored); nothing was recorded in looks.json. Test / reserve splits were not scored.",
+ "gold_vs_itself": [
+  {
+   "key": "commentary.explained",
+   "split": "dev",
+   "frozen": null,
+   "line_order": {
+    "T34n1718": "cbeta-xml"
+   },
+   "counts": {
+    "pred": {
+     "nodes": 1458,
+     "scorable": 445,
+     "counted": 12,
+     "excluded": {
+      "no_key": 1013,
+      "out_of_split": 433
+     }
+    },
+    "gold": {
+     "nodes": 1458,
+     "scorable": 445,
+     "counted": 12,
+     "excluded": {
+      "no_key": 1013,
+      "out_of_split": 433
+     }
+    }
+   },
+   "rows": {
+    "t=0": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 12,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 12,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 12,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 12,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    },
+    "t=1": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 12,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 12,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 12,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 12,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 0,
+    "correct": 0,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": null
+   },
+   "headline": false,
+   "headline_reasons": [
+    "dev split: a development score"
+   ],
+   "gold_status": "imported-unchecked",
+   "seeded_by": null,
+   "pairing_warnings": 0,
+   "n_notes": 2,
+   "name": "sdp-T1718/commentary.explained/dev",
+   "gold_id": "sdp-T1718-zhiyi-wenju",
+   "expected_gold_counted": 12,
+   "expected_basis": "registry counts.by_split.dev.nodes",
+   "ok": true
+  },
+  {
+   "key": "commentary.explained",
+   "split": "validation",
+   "frozen": null,
+   "line_order": {
+    "T34n1718": "cbeta-xml"
+   },
+   "counts": {
+    "pred": {
+     "nodes": 1458,
+     "scorable": 445,
+     "counted": 101,
+     "excluded": {
+      "no_key": 1013,
+      "out_of_split": 344
+     }
+    },
+    "gold": {
+     "nodes": 1458,
+     "scorable": 445,
+     "counted": 101,
+     "excluded": {
+      "no_key": 1013,
+      "out_of_split": 344
+     }
+    }
+   },
+   "rows": {
+    "t=0": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    },
+    "t=1": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 0,
+    "correct": 0,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": null
+   },
+   "headline": false,
+   "headline_reasons": [
+    "validation split: a development score"
+   ],
+   "gold_status": "imported-unchecked",
+   "seeded_by": null,
+   "pairing_warnings": 0,
+   "n_notes": 3,
+   "name": "sdp-T1718/commentary.explained/validation",
+   "gold_id": "sdp-T1718-zhiyi-wenju",
+   "expected_gold_counted": 101,
+   "expected_basis": "registry counts.by_split.validation.nodes",
+   "ok": true
+  },
+  {
+   "key": "root_text.start",
+   "split": "dev",
+   "frozen": null,
+   "line_order": {
+    "T09n0262": "cbeta-xml"
+   },
+   "counts": {
+    "pred": {
+     "nodes": 2048,
+     "scorable": 2048,
+     "counted": 11,
+     "excluded": {
+      "split_unknown": 1608,
+      "out_of_split": 429
+     }
+    },
+    "gold": {
+     "nodes": 2048,
+     "scorable": 2048,
+     "counted": 11,
+     "excluded": {
+      "split_unknown": 1604,
+      "out_of_split": 433
+     }
+    }
+   },
+   "rows": {
+    "t=0": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 11,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 11,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 11,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 10,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    },
+    "t=1": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 11,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 11,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 11,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 10,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 0,
+    "correct": 0,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": null
+   },
+   "headline": false,
+   "headline_reasons": [
+    "dev split: a development score"
+   ],
+   "gold_status": "imported-unchecked",
+   "seeded_by": null,
+   "pairing_warnings": 0,
+   "n_notes": 1,
+   "name": "sdp-T0262/root_text.start/dev",
+   "gold_id": "sdp-T0262-zhiyi-wenju",
+   "expected_gold_counted": 11,
+   "expected_basis": "nodes with root_text.start whose own commentary.explained is dev (10) + gold nodes without one that the region rule assigns to dev (1)",
+   "ok": true
+  },
+  {
+   "key": "root_text.start",
+   "split": "validation",
+   "frozen": null,
+   "line_order": {
+    "T09n0262": "cbeta-xml"
+   },
+   "counts": {
+    "pred": {
+     "nodes": 2048,
+     "scorable": 2048,
+     "counted": 101,
+     "excluded": {
+      "split_unknown": 1608,
+      "out_of_split": 339
+     }
+    },
+    "gold": {
+     "nodes": 2048,
+     "scorable": 2048,
+     "counted": 101,
+     "excluded": {
+      "split_unknown": 1604,
+      "out_of_split": 343
+     }
+    }
+   },
+   "rows": {
+    "t=0": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 83,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    },
+    "t=1": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 101,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 83,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 0,
+    "correct": 0,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": null
+   },
+   "headline": false,
+   "headline_reasons": [
+    "validation split: a development score"
+   ],
+   "gold_status": "imported-unchecked",
+   "seeded_by": null,
+   "pairing_warnings": 0,
+   "n_notes": 2,
+   "name": "sdp-T0262/root_text.start/validation",
+   "gold_id": "sdp-T0262-zhiyi-wenju",
+   "expected_gold_counted": 101,
+   "expected_basis": "nodes with root_text.start whose own commentary.explained is validation (101) + gold nodes without one that the region rule assigns to validation (0)",
+   "ok": true
+  },
+  {
+   "key": "commentary.explained",
+   "split": "dev",
+   "frozen": null,
+   "line_order": {
+    "T34n1723": "cbeta-xml"
+   },
+   "counts": {
+    "pred": {
+     "nodes": 149,
+     "scorable": 149,
+     "counted": 45,
+     "excluded": {
+      "out_of_split": 104
+     }
+    },
+    "gold": {
+     "nodes": 149,
+     "scorable": 149,
+     "counted": 45,
+     "excluded": {
+      "out_of_split": 104
+     }
+    }
+   },
+   "rows": {
+    "t=0": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    },
+    "t=1": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 13,
+    "correct": 13,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": 1.0
+   },
+   "headline": false,
+   "headline_reasons": [
+    "gold_status draft-unreviewed (EVAL-SETS item 11; R06 F19)",
+    "dev split: a development score"
+   ],
+   "gold_status": "draft-unreviewed",
+   "seeded_by": "claude-opus-5-5 (SDD draft 2026-09-22)",
+   "pairing_warnings": 0,
+   "n_notes": 1,
+   "name": "kuiji/commentary.explained/dev",
+   "gold_id": "kuiji-xuanzan",
+   "expected_gold_counted": 45,
+   "expected_basis": "registry counts.by_split.dev.nodes",
+   "ok": true
+  },
+  {
+   "key": "root_text.start",
+   "split": "dev",
+   "frozen": null,
+   "line_order": {
+    "T09n0262": "cbeta-xml"
+   },
+   "counts": {
+    "pred": {
+     "nodes": 149,
+     "scorable": 123,
+     "counted": 41,
+     "excluded": {
+      "no_key": 26,
+      "out_of_split": 82
+     }
+    },
+    "gold": {
+     "nodes": 149,
+     "scorable": 123,
+     "counted": 41,
+     "excluded": {
+      "no_key": 26,
+      "out_of_split": 82
+     }
+    }
+   },
+   "rows": {
+    "t=0": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 41,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 41,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 41,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 41,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    },
+    "t=1": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 41,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 41,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 41,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 41,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 12,
+    "correct": 12,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": 1.0
+   },
+   "headline": false,
+   "headline_reasons": [
+    "gold_status draft-unreviewed (EVAL-SETS item 11; R06 F19)",
+    "dev split: a development score"
+   ],
+   "gold_status": "draft-unreviewed",
+   "seeded_by": "claude-opus-5-5 (SDD draft 2026-09-22)",
+   "pairing_warnings": 0,
+   "n_notes": 4,
+   "name": "kuiji/root_text.start/dev",
+   "gold_id": "kuiji-xuanzan",
+   "expected_gold_counted": 41,
+   "expected_basis": "nodes with root_text.start whose own commentary.explained is dev (41) + gold nodes without one that the region rule assigns to dev (0)",
+   "ok": true
+  },
+  {
+   "key": "commentary.explained",
+   "split": "unsplit",
+   "frozen": "outliner-v0-frozen-2026-10-01",
+   "line_order": {
+    "X11n0268": "cbeta-xml"
+   },
+   "counts": {
+    "pred": {
+     "nodes": 2611,
+     "scorable": 2611,
+     "counted": 2611,
+     "excluded": {}
+    },
+    "gold": {
+     "nodes": 2611,
+     "scorable": 2611,
+     "counted": 2611,
+     "excluded": {}
+    }
+   },
+   "rows": {
+    "t=0": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2611,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2611,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2611,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2611,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    },
+    "t=1": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2611,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2611,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2611,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2611,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 1105,
+    "correct": 1105,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": 1.0
+   },
+   "headline": true,
+   "headline_reasons": [],
+   "gold_status": "imported-unchecked",
+   "seeded_by": null,
+   "pairing_warnings": 0,
+   "n_notes": 0,
+   "name": "cbeta-mulu-X0268/whole",
+   "gold_id": "cbeta-mulu-X0268",
+   "expected_gold_counted": 2611,
+   "expected_basis": "registry counts.nodes (OOD: scored whole)",
+   "ok": true
+  },
+  {
+   "key": "commentary.explained",
+   "split": "unsplit",
+   "frozen": "outliner-v0-frozen-2026-10-01",
+   "line_order": {
+    "P167n1573": "cbeta-xml"
+   },
+   "counts": {
+    "pred": {
+     "nodes": 127,
+     "scorable": 127,
+     "counted": 127,
+     "excluded": {}
+    },
+    "gold": {
+     "nodes": 127,
+     "scorable": 127,
+     "counted": 127,
+     "excluded": {}
+    }
+   },
+   "rows": {
+    "t=0": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    },
+    "t=1": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 47,
+    "correct": 47,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": 1.0
+   },
+   "headline": true,
+   "headline_reasons": [],
+   "gold_status": "imported-unchecked",
+   "seeded_by": null,
+   "pairing_warnings": 0,
+   "n_notes": 0,
+   "name": "cbeta-mulu-P1573/whole",
+   "gold_id": "cbeta-mulu-P1573",
+   "expected_gold_counted": 127,
+   "expected_basis": "registry counts.nodes (OOD: scored whole)",
+   "ok": true
+  },
+  {
+   "key": "commentary.explained",
+   "split": "unsplit",
+   "frozen": "outliner-v0-frozen-2026-10-01",
+   "line_order": {
+    "D14n8842": "cbeta-xml"
+   },
+   "counts": {
+    "pred": {
+     "nodes": 40,
+     "scorable": 40,
+     "counted": 40,
+     "excluded": {}
+    },
+    "gold": {
+     "nodes": 40,
+     "scorable": 40,
+     "counted": 40,
+     "excluded": {}
+    }
+   },
+   "rows": {
+    "t=0": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 40,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 40,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 40,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 40,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    },
+    "t=1": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 40,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 40,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 40,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "locator_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 40,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 16,
+    "correct": 16,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": 1.0
+   },
+   "headline": true,
+   "headline_reasons": [],
+   "gold_status": "imported-unchecked",
+   "seeded_by": null,
+   "pairing_warnings": 0,
+   "n_notes": 0,
+   "name": "cbeta-mulu-D8842/whole",
+   "gold_id": "cbeta-mulu-D8842",
+   "expected_gold_counted": 40,
+   "expected_basis": "registry counts.nodes (OOD: scored whole)",
+   "ok": true
+  },
+  {
+   "key": "structure",
+   "split": "unsplit",
+   "frozen": "outliner-v0-frozen-2026-10-01",
+   "line_order": {},
+   "counts": {
+    "pred": {
+     "nodes": 2605,
+     "scorable": 2605,
+     "counted": 2605,
+     "excluded": {}
+    },
+    "gold": {
+     "nodes": 2605,
+     "scorable": 2605,
+     "counted": 2605,
+     "excluded": {}
+    }
+   },
+   "rows": {
+    "structure": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2605,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2605,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2605,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "heading_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2605,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 917,
+    "correct": 917,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": 1.0
+   },
+   "headline": true,
+   "headline_reasons": [],
+   "gold_status": "imported-unchecked",
+   "seeded_by": null,
+   "pairing_warnings": 0,
+   "n_notes": 0,
+   "name": "ybh-T1605/structure",
+   "gold_id": "ybh-T1605",
+   "expected_gold_counted": 2605,
+   "expected_basis": "registry counts.nodes (OOD: scored whole)",
+   "ok": true
+  },
+  {
+   "key": "structure",
+   "split": "unsplit",
+   "frozen": "outliner-v0-frozen-2026-10-01",
+   "line_order": {},
+   "counts": {
+    "pred": {
+     "nodes": 2594,
+     "scorable": 2594,
+     "counted": 2594,
+     "excluded": {}
+    },
+    "gold": {
+     "nodes": 2594,
+     "scorable": 2594,
+     "counted": 2594,
+     "excluded": {}
+    }
+   },
+   "rows": {
+    "structure": {
+     "available": true,
+     "s_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2594,
+      "FP": 0,
+      "FN": 0
+     },
+     "f_f1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2594,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2594,
+      "FP": 0,
+      "FN": 0
+     },
+     "detection_kind": "heading_only",
+     "s_f1_without_anchor_inherited": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 2594,
+      "FP": 0,
+      "FN": 0
+     },
+     "per_depth_sums_ok": true,
+     "exempt_under_truncated": 0,
+     "absorbed_into_merged_range": 0,
+     "matched_to_gold_outside_scope": 0
+    }
+   },
+   "child_count": {
+    "eligible": 0,
+    "correct": 0,
+    "wrong": 0,
+    "missing": 0,
+    "source_disagreements": 0,
+    "accuracy": null
+   },
+   "headline": true,
+   "headline_reasons": [],
+   "gold_status": "imported-unchecked",
+   "seeded_by": null,
+   "pairing_warnings": 0,
+   "n_notes": 0,
+   "name": "ybh-T1602/structure",
+   "gold_id": "ybh-T1602",
+   "expected_gold_counted": 2594,
+   "expected_basis": "registry counts.nodes (OOD: scored whole)",
+   "ok": true
+  }
+ ],
+ "gold_vs_itself_all_ok": true,
+ "perturbations": [
+  {
+   "name": "guard: OOD gold scored without frozen",
+   "expected": {
+    "refused": true
+   },
+   "observed": {
+    "refused": true
+   },
+   "ok": true
+  },
+  {
+   "name": "cbeta-mulu-P1573: unperturbed copy",
+   "expected": {
+    "TP": 127,
+    "FP": 0,
+    "FN": 0,
+    "F": 1.0
+   },
+   "observed": {
+    "s_f1": {
+     "P": 1.0,
+     "R": 1.0,
+     "F": 1.0,
+     "TP": 127,
+     "FP": 0,
+     "FN": 0
+    }
+   },
+   "ok": true
+  },
+  {
+   "name": "cbeta-mulu-P1573: drop 13 of 127 counted nodes (leaves, seeded)",
+   "expected": {
+    "TP": 114,
+    "FP": 0,
+    "FN": 13,
+    "P": 1.0,
+    "R": 0.897638
+   },
+   "observed": {
+    "t=0": {
+     "s_f1": {
+      "P": 1.0,
+      "R": 0.897638,
+      "F": 0.946058,
+      "TP": 114,
+      "FP": 0,
+      "FN": 13
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 0.897638,
+      "F": 0.946058,
+      "TP": 114,
+      "FP": 0,
+      "FN": 13
+     }
+    },
+    "t=1": {
+     "s_f1": {
+      "P": 1.0,
+      "R": 0.897638,
+      "F": 0.946058,
+      "TP": 114,
+      "FP": 0,
+      "FN": 13
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 0.897638,
+      "F": 0.946058,
+      "TP": 114,
+      "FP": 0,
+      "FN": 13
+     }
+    }
+   },
+   "ok": true
+  },
+  {
+   "name": "cbeta-mulu-P1573: re-parent a 20-node subtree one level deeper",
+   "expected": {
+    "TP": 107,
+    "FP": 20,
+    "FN": 20,
+    "F": 0.84252,
+    "locator_only_F": 1.0
+   },
+   "observed": {
+    "s_f1": {
+     "P": 0.84252,
+     "R": 0.84252,
+     "F": 0.84252,
+     "TP": 107,
+     "FP": 20,
+     "FN": 20
+    },
+    "locator_only": {
+     "P": 1.0,
+     "R": 1.0,
+     "F": 1.0,
+     "TP": 127,
+     "FP": 0,
+     "FN": 0
+    },
+    "subtree_size": 20,
+    "s_f1_t1": {
+     "P": 0.84252,
+     "R": 0.84252,
+     "F": 0.84252,
+     "TP": 107,
+     "FP": 20,
+     "FN": 20
+    }
+   },
+   "ok": true
+  },
+  {
+   "name": "cbeta-mulu-P1573: shift every key line by +1",
+   "expected": {
+    "t=0 S-F1": "≈ 0 (≤ 0.10)",
+    "t=1 S-F1": "≈ 1 (≥ 0.90)",
+    "t=1 locator-only F": 1.0
+   },
+   "observed": {
+    "t=0": {
+     "s_f1": {
+      "P": 0.0,
+      "R": 0.0,
+      "F": 0.0,
+      "TP": 0,
+      "FP": 127,
+      "FN": 127
+     },
+     "locator_only": {
+      "P": 0.181102,
+      "R": 0.181102,
+      "F": 0.181102,
+      "TP": 23,
+      "FP": 104,
+      "FN": 104
+     }
+    },
+    "t=1": {
+     "s_f1": {
+      "P": 0.653543,
+      "R": 0.653543,
+      "F": 0.653543,
+      "TP": 83,
+      "FP": 44,
+      "FN": 44
+     },
+     "locator_only": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     }
+    },
+    "sibling_pairs_one_line_apart": 12,
+    "shifted_key_lines_leaving_split": 0,
+    "attribution_order_preserving_matcher": {
+     "what": "same prediction re-scored with score._match replaced in-process (restored after) by a maximum-cardinality, order-preserving sibling alignment that minimises total line distance (DP); diagnostic only, not the instrument",
+     "t=0": {
+      "P": 0.0,
+      "R": 0.0,
+      "F": 0.0,
+      "TP": 0,
+      "FP": 127,
+      "FN": 127
+     },
+     "t=1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 127,
+      "FP": 0,
+      "FN": 0
+     },
+     "identity_t0_t1_F": [
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "ok": false,
+   "cause": "score.py _match (lines 306-318) pairs siblings greedily by line distance first: a node shifted onto the line of its next sibling (one line apart) takes that sibling at d=0 before its own twin at d=1; the mis-pair counts as a TP and both subtrees are lost. With an order-preserving alignment the same prediction scores t=1 F = 1.0"
+  },
+  {
+   "name": "cbeta-mulu-P1573: duplicate one leaf",
+   "expected": {
+    "TP": 127,
+    "FP": 1,
+    "FN": 0,
+    "P": 0.992188
+   },
+   "observed": {
+    "s_f1": {
+     "P": 0.992188,
+     "R": 1.0,
+     "F": 0.996078,
+     "TP": 127,
+     "FP": 1,
+     "FN": 0
+    },
+    "locator_only": {
+     "P": 0.992188,
+     "R": 1.0,
+     "F": 0.996078,
+     "TP": 127,
+     "FP": 1,
+     "FN": 0
+    }
+   },
+   "ok": true
+  },
+  {
+   "name": "kuiji-xuanzan dev: unperturbed levels 1-2 + dev subtree",
+   "expected": {
+    "TP": 45,
+    "FP": 0,
+    "FN": 0,
+    "F": 1.0,
+    "dev_subtree_nodes": 45
+   },
+   "observed": {
+    "s_f1": {
+     "P": 1.0,
+     "R": 1.0,
+     "F": 1.0,
+     "TP": 45,
+     "FP": 0,
+     "FN": 0
+    },
+    "dev_subtree_nodes": 45
+   },
+   "ok": true
+  },
+  {
+   "name": "kuiji-xuanzan dev: drop 4 of 45 counted nodes (leaves, seeded)",
+   "expected": {
+    "TP": 41,
+    "FP": 0,
+    "FN": 4,
+    "P": 1.0,
+    "R": 0.911111
+   },
+   "observed": {
+    "t=0": {
+     "s_f1": {
+      "P": 1.0,
+      "R": 0.911111,
+      "F": 0.953488,
+      "TP": 41,
+      "FP": 0,
+      "FN": 4
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 0.911111,
+      "F": 0.953488,
+      "TP": 41,
+      "FP": 0,
+      "FN": 4
+     }
+    },
+    "t=1": {
+     "s_f1": {
+      "P": 1.0,
+      "R": 0.911111,
+      "F": 0.953488,
+      "TP": 41,
+      "FP": 0,
+      "FN": 4
+     },
+     "detection": {
+      "P": 1.0,
+      "R": 0.911111,
+      "F": 0.953488,
+      "TP": 41,
+      "FP": 0,
+      "FN": 4
+     }
+    }
+   },
+   "ok": true
+  },
+  {
+   "name": "kuiji-xuanzan dev: re-parent a 11-node subtree one level deeper",
+   "expected": {
+    "TP": 34,
+    "FP": 11,
+    "FN": 11,
+    "F": 0.755556,
+    "locator_only_F": 1.0
+   },
+   "observed": {
+    "s_f1": {
+     "P": 0.755556,
+     "R": 0.755556,
+     "F": 0.755556,
+     "TP": 34,
+     "FP": 11,
+     "FN": 11
+    },
+    "locator_only": {
+     "P": 1.0,
+     "R": 1.0,
+     "F": 1.0,
+     "TP": 45,
+     "FP": 0,
+     "FN": 0
+    },
+    "subtree_size": 11,
+    "s_f1_t1": {
+     "P": 0.755556,
+     "R": 0.755556,
+     "F": 0.755556,
+     "TP": 34,
+     "FP": 11,
+     "FN": 11
+    }
+   },
+   "ok": true
+  },
+  {
+   "name": "kuiji-xuanzan dev: shift every key line by +1",
+   "expected": {
+    "t=0 S-F1": "≈ 0 (≤ 0.10)",
+    "t=1 S-F1": "≈ 1 (≥ 0.90)",
+    "t=1 locator-only F": 1.0
+   },
+   "observed": {
+    "t=0": {
+     "s_f1": {
+      "P": 0.0,
+      "R": 0.0,
+      "F": 0.0,
+      "TP": 0,
+      "FP": 45,
+      "FN": 45
+     },
+     "locator_only": {
+      "P": 0.377778,
+      "R": 0.377778,
+      "F": 0.377778,
+      "TP": 17,
+      "FP": 28,
+      "FN": 28
+     }
+    },
+    "t=1": {
+     "s_f1": {
+      "P": 0.733333,
+      "R": 0.733333,
+      "F": 0.733333,
+      "TP": 33,
+      "FP": 12,
+      "FN": 12
+     },
+     "locator_only": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     }
+    },
+    "sibling_pairs_one_line_apart": 5,
+    "shifted_key_lines_leaving_split": 0,
+    "attribution_order_preserving_matcher": {
+     "what": "same prediction re-scored with score._match replaced in-process (restored after) by a maximum-cardinality, order-preserving sibling alignment that minimises total line distance (DP); diagnostic only, not the instrument",
+     "t=0": {
+      "P": 0.0,
+      "R": 0.0,
+      "F": 0.0,
+      "TP": 0,
+      "FP": 45,
+      "FN": 45
+     },
+     "t=1": {
+      "P": 1.0,
+      "R": 1.0,
+      "F": 1.0,
+      "TP": 45,
+      "FP": 0,
+      "FN": 0
+     },
+     "identity_t0_t1_F": [
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "ok": false,
+   "cause": "score.py _match (lines 306-318) pairs siblings greedily by line distance first: a node shifted onto the line of its next sibling (one line apart) takes that sibling at d=0 before its own twin at d=1; the mis-pair counts as a TP and both subtrees are lost. With an order-preserving alignment the same prediction scores t=1 F = 1.0"
+  },
+  {
+   "name": "kuiji-xuanzan dev: duplicate one leaf",
+   "expected": {
+    "TP": 45,
+    "FP": 1,
+    "FN": 0,
+    "P": 0.978261
+   },
+   "observed": {
+    "s_f1": {
+     "P": 0.978261,
+     "R": 1.0,
+     "F": 0.989011,
+     "TP": 45,
+     "FP": 1,
+     "FN": 0
+    },
+    "locator_only": {
+     "P": 0.978261,
+     "R": 1.0,
+     "F": 0.989011,
+     "TP": 45,
+     "FP": 1,
+     "FN": 0
+    }
+   },
+   "ok": true
+  },
+  {
+   "name": "ybh-T1605 structure: alter heading_src of 260 of 2605 nodes (leaves only)",
+   "expected": {
+    "TP": 2345,
+    "FP": 260,
+    "FN": 260,
+    "F": 0.900192,
+    "heading_only_TP": 2345
+   },
+   "observed": {
+    "s_f1": {
+     "P": 0.900192,
+     "R": 0.900192,
+     "F": 0.900192,
+     "TP": 2345,
+     "FP": 260,
+     "FN": 260
+    },
+    "heading_only": {
+     "P": 0.900192,
+     "R": 0.900192,
+     "F": 0.900192,
+     "TP": 2345,
+     "FP": 260,
+     "FN": 260
+    },
+    "altered": 260,
+    "nodes_lost_incl_descendants": 260
+   },
+   "ok": true
+  },
+  {
+   "name": "ybh-T1605 structure: alter heading_src of 260 of 2605 nodes (any node; top-down loss includes descendants)",
+   "expected": {
+    "TP": 1022,
+    "FP": 1583,
+    "FN": 1583,
+    "F": 0.392322,
+    "heading_only_TP": 2345
+   },
+   "observed": {
+    "s_f1": {
+     "P": 0.392322,
+     "R": 0.392322,
+     "F": 0.392322,
+     "TP": 1022,
+     "FP": 1583,
+     "FN": 1583
+    },
+    "heading_only": {
+     "P": 0.900192,
+     "R": 0.900192,
+     "F": 0.900192,
+     "TP": 2345,
+     "FP": 260,
+     "FN": 260
+    },
+    "altered": 260,
+    "nodes_lost_incl_descendants": 1583
+   },
+   "ok": true
+  },
+  {
+   "name": "ybh-T1602 structure: alter heading_src of 259 of 2594 nodes (leaves only)",
+   "expected": {
+    "TP": 2335,
+    "FP": 259,
+    "FN": 259,
+    "F": 0.900154,
+    "heading_only_TP": 2335
+   },
+   "observed": {
+    "s_f1": {
+     "P": 0.900154,
+     "R": 0.900154,
+     "F": 0.900154,
+     "TP": 2335,
+     "FP": 259,
+     "FN": 259
+    },
+    "heading_only": {
+     "P": 0.900154,
+     "R": 0.900154,
+     "F": 0.900154,
+     "TP": 2335,
+     "FP": 259,
+     "FN": 259
+    },
+    "altered": 259,
+    "nodes_lost_incl_descendants": 259
+   },
+   "ok": true
+  },
+  {
+   "name": "ybh-T1602 structure: alter heading_src of 259 of 2594 nodes (any node; top-down loss includes descendants)",
+   "expected": {
+    "TP": 1027,
+    "FP": 1567,
+    "FN": 1567,
+    "F": 0.395914,
+    "heading_only_TP": 2335
+   },
+   "observed": {
+    "s_f1": {
+     "P": 0.395914,
+     "R": 0.395914,
+     "F": 0.395914,
+     "TP": 1027,
+     "FP": 1567,
+     "FN": 1567
+    },
+    "heading_only": {
+     "P": 0.900154,
+     "R": 0.900154,
+     "F": 0.900154,
+     "TP": 2335,
+     "FP": 259,
+     "FN": 259
+    },
+    "altered": 259,
+    "nodes_lost_incl_descendants": 1567
+   },
+   "ok": true
+  },
+  {
+   "name": "cbeta-mulu-X0268: split the merged_range node into two same-line siblings",
+   "expected": {
+    "TP": 2611,
+    "FP": 0,
+    "FN": 0,
+    "absorbed_into_merged_range": 1
+   },
+   "observed": {
+    "s_f1": {
+     "P": 1.0,
+     "R": 1.0,
+     "F": 1.0,
+     "TP": 2611,
+     "FP": 0,
+     "FN": 0
+    },
+    "absorbed_into_merged_range": 1
+   },
+   "ok": true
+  },
+  {
+   "name": "ybh-T1602 structure: split a merged_range leaf into two siblings, the second with the same heading",
+   "expected": {
+    "TP": 2594,
+    "FP": 0,
+    "FN": 0,
+    "absorbed_into_merged_range": 1
+   },
+   "observed": {
+    "s_f1": {
+     "P": 1.0,
+     "R": 1.0,
+     "F": 1.0,
+     "TP": 2594,
+     "FP": 0,
+     "FN": 0
+    },
+    "absorbed_into_merged_range": 1
+   },
+   "ok": true
+  },
+  {
+   "name": "ybh-T1602 structure: split a merged_range leaf into two siblings, the second with its own heading",
+   "expected": {
+    "TP": 2594,
+    "FP": 0,
+    "FN": 0,
+    "absorbed_into_merged_range": 1
+   },
+   "observed": {
+    "s_f1": {
+     "P": 0.999615,
+     "R": 1.0,
+     "F": 0.999807,
+     "TP": 2594,
+     "FP": 1,
+     "FN": 0
+    },
+    "absorbed_into_merged_range": 0
+   },
+   "ok": false,
+   "cause": "score.py _match absorption (lines 320-329) needs dist(pred, merged gold) <= t; in structure mode dist is heading equality (_Scorer.dist, lines 437-440), so a split part with its own heading is never absorbed and counts as FP, against EVAL-SETS item 10"
+  }
+ ],
+ "perturbations_ok": 15,
+ "perturbations_total": 18,
+ "scope_quirks": {
+  "t0262_root_text_regions": {
+   "what": "sdp-T0262 root-text scoring: split of each T09n0262 line under the region rule (None = split_unknown: a prediction there is neither TP nor FP)",
+   "T09n0262_lines_by_region_split": {
+    "None": 4437,
+    "dev": 9,
+    "reserve": 290,
+    "test": 329,
+    "validation": 309
+   },
+   "xu_pin_lines_by_region_split": {
+    "None": 1,
+    "dev": 9,
+    "validation": 309
+   },
+   "gold_nodes_whose_pred_twin_gets_another_split": {
+    "gold reserve / pred-twin None": 4
+   },
+   "effect_on_E06": "T0262-xu-root (序品) lies almost wholly in the validation region (309 of 319 lines) with a 9-line dev region; predictions outside 序品 fall mostly in None regions and are silently unscored; the asymmetric twins are reserve-only"
+  },
+  "headline_flag": {
+   "what": "disclosures.headline per gold-vs-itself row; score.py NO_HEADLINE_STATUS lacks 'imported-unchecked', so an OOD (unsplit) row reports headline true",
+   "headline_by_row": {
+    "sdp-T1718/commentary.explained/dev": false,
+    "sdp-T1718/commentary.explained/validation": false,
+    "sdp-T0262/root_text.start/dev": false,
+    "sdp-T0262/root_text.start/validation": false,
+    "kuiji/commentary.explained/dev": false,
+    "kuiji/root_text.start/dev": false,
+    "cbeta-mulu-X0268/whole": true,
+    "cbeta-mulu-P1573/whole": true,
+    "cbeta-mulu-D8842/whole": true,
+    "ybh-T1605/structure": true,
+    "ybh-T1602/structure": true
+   },
+   "conflict": "E06 README: 'None is a headline: ... the OOD golds are imported-unchecked'"
+  },
+  "pipeline_commit_dirty_flag": {
+   "what": "outline_doc.pipeline_commit() marks 'dirty' from a repo-wide git status (common/outline_doc.py:296), so E06 builds say '+dirty' in generated_by while pipeline/ is byte-identical to the frozen tag (frozen.pipeline_identical_to_tag); record the latter with every E06 run",
+   "pipeline_commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "pipeline_identical_to_tag": true
+  },
+  "prediction_status_not_checked": {
+   "what": "score() never reads the prediction's gold_status except into settings.prediction (score.py:764-765): a gold passed as --pred is scored silently, and headline is decided by the gold's status and the split only"
+  }
+ },
+ "synthetic_repros": [
+  {
+   "issue": "t=1 greedy sibling matching mis-pairs a +1-shifted prediction",
+   "setup": "gold 1@a01, children 1.1@a02, 1.2@a03; prediction = every line +1",
+   "expected_t1": {
+    "TP": 3,
+    "FP": 0,
+    "FN": 0,
+    "F": 1.0
+   },
+   "observed_t1": {
+    "P": 0.666667,
+    "R": 0.666667,
+    "F": 0.666667,
+    "TP": 2,
+    "FP": 1,
+    "FN": 1
+   },
+   "observed_t1_locator_only_F": 1.0
+  },
+  {
+   "issue": "root-text split region inherits None from a gold node without its own split locator: an unmatched prediction there is neither TP nor FP",
+   "setup": "gold 1 and 1.1 explained in T1718 dev (root a01, a02); 1.2 has no explained line (root a05); prediction = gold + an extra child 1.3 at root a08",
+   "expected_if_region_followed_nearest_known_split": {
+    "TP": 2,
+    "FP": 1,
+    "FN": 0
+   },
+   "observed": {
+    "P": 1.0,
+    "R": 1.0,
+    "F": 1.0,
+    "TP": 2,
+    "FP": 0,
+    "FN": 0
+   },
+   "observed_pred_excluded": {
+    "split_unknown": 2
+   },
+   "observed_gold_excluded": {
+    "split_unknown": 1
+   }
+  },
+  {
+   "issue": "structure mode never absorbs a merged_range split whose parts have their own headings (EVAL-SETS item 10: one TP, no FP)",
+   "setup": "gold 甲 > 乙 (merged_range); prediction 甲 > 乙, 丙",
+   "expected": {
+    "TP": 2,
+    "FP": 0,
+    "FN": 0
+   },
+   "observed": {
+    "P": 0.666667,
+    "R": 1.0,
+    "F": 0.8,
+    "TP": 2,
+    "FP": 1,
+    "FN": 0
+   },
+   "absorbed": 0
+  }
+ ]
+}

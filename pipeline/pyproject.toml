@@ -1,0 +1,38 @@
+[project]
+name = "chinese-workflow"
+# Not bumped per release. The evaluated outliner versions are git tags: outliner-v0-frozen-2026-10-01 and
+# outliner-v1-frozen-2026-10-03 (experiments/E06-capability-sweep/, experiments/E07-capability-sweep-v1/).
+version = "0.0.1"
+description = "Agentic translation workflow for classical Chinese Buddhist texts: a kepan outliner pipeline (ingest, outline, segment, chunk, knowledge-graph export, eval); the context and translate stages are stubs."
+# tomllib (project.toml files) is new in 3.11. macOS's /usr/bin/python3 is 3.9 and cannot install this package.
+requires-python = ">=3.11"
+license = "MIT"  # SPDX expression (PEP 639); scope in the top-level README, LICENSE at the repository root
+dependencies = [
+  "lxml>=5.0",
+  "jsonschema>=4.18",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "ruff>=0.5"]
+llm = ["anthropic>=1.8,<2"]  # output_config structured outputs (chinese_workflow.llm)
+experiments = ["requests>=2"]  # experiments/E00-kepan-census/census.py; nothing in the package needs it
+
+[build-system]
+requires = ["setuptools>=77"]  # 77 is the first with PEP 639 license expressions
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["../tests"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+# Spelled out: with no selection, ruff 0.16 (what `ruff>=0.5` resolved to on 2026-10-03) enables many more
+# rules and reports about a thousand findings. Lint is not a gate in this repo: no test or script runs ruff,
+# and the code has findings even under this rule set.
+select = ["E4", "E7", "E9", "F"]

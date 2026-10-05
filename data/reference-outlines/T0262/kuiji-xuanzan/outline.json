@@ -1,0 +1,6047 @@
+{
+ "metadata": {
+  "outline_profile": "zh-kepan",
+  "id_convention": "zh-kepan: each id token is <sibling_index>_<level> in decimal, tokens joined by '.', e.g. '2_1.1_2.3_3' = second top node -> its first child -> that child's third child; sibling order is the source's order.",
+  "source_file": "data/raw/cbeta/T34n1723.xml",
+  "source_sha256": "8f73a6fbf18f31485dd7890ca064a5d45fa37d0f7caca10308c1762da94802ce",
+  "authored_file": "data/reference-outlines/T0262/kuiji-xuanzan/outline.txt",
+  "authored_sha256": "34ce077a216d901d2f7473bcdf85c4dc1bde44a912cce18333fd458a5934fdf5",
+  "text_id": "T0262",
+  "text_title_src": "妙法蓮華經",
+  "text_title_en": "Lotus Sūtra (Kumārajīva's translation)",
+  "author": null,
+  "source_language": "lzh",
+  "format_note": "Compiled by chinese_workflow.eval.gold.authored from a hand-authored outline text (metadata authored_file; format in pipeline/src/chinese_workflow/eval/gold/README.md). One line per node, two spaces per level, heading_src verbatim from the commentary as ingest.lines reads it (checked punctuation-insensitively within ±2 lines of the node's @src, @exp or @ann line, or equal to a cb:mulu label on the @exp line). commentary.explained = the line where the commentary takes the node up (its topic marker 此初 / 下明… / 第二… / …者, a 品's cb:mulu line); commentary.announced = the line where the parent's announcement lists it (null when none; equal to explained for a sub-item the commentary only lists). root_text: basis lemma = start and end fixed by matching the commentary's quoted lemma 經「A至B」 in the root text (A starts on start, B ends on end; end_basis next-node when the end is instead the line before the next division, chapter when it is the 品's last line, extent-formula when a stated stanza count fixes it, manual when the annotator set it, the reading in a note); manual = the annotator's cut words where the commentary quotes no lemma (notes give them); chapter = the root text's 品 cb:mulu line to the last line of the 品 div. end is inclusive and equals the line of the last non-punctuation character before the next located division. display_label is generated unless the text gives one (see display_label_rule). metadata.coverage_spans lists the subtrees this gold encodes and defines the scoring scope: node_id (null = the whole document) and heading_src of the subtree root, the commentary and root-text spans it covers (inclusive lineheads; the split spans of the eval manifest are end-exclusive, so their end is the line after commentary.end), and max_level, the absolute outline level down to which the subtree is complete (null = full depth: every division the commentary takes up in the span). A predicted node is in scope iff its start locator (commentary.explained; in sūtra-mode root-text scoring, root_text.start) lies inside an entry's span and its level is at most that entry's max_level (null = no limit). Scope alone decides: in-scope predictions that match no gold node are FP, including under a node flagged truncated; out-of-scope predictions are neither TP nor FP. An entry's root_text bounds the covered leaves, not every node's span: a covered node's own root span may run past it. Flag truncated: the gold does not encode all of this node's source children; its encoded descendants are scored normally and its unencoded source children are not FN. In this gold the flag is informational, since the scope already excludes what it marks. Tree edit distance: prune the out-of-scope predicted subtrees.",
+  "origin_note": "explicit = the heading is Kuiji's own wording in T34n1723 (or, for a 品 node, the CBETA cb:mulu label of that 品 in T34n1723), copied from ingest.lines output and re-checked by the compiler; no node is inferred or editorial. The tree was drafted by a model (seeded_by) and has not been reviewed.",
+  "generated_by": "chinese_workflow.eval.gold.authored",
+  "anomalies": [
+   "T09n0262 inserts its 附文 (御製觀世音普門品經序 and translator lines, T09n0262_p0198a10–p0198b11) between 妙音菩薩品 and 觀世音菩薩普門品 in document order; those lines are in a `w` div, not a 品 div, and lie inside no node's root_text span.",
+   "序分: commentary.announced (T34n1723_p0661b10) comes after commentary.explained (T34n1723_p0651a06, the 序品 cb:mulu line where the work opens), because Kuiji states the whole-sūtra division inside his 序品 commentary; scripts/validate_outline.py reports it as warning announce-after-explain."
+  ],
+  "source_document": {
+   "kind": "commentary",
+   "text_id": "T34n1723",
+   "title": "妙法蓮華經玄贊 (T34n1723, 唐 窺基撰): the 科判 embedded in its 贊曰 glosses",
+   "url": null,
+   "notes": [
+    "scheme: Kuiji's first whole-sūtra scheme (序分 = 序品; 正宗 = 方便品–授學無學人記品; 流通 = 法師品–普賢菩薩勸發品), chosen per R03 F22 (Kuiji ranks it higher at T34n1723_p0816a15; 慧沼 T1724 0863b19–21 adopts it). The second scheme is recorded as a comment in outline.txt, not as nodes.",
+    "commentary: data/raw/cbeta/T34n1723.xml sha256 8f73a6fbf18f31485dd7890ca064a5d45fa37d0f7caca10308c1762da94802ce",
+    "root text: data/raw/cbeta/T09n0262.xml sha256 c8975bef9da3bbe0faec9d47ab3f2efb8147fb530d5c17f130045a336c5df017"
+   ]
+  },
+  "outline_mode": "sutra",
+  "root_text_id": "T09n0262",
+  "commentary_id": "T34n1723",
+  "scheme_id": "kuiji-xuanzan",
+  "seeded_by": "claude-opus-5-5 (SDD draft 2026-09-22)",
+  "gold_status": "draft-unreviewed",
+  "licence": {
+   "id": "CC-BY-NC-SA-4.0",
+   "holder": "CBETA Foundation (財團法人佛教電子佛典基金會), successor since 2023-08-07 to CBETA (中華電子佛典協會)",
+   "statement": "Derived from CBETA 電子佛典 (xml-p5 release 2026R2: T34n1723 妙法蓮華經玄贊, T09n0262 妙法蓮華經); headings are verbatim CBETA text and every location is a CBETA linehead. Released under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0), with CBETA's 版權宣告 attached (data/reference-outlines/NOTICE; snapshot data/raw/cbeta/LICENCE-NOTICE.txt). Non-commercial use only; never relicensed permissively. Whether an outline table counts as 改作 under CBETA's notice is an open question to CBETA (R02 F29, G8).",
+   "evidence": "context/research/R02-cbeta-xml-structure-markup/findings.md F7, F29 (S14, S15, S63)"
+  },
+  "eval_only": false,
+  "cbeta_release": "2026R2",
+  "display_label_rule": "generated: 干支 symbol of the node's level (甲 = 1 … 癸 = 10, 子 = 11 … 亥 = 22) + the sibling ordinal in Chinese numerals 一二三… (R07 F15); an @label in the outline text overrides it; null below level 22",
+  "coverage": [
+   "level 1: complete. Kuiji's first whole-sūtra scheme 序分 / 正宗 / 流通 (T34n1723_p0661b10–b27; R03 F22).",
+   "level 2: complete. The 28 品, headings = T34n1723's cb:mulu type=品 labels, spans = T09n0262 品.",
+   "陀羅尼品 (commentary T34n1723_p0850a19–p0850b19): full depth, levels 2–7, every division Kuiji announces: the 三門分別 gate node with its three gates, the 品文分三 node (Kuiji's division of the chapter text) and every lemma-level division under it with its announced sub-items.",
+   "譬喻品 opening (commentary T34n1723_p0734b07 up to, not including, p0737b04): full depth, levels 2–11, over every division Kuiji takes up in that span: the 三門分別 gate node (three gates; the two items of 來意有二; the three numbered 釋妨 questions) and the 大文分二 node down to 初一頌具相降魔德 (level 11; p0737b01–b02), the last division taken up before p0737b04. Root text covered by leaves: T09n0262_p0010b29–p0010c27 (舍利弗's 領解 prose and the first 6 of his 25½ stanzas of verse). Divisions announced in the span but taken up after it are not nodes; the nodes they would hang under carry flag truncated, plus count_mismatch where Kuiji announces a count (see the comments in the 譬喻品 subtree).",
+   "序品 (commentary T34n1723_p0651a06 up to, not including, p0694b22, the start of 方便品): levels 2–5 (the 品 node is level 2). Level 3: the gate node 略以六門料簡 (p0651b01) and the 七種成就 node (p0661c09, Kuiji's division of the chapter text by the 法華論's seven 成就). Level 4: the six gates and the seven 成就. Level 5: the five 義 of gate 一; the four 序成 items; 眾成就's gate node 以五門解釋 and its text node 眾成中有二段; and the parts Kuiji announces for 成就 四–七 (三種軌儀; 放光 / 照境 / 所見; 文段有三; 大分為三). Level-5 nodes under which Kuiji divides further carry flag truncated (plus count_mismatch where he announces a count); their notes name what is left out. The whole-sūtra division that stands in gate 六 (p0661b10) is level 1 of the outline and is not repeated.",
+   "every other 品: level 2 only (no subtree yet); each of these 25 品 nodes carries flag truncated."
+  ],
+  "split_notes": [
+   "This outline contains dev-split material (陀羅尼品, commentary T34n1723_p0850a19–p0850b20) and two test-split answer keys (序品 outline levels 3–5, the plan's levels 1–3 below the 品 node, T34n1723_p0651a06–p0694b22; 譬喻品 opening, T34n1723_p0734b07–p0737b04). Do not use it as prompt or training material for any system evaluated on those spans; the split registry is data/eval-sets.json (guide data/EVAL-SETS.md). Split spans are start-inclusive, end-exclusive lineheads. eval_only stays false because the licence permits redistribution; the split restriction is separate from the licence."
+  ],
+  "coverage_spans": [
+   {
+    "node_id": null,
+    "heading_src": null,
+    "commentary": {
+     "start": "T34n1723_p0651a01",
+     "end": "T34n1723_p0854b24"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c18",
+     "end": "T09n0262_p0062a29"
+    },
+    "max_level": 2
+   },
+   {
+    "node_id": "1_1.1_2",
+    "heading_src": "序品",
+    "commentary": {
+     "start": "T34n1723_p0651a06",
+     "end": "T34n1723_p0694b21"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c18",
+     "end": "T09n0262_p0005b23"
+    },
+    "max_level": 5
+   },
+   {
+    "node_id": "2_1.2_2",
+    "heading_src": "譬喻品",
+    "commentary": {
+     "start": "T34n1723_p0734b07",
+     "end": "T34n1723_p0737b03"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010b28",
+     "end": "T09n0262_p0010c27"
+    },
+    "max_level": null
+   },
+   {
+    "node_id": "3_1.17_2",
+    "heading_src": "陀羅尼品",
+    "commentary": {
+     "start": "T34n1723_p0850a19",
+     "end": "T34n1723_p0850b19"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b08",
+     "end": "T09n0262_p0059b27"
+    },
+    "max_level": null
+   }
+  ],
+  "node_count": 149,
+  "max_depth": 11,
+  "nodes_per_level": {
+   "1": 3,
+   "2": 28,
+   "3": 6,
+   "4": 23,
+   "5": 34,
+   "6": 16,
+   "7": 21,
+   "8": 8,
+   "9": 5,
+   "10": 4,
+   "11": 1
+  }
+ },
+ "nodes": [
+  {
+   "id": "1_1",
+   "level": 1,
+   "path": [
+    "1_1"
+   ],
+   "parent_id": null,
+   "order": 1,
+   "sibling_index": 1,
+   "heading_src": "序分",
+   "heading_en": "",
+   "display_label": "甲一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 1,
+   "extent_announced": "一品",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661b10",
+     "explained": "T34n1723_p0651a06"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c18",
+     "end": "T09n0262_p0005b23",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0661b10: 不釋其所由也。今為二解：初一品名序分，",
+   "notes": [
+    "Kuiji: 「今為二解：初一品名序分」 (T34n1723_p0661b10). @exp = the 序品 cb:mulu line, where Kuiji's commentary on this part begins; the announcement comes later, inside that commentary."
+   ]
+  },
+  {
+   "id": "1_1.1_2",
+   "level": 2,
+   "path": [
+    "1_1",
+    "1_2"
+   ],
+   "parent_id": "1_1",
+   "order": 2,
+   "sibling_index": 1,
+   "heading_src": "序品",
+   "heading_en": "",
+   "display_label": "乙一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0651a06"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c18",
+     "end": "T09n0262_p0005b23",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "cb:mulu type=品 level=1 on T34n1723_p0651a06: 序品",
+   "notes": [
+    "Children: the gate node 略以六門料簡 (T34n1723_p0651b01, commentary-internal; R03 F1: 序品's gate scheme, parallel to other chapters' 三門分別) and the node for Kuiji's division of the chapter text, 七種成就 (T34n1723_p0661c09), per the 品文 convention in the header comment. Subtree covers the test-split span T34n1723_p0651a06–p0694b22, outline levels 3–5, three below this node (header coverage and coverage_span)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3",
+   "level": 3,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3"
+   ],
+   "parent_id": "1_1.1_2",
+   "order": 3,
+   "sibling_index": 1,
+   "heading_src": "略以六門料簡",
+   "heading_en": "",
+   "display_label": "丙一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": 6,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0651b01"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b01: 經「如是我聞」。贊曰：初釋經文略以六門 | T34n1723_p0651b02: 料簡：一敘經起之意，二明經之宗旨，三解",
+   "notes": [
+    "Kuiji's gate formula for this 品 (R03 F1, F25): 「經「如是我聞」。贊曰：初釋經文略以六門料簡：一敘經起之意，二明經之宗旨，三解經品得名，四顯經品廢立，五彰品之次第，六釋經之本文」 (b01–b04). Gates 一–五 concern the whole sūtra (Kuiji's preamble); R03 F4 compares them with the four topics of the Tibetan translation (Toh 4017)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.1_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "1_4"
+   ],
+   "parent_id": "1_1.1_2.1_3",
+   "order": 4,
+   "sibling_index": 1,
+   "heading_src": "一敘經起之意",
+   "heading_en": "",
+   "display_label": "丁一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": 5,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b02",
+     "explained": "T34n1723_p0651b04"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b02: 料簡：一敘經起之意，二明經之宗旨，三解",
+   "notes": [
+    "Taken up as 「第一敘經起意者，略由五義」 (b04–b05; 起意, not 起之意); runs to p0657a07."
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.1_4.1_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "1_4",
+    "1_5"
+   ],
+   "parent_id": "1_1.1_2.1_3.1_4",
+   "order": 5,
+   "sibling_index": 1,
+   "heading_src": "一為酬因請",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b05",
+     "explained": "T34n1723_p0651b06"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b05: 五義：一為酬因請，二為破疑執，三為彰",
+   "notes": [
+    "@exp = 「酬因請中有二：一酬因，二酬請」 (b06–b07). Not encoded (level 6): 一酬因 (「初酬因有六：一酬行因…六酬說因」, b07–b09) and 二酬請 (「後酬請者」, p0652a17).",
+    "child_count_announced 2 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.1_4.2_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "1_4",
+    "2_5"
+   ],
+   "parent_id": "1_1.1_2.1_3.1_4",
+   "order": 6,
+   "sibling_index": 2,
+   "heading_src": "二為破疑執",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b05",
+     "explained": "T34n1723_p0652b19"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b05: 五義：一為酬因請，二為破疑執，三為彰",
+   "notes": [
+    "@exp = 「破疑執中有二：一破疑，二破執」 (b19); the two are not encoded (level 6).",
+    "child_count_announced 2 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.1_4.3_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "1_4",
+    "3_5"
+   ],
+   "parent_id": "1_1.1_2.1_3.1_4",
+   "order": 7,
+   "sibling_index": 3,
+   "heading_src": "三為彰記行",
+   "heading_en": "",
+   "display_label": "戊三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b05",
+     "explained": "T34n1723_p0653b28"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b05: 五義：一為酬因請，二為破疑執，三為彰 | T34n1723_p0651b06: 記行，四為利今後，五為顯時機。酬因",
+   "notes": [
+    "@exp = 「彰記行中有二：一彰記，二彰行」 (b28); the two are not encoded (level 6).",
+    "child_count_announced 2 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.1_4.4_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "1_4",
+    "4_5"
+   ],
+   "parent_id": "1_1.1_2.1_3.1_4",
+   "order": 8,
+   "sibling_index": 4,
+   "heading_src": "四為利今後",
+   "heading_en": "",
+   "display_label": "戊四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b06",
+     "explained": "T34n1723_p0653c26"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b06: 記行，四為利今後，五為顯時機。酬因",
+   "notes": [
+    "@exp = 「利今後中有二：一利今，二利後」 (c26); the two are not encoded (level 6).",
+    "child_count_announced 2 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.1_4.5_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "1_4",
+    "5_5"
+   ],
+   "parent_id": "1_1.1_2.1_3.1_4",
+   "order": 9,
+   "sibling_index": 5,
+   "heading_src": "五為顯時機",
+   "heading_en": "",
+   "display_label": "戊五",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b06",
+     "explained": "T34n1723_p0655a02"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b06: 記行，四為利今後，五為顯時機。酬因",
+   "notes": [
+    "@exp = 「顯時機中有二：一顯時，二顯機」 (a02); the two are not encoded (level 6).",
+    "child_count_announced 2 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.2_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "2_4"
+   ],
+   "parent_id": "1_1.1_2.1_3",
+   "order": 10,
+   "sibling_index": 2,
+   "heading_src": "二明經之宗旨",
+   "heading_en": "",
+   "display_label": "丁二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b02",
+     "explained": "T34n1723_p0657a08"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b02: 料簡：一敘經起之意，二明經之宗旨，三解",
+   "notes": [
+    "Taken up as 「第二明經宗旨」 (a08); runs to p0657c02 and concludes 「故此定以一乘為宗」 (c01). Its numbered lists are doxography, content rather than parts of the gate: the 先德's 四宗 (a08–a13), 「教但有三」 and 「宗乃有八」 (a23–b06)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.3_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "3_4"
+   ],
+   "parent_id": "1_1.1_2.1_3",
+   "order": 11,
+   "sibling_index": 3,
+   "heading_src": "三解經品得名",
+   "heading_en": "",
+   "display_label": "丁三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b02",
+     "explained": "T34n1723_p0657c03"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b02: 料簡：一敘經起之意，二明經之宗旨，三解 | T34n1723_p0651b03: 經品得名，四顯經品廢立，五彰品之次第，",
+   "notes": [
+    "Taken up as 「第三解經品得名者」 (c03); runs to p0659a16. Two unnumbered topics, not nodes: the sūtra's title (「且經題目妙法蓮華經名者」, c03–c04) and the 品 names (「其品得名者」, p0658c15), which sorts the 28 names 「總為四例」 (p0658c23–c25)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.4_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "4_4"
+   ],
+   "parent_id": "1_1.1_2.1_3",
+   "order": 12,
+   "sibling_index": 4,
+   "heading_src": "四顯經品廢立",
+   "heading_en": "",
+   "display_label": "丁四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b03",
+     "explained": "T34n1723_p0659a17"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b03: 經品得名，四顯經品廢立，五彰品之次第，",
+   "notes": [
+    "Taken up as 「第四顯經品廢立者」 (a17); runs to p0660b03: the 提婆達多品 missing from Kumārajīva's text, the place of 囑累品 (with a list of objections, 「理有八違」, p0659b23–b24), the verses of 普門品 and other differences between the versions."
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.5_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "5_4"
+   ],
+   "parent_id": "1_1.1_2.1_3",
+   "order": 13,
+   "sibling_index": 5,
+   "heading_src": "五彰品之次第",
+   "heading_en": "",
+   "display_label": "丁五",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b03",
+     "explained": "T34n1723_p0660b04"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b03: 經品得名，四顯經品廢立，五彰品之次第，",
+   "notes": [
+    "Taken up as 「第五彰品次第者」 (b04); runs to p0661a15: the order of the 28 品, with 囑累品 placed last after the 正法華 and the 論 (p0661a13–a15)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.1_3.6_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3",
+    "6_4"
+   ],
+   "parent_id": "1_1.1_2.1_3",
+   "order": 14,
+   "sibling_index": 6,
+   "heading_src": "六釋經之本文",
+   "heading_en": "",
+   "display_label": "丁六",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0651b04",
+     "explained": "T34n1723_p0661a28"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0651b04: 六釋經之本文。第一敘經起意者，略由",
+   "notes": [
+    "Taken up as 「第六釋經本文者」 (a28), after the 卷第一末 title; this gate runs on through the rest of the commentary. It opens with the whole-sūtra divisions of 古遵法師, 吉藏 and 淨法師 (a28–b10) and Kuiji's own two (「今為二解」, p0661b10: level 1 of this outline, 序分 / 正宗 / 流通, not repeated here), then gives the division of this 品's text (「論說〈序品〉有七種成就」, c09), encoded as the sibling node 七種成就 per the 品文 convention."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3",
+   "level": 3,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3"
+   ],
+   "parent_id": "1_1.1_2",
+   "order": 15,
+   "sibling_index": 2,
+   "heading_src": "七種成就",
+   "heading_en": "",
+   "display_label": "丙二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 7,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0661c09"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c19",
+     "end": "T09n0262_p0005b23",
+     "basis": "lemma",
+     "end_basis": "chapter",
+     "raw": "如是我聞"
+    }
+   },
+   "evidence": "T34n1723_p0661c09: 至下釋。論說〈序品〉有七種成就，成就者",
+   "notes": [
+    "Kuiji's division of the chapter text: 「論說〈序品〉有七種成就」 (c09), the 法華論's seven, each listed with the sūtra words where it starts (c11–c25; R03 F23). The span is the text it divides, from 如是我聞 (the lemma Kuiji quotes at p0651b01, before the gates) to the end of the 品; the 品's title line T09n0262_p0001c18 is outside it.",
+    "Not a level here: Kuiji groups the seven 「七中分二，初二通序，後五別序」 (c25–c26) and lists the 通序 as five items whose fifth, 五所被機, 「此入眾成」 (c26–c28). He takes the text up by the seven (「七成就中，自下第二眾成就也」 p0666a15–a16 … 「下第七文殊師利答成就」 p0688a21), so the seven are this node's children. The grouping is treated differently from 陀羅尼品's 「有五，合為三類」 (T34n1723_p0850b04), where the three classes are a level because Kuiji takes the text up by class (「下二天」 b08, 「此十神」 b14; 「此初聖」 b05 takes up the first class's first item): 通序 / 別序 occur only in the grouping statement at c26 and never as a take-up marker in the 序品 commentary.",
+    "lemma 經「如是我聞」 quoted on T34n1723_p0651b01, 908 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.1_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "1_4"
+   ],
+   "parent_id": "1_1.1_2.2_3",
+   "order": 16,
+   "sibling_index": 1,
+   "heading_src": "一序分成就",
+   "heading_en": "",
+   "display_label": "丁一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c11",
+     "explained": "T34n1723_p0661c28"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c19",
+     "end": "T09n0262_p0001c19",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "如是我聞"
+    }
+   },
+   "evidence": "T34n1723_p0661c11: 圓滿餘經無故。一序分成就，始述通由具",
+   "notes": [
+    "@exp = 「序成但四，「如是我聞」即為初也」 (c28–c29): the first four of the five 通序 items (c26–c28) make up this 成就; they are its children. The 論 itself names two, 「論本但說序二成就：一者城，二者山」 (c29–p0662a01).",
+    "lemma 經「如是我聞」 quoted on T34n1723_p0651b01, 927 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.1_4.1_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "1_4",
+    "1_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.1_4",
+   "order": 17,
+   "sibling_index": 1,
+   "heading_src": "一總顯已聞",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c26",
+     "explained": "T34n1723_p0661c28"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c19",
+     "end": "T09n0262_p0001c19",
+     "basis": "lemma",
+     "raw": "如是我聞"
+    }
+   },
+   "evidence": "T34n1723_p0661c26: 中分二，初二通序，後五別序。通序有五：一 | T34n1723_p0661c27: 總顯已聞，二說教時，三說教主，四所化處，",
+   "notes": [
+    "Listed in 「通序有五：一總顯已聞…」 (c26–c27); @exp = 「「如是我聞」即為初也」 (c28–c29). The treatment (p0662a04–p0664a08) is 「「如是我聞」等，以三門分別：一說之所由，二立之所以，三正釋其文」 (a04–a05); the three gates are not encoded (level 6; flag truncated, no @n, since the count belongs to that gate formula).",
+    "lemma 經「如是我聞」 quoted on T34n1723_p0651b01, 927 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.1_4.2_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "1_4",
+    "2_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.1_4",
+   "order": 18,
+   "sibling_index": 2,
+   "heading_src": "二說教時",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c27",
+     "explained": "T34n1723_p0664a09"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c19",
+     "end": "T09n0262_p0001c19",
+     "basis": "lemma",
+     "raw": "一時"
+    }
+   },
+   "evidence": "T34n1723_p0661c27: 總顯已聞，二說教時，三說教主，四所化處，",
+   "notes": [
+    "@exp = 「經「一時」。贊曰：第二說教時分也」 (a09)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.1_4.3_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "1_4",
+    "3_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.1_4",
+   "order": 19,
+   "sibling_index": 3,
+   "heading_src": "三說教主",
+   "heading_en": "",
+   "display_label": "戊三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c27",
+     "explained": "T34n1723_p0664c07"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c19",
+     "end": "T09n0262_p0001c19",
+     "basis": "lemma",
+     "raw": "佛"
+    }
+   },
+   "evidence": "T34n1723_p0661c27: 總顯已聞，二說教時，三說教主，四所化處，",
+   "notes": [
+    "@exp = 「經「佛」。贊曰：第三說教主也」 (c07)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.1_4.4_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "1_4",
+    "4_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.1_4",
+   "order": 20,
+   "sibling_index": 4,
+   "heading_src": "四所化處",
+   "heading_en": "",
+   "display_label": "戊四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c27",
+     "explained": "T34n1723_p0665a08"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c19",
+     "end": "T09n0262_p0001c19",
+     "basis": "lemma",
+     "raw": "住王舍城耆闍崛山中"
+    }
+   },
+   "evidence": "T34n1723_p0661c27: 總顯已聞，二說教時，三說教主，四所化處，",
+   "notes": [
+    "@exp = 「贊曰：第四所化處也」 (a08)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.2_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "2_4"
+   ],
+   "parent_id": "1_1.1_2.2_3",
+   "order": 21,
+   "sibling_index": 2,
+   "heading_src": "二眾成就",
+   "heading_en": "",
+   "display_label": "丁二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c13",
+     "explained": "T34n1723_p0666a16"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c20",
+     "end": "T09n0262_p0002b07",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "與大比丘眾萬二千人俱"
+    }
+   },
+   "evidence": "T34n1723_p0661c13: 七皆序。二眾成就，「與大比丘眾」下是，一數、二",
+   "notes": [
+    "@exp = 「七成就中，自下第二眾成就也」 (a15–a16); = the fifth 通序 item, 五所被機 (p0661c28). Children, as for a 品: the gate node 以五門解釋 (a16) and the node for Kuiji's division of this 成就's text, 眾成中有二段 (p0667a22), which he states inside the fifth gate."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.2_4.1_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "2_4",
+    "1_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.2_4",
+   "order": 22,
+   "sibling_index": 1,
+   "heading_src": "以五門解釋",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 5,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0666a16"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0666a16: 自下第二眾成就也。眾成就以五門解釋：一",
+   "notes": [
+    "「眾成就以五門解釋：一顯來意，二彰權實，三定多小，四明次第，五依論解」 (a16–a18). The five gates are not encoded (level 6): 來意有五 (a18), 二者彰權實 (b12), 三定多少者 (b20: fifteen 眾, plus six in later 品), 四明次第者 (c15–c16), 五依論釋解眾成就 (p0667a03: the 論's four, 數 / 行 / 攝功德 / 威儀如法住). Gate 四明次第 holds 「初眾分四：一聲聞眾，二菩薩眾，三八部眾，四諸王眾」 (c16–c17; R03 F23), which orders the fifteen 眾 (level 7).",
+    "child_count_announced 5 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.2_4.2_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "2_4",
+    "2_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.2_4",
+   "order": 23,
+   "sibling_index": 2,
+   "heading_src": "眾成中有二段",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0667a22"
+    },
+    "root_text": {
+     "start": "T09n0262_p0001c20",
+     "end": "T09n0262_p0002b07",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "與大比丘眾萬二千人俱"
+    }
+   },
+   "evidence": "T34n1723_p0667a22: 一皆具四種。然經明眾成中有二段：初別",
+   "notes": [
+    "Kuiji's division of this 成就's text, inside gate 五: 「然經明眾成中有二段：初別明十五眾，後明威儀」 (a22–a23). Not encoded (level 6): 初別明十五眾 (T09n0262_p0001c20–p0002b06; its nested binary splits 初別列眾／後明禮佛各各退坐, 內護眾／外護眾 … follow at a23–a29) and 後明威儀 (lemma 爾時世尊至尊重讚歎, taken up at p0677a05: 「眾成就中文段為二：上來列眾，此明佛所威儀」).",
+    "lemma 經「與大比丘眾萬二千人俱」 quoted on T34n1723_p0666a15, 94 line(s) before commentary.explained (the commentary in between quotes no other lemma)",
+    "child_count_announced 2 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.3_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "3_4"
+   ],
+   "parent_id": "1_1.1_2.2_3",
+   "order": 24,
+   "sibling_index": 3,
+   "heading_src": "三如來欲說法時至成就",
+   "heading_en": "",
+   "display_label": "丁三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c15",
+     "explained": "T34n1723_p0677a25"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b07",
+     "end": "T09n0262_p0002b09",
+     "basis": "lemma",
+     "raw": "為諸菩薩至佛所護念"
+    }
+   },
+   "evidence": "T34n1723_p0661c15: 故。三如來欲說法時至成就，「為諸菩薩說大",
+   "notes": [
+    "@exp = 「此即第三如來欲說法時至成就」 (a25–a26). One lemma block; its 「略有三義」 (a26) are content."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.4_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "4_4"
+   ],
+   "parent_id": "1_1.1_2.2_3",
+   "order": 25,
+   "sibling_index": 4,
+   "heading_src": "四所依說法隨順威儀住成就",
+   "heading_en": "",
+   "display_label": "丁四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c17",
+     "explained": "T34n1723_p0678c22"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b09",
+     "end": "T09n0262_p0002b16",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "佛說此經已至身心不動"
+    }
+   },
+   "evidence": "T34n1723_p0661c17: 經故。四所依說法隨順威儀住成就，「佛說此",
+   "notes": [
+    "@exp = 「下文第四所依說法隨順威儀住成就」 (c22–c23). The division: 「今依三種軌儀：一依三昧成就…二依器世間…三依眾生世間…故此分三」 (p0679a03–a07)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.4_4.1_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "4_4",
+    "1_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.4_4",
+   "order": 26,
+   "sibling_index": 1,
+   "heading_src": "一依三昧成就",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0679a03",
+     "explained": "T34n1723_p0679a03"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b09",
+     "end": "T09n0262_p0002b10",
+     "basis": "lemma",
+     "raw": "佛說此經已至身心不動"
+    }
+   },
+   "evidence": "T34n1723_p0679a03: 而說於法。今依三種軌儀：一依三昧成就，",
+   "notes": [
+    "Listed with its text, 「一依三昧成就，故入於三昧身心不動是」 (a03–a04), inside the treatment of its lemma (p0678c22–p0679b28).",
+    "lemma 經「佛說此經已至身心不動」 quoted on T34n1723_p0678c22, 10 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.4_4.2_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "4_4",
+    "2_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.4_4",
+   "order": 27,
+   "sibling_index": 2,
+   "heading_src": "二依器世間",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0679a04",
+     "explained": "T34n1723_p0679b29"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b10",
+     "end": "T09n0262_p0002b12",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "是時天雨至及諸大眾"
+    }
+   },
+   "evidence": "T34n1723_p0679a04: 故入於三昧身心不動是；二依器世間，天",
+   "notes": [
+    "@exp = 「下明器世間有二：一雨華，二動地」 (b29–c01). Not encoded (level 6): its two lemma divisions, 雨華 (b29) and 動地 (經「普佛世界六種震動」, c22).",
+    "child_count_announced 2 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.4_4.3_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "4_4",
+    "3_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.4_4",
+   "order": 28,
+   "sibling_index": 3,
+   "heading_src": "三依眾生世間",
+   "heading_en": "",
+   "display_label": "戊三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0679a05",
+     "explained": "T34n1723_p0680a19"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b12",
+     "end": "T09n0262_p0002b16",
+     "basis": "lemma",
+     "raw": "爾時會中至一心觀佛"
+    }
+   },
+   "evidence": "T34n1723_p0679a05: 雨四華地六動是；三依眾生世間，四眾八",
+   "notes": [
+    "@exp = 「此眾生世間有四：一四眾，二八部，三二王，後結歡喜」 (a19–a20); the four are not encoded (level 6).",
+    "child_count_announced 4 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.5_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "5_4"
+   ],
+   "parent_id": "1_1.1_2.2_3",
+   "order": 29,
+   "sibling_index": 5,
+   "heading_src": "五依止說因成就",
+   "heading_en": "",
+   "display_label": "丁五",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c19",
+     "explained": "T34n1723_p0680b11"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b16",
+     "end": "T09n0262_p0002b24",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0661c19: 此三種法餘經無故。五依止說因成就，「爾時",
+   "notes": [
+    "@exp = 「下第五依止說因成就」 (b11–b12); the division: 「此中有三：一放光、二照境、三所見」 (b28). START BY @cut: Kuiji's lemma reads 經「爾時佛放眉間白豪相光」 (b11) where T09n0262 has 白毫 (p0002b16–b17; its apparatus, note 0002056, gives 「毫＝豪【博】下同」); the compiler matches lemmata literally.",
+    "root span starts at the annotator's cut 爾時佛放眉間白毫相光 (T09n0262_p0002b16, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.5_4.1_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "5_4",
+    "1_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.5_4",
+   "order": 30,
+   "sibling_index": 1,
+   "heading_src": "一放光",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0680b28",
+     "explained": "T34n1723_p0680b28"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b16",
+     "end": "T09n0262_p0002b17",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0680b28: 此中有三：一放光、二照境、三所見，此初也。",
+   "notes": [
+    "@exp = 「此初也」 (b28). Kuiji's lemma is 經「爾時佛放眉間白豪相光」 (b11; 豪 for T09n0262's 毫), hence @cut.",
+    "root span starts at the annotator's cut 爾時佛放眉間白毫相光 (T09n0262_p0002b16, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.5_4.2_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "5_4",
+    "2_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.5_4",
+   "order": 31,
+   "sibling_index": 2,
+   "heading_src": "二照境",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0680b28",
+     "explained": "T34n1723_p0680c23"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b17",
+     "end": "T09n0262_p0002b18",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0680b28: 此中有三：一放光、二照境、三所見，此初也。",
+   "notes": [
+    "@exp = 「第二照境也」 (c23). Kuiji's lemma 經「照於東方至阿迦尼吒天」 (c23) reads 照於東方 where T09n0262 has 照東方 (p0002b17; no variant recorded there), hence @cut; its end words 阿迦尼吒天 end on p0002b18.",
+    "root span starts at the annotator's cut 照東方 (T09n0262_p0002b17, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.5_4.3_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "5_4",
+    "3_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.5_4",
+   "order": 32,
+   "sibling_index": 3,
+   "heading_src": "三所見",
+   "heading_en": "",
+   "display_label": "戊三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0680b28",
+     "explained": "T34n1723_p0681a20"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b18",
+     "end": "T09n0262_p0002b24",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "於此世界至六趣眾生"
+    }
+   },
+   "evidence": "T34n1723_p0680b28: 此中有三：一放光、二照境、三所見，此初也。",
+   "notes": [
+    "Taken up as 「下明所照有七：一六趣、二佛、三法、四四眾、五菩薩、六入涅槃、七起塔。此七分三：一覩生死沈淪，二覩三寶出現，三覩滅後行化」 (a20–a23); @n counts the three groups (此七分三). Not encoded (level 6): the three groups (lemma divisions at a20, p0681c03, p0681c09, p0682a20).",
+    "child_count_announced 3 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.6_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "6_4"
+   ],
+   "parent_id": "1_1.1_2.2_3",
+   "order": 33,
+   "sibling_index": 6,
+   "heading_src": "六大眾生現前欲聞法成就",
+   "heading_en": "",
+   "display_label": "丁六",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c21",
+     "explained": "T34n1723_p0683a05"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b24",
+     "end": "T09n0262_p0003c10",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "爾時彌勒至而有此瑞"
+    }
+   },
+   "evidence": "T34n1723_p0661c21: 生希有心，餘經無故。六大眾生現前欲聞法 | T34n1723_p0661c22: 成就，「爾時彌勒菩薩作是念」下是，雖問一人",
+   "notes": [
+    "Heading as listed (c21–c22); taken up as 「第六大段大眾現前欲聞法成就。文段有三：初彌勒示相懷疑，次眾人實生心惑，後慈氏雙申兩意」 (a05–a07; 大眾現前, without 生)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.6_4.1_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "6_4",
+    "1_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.6_4",
+   "order": 34,
+   "sibling_index": 1,
+   "heading_src": "初彌勒示相懷疑",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0683a06",
+     "explained": "T34n1723_p0683a15"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b24",
+     "end": "T09n0262_p0002b29",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "爾時彌勒至而有此瑞"
+    }
+   },
+   "evidence": "T34n1723_p0683a06: 大眾現前欲聞法成就。文段有三：初彌勒示 | T34n1723_p0683a07: 相懷疑，次眾人實生心惑，後慈氏雙申兩",
+   "notes": [
+    "After glossing the three names (a08–a15), Kuiji takes this part up as 「初中有四：一牒瑞徵因，二舉奇詢答，三推功上德，四謙己方陳，此初文也」 (a15–a16). Not encoded (level 6): the four (lemma divisions at a05, a20 and a26; 三 and 四 share the lemma 復作此念至我今當問).",
+    "lemma 經「爾時彌勒至而有此瑞」 quoted on T34n1723_p0683a05, 10 line(s) before commentary.explained (the commentary in between quotes no other lemma)",
+    "child_count_announced 4 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.6_4.2_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "6_4",
+    "2_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.6_4",
+   "order": 35,
+   "sibling_index": 2,
+   "heading_src": "次眾人實生心惑",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0683a07",
+     "explained": "T34n1723_p0683c02"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002b29",
+     "end": "T09n0262_p0002c03",
+     "basis": "lemma",
+     "raw": "爾時比丘至今當問誰"
+    }
+   },
+   "evidence": "T34n1723_p0683a07: 相懷疑，次眾人實生心惑，後慈氏雙申兩",
+   "notes": [
+    "@exp = 「眾人實生心惑也」 (c02–c03). One lemma block."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.6_4.3_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "6_4",
+    "3_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.6_4",
+   "order": 36,
+   "sibling_index": 3,
+   "heading_src": "後慈氏雙申兩意發問先因",
+   "heading_en": "",
+   "display_label": "戊三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0683a07",
+     "explained": "T34n1723_p0683c09"
+    },
+    "root_text": {
+     "start": "T09n0262_p0002c03",
+     "end": "T09n0262_p0003c10",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "爾時彌勒至文殊師利言"
+    }
+   },
+   "evidence": "T34n1723_p0683a07: 相懷疑，次眾人實生心惑，後慈氏雙申兩 | T34n1723_p0683a08: 意。發問先因，彌勒道滿當主因成，現世逢",
+   "notes": [
+    "@exp = 「下第三段雙申兩意發問先因有二：初長行，後重頌」 (c09–c10). Not encoded (level 6): 初長行 (two lemma divisions, 雙申兩意 c09 and 發問先因 c12) and 後重頌 (62 stanzas from p0684a05: 「分之為二：初五十四頌頌前瑞相，後八頌頌正興問」 a11–a13; Kuiji calls the second part 「大文第二段」 at p0688a01).",
+    "HEADING: the listing reads 「後慈氏雙申兩意。發問先因，彌勒道滿…」 (a07–a08), with CBETA's 。 after 兩意; the heading takes 發問先因 into the label because Kuiji takes this part up as 「下第三段雙申兩意發問先因有二」 (c09–c10), names its prose halves 雙申兩意 / 發問先因 (c11, c12), and explains the third name as 「彌勒挾自他之兩意發問，文殊一人徵先所由」 (a13–a14), parallel to the first two names (reviewer, 2026-09-22). The compiler matches the heading with punctuation ignored and says so in a warning.",
+    "child_count_announced 2 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.7_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "7_4"
+   ],
+   "parent_id": "1_1.1_2.2_3",
+   "order": 37,
+   "sibling_index": 7,
+   "heading_src": "七文殊師利答成就",
+   "heading_en": "",
+   "display_label": "丁七",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661c23",
+     "explained": "T34n1723_p0688a21"
+    },
+    "root_text": {
+     "start": "T09n0262_p0003c11",
+     "end": "T09n0262_p0005b23",
+     "basis": "lemma",
+     "end_basis": "chapter",
+     "raw": "爾時文殊至及諸大士"
+    }
+   },
+   "evidence": "T34n1723_p0661c23: 多人欲聞生希有心，餘經無故。七文殊師利 | T34n1723_p0661c24: 答成就，以宿命智現見過去因果相，成就",
+   "notes": [
+    "@exp = 「下第七文殊師利答成就」 (a21–a22); the division: 「大分為三：初標名總告，次正答所徵，後有二頌語眾勸知陳佛今說」 (b02–b04; the third is called 「大文第三」 at p0694b05)."
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.7_4.1_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "7_4",
+    "1_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.7_4",
+   "order": 38,
+   "sibling_index": 1,
+   "heading_src": "初標名總告",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0688b02",
+     "explained": "T34n1723_p0688b04"
+    },
+    "root_text": {
+     "start": "T09n0262_p0003c11",
+     "end": "T09n0262_p0003c12",
+     "basis": "lemma",
+     "raw": "爾時文殊至及諸大士"
+    }
+   },
+   "evidence": "T34n1723_p0688b02: 過去無量生因之果。」大分為三：初標名總 | T34n1723_p0688b03: 告，次正答所徵，後有二頌語眾勸知陳",
+   "notes": [
+    "@exp = 「此即初也」 (b04).",
+    "lemma 經「爾時文殊至及諸大士」 quoted on T34n1723_p0688a21, 12 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.7_4.2_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "7_4",
+    "2_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.7_4",
+   "order": 39,
+   "sibling_index": 2,
+   "heading_src": "次正答所徵",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0688b03",
+     "explained": "T34n1723_p0688b05"
+    },
+    "root_text": {
+     "start": "T09n0262_p0003c12",
+     "end": "T09n0262_p0005b19",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "善男子等如我惟忖至演大法義"
+    }
+   },
+   "evidence": "T34n1723_p0688b03: 告，次正答所徵，後有二頌語眾勸知陳",
+   "notes": [
+    "@exp = 「正答所徵也」 (b05–b06). Kuiji maps the 論's 十事 (b06–b18; 「總為五對」 b21) and divides: 「此中總分為四：一示相籌量答，二舉古成今答，三指陳別事答，四古今相即答」 (b23–b25). Not encoded (level 6): the four 答 in prose (p0688b05–p0692c02; after the first two, 「下有八因總為二文：初長行，後偈頌」 p0689a22) and the 43 stanzas that restate 三 and 四 (「下有四十三頌，頌前指陳別事古今相即」 p0692c03; T09n0262_p0004b18–p0005b19).",
+    "child_count_announced 4 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "1_1.1_2.2_3.7_4.3_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3",
+    "7_4",
+    "3_5"
+   ],
+   "parent_id": "1_1.1_2.2_3.7_4",
+   "order": 40,
+   "sibling_index": 3,
+   "heading_src": "後有二頌語眾勸知陳佛今說",
+   "heading_en": "",
+   "display_label": "戊三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": "二頌",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0688b03",
+     "explained": "T34n1723_p0694b05"
+    },
+    "root_text": {
+     "start": "T09n0262_p0005b20",
+     "end": "T09n0262_p0005b23",
+     "basis": "manual",
+     "end_basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0688b03: 告，次正答所徵，後有二頌語眾勸知陳 | T34n1723_p0688b04: 佛今說。此即初也。",
+   "notes": [
+    "@exp = 「下之二頌大文第三語眾勸知陳佛今說，有二：初一頌…後一頌…此初也」 (b05–b08). Kuiji's lemma 經「諸人今當知至充足求佛道」 (b04) ends 充足求佛道 where T09n0262 reads 充足求道者 (p0005b21; no variant recorded there), hence @cut. Not encoded (level 6): its two stanzas (lemma divisions at b04 and b09).",
+    "root span starts at the annotator's cut 諸人今當知 (T09n0262_p0005b20, root-text wording); the commentary quotes no lemma for this division",
+    "child_count_announced 2 but 0 children in this outline"
+   ]
+  },
+  {
+   "id": "2_1",
+   "level": 1,
+   "path": [
+    "2_1"
+   ],
+   "parent_id": null,
+   "order": 41,
+   "sibling_index": 2,
+   "heading_src": "正宗",
+   "heading_en": "",
+   "display_label": "甲二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 8,
+   "extent_announced": "八品",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661b10",
+     "explained": "T34n1723_p0694b22"
+    },
+    "root_text": {
+     "start": "T09n0262_p0005b24",
+     "end": "T09n0262_p0030b27",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0661b11: 次八品名正宗，正說一乘授三根記，根本",
+   "notes": [
+    "Kuiji: 「次八品名正宗，正說一乘授三根記」 (T34n1723_p0661b11); heading as written (正宗, not 正宗分)."
+   ]
+  },
+  {
+   "id": "2_1.1_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "1_2"
+   ],
+   "parent_id": "2_1",
+   "order": 42,
+   "sibling_index": 1,
+   "heading_src": "方便品",
+   "heading_en": "",
+   "display_label": "乙一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0694b22"
+    },
+    "root_text": {
+     "start": "T09n0262_p0005b24",
+     "end": "T09n0262_p0010b20",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0694b22: 方便品",
+   "notes": []
+  },
+  {
+   "id": "2_1.2_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "2_2"
+   ],
+   "parent_id": "2_1",
+   "order": 43,
+   "sibling_index": 2,
+   "heading_src": "譬喻品",
+   "heading_en": "",
+   "display_label": "乙二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0734b07"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010b28",
+     "end": "T09n0262_p0016b06",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0734b07: 譬喻品第三",
+   "notes": [
+    "Children: the gate node 三門分別 (T34n1723_p0734b08, commentary-internal) and the node for Kuiji's division of the chapter text, 大文分二 (T34n1723_p0735b21), per the 品文 convention in the header comment. Subtree covers the test-split span T34n1723_p0734b07–p0737b04 only (header coverage)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.1_3",
+   "level": 3,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3"
+   ],
+   "parent_id": "2_1.2_2",
+   "order": 44,
+   "sibling_index": 1,
+   "heading_src": "三門分別",
+   "heading_en": "",
+   "display_label": "丙一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0734b08"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0734b08: 三門分別：一敘來意，二解品名，三釋妨難。",
+   "notes": [
+    "Kuiji's gate formula for this 品 is the variant 「三門分別：一敘來意，二解品名，三釋妨難」 (b08; R03 F25), not the 「一來意，二釋名，三解妨」 of 22 other chapters."
+   ]
+  },
+  {
+   "id": "2_1.2_2.1_3.1_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3",
+    "1_4"
+   ],
+   "parent_id": "2_1.2_2.1_3",
+   "order": 45,
+   "sibling_index": 1,
+   "heading_src": "一敘來意",
+   "heading_en": "",
+   "display_label": "丁一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0734b08",
+     "explained": "T34n1723_p0734b09"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0734b08: 三門分別：一敘來意，二解品名，三釋妨難。",
+   "notes": [
+    "Taken up as 「來意有二」 (b09)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.1_3.1_4.1_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3",
+    "1_4",
+    "1_5"
+   ],
+   "parent_id": "2_1.2_2.1_3.1_4",
+   "order": 46,
+   "sibling_index": 1,
+   "heading_src": "一鶖子上根聞法說而已悟",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0734b09",
+     "explained": "T34n1723_p0734b09"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0734b09: 來意有二：一鶖子上根聞法說而已悟，",
+   "notes": [
+    "Heading = the item's first clause (Kuiji gives it no separate label); the item runs b09–b11 and closes 「故此品來」."
+   ]
+  },
+  {
+   "id": "2_1.2_2.1_3.1_4.2_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3",
+    "1_4",
+    "2_5"
+   ],
+   "parent_id": "2_1.2_2.1_3.1_4",
+   "order": 47,
+   "sibling_index": 2,
+   "heading_src": "二論云",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0734b09",
+     "explained": "T34n1723_p0734b11"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0734b11: 將曉於中性，故此品來。二論云「自此已下",
+   "notes": [
+    "Heading = the item's opening words; the item quotes the 法華論 (「自此已下為七種具足煩惱性眾生，說七譬喻…說三平等」, 「餘殘修多羅明十無上義」, b11–b15) and runs to 「說此車喻，故此品來」 (p0735b03). Its enumerations are content lists that assign 品 of the whole sūtra to the 論's three 義, not divisions of this text, so they are not nodes: 七譬喻在七品 (b16), 三平等有九品 (b20–b21), 其十無上有二十一品 (b25) with 二力 (c02: 法力有三品 c03, 修行力中復有七力 c04), 上殘／下殘 (c11–c15), 殘有二義 (c15), 其七喻者 (c20), 無上義者 (c28), 七種具足煩惱眾生者 (p0735a03–a04)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.1_3.2_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3",
+    "2_4"
+   ],
+   "parent_id": "2_1.2_2.1_3",
+   "order": 48,
+   "sibling_index": 2,
+   "heading_src": "二解品名",
+   "heading_en": "",
+   "display_label": "丁二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0734b08",
+     "explained": "T34n1723_p0735b04"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0734b08: 三門分別：一敘來意，二解品名，三釋妨難。",
+   "notes": [
+    "Taken up as 「解品名者」 (b04): glosses of 譬 and 喻 with the 《玉篇》, b04–b08."
+   ]
+  },
+  {
+   "id": "2_1.2_2.1_3.3_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3",
+    "3_4"
+   ],
+   "parent_id": "2_1.2_2.1_3",
+   "order": 49,
+   "sibling_index": 3,
+   "heading_src": "三釋妨難",
+   "heading_en": "",
+   "display_label": "丁三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0734b08",
+     "explained": "T34n1723_p0735b08"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0734b08: 三門分別：一敘來意，二解品名，三釋妨難。",
+   "notes": [
+    "Taken up as 「釋妨者」 (b08–b09): three numbered question–answer pairs; no count is announced, so no @n."
+   ]
+  },
+  {
+   "id": "2_1.2_2.1_3.3_4.1_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3",
+    "3_4",
+    "1_5"
+   ],
+   "parent_id": "2_1.2_2.1_3.3_4",
+   "order": 50,
+   "sibling_index": 1,
+   "heading_src": "一問",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0735b09"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0735b09: 者，一問：此以喻曉理名譬喻品，前直以法",
+   "notes": [
+    "b09–b13: why not call the previous 品 法品."
+   ]
+  },
+  {
+   "id": "2_1.2_2.1_3.3_4.2_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3",
+    "3_4",
+    "2_5"
+   ],
+   "parent_id": "2_1.2_2.1_3.3_4",
+   "order": 51,
+   "sibling_index": 2,
+   "heading_src": "二問",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0735b13"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0735b13: 未可相例。二問：何故七喻唯此獨名，餘兼",
+   "notes": [
+    "b13–b15: why only this one of the seven parables names its 品 譬喻."
+   ]
+  },
+  {
+   "id": "2_1.2_2.1_3.3_4.3_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3",
+    "3_4",
+    "3_5"
+   ],
+   "parent_id": "2_1.2_2.1_3.3_4",
+   "order": 52,
+   "sibling_index": 3,
+   "heading_src": "三問",
+   "heading_en": "",
+   "display_label": "戊三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0735b15"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0735b15: 自別名，餘品不單名譬喻故。三問：中根領、",
+   "notes": [
+    "b15–b20: why 鶖子's 領解 and 記 are told at the head of this 品."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3",
+   "level": 3,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3"
+   ],
+   "parent_id": "2_1.2_2",
+   "order": 53,
+   "sibling_index": 2,
+   "heading_src": "大文分二",
+   "heading_en": "",
+   "display_label": "丙二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0735b21"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010b29",
+     "end": "T09n0262_p0016b06",
+     "basis": "lemma",
+     "end_basis": "chapter",
+     "raw": "爾時舍利弗至得未曾有"
+    }
+   },
+   "evidence": "T34n1723_p0735b22: 中大文分二：初鶖子聞法領喜述成得記，",
+   "notes": [
+    "Kuiji's division of the chapter text, 「贊曰：就此品中大文分二：初鶖子聞法領喜述成得記，後佛廣以譬喻化彼中根」 (b21–b23; 大文分二 itself stands on b22). The span is the text it divides, from the first division's lemma (quoted on b21) to the end of the 品; the 品's title line T09n0262_p0010b28 is outside it.",
+    "Second part 後佛廣以譬喻化彼中根 not encoded: Kuiji takes it up after T34n1723_p0737b04, outside the covered span.",
+    "child_count_announced 2 but 1 children in this outline"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4"
+   ],
+   "parent_id": "2_1.2_2.2_3",
+   "order": 54,
+   "sibling_index": 1,
+   "heading_src": "初鶖子聞法領喜述成得記",
+   "heading_en": "",
+   "display_label": "丁一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735b22",
+     "explained": "T34n1723_p0735b23"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010b29",
+     "end": "T09n0262_p0012b01",
+     "basis": "lemma",
+     "end_basis": "manual",
+     "raw": "爾時舍利弗至得未曾有"
+    }
+   },
+   "evidence": "T34n1723_p0735b22: 中大文分二：初鶖子聞法領喜述成得記，",
+   "notes": [
+    "@exp = 「初文屬前第一周法說一乘」 (b23). Kuiji places this part in the cross-chapter 周 structure: 「初周有四，上法說訖，自下第二鶖子聞法領解」 (b24–b25); the chapter-first tree keeps the 周 in this note.",
+    "Only its first part, 第二鶖子聞法領解, is taken up before T34n1723_p0737b04; the parts its label also names (述成, 得記) are taken up later and are not encoded (flag truncated; no @n, because Kuiji announces no count for this part itself: 初周有四 counts the 周, whose first part is 方便品).",
+    "END IS THE ANNOTATOR'S (end_basis manual): the covered commentary does not say where 後佛廣以譬喻化彼中根 starts. Reading: 述成 = T09n0262_p0011b09 ff., 得記 = p0011b16–p0012a06, and the 四眾's rejoicing at the 記 (p0012a07–b01) closes this part; 舍利弗's request for the 中根 (p0012b02 「爾時舍利弗白佛言」) opens the next (where Zhiyi's 四眾歡喜 ends, R03 F23). Alternative: end at p0012a06 (end of the 授記 verses). Re-check against T34n1723 after p0737b04 when that span is released."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4",
+   "order": 55,
+   "sibling_index": 1,
+   "heading_src": "第二鶖子聞法領解",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0735b24"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010b29",
+     "end": "T09n0262_p0011b08",
+     "basis": "lemma",
+     "end_basis": "extent-formula",
+     "raw": "爾時舍利弗至得未曾有"
+    }
+   },
+   "evidence": "T34n1723_p0735b24: 周法說一乘。初周有四，上法說訖，自下第二 | T34n1723_p0735b25: 鶖子聞法領解，自責而生喜，於中有二：初",
+   "notes": [
+    "「自下第二鶖子聞法領解，自責而生喜，於中有二：初長行、後偈頌」 (b24–b26); 第二 is its place among the four parts of the first 周. End = the end of its verse part, fixed by 「二十五頌半」 (p0736c24).",
+    "lemma 經「爾時舍利弗至得未曾有」 quoted on T34n1723_p0735b21, 3 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6",
+   "level": 6,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5",
+   "order": 56,
+   "sibling_index": 1,
+   "heading_src": "初長行",
+   "heading_en": "",
+   "display_label": "己一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735b25",
+     "explained": "T34n1723_p0735b26"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010b29",
+     "end": "T09n0262_p0010c14",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "爾時舍利弗至得未曾有"
+    }
+   },
+   "evidence": "T34n1723_p0735b25: 鶖子聞法領解，自責而生喜，於中有二：初 | T34n1723_p0735b26: 長行、後偈頌。長行有二：初標聞法以喜生，",
+   "notes": [
+    "@exp = 「長行有二：初標聞法以喜生，後釋歡喜之所以」 (b26–b27).",
+    "lemma 經「爾時舍利弗至得未曾有」 quoted on T34n1723_p0735b21, 5 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.1_7",
+   "level": 7,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "1_7"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6",
+   "order": 57,
+   "sibling_index": 1,
+   "heading_src": "初標聞法以喜生",
+   "heading_en": "",
+   "display_label": "庚一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735b26",
+     "explained": "T34n1723_p0735b27"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010b29",
+     "end": "T09n0262_p0010c02",
+     "basis": "lemma",
+     "raw": "爾時舍利弗至得未曾有"
+    }
+   },
+   "evidence": "T34n1723_p0735b26: 長行、後偈頌。長行有二：初標聞法以喜生，",
+   "notes": [
+    "@exp = 「此初也」 (b27). The treatment adds 「又由三義所以歡喜：一…二…三…」 (c03–c07), three reasons for the joy, kept as content, not as nodes.",
+    "lemma 經「爾時舍利弗至得未曾有」 quoted on T34n1723_p0735b21, 6 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7",
+   "level": 7,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6",
+   "order": 58,
+   "sibling_index": 2,
+   "heading_src": "後釋歡喜之所以",
+   "heading_en": "",
+   "display_label": "庚二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735b27",
+     "explained": "T34n1723_p0735c08"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c02",
+     "end": "T09n0262_p0010c14",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "所以者何至無量知見"
+    }
+   },
+   "evidence": "T34n1723_p0735b27: 後釋歡喜之所以。此初也。依俗間釋，「踊」蹺",
+   "notes": [
+    "@exp = 「下釋歡喜之所以，有四」 (c08–c09)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.1_8",
+   "level": 8,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7",
+    "1_8"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7",
+   "order": 59,
+   "sibling_index": 1,
+   "heading_src": "一失大法以興嗟",
+   "heading_en": "",
+   "display_label": "辛一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735c09",
+     "explained": "T34n1723_p0735c11"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c02",
+     "end": "T09n0262_p0010c04",
+     "basis": "lemma",
+     "raw": "所以者何至無量知見"
+    }
+   },
+   "evidence": "T34n1723_p0735c09: 之所以，有四：一失大法以興嗟，二處小",
+   "notes": [
+    "@exp = 「此初也」 (c11).",
+    "lemma 經「所以者何至無量知見」 quoted on T34n1723_p0735c08, 3 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8",
+   "level": 8,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7",
+    "2_8"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7",
+   "order": 60,
+   "sibling_index": 2,
+   "heading_src": "二處小階而起歡",
+   "heading_en": "",
+   "display_label": "辛二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735c09",
+     "explained": "T34n1723_p0735c19"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c04",
+     "end": "T09n0262_p0010c10",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "世尊我常獨處至而見濟度"
+    }
+   },
+   "evidence": "T34n1723_p0735c09: 之所以，有四：一失大法以興嗟，二處小 | T34n1723_p0735c10: 階而起歡，三喜今聞而惱盡，四知佛子而",
+   "notes": [
+    "Heading as announced (c09–c10, 起歡); Kuiji takes it up as 「下處小階而起歎，有二」 (c19–c20) and the verse part repeats 處小階而起歎 (p0737a14). No variant reading is marked in the XML."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8.1_9",
+   "level": 9,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7",
+    "2_8",
+    "1_9"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8",
+   "order": 61,
+   "sibling_index": 1,
+   "heading_src": "初歎住小",
+   "heading_en": "",
+   "display_label": "壬一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735c20",
+     "explained": "T34n1723_p0735c21"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c04",
+     "end": "T09n0262_p0010c07",
+     "basis": "lemma",
+     "raw": "世尊我常獨處至而見濟度"
+    }
+   },
+   "evidence": "T34n1723_p0735c20: 小階而起歎，有二：初歎住小，後自責躬。",
+   "notes": [
+    "@exp = 「此初也」 (c21)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8.2_9",
+   "level": 9,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7",
+    "2_8",
+    "2_9"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8",
+   "order": 62,
+   "sibling_index": 2,
+   "heading_src": "後自責躬",
+   "heading_en": "",
+   "display_label": "壬二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735c20",
+     "explained": "T34n1723_p0735c26"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c07",
+     "end": "T09n0262_p0010c10",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "是我等咎非世尊也"
+    }
+   },
+   "evidence": "T34n1723_p0735c20: 小階而起歎，有二：初歎住小，後自責躬。",
+   "notes": [
+    "@exp = 「下自責躬，有三：初標，次釋，後成」 (c26–c27). The lemma has no 至 (「是我等咎非世尊也」)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8.2_9.1_10",
+   "level": 10,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7",
+    "2_8",
+    "2_9",
+    "1_10"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8.2_9",
+   "order": 63,
+   "sibling_index": 1,
+   "heading_src": "初標",
+   "heading_en": "",
+   "display_label": "癸一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735c27",
+     "explained": "T34n1723_p0735c27"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c07",
+     "end": "T09n0262_p0010c07",
+     "basis": "lemma",
+     "raw": "是我等咎非世尊也"
+    }
+   },
+   "evidence": "T34n1723_p0735c27: 三：初標，次釋，後成。此標也。「咎」謂罪失，我之",
+   "notes": [
+    "@exp = 「此標也」 (c27)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8.2_9.2_10",
+   "level": 10,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7",
+    "2_8",
+    "2_9",
+    "2_10"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8.2_9",
+   "order": 64,
+   "sibling_index": 2,
+   "heading_src": "次釋",
+   "heading_en": "",
+   "display_label": "癸二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735c27",
+     "explained": "T34n1723_p0736a01"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c07",
+     "end": "T09n0262_p0010c09",
+     "basis": "lemma",
+     "raw": "所以者何至而得度脫"
+    }
+   },
+   "evidence": "T34n1723_p0735c27: 三：初標，次釋，後成。此標也。「咎」謂罪失，我之",
+   "notes": [
+    "@exp = 「此釋所由」 (a01). The treatment adds 「或因謂菩提心，略為三種」 (a09–a12), content, not nodes."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8.2_9.3_10",
+   "level": 10,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7",
+    "2_8",
+    "2_9",
+    "3_10"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.2_8.2_9",
+   "order": 65,
+   "sibling_index": 3,
+   "heading_src": "後成",
+   "heading_en": "",
+   "display_label": "癸三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735c27",
+     "explained": "T34n1723_p0736a13"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c09",
+     "end": "T09n0262_p0010c10",
+     "basis": "lemma",
+     "raw": "然我等至思惟取證"
+    }
+   },
+   "evidence": "T34n1723_p0735c27: 三：初標，次釋，後成。此標也。「咎」謂罪失，我之",
+   "notes": [
+    "@exp = 「此成自責」 (a13)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.3_8",
+   "level": 8,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7",
+    "3_8"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7",
+   "order": 66,
+   "sibling_index": 3,
+   "heading_src": "三喜今聞而惱盡",
+   "heading_en": "",
+   "display_label": "辛三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735c10",
+     "explained": "T34n1723_p0736a17"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c10",
+     "end": "T09n0262_p0010c13",
+     "basis": "lemma",
+     "raw": "世尊至快得安隱"
+    }
+   },
+   "evidence": "T34n1723_p0735c10: 階而起歡，三喜今聞而惱盡，四知佛子而",
+   "notes": [
+    "@exp = 「贊曰：喜今聞而惱盡」 (a17). The lemma's 世尊 is split over T09n0262_p0010c10–c11 (世｜尊); the span starts on c10 (R03 F23's cut 0010c10)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7.4_8",
+   "level": 8,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "1_6",
+    "2_7",
+    "4_8"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.1_6.2_7",
+   "order": 67,
+   "sibling_index": 4,
+   "heading_src": "四知佛子而道成",
+   "heading_en": "",
+   "display_label": "辛四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735c10",
+     "explained": "T34n1723_p0736b08"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c13",
+     "end": "T09n0262_p0010c14",
+     "basis": "lemma",
+     "raw": "今日乃知至得佛法分"
+    }
+   },
+   "evidence": "T34n1723_p0735c10: 階而起歡，三喜今聞而惱盡，四知佛子而 | T34n1723_p0735c11: 道成。此初也。「豫」者入也關也。《玉篇》「預，先辦",
+   "notes": [
+    "@exp = 「贊曰：知佛子而道成也」 (b08–b09). The treatment reads the six phrases of 《瑜伽》八十四 (b09–c18) as content, not as nodes."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6",
+   "level": 6,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5",
+   "order": 68,
+   "sibling_index": 2,
+   "heading_src": "後偈頌",
+   "heading_en": "",
+   "display_label": "己二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0735b26",
+     "explained": "T34n1723_p0736c24"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c14",
+     "end": "T09n0262_p0011b08",
+     "basis": "lemma",
+     "end_basis": "extent-formula",
+     "raw": "爾時舍利弗至疑網皆已除"
+    }
+   },
+   "evidence": "T34n1723_p0735b26: 長行、後偈頌。長行有二：初標聞法以喜生，",
+   "notes": [
+    "@exp = 「贊曰：二十五頌半分二：初二頌半頌標，二十三頌頌釋」 (c24–c25). End fixed by 二十五頌半: 51 verse lines T09n0262_p0010c16–p0011b08 (the span also takes in the verse introduction c14–c15, which the lemma quotes). The extent is not in @ext because the compiler checks @ext beside the heading's line (b26)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.1_7",
+   "level": 7,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "1_7"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6",
+   "order": 69,
+   "sibling_index": 1,
+   "heading_src": "初二頌半頌標",
+   "heading_en": "",
+   "display_label": "庚一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": "二頌半",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0736c25",
+     "explained": "T34n1723_p0736c26"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c14",
+     "end": "T09n0262_p0010c20",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "爾時舍利弗至疑網皆已除"
+    }
+   },
+   "evidence": "T34n1723_p0736c25: 頌半分二：初二頌半頌標，二十三頌頌釋。",
+   "notes": [
+    "@exp = 「初文有二」 (c26). 2½ stanzas = T09n0262_p0010c16–c20."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.1_7.1_8",
+   "level": 8,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "1_8"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6.1_7",
+   "order": 70,
+   "sibling_index": 1,
+   "heading_src": "初一頌頌標中得未曾有心喜疑除",
+   "heading_en": "",
+   "display_label": "辛一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": "一頌",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0736c26",
+     "explained": "T34n1723_p0736c27"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c14",
+     "end": "T09n0262_p0010c17",
+     "basis": "lemma",
+     "raw": "爾時舍利弗至疑網皆已除"
+    }
+   },
+   "evidence": "T34n1723_p0736c26: 初文有二：初一頌頌標中得未曾有心喜 | T34n1723_p0736c27: 疑除，後一頌半釋得未曾有彰憂悔盡。此",
+   "notes": [
+    "@exp = 「此初也」 (此 on c27, 初也 on c28).",
+    "lemma 經「爾時舍利弗至疑網皆已除」 quoted on T34n1723_p0736c24, 3 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.1_7.2_8",
+   "level": 8,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "2_8"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6.1_7",
+   "order": 71,
+   "sibling_index": 2,
+   "heading_src": "後一頌半釋得未曾有彰憂悔盡",
+   "heading_en": "",
+   "display_label": "辛二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": "一頌半",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0736c27",
+     "explained": "T34n1723_p0737a01"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c18",
+     "end": "T09n0262_p0010c20",
+     "basis": "lemma",
+     "raw": "昔來蒙佛教至聞亦除憂惱"
+    }
+   },
+   "evidence": "T34n1723_p0736c27: 疑除，後一頌半釋得未曾有彰憂悔盡。此",
+   "notes": [
+    "@exp = 「贊曰：釋得未曾有彰憂悔盡」 (a01–a02)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7",
+   "level": 7,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "2_7"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6",
+   "order": 72,
+   "sibling_index": 2,
+   "heading_src": "二十三頌頌釋",
+   "heading_en": "",
+   "display_label": "庚二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 4,
+   "extent_announced": "二十三頌",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0736c25",
+     "explained": "T34n1723_p0737a13"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c21",
+     "end": "T09n0262_p0011b08",
+     "basis": "lemma",
+     "end_basis": "extent-formula",
+     "raw": "我處於山谷至云何而自欺"
+    }
+   },
+   "evidence": "T34n1723_p0736c25: 頌半分二：初二頌半頌標，二十三頌頌釋。",
+   "notes": [
+    "@exp = 「下頌前釋，分四：初二頌半處小階而起歎，次五頌半失大法以興嗟，次十四頌喜今聞而惱盡，後一頌知佛子而道成，與前長行前後不同」 (a13–a17). End fixed by 二十三頌: 46 verse lines T09n0262_p0010c21–p0011b08.",
+    "Parts 3 and 4 (次十四頌喜今聞而惱盡, 後一頌知佛子而道成) not encoded: Kuiji takes them up after T34n1723_p0737b04, outside the covered span.",
+    "child_count_announced 4 but 2 children in this outline"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.1_8",
+   "level": 8,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "1_8"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7",
+   "order": 73,
+   "sibling_index": 1,
+   "heading_src": "初二頌半處小階而起歎",
+   "heading_en": "",
+   "display_label": "辛一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": "二頌半",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0737a14",
+     "explained": "T34n1723_p0737a17"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c21",
+     "end": "T09n0262_p0010c25",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "我處於山谷至云何而自欺"
+    }
+   },
+   "evidence": "T34n1723_p0737a14: 前釋，分四：初二頌半處小階而起歎，次五",
+   "notes": [
+    "@exp = 「故初中有二：初一頌半歎居小位，後之一頌頌所歎事」 (a17–a18).",
+    "lemma 經「我處於山谷至云何而自欺」 quoted on T34n1723_p0737a13, 4 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.1_8.1_9",
+   "level": 9,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "1_8",
+    "1_9"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.1_8",
+   "order": 74,
+   "sibling_index": 1,
+   "heading_src": "初一頌半歎居小位",
+   "heading_en": "",
+   "display_label": "壬一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": "一頌半",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0737a17",
+     "explained": "T34n1723_p0737a18"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c21",
+     "end": "T09n0262_p0010c23",
+     "basis": "lemma",
+     "raw": "我處於山谷至云何而自欺"
+    }
+   },
+   "evidence": "T34n1723_p0737a17: 後不同。故初中有二：初一頌半歎居小位，",
+   "notes": [
+    "@exp = 「此初也」 (a18).",
+    "lemma 經「我處於山谷至云何而自欺」 quoted on T34n1723_p0737a13, 5 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.1_8.2_9",
+   "level": 9,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "1_8",
+    "2_9"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.1_8",
+   "order": 75,
+   "sibling_index": 2,
+   "heading_src": "後之一頌頌所歎事",
+   "heading_en": "",
+   "display_label": "壬二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": "一頌",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0737a18",
+     "explained": "T34n1723_p0737a21"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c24",
+     "end": "T09n0262_p0010c25",
+     "basis": "lemma",
+     "raw": "我等亦佛子至演說無上道"
+    }
+   },
+   "evidence": "T34n1723_p0737a18: 後之一頌頌所歎事。此初也。「嗚呼」者嗟歎",
+   "notes": [
+    "@exp = 「贊曰：此一頌頌所歎事」 (a21–a22)."
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.2_8",
+   "level": 8,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "2_8"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7",
+   "order": 76,
+   "sibling_index": 2,
+   "heading_src": "次五頌半失大法以興嗟",
+   "heading_en": "",
+   "display_label": "辛二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": "五頌半",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0737a14",
+     "explained": "T34n1723_p0737a25"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c26",
+     "end": "T09n0262_p0011a07",
+     "basis": "lemma",
+     "end_basis": "extent-formula",
+     "raw": "金色三十二至而不得此事"
+    }
+   },
+   "evidence": "T34n1723_p0737a14: 前釋，分四：初二頌半處小階而起歎，次五 | T34n1723_p0737a15: 頌半失大法以興嗟，次十四頌喜今聞而",
+   "notes": [
+    "@exp = 「贊曰：下五頌半失大法以興嗟，中分二：初三頌半所失大法，後之二頌明自興嗟」 (a25–a27). End fixed by 五頌半: 11 verse lines T09n0262_p0010c26–p0011a07.",
+    "Part 2 (後之二頌明自興嗟) not encoded: taken up after T34n1723_p0737b04.",
+    "child_count_announced 2 but 1 children in this outline"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.2_8.1_9",
+   "level": 9,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "2_8",
+    "1_9"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.2_8",
+   "order": 77,
+   "sibling_index": 1,
+   "heading_src": "初三頌半所失大法",
+   "heading_en": "",
+   "display_label": "壬一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": "三頌半",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0737a26",
+     "explained": "T34n1723_p0737a27"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c26",
+     "end": "T09n0262_p0011a03",
+     "basis": "lemma",
+     "end_basis": "extent-formula",
+     "raw": "金色三十二至而不得此事"
+    }
+   },
+   "evidence": "T34n1723_p0737a26: 半失大法以興嗟，中分二：初三頌半所失 | T34n1723_p0737a27: 大法，後之二頌明自興嗟。初中復二：初",
+   "notes": [
+    "@exp = 「初中復二：初之二頌內外莊嚴德，後一頌半名利高廣德」 (a27–a28). End fixed by 三頌半: T09n0262_p0010c26–p0011a03.",
+    "Part 2 (後一頌半名利高廣德) not encoded: taken up after T34n1723_p0737b04.",
+    "child_count_announced 2 but 1 children in this outline"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.2_8.1_9.1_10",
+   "level": 10,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "2_8",
+    "1_9",
+    "1_10"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.2_8.1_9",
+   "order": 78,
+   "sibling_index": 1,
+   "heading_src": "初之二頌內外莊嚴德",
+   "heading_en": "",
+   "display_label": "癸一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated",
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": "二頌",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0737a27",
+     "explained": "T34n1723_p0737b01"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c26",
+     "end": "T09n0262_p0010c29",
+     "basis": "lemma",
+     "end_basis": "extent-formula",
+     "raw": "金色三十二至而不得此事"
+    }
+   },
+   "evidence": "T34n1723_p0737a27: 大法，後之二頌明自興嗟。初中復二：初 | T34n1723_p0737a28: 之二頌內外莊嚴德，後一頌半名利高廣德。",
+   "notes": [
+    "@exp = 「初中復二：初一頌具相降魔德，後一頌好滿不共德」 (b01–b02). End fixed by 二頌: T09n0262_p0010c26–c29.",
+    "Part 2 (後一頌好滿不共德) not encoded: taken up after T34n1723_p0737b04.",
+    "lemma 經「金色三十二至而不得此事」 quoted on T34n1723_p0737a25, 4 line(s) before commentary.explained (the commentary in between quotes no other lemma)",
+    "child_count_announced 2 but 1 children in this outline"
+   ]
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.2_8.1_9.1_10.1_11",
+   "level": 11,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "2_8",
+    "1_9",
+    "1_10",
+    "1_11"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4.1_5.2_6.2_7.2_8.1_9.1_10",
+   "order": 79,
+   "sibling_index": 1,
+   "heading_src": "初一頌具相降魔德",
+   "heading_en": "",
+   "display_label": "子一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": "一頌",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0737b01",
+     "explained": "T34n1723_p0737b02"
+    },
+    "root_text": {
+     "start": "T09n0262_p0010c26",
+     "end": "T09n0262_p0010c27",
+     "basis": "lemma",
+     "raw": "金色三十二至而不得此事"
+    }
+   },
+   "evidence": "T34n1723_p0737b01: 初中復二：初一頌具相降魔德，後一頌好滿",
+   "notes": [
+    "@exp = 「此初也」 (b02). Its treatment runs past T34n1723_p0737b04 (the 《大般若經》 quotation on the thirty-two marks opens at b03; per tests/fixtures/R03-piyu-opening/README.md it runs to p0737c25); no division of it is announced before p0737b04, so it is a leaf here and is not flagged.",
+    "lemma 經「金色三十二至而不得此事」 quoted on T34n1723_p0737a25, 5 line(s) before commentary.explained (the commentary in between quotes no other lemma)"
+   ]
+  },
+  {
+   "id": "2_1.3_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "3_2"
+   ],
+   "parent_id": "2_1",
+   "order": 80,
+   "sibling_index": 3,
+   "heading_src": "信解品",
+   "heading_en": "",
+   "display_label": "乙三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0770b23"
+    },
+    "root_text": {
+     "start": "T09n0262_p0016b07",
+     "end": "T09n0262_p0019a11",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0770b23: 信解品",
+   "notes": []
+  },
+  {
+   "id": "2_1.4_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "4_2"
+   ],
+   "parent_id": "2_1",
+   "order": 81,
+   "sibling_index": 4,
+   "heading_src": "藥草喻品",
+   "heading_en": "",
+   "display_label": "乙四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0781a03"
+    },
+    "root_text": {
+     "start": "T09n0262_p0019a18",
+     "end": "T09n0262_p0020b24",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0781a03: 藥草喻品",
+   "notes": []
+  },
+  {
+   "id": "2_1.5_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "5_2"
+   ],
+   "parent_id": "2_1",
+   "order": 82,
+   "sibling_index": 5,
+   "heading_src": "授記品",
+   "heading_en": "",
+   "display_label": "乙五",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0786c24"
+    },
+    "root_text": {
+     "start": "T09n0262_p0020b25",
+     "end": "T09n0262_p0022a17",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0786c24: 授記品",
+   "notes": []
+  },
+  {
+   "id": "2_1.6_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "6_2"
+   ],
+   "parent_id": "2_1",
+   "order": 83,
+   "sibling_index": 6,
+   "heading_src": "化城喻品",
+   "heading_en": "",
+   "display_label": "乙六",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0789b15"
+    },
+    "root_text": {
+     "start": "T09n0262_p0022a18",
+     "end": "T09n0262_p0027b08",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0789b15: 化城喻品",
+   "notes": []
+  },
+  {
+   "id": "2_1.7_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "7_2"
+   ],
+   "parent_id": "2_1",
+   "order": 84,
+   "sibling_index": 7,
+   "heading_src": "五百弟子受記品",
+   "heading_en": "",
+   "display_label": "乙七",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0801c21"
+    },
+    "root_text": {
+     "start": "T09n0262_p0027b16",
+     "end": "T09n0262_p0029b21",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0801c21: 五百弟子受記品",
+   "notes": []
+  },
+  {
+   "id": "2_1.8_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "8_2"
+   ],
+   "parent_id": "2_1",
+   "order": 85,
+   "sibling_index": 8,
+   "heading_src": "授學無學人記品",
+   "heading_en": "",
+   "display_label": "乙八",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0805c07"
+    },
+    "root_text": {
+     "start": "T09n0262_p0029b22",
+     "end": "T09n0262_p0030b27",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0805c07: 授學無學人記品",
+   "notes": []
+  },
+  {
+   "id": "3_1",
+   "level": 1,
+   "path": [
+    "3_1"
+   ],
+   "parent_id": null,
+   "order": 86,
+   "sibling_index": 3,
+   "heading_src": "流通",
+   "heading_en": "",
+   "display_label": "甲三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 19,
+   "extent_announced": "十九品",
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0661b10",
+     "explained": "T34n1723_p0806c24"
+    },
+    "root_text": {
+     "start": "T09n0262_p0030b28",
+     "end": "T09n0262_p0062a29",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0661b26: 非正宗。餘十九品總名流通，讚證受命付",
+   "notes": [
+    "Kuiji: 「餘十九品總名流通，讚證受命付令行故」 (T34n1723_p0661b26–b27). @src: the name stands 16 lines after the announcement's first line (@ann, 今為二解)."
+   ]
+  },
+  {
+   "id": "3_1.1_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "1_2"
+   ],
+   "parent_id": "3_1",
+   "order": 87,
+   "sibling_index": 1,
+   "heading_src": "法師品",
+   "heading_en": "",
+   "display_label": "乙一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0806c24"
+    },
+    "root_text": {
+     "start": "T09n0262_p0030b28",
+     "end": "T09n0262_p0032b15",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0806c24: 法師品",
+   "notes": []
+  },
+  {
+   "id": "3_1.2_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "2_2"
+   ],
+   "parent_id": "3_1",
+   "order": 88,
+   "sibling_index": 2,
+   "heading_src": "見寶塔品",
+   "heading_en": "",
+   "display_label": "乙二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0811a12"
+    },
+    "root_text": {
+     "start": "T09n0262_p0032b16",
+     "end": "T09n0262_p0034b22",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0811a12: 見寶塔品",
+   "notes": []
+  },
+  {
+   "id": "3_1.3_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "3_2"
+   ],
+   "parent_id": "3_1",
+   "order": 89,
+   "sibling_index": 3,
+   "heading_src": "提婆達多品",
+   "heading_en": "",
+   "display_label": "乙三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0815a12"
+    },
+    "root_text": {
+     "start": "T09n0262_p0034b23",
+     "end": "T09n0262_p0035c26",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0815a12: 提婆達多品",
+   "notes": []
+  },
+  {
+   "id": "3_1.4_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "4_2"
+   ],
+   "parent_id": "3_1",
+   "order": 90,
+   "sibling_index": 4,
+   "heading_src": "持品",
+   "heading_en": "",
+   "display_label": "乙四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0817b03"
+    },
+    "root_text": {
+     "start": "T09n0262_p0035c27",
+     "end": "T09n0262_p0037a01",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0817b03: 持品",
+   "notes": [
+    "T09n0262 cb:mulu: 13 勸持品"
+   ]
+  },
+  {
+   "id": "3_1.5_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "5_2"
+   ],
+   "parent_id": "3_1",
+   "order": 91,
+   "sibling_index": 5,
+   "heading_src": "安樂行品",
+   "heading_en": "",
+   "display_label": "乙五",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0818c19"
+    },
+    "root_text": {
+     "start": "T09n0262_p0037a09",
+     "end": "T09n0262_p0039c17",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0818c19: 安樂行品",
+   "notes": []
+  },
+  {
+   "id": "3_1.6_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "6_2"
+   ],
+   "parent_id": "3_1",
+   "order": 92,
+   "sibling_index": 6,
+   "heading_src": "從地涌出品",
+   "heading_en": "",
+   "display_label": "乙六",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0825c27"
+    },
+    "root_text": {
+     "start": "T09n0262_p0039c18",
+     "end": "T09n0262_p0042a28",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0825c27: 從地涌出品",
+   "notes": [
+    "T09n0262 cb:mulu: 15 從地踊出品"
+   ]
+  },
+  {
+   "id": "3_1.7_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "7_2"
+   ],
+   "parent_id": "3_1",
+   "order": 93,
+   "sibling_index": 7,
+   "heading_src": "壽量品",
+   "heading_en": "",
+   "display_label": "乙七",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0828b09"
+    },
+    "root_text": {
+     "start": "T09n0262_p0042a29",
+     "end": "T09n0262_p0044a04",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0828b09: 壽量品",
+   "notes": [
+    "T09n0262 cb:mulu: 16 如來壽量品"
+   ]
+  },
+  {
+   "id": "3_1.8_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "8_2"
+   ],
+   "parent_id": "3_1",
+   "order": 94,
+   "sibling_index": 8,
+   "heading_src": "分別功德品",
+   "heading_en": "",
+   "display_label": "乙八",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0833b24"
+    },
+    "root_text": {
+     "start": "T09n0262_p0044a05",
+     "end": "T09n0262_p0046b13",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0833b24: 分別功德品",
+   "notes": []
+  },
+  {
+   "id": "3_1.9_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "9_2"
+   ],
+   "parent_id": "3_1",
+   "order": 95,
+   "sibling_index": 9,
+   "heading_src": "隨喜功德品",
+   "heading_en": "",
+   "display_label": "乙九",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0836a27"
+    },
+    "root_text": {
+     "start": "T09n0262_p0046b21",
+     "end": "T09n0262_p0047c01",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0836a27: 隨喜功德品",
+   "notes": []
+  },
+  {
+   "id": "3_1.10_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "10_2"
+   ],
+   "parent_id": "3_1",
+   "order": 96,
+   "sibling_index": 10,
+   "heading_src": "法師功德品",
+   "heading_en": "",
+   "display_label": "乙十",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0837a25"
+    },
+    "root_text": {
+     "start": "T09n0262_p0047c02",
+     "end": "T09n0262_p0050b22",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0837a25: 法師功德品",
+   "notes": []
+  },
+  {
+   "id": "3_1.11_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "11_2"
+   ],
+   "parent_id": "3_1",
+   "order": 97,
+   "sibling_index": 11,
+   "heading_src": "常不輕菩薩品",
+   "heading_en": "",
+   "display_label": "乙十一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0839b10"
+    },
+    "root_text": {
+     "start": "T09n0262_p0050b23",
+     "end": "T09n0262_p0051c07",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0839b10: 常不輕菩薩品",
+   "notes": []
+  },
+  {
+   "id": "3_1.12_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "12_2"
+   ],
+   "parent_id": "3_1",
+   "order": 98,
+   "sibling_index": 12,
+   "heading_src": "如來神力品",
+   "heading_en": "",
+   "display_label": "乙十二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0841a06"
+    },
+    "root_text": {
+     "start": "T09n0262_p0051c08",
+     "end": "T09n0262_p0052c02",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0841a06: 如來神力品",
+   "notes": []
+  },
+  {
+   "id": "3_1.13_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "13_2"
+   ],
+   "parent_id": "3_1",
+   "order": 99,
+   "sibling_index": 13,
+   "heading_src": "囑累品",
+   "heading_en": "",
+   "display_label": "乙十三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0842b17"
+    },
+    "root_text": {
+     "start": "T09n0262_p0052c03",
+     "end": "T09n0262_p0053a03",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0842b17: 囑累品",
+   "notes": []
+  },
+  {
+   "id": "3_1.14_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "14_2"
+   ],
+   "parent_id": "3_1",
+   "order": 100,
+   "sibling_index": 14,
+   "heading_src": "藥王菩薩本事品",
+   "heading_en": "",
+   "display_label": "乙十四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0843b16"
+    },
+    "root_text": {
+     "start": "T09n0262_p0053a04",
+     "end": "T09n0262_p0055a08",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0843b16: 藥王菩薩本事品",
+   "notes": []
+  },
+  {
+   "id": "3_1.15_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "15_2"
+   ],
+   "parent_id": "3_1",
+   "order": 101,
+   "sibling_index": 15,
+   "heading_src": "妙音菩薩品",
+   "heading_en": "",
+   "display_label": "乙十五",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0845b04"
+    },
+    "root_text": {
+     "start": "T09n0262_p0055a16",
+     "end": "T09n0262_p0056c01",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0845b04: 妙音菩薩品",
+   "notes": []
+  },
+  {
+   "id": "3_1.16_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "16_2"
+   ],
+   "parent_id": "3_1",
+   "order": 102,
+   "sibling_index": 16,
+   "heading_src": "觀世音普門品",
+   "heading_en": "",
+   "display_label": "乙十六",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0846c07"
+    },
+    "root_text": {
+     "start": "T09n0262_p0056c02",
+     "end": "T09n0262_p0058b07",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0846c07: 觀世音普門品",
+   "notes": [
+    "T09n0262 cb:mulu: 25 觀世音菩薩普門品"
+   ]
+  },
+  {
+   "id": "3_1.17_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "17_2"
+   ],
+   "parent_id": "3_1",
+   "order": 103,
+   "sibling_index": 17,
+   "heading_src": "陀羅尼品",
+   "heading_en": "",
+   "display_label": "乙十七",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0850a19"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b08",
+     "end": "T09n0262_p0059b27",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0850a19: 陀羅尼品",
+   "notes": [
+    "Children: the gate node 三門分別 (T34n1723_p0850a20, commentary-internal) and the node for Kuiji's division of the chapter text, 品文分三 (T34n1723_p0850a29), per the 品文 convention in the header comment."
+   ]
+  },
+  {
+   "id": "3_1.17_2.1_3",
+   "level": 3,
+   "path": [
+    "3_1",
+    "17_2",
+    "1_3"
+   ],
+   "parent_id": "3_1.17_2",
+   "order": 104,
+   "sibling_index": 1,
+   "heading_src": "三門分別",
+   "heading_en": "",
+   "display_label": "丙一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0850a20"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0850a20: 三門分別：一來意，二釋名，三解妨。來意者，",
+   "notes": []
+  },
+  {
+   "id": "3_1.17_2.1_3.1_4",
+   "level": 4,
+   "path": [
+    "3_1",
+    "17_2",
+    "1_3",
+    "1_4"
+   ],
+   "parent_id": "3_1.17_2.1_3",
+   "order": 105,
+   "sibling_index": 1,
+   "heading_src": "一來意",
+   "heading_en": "",
+   "display_label": "丁一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850a20",
+     "explained": "T34n1723_p0850a20"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0850a20: 三門分別：一來意，二釋名，三解妨。來意者，",
+   "notes": [
+    "Treatment 「來意者，論云「為護眾生諸難」，如前已釋。」 (a20–a21)."
+   ]
+  },
+  {
+   "id": "3_1.17_2.1_3.2_4",
+   "level": 4,
+   "path": [
+    "3_1",
+    "17_2",
+    "1_3",
+    "2_4"
+   ],
+   "parent_id": "3_1.17_2.1_3",
+   "order": 106,
+   "sibling_index": 2,
+   "heading_src": "二釋名",
+   "heading_en": "",
+   "display_label": "丁二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850a20",
+     "explained": "T34n1723_p0850a21"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0850a20: 三門分別：一來意，二釋名，三解妨。來意者，",
+   "notes": [
+    "Treatment 「釋名者，梵云陀羅尼，此云總持…故名陀羅尼品。」 (a21–a25)."
+   ]
+  },
+  {
+   "id": "3_1.17_2.1_3.3_4",
+   "level": 4,
+   "path": [
+    "3_1",
+    "17_2",
+    "1_3",
+    "3_4"
+   ],
+   "parent_id": "3_1.17_2.1_3",
+   "order": 107,
+   "sibling_index": 3,
+   "heading_src": "三解妨",
+   "heading_en": "",
+   "display_label": "丁三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "commentary-internal",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850a20",
+     "explained": "T34n1723_p0850a25"
+    },
+    "root_text": null
+   },
+   "evidence": "T34n1723_p0850a20: 三門分別：一來意，二釋名，三解妨。來意者，",
+   "notes": [
+    "Treatment 「解妨者，問：…答：…」 (a25–a28), one question and answer, not a division."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3",
+   "level": 3,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3"
+   ],
+   "parent_id": "3_1.17_2",
+   "order": 108,
+   "sibling_index": 2,
+   "heading_src": "品文分三",
+   "heading_en": "",
+   "display_label": "丙二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0850a29"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b09",
+     "end": "T09n0262_p0059b27",
+     "basis": "lemma",
+     "end_basis": "chapter",
+     "raw": "爾時藥王至功德甚多"
+    }
+   },
+   "evidence": "T34n1723_p0850a29: 經「爾時藥王至功德甚多」。贊曰：品文分三：",
+   "notes": [
+    "Kuiji's division of the chapter text, 「贊曰：品文分三：初明持經之福，次明神呪之方，後明時眾獲益」 (a29–b01). The span is the text it divides, from the first division's lemma (quoted on the same line) to the end of the 品; the 品's title line T09n0262_p0058b08 is outside it."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.1_4",
+   "level": 4,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "1_4"
+   ],
+   "parent_id": "3_1.17_2.2_3",
+   "order": 109,
+   "sibling_index": 1,
+   "heading_src": "初明持經之福",
+   "heading_en": "",
+   "display_label": "丁一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850a30",
+     "explained": "T34n1723_p0850b01"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b09",
+     "end": "T09n0262_p0058b17",
+     "basis": "lemma",
+     "raw": "爾時藥王至功德甚多"
+    }
+   },
+   "evidence": "T34n1723_p0850a30: 初明持經之福，次明神呪之方，後明時眾",
+   "notes": [
+    "Announced in 「品文分三」 (a29–b01); @exp = 「此初。」 (b01), the lemma being quoted at a29."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.1_4.1_5",
+   "level": 5,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "1_4",
+    "1_5"
+   ],
+   "parent_id": "3_1.17_2.2_3.1_4",
+   "order": 110,
+   "sibling_index": 1,
+   "heading_src": "初問",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b01",
+     "explained": "T34n1723_p0850b01"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b09",
+     "end": "T09n0262_p0058b12",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b01: 獲益。此初。有二：初問、後答。答中有三：一返",
+   "notes": [
+    "root span starts at the annotator's cut 爾時，藥王菩薩即從座起 (T09n0262_p0058b09, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.1_4.2_5",
+   "level": 5,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "1_4",
+    "2_5"
+   ],
+   "parent_id": "3_1.17_2.2_3.1_4",
+   "order": 111,
+   "sibling_index": 2,
+   "heading_src": "後答",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b01",
+     "explained": "T34n1723_p0850b01"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b12",
+     "end": "T09n0262_p0058b17",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b01: 獲益。此初。有二：初問、後答。答中有三：一返",
+   "notes": [
+    "Treatment 「答中有三」 (b01).",
+    "root span starts at the annotator's cut 佛告藥王 (T09n0262_p0058b12, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.1_4.2_5.1_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "1_4",
+    "2_5",
+    "1_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.1_4.2_5",
+   "order": 112,
+   "sibling_index": 1,
+   "heading_src": "一返問",
+   "heading_en": "",
+   "display_label": "己一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b01",
+     "explained": "T34n1723_p0850b01"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b12",
+     "end": "T09n0262_p0058b14",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b01: 獲益。此初。有二：初問、後答。答中有三：一返 | T34n1723_p0850b02: 問，二直答，三佛說。",
+   "notes": [
+    "Annotator's reading: 返問 = the Buddha's counter-question 「若有善男子…寧為多不？」.",
+    "root span starts at the annotator's cut 佛告藥王 (T09n0262_p0058b12, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.1_4.2_5.2_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "1_4",
+    "2_5",
+    "2_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.1_4.2_5",
+   "order": 113,
+   "sibling_index": 2,
+   "heading_src": "二直答",
+   "heading_en": "",
+   "display_label": "己二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b02",
+     "explained": "T34n1723_p0850b02"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b14",
+     "end": "T09n0262_p0058b14",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b02: 問，二直答，三佛說。",
+   "notes": [
+    "Annotator's reading: 直答 = 藥王's reply 「甚多，世尊。」.",
+    "root span starts at the annotator's cut 甚多，世尊 (T09n0262_p0058b14, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.1_4.2_5.3_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "1_4",
+    "2_5",
+    "3_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.1_4.2_5",
+   "order": 114,
+   "sibling_index": 3,
+   "heading_src": "三佛說",
+   "heading_en": "",
+   "display_label": "己三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b02",
+     "explained": "T34n1723_p0850b02"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b15",
+     "end": "T09n0262_p0058b17",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b02: 問，二直答，三佛說。",
+   "notes": [
+    "root span starts at the annotator's cut 佛言：「若善男子 (T09n0262_p0058b15, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4",
+   "level": 4,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4"
+   ],
+   "parent_id": "3_1.17_2.2_3",
+   "order": 115,
+   "sibling_index": 2,
+   "heading_src": "次明神呪之方",
+   "heading_en": "",
+   "display_label": "丁二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850a30",
+     "explained": "T34n1723_p0850b03"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b17",
+     "end": "T09n0262_p0059b26",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "爾時藥王至多所饒益"
+    }
+   },
+   "evidence": "T34n1723_p0850a30: 初明持經之福，次明神呪之方，後明時眾",
+   "notes": [
+    "Kuiji: 「有五，合為三類：初二聖，次二天，後十神」 (b04): five dhāraṇī speakers in three classes; @n counts the three classes. The lemma (b03) is that of the first class's first member and fixes the start only."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5",
+   "level": 5,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4",
+   "order": 116,
+   "sibling_index": 1,
+   "heading_src": "初二聖",
+   "heading_en": "",
+   "display_label": "戊一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b04",
+     "explained": "T34n1723_p0850b05"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b17",
+     "end": "T09n0262_p0059a06",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "爾時藥王至多所饒益"
+    }
+   },
+   "evidence": "T34n1723_p0850b04: 方。有五，合為三類：初二聖，次二天，後十神。",
+   "notes": [
+    "@n from the class name 二聖 (two sages: 藥王, 勇施); @exp = 「此初聖」 (b05), where the class is entered."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.1_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "1_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5",
+   "order": 117,
+   "sibling_index": 1,
+   "heading_src": "初聖",
+   "heading_en": "",
+   "display_label": "己一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0850b05"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b17",
+     "end": "T09n0262_p0058c08",
+     "basis": "lemma",
+     "raw": "爾時藥王至多所饒益"
+    }
+   },
+   "evidence": "T34n1723_p0850b05: 此初聖。有四：一標，二說，三結勝，四佛讚。",
+   "notes": [
+    "Heading from 「此初聖」 (b05); 藥王菩薩."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.1_6.1_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "1_6",
+    "1_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5.1_6",
+   "order": 118,
+   "sibling_index": 1,
+   "heading_src": "一標",
+   "heading_en": "",
+   "display_label": "庚一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b05",
+     "explained": "T34n1723_p0850b05"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b17",
+     "end": "T09n0262_p0058b18",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b05: 此初聖。有四：一標，二說，三結勝，四佛讚。",
+   "notes": [
+    "root span starts at the annotator's cut 爾時藥王菩薩白佛言 (T09n0262_p0058b17, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.1_6.2_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "1_6",
+    "2_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5.1_6",
+   "order": 119,
+   "sibling_index": 2,
+   "heading_src": "二說",
+   "heading_en": "",
+   "display_label": "庚二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b05",
+     "explained": "T34n1723_p0850b05"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058b18",
+     "end": "T09n0262_p0058c03",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b05: 此初聖。有四：一標，二說，三結勝，四佛讚。",
+   "notes": [
+    "root span starts at the annotator's cut 即說呪曰 (T09n0262_p0058b18, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.1_6.3_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "1_6",
+    "3_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5.1_6",
+   "order": 120,
+   "sibling_index": 3,
+   "heading_src": "三結勝",
+   "heading_en": "",
+   "display_label": "庚三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b05",
+     "explained": "T34n1723_p0850b05"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058c04",
+     "end": "T09n0262_p0058c06",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b05: 此初聖。有四：一標，二說，三結勝，四佛讚。",
+   "notes": [
+    "root span starts at the annotator's cut 世尊！是陀羅尼神咒 (T09n0262_p0058c04, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.1_6.4_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "1_6",
+    "4_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5.1_6",
+   "order": 121,
+   "sibling_index": 4,
+   "heading_src": "四佛讚",
+   "heading_en": "",
+   "display_label": "庚四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b05",
+     "explained": "T34n1723_p0850b05"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058c06",
+     "end": "T09n0262_p0058c08",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b05: 此初聖。有四：一標，二說，三結勝，四佛讚。",
+   "notes": [
+    "root span starts at the annotator's cut 時釋迦牟尼佛讚藥王菩薩言 (T09n0262_p0058c06, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.2_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5",
+   "order": 122,
+   "sibling_index": 2,
+   "heading_src": "第二聖",
+   "heading_en": "",
+   "display_label": "己二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0850b06"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058c09",
+     "end": "T09n0262_p0059a06",
+     "basis": "lemma",
+     "raw": "爾時勇施至是諸佛已"
+    }
+   },
+   "evidence": "T34n1723_p0850b06: 經「爾時勇施至是諸佛已」。贊曰：第二聖。有",
+   "notes": [
+    "勇施菩薩."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.2_6.1_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5.2_6",
+   "order": 123,
+   "sibling_index": 1,
+   "heading_src": "初標",
+   "heading_en": "",
+   "display_label": "庚一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b07",
+     "explained": "T34n1723_p0850b07"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058c09",
+     "end": "T09n0262_p0058c10",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b07: 四：初標，二功能，三正說，四結勝。",
+   "notes": [
+    "root span starts at the annotator's cut 爾時勇施菩薩白佛言 (T09n0262_p0058c09, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.2_6.2_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "2_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5.2_6",
+   "order": 124,
+   "sibling_index": 2,
+   "heading_src": "二功能",
+   "heading_en": "",
+   "display_label": "庚二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b07",
+     "explained": "T34n1723_p0850b07"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058c10",
+     "end": "T09n0262_p0058c13",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b07: 四：初標，二功能，三正說，四結勝。",
+   "notes": [
+    "root span starts at the annotator's cut 若此法師得是陀羅尼 (T09n0262_p0058c10, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.2_6.3_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "3_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5.2_6",
+   "order": 125,
+   "sibling_index": 3,
+   "heading_src": "三正說",
+   "heading_en": "",
+   "display_label": "庚三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b07",
+     "explained": "T34n1723_p0850b07"
+    },
+    "root_text": {
+     "start": "T09n0262_p0058c13",
+     "end": "T09n0262_p0059a03",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b07: 四：初標，二功能，三正說，四結勝。",
+   "notes": [
+    "root span starts at the annotator's cut 即於佛前而說呪曰 (T09n0262_p0058c13, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.1_5.2_6.4_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "4_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.1_5.2_6",
+   "order": 126,
+   "sibling_index": 4,
+   "heading_src": "四結勝",
+   "heading_en": "",
+   "display_label": "庚四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b07",
+     "explained": "T34n1723_p0850b07"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a04",
+     "end": "T09n0262_p0059a06",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b07: 四：初標，二功能，三正說，四結勝。",
+   "notes": [
+    "root span starts at the annotator's cut 世尊！是陀羅尼神呪，恒河沙 (T09n0262_p0059a04, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.2_5",
+   "level": 5,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "2_5"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4",
+   "order": 127,
+   "sibling_index": 2,
+   "heading_src": "次二天",
+   "heading_en": "",
+   "display_label": "戊二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b04",
+     "explained": "T34n1723_p0850b08"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a07",
+     "end": "T09n0262_p0059a21",
+     "basis": "lemma",
+     "end_basis": "next-node",
+     "raw": "爾時毘沙門至無諸衰患"
+    }
+   },
+   "evidence": "T34n1723_p0850b04: 方。有五，合為三類：初二聖，次二天，後十神。",
+   "notes": [
+    "@n from the class name 二天 (毘沙門, 持國); @exp = 「下二天」 (b08)."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.2_5.1_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "1_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.2_5",
+   "order": 128,
+   "sibling_index": 1,
+   "heading_src": "初文",
+   "heading_en": "",
+   "display_label": "己一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0850b09"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a07",
+     "end": "T09n0262_p0059a13",
+     "basis": "lemma",
+     "raw": "爾時毘沙門至無諸衰患"
+    }
+   },
+   "evidence": "T34n1723_p0850b09: 中初文有三：初標，次說，後結勝。「毘沙門」者",
+   "notes": [
+    "Heading from 「中初文有三」 (b09): Kuiji's name for the first 天 (毘沙門天王)."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.2_5.1_6.1_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "1_6",
+    "1_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.2_5.1_6",
+   "order": 129,
+   "sibling_index": 1,
+   "heading_src": "初標",
+   "heading_en": "",
+   "display_label": "庚一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b09",
+     "explained": "T34n1723_p0850b09"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a07",
+     "end": "T09n0262_p0059a09",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b09: 中初文有三：初標，次說，後結勝。「毘沙門」者",
+   "notes": [
+    "Kuiji glosses 毘沙門 here: 「「毘沙門」者此云多聞，四天王中北方之天也，常讚佛法。」 (b09–b11).",
+    "root span starts at the annotator's cut 爾時毘沙門天王護世者白佛言 (T09n0262_p0059a07, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.2_5.1_6.2_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "1_6",
+    "2_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.2_5.1_6",
+   "order": 130,
+   "sibling_index": 2,
+   "heading_src": "次說",
+   "heading_en": "",
+   "display_label": "庚二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b09",
+     "explained": "T34n1723_p0850b09"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a09",
+     "end": "T09n0262_p0059a11",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b09: 中初文有三：初標，次說，後結勝。「毘沙門」者",
+   "notes": [
+    "root span starts at the annotator's cut 即說呪曰 (T09n0262_p0059a09, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.2_5.1_6.3_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "1_6",
+    "3_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.2_5.1_6",
+   "order": 131,
+   "sibling_index": 3,
+   "heading_src": "後結勝",
+   "heading_en": "",
+   "display_label": "庚三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b09",
+     "explained": "T34n1723_p0850b09"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a12",
+     "end": "T09n0262_p0059a13",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b09: 中初文有三：初標，次說，後結勝。「毘沙門」者",
+   "notes": [
+    "root span starts at the annotator's cut 世尊！以是神呪擁護法師 (T09n0262_p0059a12, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.2_5.2_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "2_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.2_5",
+   "order": 132,
+   "sibling_index": 2,
+   "heading_src": "第二天王",
+   "heading_en": "",
+   "display_label": "己二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0850b12"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a13",
+     "end": "T09n0262_p0059a21",
+     "basis": "lemma",
+     "raw": "爾時持國至是諸佛已"
+    }
+   },
+   "evidence": "T34n1723_p0850b12: 經「爾時持國至是諸佛已」。贊曰：第二天王。",
+   "notes": [
+    "「此即東面天王」 (b13): 持國天王."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.2_5.2_6.1_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "2_6",
+    "1_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.2_5.2_6",
+   "order": 133,
+   "sibling_index": 1,
+   "heading_src": "初標",
+   "heading_en": "",
+   "display_label": "庚一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b13",
+     "explained": "T34n1723_p0850b13"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a13",
+     "end": "T09n0262_p0059a16",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b13: 有三：初標，次說，後結勝。此即東面天王。",
+   "notes": [
+    "root span starts at the annotator's cut 爾時持國天王 (T09n0262_p0059a13, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.2_5.2_6.2_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "2_6",
+    "2_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.2_5.2_6",
+   "order": 134,
+   "sibling_index": 2,
+   "heading_src": "次說",
+   "heading_en": "",
+   "display_label": "庚二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b13",
+     "explained": "T34n1723_p0850b13"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a16",
+     "end": "T09n0262_p0059a19",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b13: 有三：初標，次說，後結勝。此即東面天王。",
+   "notes": [
+    "root span starts at the annotator's cut 即說呪曰 (T09n0262_p0059a16, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.2_5.2_6.3_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "2_6",
+    "3_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.2_5.2_6",
+   "order": 135,
+   "sibling_index": 3,
+   "heading_src": "後結勝",
+   "heading_en": "",
+   "display_label": "庚三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b13",
+     "explained": "T34n1723_p0850b13"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a20",
+     "end": "T09n0262_p0059a21",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b13: 有三：初標，次說，後結勝。此即東面天王。",
+   "notes": [
+    "root span starts at the annotator's cut 世尊！是陀羅尼神呪，四十二億 (T09n0262_p0059a20, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5",
+   "level": 5,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4",
+   "order": 136,
+   "sibling_index": 3,
+   "heading_src": "後十神",
+   "heading_en": "",
+   "display_label": "戊三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 7,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b04",
+     "explained": "T34n1723_p0850b14"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a22",
+     "end": "T09n0262_p0059b26",
+     "basis": "lemma",
+     "raw": "爾時有羅剎女至如是法師"
+    }
+   },
+   "evidence": "T34n1723_p0850b04: 方。有五，合為三類：初二聖，次二天，後十神。",
+   "notes": [
+    "The class is a single lemma; @exp = 「此十神。有七」 (b14–b15)."
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.1_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "1_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5",
+   "order": 137,
+   "sibling_index": 1,
+   "heading_src": "一標名",
+   "heading_en": "",
+   "display_label": "己一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b15",
+     "explained": "T34n1723_p0850b15"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a22",
+     "end": "T09n0262_p0059a27",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b15: 神。有七：一標名，二請說，三正說，四勸勿",
+   "notes": [
+    "root span starts at the annotator's cut 爾時有羅剎女等 (T09n0262_p0059a22, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.2_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "2_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5",
+   "order": 138,
+   "sibling_index": 2,
+   "heading_src": "二請說",
+   "heading_en": "",
+   "display_label": "己二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b15",
+     "explained": "T34n1723_p0850b15"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a27",
+     "end": "T09n0262_p0059a29",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b15: 神。有七：一標名，二請說，三正說，四勸勿",
+   "notes": [
+    "root span starts at the annotator's cut 同聲白佛言 (T09n0262_p0059a27, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.3_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "3_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5",
+   "order": 139,
+   "sibling_index": 3,
+   "heading_src": "三正說",
+   "heading_en": "",
+   "display_label": "己三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b15",
+     "explained": "T34n1723_p0850b15"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059a29",
+     "end": "T09n0262_p0059b04",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b15: 神。有七：一標名，二請說，三正說，四勸勿",
+   "notes": [
+    "Annotator's cut: 「即於佛前，而說呪曰」 is taken as the opening of the spell (as 「即於佛前而說偈言」 opens item 五).",
+    "root span starts at the annotator's cut 即於佛前，而說呪曰 (T09n0262_p0059a29, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.4_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "4_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5",
+   "order": 140,
+   "sibling_index": 4,
+   "heading_src": "四勸勿惱法師",
+   "heading_en": "",
+   "display_label": "己四",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b15",
+     "explained": "T34n1723_p0850b15"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059b05",
+     "end": "T09n0262_p0059b11",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b15: 神。有七：一標名，二請說，三正說，四勸勿 | T34n1723_p0850b16: 惱法師，五更說偈喻罪，六請身護，七佛讚",
+   "notes": [
+    "root span starts at the annotator's cut 寧上我頭上 (T09n0262_p0059b05, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.5_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "5_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5",
+   "order": 141,
+   "sibling_index": 5,
+   "heading_src": "五更說偈喻罪",
+   "heading_en": "",
+   "display_label": "己五",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b16",
+     "explained": "T34n1723_p0850b16"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059b11",
+     "end": "T09n0262_p0059b16",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b16: 惱法師，五更說偈喻罪，六請身護，七佛讚",
+   "notes": [
+    "root span starts at the annotator's cut 即於佛前而說偈言 (T09n0262_p0059b11, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.6_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "6_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5",
+   "order": 142,
+   "sibling_index": 6,
+   "heading_src": "六請身護",
+   "heading_en": "",
+   "display_label": "己六",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b16",
+     "explained": "T34n1723_p0850b16"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059b17",
+     "end": "T09n0262_p0059b19",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b16: 惱法師，五更說偈喻罪，六請身護，七佛讚",
+   "notes": [
+    "root span starts at the annotator's cut 諸羅剎女說此偈已 (T09n0262_p0059b17, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.7_6",
+   "level": 6,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "7_6"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5",
+   "order": 143,
+   "sibling_index": 7,
+   "heading_src": "七佛讚揚",
+   "heading_en": "",
+   "display_label": "己七",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b16",
+     "explained": "T34n1723_p0850b17"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059b19",
+     "end": "T09n0262_p0059b26",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b16: 惱法師，五更說偈喻罪，六請身護，七佛讚 | T34n1723_p0850b17: 揚。有三：初總讚，次別讚，後勸讚。",
+   "notes": [
+    "@exp = 「有三：初總讚，次別讚，後勸讚」 (b17), the item's own subdivision.",
+    "root span starts at the annotator's cut 佛告諸羅剎女 (T09n0262_p0059b19, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.7_6.1_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "7_6",
+    "1_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5.7_6",
+   "order": 144,
+   "sibling_index": 1,
+   "heading_src": "初總讚",
+   "heading_en": "",
+   "display_label": "庚一",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b17",
+     "explained": "T34n1723_p0850b17"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059b19",
+     "end": "T09n0262_p0059b20",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b17: 揚。有三：初總讚，次別讚，後勸讚。",
+   "notes": [
+    "Annotator's reading: 總讚 = 「善哉，善哉！」.",
+    "root span starts at the annotator's cut 佛告諸羅剎女 (T09n0262_p0059b19, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.7_6.2_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "7_6",
+    "2_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5.7_6",
+   "order": 145,
+   "sibling_index": 2,
+   "heading_src": "次別讚",
+   "heading_en": "",
+   "display_label": "庚二",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b17",
+     "explained": "T34n1723_p0850b17"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059b20",
+     "end": "T09n0262_p0059b25",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b17: 揚。有三：初總讚，次別讚，後勸讚。",
+   "notes": [
+    "Annotator's reading: 別讚 = 「汝等但能擁護受持法華名者，福不可量，何況…百千種供養者」. Alternative reading: 總讚 runs to 「福不可量」 and 別讚 starts at 「何況」 (then 總讚 ends, and 別讚 starts, on T09n0262_p0059b21).",
+    "root span starts at the annotator's cut 汝等但能擁護 (T09n0262_p0059b20, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.2_4.3_5.7_6.3_7",
+   "level": 7,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "2_4",
+    "3_5",
+    "7_6",
+    "3_7"
+   ],
+   "parent_id": "3_1.17_2.2_3.2_4.3_5.7_6",
+   "order": 146,
+   "sibling_index": 3,
+   "heading_src": "後勸讚",
+   "heading_en": "",
+   "display_label": "庚三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850b17",
+     "explained": "T34n1723_p0850b17"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059b25",
+     "end": "T09n0262_p0059b26",
+     "basis": "manual"
+    }
+   },
+   "evidence": "T34n1723_p0850b17: 揚。有三：初總讚，次別讚，後勸讚。",
+   "notes": [
+    "root span starts at the annotator's cut 睪帝！汝等及眷屬 (T09n0262_p0059b25, root-text wording); the commentary quotes no lemma for this division"
+   ]
+  },
+  {
+   "id": "3_1.17_2.2_3.3_4",
+   "level": 4,
+   "path": [
+    "3_1",
+    "17_2",
+    "2_3",
+    "3_4"
+   ],
+   "parent_id": "3_1.17_2.2_3",
+   "order": 147,
+   "sibling_index": 3,
+   "heading_src": "後明時眾獲益",
+   "heading_en": "",
+   "display_label": "丁三",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "T34n1723_p0850a30",
+     "explained": "T34n1723_p0850b18"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059b26",
+     "end": "T09n0262_p0059b27",
+     "basis": "lemma",
+     "raw": "說是陀羅尼至無生法忍"
+    }
+   },
+   "evidence": "T34n1723_p0850a30: 初明持經之福，次明神呪之方，後明時眾 | T34n1723_p0850b01: 獲益。此初。有二：初問、後答。答中有三：一返",
+   "notes": [
+    "@exp = 「品第三段時眾獲益」 (b18)."
+   ]
+  },
+  {
+   "id": "3_1.18_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "18_2"
+   ],
+   "parent_id": "3_1",
+   "order": 148,
+   "sibling_index": 18,
+   "heading_src": "妙莊嚴王本事品",
+   "heading_en": "",
+   "display_label": "乙十八",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0850b20"
+    },
+    "root_text": {
+     "start": "T09n0262_p0059b28",
+     "end": "T09n0262_p0061a04",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0850b20: 妙莊嚴王本事品",
+   "notes": []
+  },
+  {
+   "id": "3_1.19_2",
+   "level": 2,
+   "path": [
+    "3_1",
+    "19_2"
+   ],
+   "parent_id": "3_1",
+   "order": 149,
+   "sibling_index": 19,
+   "heading_src": "普賢菩薩勸發品",
+   "heading_en": "",
+   "display_label": "乙十九",
+   "source_node_id": null,
+   "origin": "explicit",
+   "node_class": "sutra-span",
+   "flags": [
+    "truncated"
+   ],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": null,
+     "explained": "T34n1723_p0852a21"
+    },
+    "root_text": {
+     "start": "T09n0262_p0061a05",
+     "end": "T09n0262_p0062a29",
+     "basis": "chapter"
+    }
+   },
+   "evidence": "T34n1723_p0852a21: 普賢菩薩勸發品",
+   "notes": []
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+# 觀無量壽佛經 (T0365) with 善導's 觀無量壽佛經疏 (T1753) as the designated commentary: whole texts, outside
+# every split. R01 names this pair "the cheapest machine-checkable gold for level 1" (four 分 with
+# explicit 從…至… spans). No gold exists yet,
+# so a run here shows the pipeline on a whole commentary, not a score.
+# Data: CBETA T12n0365 and T37n1753 in data/raw/cbeta/ (gitignored). Fetch them and run this project with
+#   bash scripts/quickstart.sh guanjing-shandao
+# or only fetch them with  bash scripts/fetch_cbeta.sh T12n0365 T37n1753
+id = "guanjing-shandao"
+title = "Contemplation Sūtra (Guan wuliangshou fo jing) with Shandao's commentary"
+mode = "sutra"
+root = "T12n0365"
+commentary = "T37n1753"
+scheme_id = "shandao-guanjing-shu"
+target_role = "commentary"
+span = "whole"
+source = "tier2"
+
+[resolver]
+adapter = "none"

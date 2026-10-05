@@ -1,0 +1,7 @@
+[{"id": "T9998D01_001", "text": "SYNTHETIC 合成疏序", "leaf": true, "children": []},
+ {"id": "T9998D01_002", "text": "1 序分二", "leaf": false, "children": [
+  {"id": "T9998D02_001", "text": "1 通序", "leaf": true, "children": []},
+  {"id": "T9998D02_002", "text": "2 別序", "leaf": false, "children": null, "fetch_error": "non-JSON response for id=T9998D02_002 after 3 attempt(s): body='query maybe faile \\n' (SYNTHETIC)"}]},
+ {"id": "T9998D01_003", "text": "2 正宗分", "leaf": false, "children": [
+  {"id": "T9998D02_003", "text": "1 開顯", "leaf": true, "children": []},
+  {"id": "T9998D02_004", "text": "2 授記", "leaf": true, "children": []}]}]

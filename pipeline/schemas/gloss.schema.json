@@ -1,0 +1,33 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "chinese-workflow/pipeline/schemas/gloss.schema.json",
+ "title": "outline gloss sub-step (gloss/1)",
+ "description": "Structured output of the gloss sub-step (docs/outliner-design.md §5.6, divergence D17): an English heading for each listed node. Merge rules (outline/gloss.py): node_id must be listed in the request; heading_en must be non-empty; it fills heading_en and a note records the model and adapter.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "glosses"
+ ],
+ "properties": {
+  "glosses": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "node_id",
+     "heading_en"
+    ],
+    "properties": {
+     "node_id": {
+      "type": "string"
+     },
+     "heading_en": {
+      "type": "string",
+      "description": "Concise English heading."
+     }
+    }
+   }
+  }
+ }
+}

@@ -1,0 +1,389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aaronbao/chinese-workflow/context/baseline/outline-schema-zh.json",
+  "title": "Independent outline document, Chinese kepan extension (profile zh-kepan)",
+  "description": "Chinese kēpàn (科判) extension of the independent-outline schema context/baseline/outline-schema.json (the *independent outline* of Kurt Keutzer's Tibetan translation workflow; that file is not edited). SUPERSET RULE: every document valid under outline-schema.json (e.g. tests/fixtures/outline-base/minimal-base.json) is valid here, unless it opts in to the Chinese profile by setting metadata.outline_profile = 'zh-kepan'; the opt-in makes the document fields of #/$defs/metadata_zh and the node fields of #/$defs/node_zh mandatory. The base defs are reproduced verbatim (standalone file, so no $ref registry is needed; tests/unit/test_outline_schema.py checks that they have not drifted). ADDITIONS: node fields sibling_index, node_class, flags, child_count_announced, extent_announced, source_node_id, display_label, scheme_id, part_type; origin values 'imported' and 'editorial'; location scheme 'cbeta-kepan' (commentary announce/explain pair, the optional span_start pair added 2026-10-02 (D15 addendum, E06 review A3) + governed root-text span); a cbeta-line grammar widened to every CBETA canon plus an optional character offset. Each addition and its Chinese-specific reason is divergence D15 in docs/chinese-workflow-mapping.md (evidence: R07 F5, F6, F15, F20; R06 F7, F19, F23, F24; R03 F22-F24; R04 F25-F34; R02 F6, F13, F18). Invariants a JSON Schema cannot express (unique ids, document order, parent/level/path agreement, sibling_index, metadata counts, span order within a node, between siblings and between parent and child, text-id prefixes, the sūtra-mode rules keyed on metadata.outline_mode) are checked by scripts/validate_outline.py. PATTERNS: the patterns this file adds end in (?![\\s\\S]) instead of $, because JSON Schema specifies ECMA-262 regexes, where $ (no m flag) matches only at the end of the string, while Python's jsonschema uses re.search, where $ also matches before a final newline; the lookahead means end of string in both, so 'T09n0262_p0001c05\\n' is rejected by either. The base defs keep $ (they must not drift); for base documents scripts/validate_outline.py flags whitespace in ids, path tokens, parent ids and CBETA refs instead.",
+  "type": "object",
+  "required": ["metadata", "nodes"],
+  "additionalProperties": false,
+  "properties": {
+    "metadata": { "$ref": "#/$defs/metadata" },
+    "nodes": {
+      "type": "array",
+      "description": "All outline nodes in document order (order strictly increasing).",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "unindexed_entries": {
+      "type": "array",
+      "description": "Bracketed entries in the source outline that carry no indicator and therefore no id/path (e.g. the COLOPHON line, or headings given only with a page reference). Kept out of `nodes` so the node tree stays well-formed.",
+      "items": { "$ref": "#/$defs/unindexed_entry" }
+    }
+  },
+  "if": {
+    "required": ["metadata"],
+    "properties": { "metadata": { "required": ["outline_profile"], "properties": { "outline_profile": { "const": "zh-kepan" } } } }
+  },
+  "then": {
+    "properties": {
+      "metadata": { "$ref": "#/$defs/metadata_zh" },
+      "nodes": { "items": { "$ref": "#/$defs/node_zh" } }
+    }
+  },
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "required": ["source_file", "text_title_src", "text_title_en", "source_language", "format_note", "node_count", "max_depth", "generated_by"],
+      "additionalProperties": true,
+      "properties": {
+        "source_file": { "type": "string", "description": "Repo-relative path of the source the outline was derived from (e.g. a docx outline, or a CBETA XML file)." },
+        "source_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "text_id": { "type": ["string", "null"], "description": "Canonical id of the text: Toh number for Tibetan (e.g. 'Toh 5302'), Taishō number for Chinese (e.g. 'T0262')." },
+        "text_title_src": { "type": "string", "description": "Title in the source language as it appears in the source (for a Tibetan source, e.g. its Wylie transliteration)." },
+        "text_title_bo": { "type": ["string", "null"], "description": "Alias of text_title_src for Tibetan documents, kept for backward compatibility; prefer text_title_src." },
+        "text_title_en": { "type": "string" },
+        "author": { "type": ["string", "null"] },
+        "source_language": { "type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$", "description": "BCP-47-style code of the language the headings are in: 'bo' Tibetan, 'zh' Chinese (classical Buddhist Chinese), 'lzh' if one wants to be precise." },
+        "format_note": { "type": "string", "description": "The producer's own one-paragraph statement of the entry format (for a docx source: its front-matter sentence, verbatim)." },
+        "origin_note": { "type": "string", "description": "What 'explicit' means for this document (who extracted the outline and from what)." },
+        "id_convention": { "type": "string", "description": "How node ids are formed from indicators (see node.id)." },
+        "node_count": { "type": "integer", "minimum": 0 },
+        "max_depth": { "type": "integer", "minimum": 0 },
+        "nodes_per_level": { "type": "object", "additionalProperties": { "type": "integer" }, "description": "Keys are levels as strings ('1', '2', ...)." },
+        "generated_by": { "type": "string" },
+        "chapters": { "type": "array", "items": { "$ref": "#/$defs/chapter" } },
+        "parts": { "type": "array", "items": { "$ref": "#/$defs/part" } },
+        "anomalies": { "type": "array", "items": { "type": "string" }, "description": "Document-level irregularities found in the source (not parser errors)." }
+      }
+    },
+    "metadata_zh": {
+      "type": "object",
+      "description": "Document fields a document takes on by setting outline_profile = 'zh-kepan' (applied on top of #/$defs/metadata, whose required fields still apply). They are typed here, not in #/$defs/metadata, because the base metadata object is open (additionalProperties: true) and the superset rule must hold for any base document.",
+      "required": ["outline_profile", "id_convention", "source_document", "outline_mode", "root_text_id", "commentary_id", "scheme_id", "seeded_by", "gold_status", "licence", "eval_only", "cbeta_release"],
+      "properties": {
+        "outline_profile": { "const": "zh-kepan", "description": "Opt-in marker for this profile; scripts/validate_outline.py selects outline-schema-zh.json and the zh structural rules by it." },
+        "outline_mode": { "enum": ["sutra", "self-outlining"], "description": "Where the outline is stated relative to the text it divides; the outliner's two modes (sūtra / self-outlining; mapping D3). sutra = stated in a document other than the outlined text: a commentary (T34n1723 for T0262), a 科文 chart, or the work a digital dataset follows. The name is the outliner's; the outlined text may be a śāstra, e.g. DILA YBh T1605, whose outline follows 韓清淨's 大乘阿毘達磨集論科文別釋 (R04 F3, PARTIAL), and T1602, which follows 早島理‧毛利俊英 1990 (R06 F28). self-outlining = the outlined text states its own divisions (a 疏/文句/玄贊 read as the outlined text, R07 F1; also the Tibetan sa bcad case). Explicit because metadata.commentary_id cannot carry the mode: it is null both for a self-outlining text and for a sūtra-mode outline whose stating work has no CBETA file id to cite (both YBh examples above: no CBETA id for either stating work is recorded in this repo). scripts/validate_outline.py keys the sūtra-mode rules on this field, and so does the explained-locator HYPOTHESIS in #/$defs/root_text_span. Supersedes docs/architecture.md's planned metadata 'mode' (commentary-driven | text-driven)." },
+        "source_language": { "type": "string", "pattern": "^(zh|lzh)(-[A-Za-z0-9]+)*(?![\\s\\S])", "description": "Headings are classical Chinese: 'lzh' (preferred) or 'zh'." },
+        "id_convention": { "type": "string", "minLength": 1, "description": "State the zh-kepan convention (see #/$defs/node_zh, id): each id token is <sibling_index>_<level> in decimal, tokens joined by '.'." },
+        "source_document": { "$ref": "#/$defs/source_document" },
+        "root_text_id": { "$ref": "#/$defs/cbeta_text_id", "description": "CBETA file id of the outlined root text, e.g. 'T09n0262' (the prefix of its line refs). A work split over several files (R02 F18: T0220 = T05n0220/T06n0220/T07n0220) gives its first file here and lists all its files in work_files; a span may then run across files. null only while the text is unknown or not yet aligned." },
+        "commentary_id": { "$ref": "#/$defs/cbeta_text_id", "description": "CBETA file id of the text that states the kēpàn in sūtra mode (outline_mode 'sutra'), e.g. 'T34n1723' (Kuiji), 'T34n1718' (Zhiyi, the commentary sdp links to, R04 F31), 'T42n1828' (遁倫's 倫科, which DILA YBh adopted for T1579; that outline is composite, earlier drafts followed other outlines, R04 F3, R06 F28). null in two cases, told apart by outline_mode: (a) self-outlining, where the outline is stated by the outlined text itself (R07 F1; mapping D3/D11: the 玄贊 as outlined text runs Kurt's text-driven mode unchanged); must be null there; (b) sūtra mode with a stating work that has no CBETA file id to cite (YBh T1605 follows 韓清淨's 集論科文別釋, R04 F3, PARTIAL; T1602 follows 早島理‧毛利俊英 1990, R06 F28; no CBETA id for either is recorded in this repo): name that work in source_document.notes and scheme_id; commentary positions are then null or carry their own text_id." },
+        "work_files": {
+          "type": "array",
+          "items": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "$ref": "#/$defs/cbeta_text_id", "type": "string" } },
+          "description": "Optional. One entry per work that CBETA splits over several files: its file ids in reading order, e.g. [['T05n0220', 'T06n0220', 'T07n0220']] (R02 F18). A ref declared in any of these files (metadata.root_text_id, metadata.commentary_id or a per-node text_id) may lie in any file of the same entry, and refs in different files of one entry are ordered by the file's position in the list. A file may appear in one entry only. Without it a span must stay inside one file."
+        },
+        "scheme_id": { "$ref": "#/$defs/scheme_id", "description": "Which division scheme this outline follows. Mandatory because one commentary can carry more than one scheme (Kuiji: 「今為二解」 T34n1723_p0661b10, two top-level schemes, R03 F22) and commentaries disagree (Zhiyi vs Kuiji vs earlier masters, R07 F1), so two golds of one sūtra must be told apart (R03 F24 recommends 'kuiji-xuanzan' and 'zhiyi-wenju-sdp'). Lower-case kebab-case." },
+        "seeded_by": { "type": ["string", "null"], "minLength": 1, "description": "Tool or model that drafted this outline before any human correction (e.g. 'chinese-kepan-outliner 0.1 / claude-opus-5-5'); null when hand-built from scratch or imported unchanged (the import source is in source_document). R06 F19: a human-corrected machine draft is biased toward the drafting system (documented by the ICDAR BSE organisers for their ground truth; the transfer to LLM drafts is our inference), so a system's score on a gold it seeded is never reported without saying so." },
+        "gold_status": { "enum": ["prediction", "draft-unreviewed", "reviewed", "imported-unchecked", "imported-checked", "synthetic-fixture"], "description": "prediction = outliner output, not a reference; draft-unreviewed / reviewed = hand-built gold before / after review; imported-unchecked / imported-checked = an external digital outline before / after the hand check against its commentary (R03 F23/F24 plan for sdp); synthetic-fixture = invented test data, never a reference." },
+        "licence": { "$ref": "#/$defs/licence" },
+        "eval_only": { "type": "boolean", "description": "true = the outline may be used only to score outliner output (E01-E03). Our reading of R04 F32 / R03 F24 'eval-only': not redistributed and not used as prompt or training material. Must be true when licence.id is null (absence of a licence is not a grant, R04 F32)." },
+        "cbeta_release": { "type": ["string", "null"], "pattern": "^[0-9]{4}\\.?R[0-9]+(?![\\s\\S])", "description": "CBETA data release the line refs were read from, e.g. '2026.R2' (git tag 2026R2); null when no CBETA text is referenced. Anchors are stable only together with the release (R02 F13; R02 F18: five renumbered columns in T08n0251/T40n1805 and the T0220 xml:id merge between the 2018 archive and 2026R2)." },
+        "display_label_rule": { "type": "string", "description": "How node.display_label was produced (generated 干支 + ordinal, the source's own labels, or none)." },
+        "coverage": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Optional. How far the gold encodes its source, in words, one entry per part (e.g. 'level 2: complete', a subtree at full depth, parts left at level 2). coverage_spans is the machine-readable form. D15 addendum 2026-09-22 (Task 10)."
+        },
+        "coverage_spans": {
+          "type": "array",
+          "description": "Optional. The gold's scoring scope, machine-readable: one entry per covered subtree (node_id = its root), or node_id null for the whole document. A predicted node is in scope iff its start locator (commentary.explained; root_text.start for root-text scoring) lies inside an entry's span and its level is at most the entry's max_level (an absolute outline level; null = no limit). Spans are inclusive lineheads. Scoring consequences: D15 addendum in docs/chinese-workflow-mapping.md. Written and checked by eval.gold.authored from the outline text's coverage_span header lines (the Kuiji gold). D15 addendum 2026-09-22 (Task 10).",
+          "items": {
+            "type": "object",
+            "required": ["node_id", "heading_src", "commentary", "root_text", "max_level"],
+            "properties": {
+              "node_id": { "type": ["string", "null"], "minLength": 1, "description": "Id of the covered subtree's root node; null = the whole document." },
+              "heading_src": { "type": ["string", "null"], "description": "That node's heading_src, for the reader; null when node_id is null." },
+              "commentary": {
+                "type": ["object", "null"],
+                "required": ["start", "end"],
+                "properties": { "start": { "$ref": "#/$defs/cbeta_ref" }, "end": { "$ref": "#/$defs/cbeta_ref" } },
+                "description": "Covered span of the text that states the outline (inclusive)."
+              },
+              "root_text": {
+                "type": ["object", "null"],
+                "required": ["start", "end"],
+                "properties": { "start": { "$ref": "#/$defs/cbeta_ref" }, "end": { "$ref": "#/$defs/cbeta_ref" } },
+                "description": "Covered span of the root text (inclusive)."
+              },
+              "max_level": { "type": ["integer", "null"], "minimum": 1, "description": "Deepest outline level encoded in the entry; null = full depth (every division the source takes up in the span)." }
+            }
+          }
+        },
+        "split_notes": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Optional. Which dev / validation / test spans (data/eval-sets.json, the split registry; plan Global Constraint 5) the outline holds development material or answer keys for, and the consequence: not to be used as prompt or training material for a system evaluated on those spans. Free text; the registry is authoritative. D15 addendum 2026-09-22 (Task 10)."
+        }
+      },
+      "allOf": [
+        {
+          "if": { "required": ["licence"], "properties": { "licence": { "required": ["id"], "properties": { "id": { "type": "null" } } } } },
+          "then": { "properties": { "eval_only": { "const": true } } }
+        },
+        {
+          "if": { "required": ["outline_mode"], "properties": { "outline_mode": { "const": "self-outlining" } } },
+          "then": { "properties": { "commentary_id": { "const": null } } }
+        }
+      ]
+    },
+    "source_document": {
+      "type": "object",
+      "description": "The document the outline is read from, as opposed to the text it outlines (R07 F5 and § Transfer: 'metadata.source_document (root text vs commentary)'). Distinct from metadata.source_file, which is the repo path of the file actually parsed.",
+      "required": ["kind", "text_id", "title"],
+      "additionalProperties": false,
+      "properties": {
+        "kind": { "enum": ["commentary", "root-text", "standalone-chart", "dataset", "synthetic"], "description": "commentary = outline stated in a commentary's prose (T34n1723); root-text = stated in, or marked up on, the outlined text itself (a self-outlining treatise; CBETA cb:mulu type=科判 markup as in X11n0268, R02 F28); standalone-chart = a 科文 chart (X0231, X0584, R01 glossary); dataset = an external digital outline (sdp T0262, YBh T1579, R04 F25/F30); synthetic = test fixture." },
+        "text_id": { "$ref": "#/$defs/cbeta_text_id", "description": "CBETA file id of that document, null for a dataset or synthetic source." },
+        "title": { "type": "string" },
+        "url": { "type": ["string", "null"] },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "licence": {
+      "type": "object",
+      "description": "Licence of the outline data. Policy (data/EVAL-SETS.md, 'Rules for gold data', rule 2; data/README.md, reference-outline licence policy): CBETA-derived data only under CC BY-NC-SA 4.0 + CBETA notice + release label (R02 F7/F29; whether an outline table is 改作 is still an open question to CBETA); DILA YBh-derived under CC BY-SA 4.0 (R04 F29; the CHIBS mirror says 3.0 台灣, R06 F28); sdp publishes no licence, so eval-only (R04 F32).",
+      "required": ["id", "statement"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": ["string", "null"], "description": "SPDX-style identifier, e.g. 'CC-BY-NC-SA-4.0', 'CC-BY-SA-4.0'; null when no licence grant was found." },
+        "holder": { "type": ["string", "null"] },
+        "statement": { "type": "string", "minLength": 1, "description": "The licence or notice text that applies, verbatim or as a pointer to it." },
+        "evidence": { "type": ["string", "null"], "description": "Where the licence was read (findings row / sources.md id)." }
+      }
+    },
+    "scheme_id": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(?![\\s\\S])" },
+    "cbeta_text_id": {
+      "type": ["string", "null"],
+      "pattern": "^[A-Z]{1,2}[0-9]{2,3}n[0-9A-Za-z]{4,5}(?![\\s\\S])",
+      "description": "CBETA file id = TEI/@xml:id, e.g. 'T09n0262', 'X11n0268', 'T05n0220', 'J40nB492', 'ZW12na070' (canon, volume, 'n', text number with optional letter prefix or suffix). Nullable; add \"type\": \"string\" at the point of use to forbid null."
+    },
+    "cbeta_ref": {
+      "type": ["string", "null"],
+      "pattern": "^[A-Z]{1,2}[0-9]{2,3}n[0-9A-Za-z]{4,5}_p[0-9a-z][0-9]{3}[a-z][0-9]{2}(:(0|[1-9][0-9]*))?(?![\\s\\S])",
+      "description": "CBETA line reference: the composed linehead {TEI/@xml:id}_p{lb/@n} (R02 F6), the anchor CBETA's API and citation format use (R02 F13) and the string BDRC's contentLocationStatementCBETA standardises (R07 F20), e.g. 'T09n0262_p0001c05', optionally followed by ':<n>'. Grammar: canon (1-2 capitals), volume (2-3 digits), 'n', text number (4-5 alphanumerics), '_p', page (4 characters: a digit or a front-matter letter, then 3 digits), register (one letter), line (2 digits). For the Taishō canon the lb grammar ^\\d{4}[a-g]\\d{2}$ holds for all 4,795,316 lb at tag 2026R2 (R02 F18, grammar clause; that row is PARTIAL on other clauses). HYPOTHESIS: the widening for the other canons (front-matter pages such as 'a001'/'b001' in B, GA, TX, Y, ZW; registers up to 'h' in X and I; 3-digit volumes such as G069, P167; text numbers such as J40nB492, ZW12na070, T45n1879a) rests on a local scan of the same 2026R2 clone made 2026-09-22 that is not yet a sources.md entry. The ':<n>' suffix is our convention, not CBETA's: R02 §4 asks for 'composed linehead + character offset + release tag' without fixing a syntax; n = 0-based character offset within the line in the ingest stage's normalised text stream (its unit is fixed by the ingest config; HYPOTHESIS until ingest exists). A linehead is file-qualified: a work split over several files has several prefixes (R02 F18). Nullable; add \"type\": \"string\" at the point of use to forbid null."
+    },
+    "chapter": {
+      "type": "object",
+      "description": "A chapter heading of the *translation* (e.g. a translation's Roman-numeral chapter titles). Chapters are not outline nodes; they are a second, independent segmentation that the nodes are keyed to via node.chapter.",
+      "required": ["order", "raw", "numeral_raw", "number", "title"],
+      "additionalProperties": true,
+      "properties": {
+        "order": { "type": "integer", "minimum": 1 },
+        "paragraph_index": { "type": "integer", "minimum": 0 },
+        "raw": { "type": "string", "description": "Heading text exactly as in the source (whitespace normalised). This is the string node.chapter points at." },
+        "numeral_raw": { "type": "string" },
+        "number": { "type": ["integer", "null"], "description": "Chapter number read literally from numeral_raw (null if it cannot be read)." },
+        "number_inferred": { "type": ["integer", "null"], "description": "Chapter number implied by the sequence when the literal one is missing or out of sequence; null when the literal one is fine." },
+        "title": { "type": "string" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "part": {
+      "type": "object",
+      "required": ["order", "raw", "number", "title"],
+      "additionalProperties": true,
+      "properties": {
+        "order": { "type": "integer", "minimum": 1 },
+        "paragraph_index": { "type": "integer", "minimum": 0 },
+        "raw": { "type": "string" },
+        "number": { "type": ["integer", "null"] },
+        "title": { "type": "string" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "location": {
+      "type": "object",
+      "description": "Where the node sits in a specific edition. One object per node; the scheme selects the fields. Base schemes unchanged except cbeta-line (grammar widened, superset); 'cbeta-kepan' added for Chinese kēpàn nodes.",
+      "required": ["scheme"],
+      "oneOf": [
+        {
+          "properties": {
+            "scheme": { "const": "acip-folio" },
+            "edition": { "type": ["string", "null"], "description": "ACIP edition id, e.g. 'S05302'." },
+            "first": { "type": ["string", "null"], "pattern": "^\\d+[AB]$", "description": "Folio where the entry first appears (in its parent's division)." },
+            "explained": { "type": ["string", "null"], "pattern": "^\\d+[AB]$", "description": "Folio where the entry is itself taken up and explained." },
+            "raw": { "type": "string" }
+          },
+          "required": ["scheme", "first", "explained"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "scheme": { "const": "cbeta-line" },
+            "text_id": { "type": ["string", "null"], "description": "CBETA text id, e.g. 'T09n0262'." },
+            "start": { "type": "string", "pattern": "^(?:[A-Z]+\\d+n[0-9A-Za-z]+_p\\d{4}[a-c]\\d{2}|[A-Z]{1,2}[0-9]{2,3}n[0-9A-Za-z]{4,5}_p[0-9a-z][0-9]{3}[a-z][0-9]{2}(:(0|[1-9][0-9]*))?)(?![\\s\\S])", "description": "CBETA line reference, e.g. 'T09n0262_p0001c05'. Pattern = the base schema's pattern OR #/$defs/cbeta_ref (all canons, optional ':<n>' offset), so every base-valid value stays valid (under ECMA-262 semantics; the end anchor is (?![\\s\\S]), see the top-level PATTERNS note). Chinese kēpàn nodes should use scheme 'cbeta-kepan' instead (profile zh-kepan requires it)." },
+            "end": { "type": ["string", "null"], "pattern": "^(?:[A-Z]+\\d+n[0-9A-Za-z]+_p\\d{4}[a-c]\\d{2}|[A-Z]{1,2}[0-9]{2,3}n[0-9A-Za-z]{4,5}_p[0-9a-z][0-9]{3}[a-z][0-9]{2}(:(0|[1-9][0-9]*))?)(?![\\s\\S])" },
+            "raw": { "type": "string" }
+          },
+          "required": ["scheme", "start"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "scheme": { "const": "cbeta-kepan" },
+            "commentary": { "$ref": "#/$defs/commentary_position" },
+            "root_text": { "$ref": "#/$defs/root_text_span" },
+            "raw": { "type": "string", "description": "Location wording as found in the source, if any." }
+          },
+          "required": ["scheme", "commentary", "root_text"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "scheme": { "const": "page" },
+            "edition": { "type": ["string", "null"], "description": "Which printed edition the page belongs to, if known." },
+            "page": { "type": "integer", "minimum": 1 },
+            "raw": { "type": "string" }
+          },
+          "required": ["scheme", "page"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "scheme": { "const": "unparsed" },
+            "raw": { "type": "string", "description": "The bracketed location text as found, when it matches no known scheme." }
+          },
+          "required": ["scheme", "raw"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "scheme": { "const": "none" }
+          },
+          "required": ["scheme"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "commentary_position": {
+      "type": ["object", "null"],
+      "description": "Positions in the text that STATES the outline: in sūtra mode (metadata.outline_mode 'sutra') the stating text metadata.commentary_id, or the node's own text_id when that is null or differs; in self-outlining mode the outlined text itself (metadata.root_text_id). announced = line where the parent's division lists this node (Kurt's 'folio where the entry first appears (in its parent's division)'); explained = line where this node's own treatment begins (Kurt's 'folio where the entry is itself taken up and explained'). Both are start positions; like Kurt's pair they have no end (R07 F5). announced == explained is allowed: in Chinese 今初 can end the announcement line and enter the first child on it (B10n0048_p0003a01, R07 F5). Either may be null (not located, or not applicable: sdp links its nodes to T1718 node ids, not lines, R04 F31 - put such a link in raw). The whole object is null when the node has no position in a stating text (e.g. an editorial node). Pair shape per R07 F5 (corrected statement VERIFIED). span_start / span_start_inherited (optional; D15 addendum 2026-10-02, E06 review A3): the node's text-span start in the stating text under sdp's anchor rule (data/EVAL-SETS.md item 3, where the sdp T1718 gold keys a node at its text-span start, so a parent and its first child share a line) - its parent's span_start when the node is a first child whose parent has one (span_start_inherited true, recursively down a chain of first children), else its own explained line (false). Written by common.outline_doc.fill_span_starts from the tree and the explained lines after a build's last tree edit, never by hand; the golds do not carry the pair, and a scorer reads a gold without it at its explained line (eval/score.py, key commentary.span_start). The two fields come and go together (dependentRequired). Which of the two locators E01 keys on is an open decision (EVAL-SETS item 3).",
+      "required": ["announced", "explained"],
+      "additionalProperties": false,
+      "dependentRequired": { "span_start": ["span_start_inherited"], "span_start_inherited": ["span_start"] },
+      "properties": {
+        "text_id": { "$ref": "#/$defs/cbeta_text_id", "description": "Only when different from metadata.commentary_id (or, in self-outlining mode, metadata.root_text_id). Required for any non-null position in sūtra mode when metadata.commentary_id is null." },
+        "announced": { "$ref": "#/$defs/cbeta_ref" },
+        "explained": { "$ref": "#/$defs/cbeta_ref" },
+        "span_start": { "$ref": "#/$defs/cbeta_ref", "description": "The node's text-span start under sdp's anchor rule (object description); null when explained is null and nothing is inherited. May carry ':<offset>' like explained; scorers compare lines." },
+        "span_start_inherited": { "type": "boolean", "description": "true = span_start is the parent's start (the node is a first child); false = the node's own explained line." },
+        "raw": { "type": "string", "description": "Source wording of the announcement / entry marker, or the imported source's link id." }
+      }
+    },
+    "root_text_span": {
+      "type": ["object", "null"],
+      "description": "The span of the root text this node governs: the location Kurt's format does not need, because in the Chinese sūtra case the outline lives in a different document from the text it divides (R07 F5, location-set clause VERIFIED). start / end are inclusive line refs in metadata.root_text_id unless text_id overrides; the shape is BDRC's bdo:ContentLocation start + end facets (R07 F20). In sūtra mode the commentary states the span as lemma + extent (「從「尋念過去佛」下，第二，有十一行」, T34n1718_p0061c03-c04, R07 F5) and a resolver turns that into root-text refs (R07 implications). null for node_class 'commentary-internal'. In sūtra mode (metadata.outline_mode 'sutra') a 'sutra-span' node without a root span (root_text null, or a location scheme other than 'cbeta-kepan') must carry flag 'unmapped' (scripts/validate_outline.py). Span order, also checked there: start <= end; a child's span lies inside its parent's; root_text.start does not decrease between consecutive siblings of one scheme (node.scheme_id, else metadata.scheme_id); a span crosses files only inside one metadata.work_files entry. HYPOTHESIS (design, R06 F7/F24): the 'explained locator' of R06's match key (explained locator, depth, parent path) is root_text.start when metadata.outline_mode is 'sutra' and commentary.explained when it is 'self-outlining', compared at lb granularity with tolerance t = 0 (the ':<n>' offset ignored).",
+      "required": ["start", "end", "basis"],
+      "additionalProperties": false,
+      "properties": {
+        "text_id": { "$ref": "#/$defs/cbeta_text_id", "description": "Only when different from metadata.root_text_id. For a multi-file work (R02 F18) list the files in metadata.work_files instead; then start and end may lie in different files of that work." },
+        "start": { "$ref": "#/$defs/cbeta_ref", "description": "First line of the span; null while unresolved (then raw keeps the lemma)." },
+        "end": { "$ref": "#/$defs/cbeta_ref", "description": "Last line of the span (inclusive); null when not stated and not derived." },
+        "basis": {
+          "enum": ["lemma", "extent-formula", "chapter", "sdp-anchor", "cbeta-mulu", "text-alignment", "self", "manual", "inferred", "interpolated"],
+          "description": "How start was fixed. lemma = by matching the commentary's quoted lemma (經「…」 / 從「…」下) in the root text; extent-formula = from a stated extent (N行, N頌, 訖「…」, 盡品); chapter = a 品/卷 boundary from the root text's own markup (cb:mulu 品, cb:juan); sdp-anchor = imported from sdp's Taishō line anchors, the start being the nearest preceding anchor (R04 F30); cbeta-mulu = the lb preceding a CBETA cb:mulu 科判 node (X11n0268, R02 F28); text-alignment = found by aligning an interleaved outline+text to CBETA (YBh has no anchors, R04 F28); self = self-outlining mode, the node's own span in the outlined text; manual = set by the gold annotator; inferred = proposed by the outliner without a textual cue; interpolated = the lemma was not found and the node starts where its elder sibling's lemma ends, that end having been found as a B (outline/anchor.py, 2026-10-03): the commentary divides the text without gaps, so an item whose quotation cannot be matched begins where the previous one's ends."
+        },
+        "end_basis": {
+          "enum": ["lemma", "extent-formula", "chapter", "sdp-anchor", "cbeta-mulu", "text-alignment", "self", "manual", "inferred", "next-node", null],
+          "description": "How end was fixed, when different from basis. next-node = the node's last line up to where the next node at the same or a shallower level (the next node after its subtree) starts, inclusive like every end: the CBETA line before that node's start when the next node begins its line, else the next node's start line itself, which the two nodes share (the next node starts mid-line). A builder may pass over punctuation at the cut: eval.gold.authored takes the line of the last non-punctuation character before the next sutra-span node (commentary-internal nodes have no root span). The rule the golds use (sdp, cbeta-mulu, the Kuiji gold); D15 addendum 2026-09-22 (final review)."
+        },
+        "raw": { "type": "string", "description": "The commentary's span wording verbatim (lemma, extent formula), or the imported anchor range." }
+      }
+    },
+    "node": {
+      "type": "object",
+      "required": ["id", "level", "path", "parent_id", "order", "heading_src", "heading_en", "origin", "locations", "evidence", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9A-Z]+_[0-9]+(\\.[0-9A-Z]+_[0-9]+)*$",
+          "description": "Indicator with subscripts flattened: each token is <value>_<level>, tokens joined by '.', e.g. '1_1.B_2.2_3.A_4' for 1₁B₂2₃A₄. Unique within the document."
+        },
+        "indicator_display": { "type": "string", "description": "The indicator as displayed, with Unicode subscript digits, e.g. '1₁B₂2₃A₄'." },
+        "level": { "type": "integer", "minimum": 1, "description": "Depth = last subscript = len(path)." },
+        "path": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[0-9A-Z]+_[0-9]+$" } },
+        "parent_id": {
+          "type": ["string", "null"],
+          "description": "id of the nearest ancestor node present in the document: normally the structural parent (path[:-1]); when the structural parent is absent from the source, the nearest present ancestor, with a note. null at level 1."
+        },
+        "order": { "type": "integer", "minimum": 1, "description": "1-based position in document order." },
+        "paragraph_index": { "type": ["integer", "null"], "description": "0-based index of the source paragraph (w:p in document.xml for docx sources)." },
+        "chapter": { "type": ["string", "null"], "description": "raw text of the nearest preceding chapter heading of the translation, or null." },
+        "part": { "type": ["string", "null"], "description": "raw text of the nearest preceding Part heading of the translation, or null." },
+        "heading_src": { "type": "string", "description": "Heading in the source language (Tibetan for sa bcad, Chinese for kēpàn). Empty string when the source gives none." },
+        "heading_en": { "type": "string", "description": "English wording (for a translated source: the translation's). May be empty for an inferred node before translation." },
+        "source_language": { "type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$" },
+        "folio_first": { "type": ["string", "null"], "pattern": "^\\d+[AB]$", "description": "Convenience copy of locations.first for acip-folio; null otherwise." },
+        "folio_explained": { "type": ["string", "null"], "pattern": "^\\d+[AB]$", "description": "Convenience copy of locations.explained for acip-folio; null otherwise." },
+        "locations": { "$ref": "#/$defs/location" },
+        "dagger": { "type": "boolean", "default": false, "description": "True when the source marks the entry with † (e.g. a deep sub-heading absent from the earlier outline the source builds on, its explained folio taken from the nearest preceding heading)." },
+        "origin": {
+          "type": "string",
+          "enum": ["explicit", "inferred", "imported", "editorial"],
+          "description": "explicit / inferred as in the base schema (explicit = the text or its commentarial tradition marks the division; inferred = proposed by the outliner, confidence + evidence required). Added for Chinese: imported = taken over from an external digital outline (sdp, YBh, CBETA cb:mulu 科判) and not yet checked against the commentary; source_node_id required. After the hand check the node is relabelled explicit or editorial and keeps source_node_id (R03 F23/F24, R04 F30-F32). editorial = supplied by an editor with no announcement in the commentary, e.g. a 品 node the outliner carries from CBETA's cb:mulu above a span that starts inside that 品 (outline.tier1), or a level-1 part taken from a project's scheme prior (outline.scheme); evidence must say who and on what ground. R06 scores origin as its own classification (F-F1 beside S-F1); eval maps these four values explicitly."
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1, "description": "Required when origin is 'inferred'." },
+        "evidence": { "type": "string", "description": "The span or marker that justifies the node: for an explicit node the source entry itself (for a docx source the entry paragraph, whitespace-normalised, subscripts rendered as Unicode); for an inferred node the textual cue the outliner relied on." },
+        "topic_category": { "type": ["string", "null"], "description": "What the node supplies for context retrieval (Kurt's term); optional." },
+        "notes": { "type": "array", "items": { "type": "string" }, "description": "Anything odd about this entry, one string per observation. Empty array when nothing." },
+        "sibling_index": { "type": "integer", "minimum": 1, "description": "1-based position among the nodes that share this node's parent_id, in document order (contiguous 1..k). Locators alone cannot separate same-line siblings: nodes can collide on (explained locator, depth, parent) and differ only in order or heading (R06 F23), and R06 asks gold records to carry it. In zh-kepan ids the last token's value equals sibling_index." },
+        "child_count_announced": { "type": ["integer", "null"], "minimum": 1, "description": "Number of children the source announces for this node (「分二」 -> 2, 「文為五」 -> 5); null when none is announced. Kurt's indicator drops it (R07 F3); kept so nothing the announcement carries is lost. May differ from the children present (then flag count_mismatch)." },
+        "extent_announced": { "type": ["string", "null"], "minLength": 1, "description": "Extent formula verbatim from the source (「有十一行」, 「偈有二十五行半」, 訖「…」), null when none; the resolver's input for root_text.end. Kurt's indicator drops it (R07 F3, F5)." },
+        "node_class": { "enum": ["sutra-span", "commentary-internal"], "description": "sutra-span = the node divides the root text (in self-outlining mode, metadata.outline_mode 'self-outlining': the outlined text itself) and governs a root_text span; commentary-internal = the node divides only the commentary's own discourse (e.g. prefatory gates before the commentary reaches the sūtra's words) and has root_text = null. The distinction exists because the Chinese outline lives in a commentary that has discourse of its own (R07 F1, F5)." },
+        "flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "enum": ["no_gloss", "parallel_ref", "unmapped", "coarsened", "truncated", "merged_range", "irregular_label", "anchor_inherited", "count_mismatch"] },
+          "description": "Node flags replacing the withdrawn 'unoutlined' node type (R07 F6, F18). no_gloss = announced but not glossed (「總序如文」, 如文); parallel_ref = the treatment points to a parallel passage (「下皆准知」, 至文當知); unmapped = the gold's primary locator is missing: root_text.start in a gold keyed on the root text (sūtra mode, e.g. an unmatched verse; the structure-only YBh golds have no locators at all), commentary.explained in a gold keyed on its commentary (the sdp T1718 gold, E01; its metadata.format_note says so). The sūtra-mode rule of scripts/validate_outline.py [sutra-span-unmapped] (a sutra-span node without a root span carries the flag) holds in every sūtra-mode gold, so in a commentary-keyed gold the flag also marks a node that has its explained line but no root span: a scorer selects nodes by the locator it keys on, never by this flag (D15 addendum 2026-09-22, final review); coarsened = the commentary stops subdividing although the root-text span is long, so the chunk stage must subdivide (open case: falling announcement density in later 品, T1804's one-level precept template, R07 F6/F18 Notes); a property of the source, not of the gold's coverage; truncated = the gold does not encode all of this node's source children (depth limit or covered-span end): its encoded descendants are scored normally and its unencoded source children are not FN. What is scored is the scope: in a gold that declares metadata.coverage_spans, a predicted node is in scope iff its start locator lies in an entry's span and its level <= that entry's max_level (null = no limit), in-scope predictions that match no gold node are FP (also under a truncated node), out-of-scope ones are neither TP nor FP, and truncated is informational (the scope already excludes what it marks); a gold without coverage_spans has the whole gold as scope (unless its metadata.format_note narrows it: the sdp T1718 gold is scored only where sdp serves T1718, data/EVAL-SETS.md), and there predicted nodes under a truncated node that match no encoded node are neither TP nor FP; tree edit distance prunes the same: out-of-scope predicted subtrees, and in a gold without coverage_spans only those predicted subtrees under a truncated node that match no encoded node (docs/chinese-workflow-mapping.md, D15 addendum 2026-09-22); merged_range = the source gives one node for a range of siblings (YBh 'H4-5', R04 F25); irregular_label = the source label breaks its own convention (YBh 'Bb 後序', R04 F25); anchor_inherited = start line taken from the nearest preceding anchor, not observed (188 sdp nodes carry no anchor of their own, R04 F30); count_mismatch = child_count_announced knowingly differs from the children present (cf. D4017's 四 vs T1723's 六門, R07 F19)."
+        },
+        "source_node_id": { "type": ["string", "null"], "minLength": 1, "description": "The node's identifier in an imported source, verbatim: sdp content-div id 'T0262D03_006' (DILA's <DocID>D<level>_<seq>, R04 F30/F34); a YBh line locator plus label such as 'T1579-kp.txt:L118 D1' (YBh labels repeat, R04 F25); a CBETA cb:mulu 科判 node position (R02 F28). null for nodes not imported. Required non-null when origin is 'imported'." },
+        "display_label": { "type": ["string", "null"], "minLength": 1, "description": "Chinese-facing label, never the key (R07 F15). Generated form: the 干支 symbol of the level (甲乙丙丁戊己庚辛壬癸 then 子丑寅卯辰巳午未申酉戌亥 for levels 1-22) + the sibling ordinal (一二三…; 初 for the first by house style), e.g. level 2, sibling 3 -> '乙三': the convention of modern Chinese exegesis and of Chinese translations of Tsongkhapa (R07 F14, F15: common, not universal - PARTIAL). 干支 stops at level 22 while YBh reaches depth 33 (R04 F26); no rule is fixed for deeper levels (R07 Gaps): use the source's own label or null. For imported nodes it may hold the source's label (YBh 'D1'); metadata.display_label_rule says which." },
+        "scheme_id": { "type": ["string", "null"], "pattern": "^[a-z0-9]+(-[a-z0-9]+)*(?![\\s\\S])", "description": "Same form as metadata.scheme_id. Only for a node that belongs to a cross-cutting scheme other than metadata.scheme_id: 迹/本, 三周, 四意 lenses run in parallel with the main division (R07 F2, F4, F17). HYPOTHESIS: whether parallel lenses live in the same document or in separate documents is not settled." },
+        "part_type": { "type": ["string", "null"], "minLength": 1, "description": "Kind of division as the source names it (品, 分, 門, 段 …), after BDRC's partType (R07 F20). Optional." }
+      },
+      "if": { "properties": { "origin": { "const": "inferred" } }, "required": ["origin"] },
+      "then": { "required": ["confidence", "evidence"] },
+      "allOf": [
+        {
+          "if": { "properties": { "origin": { "const": "imported" } }, "required": ["origin"] },
+          "then": { "required": ["source_node_id"], "properties": { "source_node_id": { "type": "string" } } }
+        },
+        {
+          "if": { "properties": { "origin": { "const": "editorial" } }, "required": ["origin"] },
+          "then": { "properties": { "evidence": { "minLength": 1 } } }
+        }
+      ]
+    },
+    "node_zh": {
+      "type": "object",
+      "description": "Node requirements under profile zh-kepan (applied on top of #/$defs/node). Every zh field must be present (nullable where typed so), so that every node carries every key.",
+      "required": ["sibling_index", "node_class", "flags", "child_count_announced", "extent_announced", "source_node_id", "display_label"],
+      "properties": {
+        "id": {
+          "pattern": "^[1-9][0-9]*_1(\\.[1-9][0-9]*_[1-9][0-9]*)*(?![\\s\\S])",
+          "description": "zh-kepan id convention: Kurt's <value>_<level> tokens joined by '.', with value = sibling_index in decimal at every level, e.g. '2_1.1_2.3_3' = second top division -> its first child -> that child's third child. Kurt alternates digits and capital letters by level parity; letters cap at 26 siblings, and regex counts over T1723 find announcements of up to 36 children (R07 F17, an estimate that includes doctrinal lists), so zh ids use digits only. Dropping the '_<level>' suffixes gives BDRC's partTreeIndex '2.1.3' (R07 F20). The source's own ordinals (初/次/後, 一二三) and any 干支 label go in display_label and heading_src, never in the id. Base-schema ids of this shape stay valid, so the base id pattern already admits these ids."
+        },
+        "path": { "items": { "pattern": "^[1-9][0-9]*_[1-9][0-9]*(?![\\s\\S])" } },
+        "heading_src": { "description": "zh-kepan: the heading verbatim as the source gives it (commentary wording, sdp or YBh heading text without its container markup such as sdp's 【】), including any ordinal or count it carries (e.g. sdp '1 序分二'); no normalisation - CBETA punctuation and characters kept (normalisation is a pipeline step with a recorded config, never done by hand)." },
+        "locations": { "properties": { "scheme": { "enum": ["cbeta-kepan", "unparsed", "none"] } } }
+      }
+    },
+    "unindexed_entry": {
+      "type": "object",
+      "required": ["kind", "paragraph_index", "text", "locations"],
+      "additionalProperties": true,
+      "properties": {
+        "kind": { "type": "string", "enum": ["colophon", "heading-without-indicator", "other"] },
+        "paragraph_index": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string", "description": "The bracketed label, e.g. 'COLOPHON'." },
+        "heading_src": { "type": "string" },
+        "locations": { "$ref": "#/$defs/location" },
+        "after_node_id": { "type": ["string", "null"], "description": "id of the last node before this entry in document order." },
+        "chapter": { "type": ["string", "null"] },
+        "indent_level_guess": { "type": ["integer", "null"], "description": "Depth implied by the paragraph indent (docx: left twips / 144 + 1), when available." },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

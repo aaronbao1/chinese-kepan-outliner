@@ -1,0 +1,45 @@
+# The walking-skeleton project (config sk-dharani-root): the 陀羅尼品 of the sūtra as
+# the target, Kuiji's commentary as context. The outline is read from the T1723 dev span.
+# Data: CBETA T09n0262 and T34n1723 in data/raw/cbeta/ (gitignored). Fetch them and run this project with
+#   bash scripts/quickstart.sh lotus-kuiji-dharani-root
+# or only fetch them with  bash scripts/fetch_cbeta.sh T09n0262 T34n1723
+id = "lotus-kuiji-dharani-root"
+title = "Lotus Sūtra, Dhāraṇī chapter, with Kuiji's commentary (sūtra as target)"
+mode = "sutra"
+root = "T09n0262"
+commentary = "T34n1723"
+scheme_id = "kuiji-xuanzan"
+target_role = "root"
+span = "dev"
+source = "tier2"
+
+# Kuiji's first whole-sūtra scheme (R03 F22; endorsed by 慧沼 T1724
+# 0863b19–21). A span run does not read the commentary's own statement of it, so the project declares
+# it and the level-1 nodes come out origin "editorial" (docs/outliner-design.md §5.3).
+[[scheme.level1]]
+heading_src = "序分"
+from_pin = "序品"
+to_pin = "序品"
+source = "project scheme: Kuiji's first whole-sūtra division (R03 F22; T1724 0863b19–21)"
+
+[[scheme.level1]]
+heading_src = "正宗"
+from_pin = "方便品"
+to_pin = "授學無學人記品"
+source = "project scheme: Kuiji's first whole-sūtra division (R03 F22; T1724 0863b19–21)"
+
+[[scheme.level1]]
+heading_src = "流通"
+from_pin = "法師品"
+to_pin = "普賢菩薩勸發品"
+source = "project scheme: Kuiji's first whole-sūtra division (R03 F22; T1724 0863b19–21)"
+
+[resolver]
+adapter = "none"
+
+[chunk]
+sentence_cap = 6
+size_chars = 180
+
+[segment]
+strategy = 2

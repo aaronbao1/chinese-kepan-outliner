@@ -1,0 +1,51 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "chinese-workflow/pipeline/schemas/resolver-root-spans.schema.json",
+ "title": "resolver task root-spans (resolver-root-spans/1)",
+ "description": "Structured output of the resolver's root-spans task (docs/outliner-design.md §5.6): a root-text span for sutra-span nodes the anchor left flagged 'unmapped'. Omit a node rather than guess. Merge rules (outline/resolver.py): start and end must be lineheads of the root text inside the node's admissible range (inside the parent's span, after the elder sibling's span, before the younger sibling's start, covering the node's own descendants); root_text.basis becomes 'inferred', the flag 'unmapped' is removed, the adapter and model are noted. Constraint keywords (minimum, maximum) are enforced client-side; llm.api_schema strips them for the API.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "spans"
+ ],
+ "properties": {
+  "spans": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "node_id",
+     "start",
+     "end",
+     "confidence",
+     "rationale"
+    ],
+    "properties": {
+     "node_id": {
+      "type": "string",
+      "description": "An id listed under 'Nodes to resolve'."
+     },
+     "start": {
+      "type": "string",
+      "description": "First root-text line of the span, a linehead exactly as shown (no ':offset')."
+     },
+     "end": {
+      "type": "string",
+      "description": "Last root-text line of the span (inclusive)."
+     },
+     "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Calibrated probability that the span is right; accepted only below 1."
+     },
+     "rationale": {
+      "type": "string",
+      "description": "The cue: the lemma or extent matched, quoting the Chinese. Must not be empty."
+     }
+    }
+   }
+  }
+ }
+}

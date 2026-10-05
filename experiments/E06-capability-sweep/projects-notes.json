@@ -1,0 +1,66 @@
+{
+ "note": "Hand-written reading of each run's outline.md / chunks.md / outlined-text (predictions, not golds), 2026-10-01, merged into projects.json by run_projects.py. Lotus-sutra projects (T0262 / T1718 / T1723) are described by node id only, never by heading text (eval-only sdp guard). No gold was opened.",
+ "projects": {
+  "guanjing-shandao": {
+   "verdict": "runs clean but the outline is sparse and partly wrong: 47 nodes over 2,893 lines (53,949 chars) of a whole four-fascicle commentary; level 1 = the four 卷 (cb:mulu), below that only what tier 2 found.",
+   "defects": [
+    "False-positive division: node 4_1.2_2 (heading '或行一', announced 2, present 0, count_mismatch) is the 二河白道 parable's 或行一分二分 ('walked one or two parts') misread as an 'X分二' announcement; its leaf runs from T37n1753_p0273a09 to the end of the file (9,417 chars, 85 of 490 chunks, 17%).",
+    "Giant leaf: 3_1.1_2 ('就初日觀') owns 14,542 chars (27% of the text; 127 chunks, 26%): the whole 定善義 after the 日觀 opening; none of the other twelve 定善 觀 (水觀 … 雜想觀) is detected, and its three children (先舉 / 次辨 / 後結, all on line p0261b11 at offsets 6/9/12) are listed-only. 3_1.2_2 ('又就前請') has a single child.",
+    "散善義 has no 九品 (上品上生 … 下品下生) nodes; the 十一門 list (4_1.1_2, eleven children on p0270c02–c08) is listed-only, so its 3,991-char leaf is undivided.",
+    "玄義分's 七門料簡 (1_1.1_2) has 4 of the 7 announced children (count_mismatch); 第五–第七 are missing.",
+    "Whole-sūtra 五分 division (2_1.1_2: 序分 / 正宗分 / 得益分 / 流通分 / 耆闍會) sits under the 卷-2 node 序分義, so the 卷 level and the 分 level cross; two of the four 分 (正宗分, 流通分) get no root span (lemma-not-found on 善導's 從A下至B已來 lemmas), and 2_1.1_2.3_3 (得益分, lemma-end-not-found) gets T12n0365_p0342c16:13–p0346b17, more than half of the sūtra, which is implausible for 得益分.",
+    "Root spans: 29 of 47 nodes have no root_text (24 excluding commentary-internal); anchor report: 12 lemma-not-found, 2 lemma-end-not-found, 35 unmapped.",
+    "Headings that are formula fragments rather than headings: '又就前序中', '又就前請', '就初日觀', '即為十一門', '略作五門明義', '先作七門料簡', '五復是一會' (the label rule cut '五、從阿難為耆闍大眾傳說，復是一會' down to a fragment). Level-1 headings keep CBETA's numeric prefix ('1 觀經玄義分' … '4 觀經正宗分散善義').",
+    "One sibling-order warning: 2_1.2_2.2_3.5_4 (欣淨緣) is listed-only, so its explained line sits before its elder siblings' explained lines; 2_1.2_2.2_3.1_4 and .2_4 are listed-only too, so 5,724 chars of 發起序 text fall in the parent's preamble.",
+    "Chunks are healthy in size (median 109 chars / 6 sentences, none over budget) but 486 of 490 are split-leaf fallback: the chunker is cutting giant leaves, so topic_category is coarse or wrong for about 43% of chunks (212 of 490 sit in the two leaves above). c1 is the CBETA file header plus the 卷 title as an unoutlined zero-sentence chunk; c490 is the 卷 end title attached to the false-positive leaf."
+   ]
+  },
+  "lotus-kuiji-dharani-comm": {
+   "verdict": "the dev set the parser was developed on: the outline is well formed and plausible (depth 7, 46 nodes over a 31-line, 557-char span; E01 read-out 1 recorded S-F1 = 1.000 here), no defects of shape.",
+   "defects": [
+    "27 of 46 nodes are listed-only (announced = explained): Kuiji's 標/說/結 style lists items without taking them up, so they are zero-length in the outlined text (28 nodes without a span; by design D16) and carry no text in chunks.",
+    "29 nodes are flagged unmapped (no root_text); the 4 gate nodes are commentary-internal as expected.",
+    "Scheme prior: only 流通 is built (editorial, level 1); 序分 and 正宗 report empty-range because the span holds one 品 only (expected).",
+    "Chunks are small because the target is small: 11 chunks, median 43 chars / 4 sentences; c1 is the 4-char 品 title alone. 5 merged chunks; no fallback."
+   ]
+  },
+  "lotus-kuiji-dharani-root": {
+   "verdict": "same outline as -comm (outline.json differs only in text_title_en); the sūtra target (T09n0262_p0058b08–p0059b27, 1,708 chars) is outlined only where lemmas fix root spans.",
+   "defects": [
+    "Only 8 outlined-text spans (7 leaves + 1 preamble) over the sūtra; 34 of 46 nodes have no span on the root target, so the 7th-level 標/說/結 nodes never reach the sūtra text.",
+    "Largest leaf 1_1.1_2.2_3.2_4.3_5 = 603 chars (35% of the target; 6 of 17 chunks).",
+    "c5 is 338 chars in one sentence unit (the first dhāraṇī: transliteration separated by U+3000 and numerals, no sentence punctuation), over the 180-char budget; the invariants accept a single over-long sentence. c1 is the 13-char 品 title alone, c17 a 19-char closing sentence."
+   ]
+  },
+  "lotus-zhiyi-wenju": {
+   "verdict": "runs clean but the outline covers under half of the dev span: 29 nodes, all with explained lines in the first 572 of 1,287 lines (up to T34n1718_p0008a09); nothing is detected in the last part of 卷一上 or anywhere in 卷一下.",
+   "defects": [
+    "Giant leaf at depth 9: node 1_1.1_2.1_3.1_4.1_5.1_6.1_7.1_8.5_9 owns 13,945 chars (55% of the target) and 101 of 193 chunks (52%), from p0008a09 to the span end, because its later siblings and its ancestors' later siblings are listed-only or never detected.",
+    "Narrow deep chain: depth 9 is reached through levels 4–8 with one or two children each (nodes_per_level 1/3/9/2/1/3/2/2/6); the general-preface node (1_1.1_2.1_3.1_4) has a single child, and the specific-preface node (1_1.1_2.1_3.2_4) has no children.",
+    "Level inversion: the whole-sūtra three-part division (1_1.1_2) is attached under the level-1 序品 node from cb:mulu; its second and third children are listed-only with no root span.",
+    "Alternative divisions are siblings: 1_1.2_2 (a second, two-part division) and 1_1.3_2 (a four-item method gate of the commentary) sit beside the main division at level 2; the gate's items are classed sutra-span, not commentary-internal, and have no root spans.",
+    "All three level-2 headings are the announcing formula itself, and one level-6 heading keeps a trailing remark clause of the commentary (label-rule leak).",
+    "24 of 29 nodes have no root_text (unmapped); 1 lemma-end-beyond-span (a lemma end found 33 pages later, rejected). 6 sibling-order warnings (younger siblings listed-only before elder siblings' explained lines).",
+    "Chunks: median 134 chars / 6 sentences; c110 is 226 chars in one sentence (27 commas, one full stop: segmentation breaks only at sentence-final punctuation); c1 is the CBETA header as an unoutlined zero-sentence chunk."
+   ]
+  },
+  "qixin-self": {
+   "verdict": "best of the out-of-set runs: the five 分 and the 立義分 (法 / 義 → 體大 相大 用大) come out right, depth 6, 45 nodes, the outline reaches the end of the text; the middle of 解釋分 is thin.",
+   "defects": [
+    "Enumerated list items promoted to nodes with whole clauses as headings: 12 headings exceed 20 chars (max 39), e.g. '一者聞修多羅說如來法身畢竟寂寞猶如虛空，以不知為破著故，即謂虛空是如來性'; the 八種因緣, 五種人我見, 三種心 and 四種信心 items are listed-only text, not headings.",
+    "心生滅門 (2_1.3_2.1_3.2_4; announced 2, present 3, count_mismatch) has no 覺 / 不覺 / 生滅因緣 / 生滅相 level: its children jump to two mid-section items (麁 / 細, p0577c26–27) plus 妄心熏習義 (p0578a29), which belongs to a different subsection; its 3,037-char preamble is the largest span (23%).",
+    "對治邪執 has 人我見's five items under '依諸凡夫' but no 法我見 sibling; 分別發趣道相 has 直心 / 深心 / 大悲心 directly under it, without the three 發心 (信成就 / 解行 / 證); 修行信心分's '修行' announces five 門 but has no children (count_mismatch).",
+    "Level 1: '序' (cb:mulu) holds 智愷's preface together with the treatise's own 歸敬偈 and opening 論曰 (682 chars); the five-分 node's heading is the formula '說有五分', not a topic (merge report: one tier-2 draft moved to top level, after-anchor-end).",
+    "c93 is the 6-char closing formula '已說解釋分。' alone, attributed to 分別發趣道相; c1 is the CBETA header as an unoutlined zero-sentence chunk."
+   ]
+  }
+ },
+ "cross_project": [
+  "All five runs exit 0 in under half a second each; validation passed with 0 errors; all ten chunk invariants hold on every run; export JSON-LD written for all five (no node withheld; no test/reserve line was read, guard armed).",
+  "Explicit-only (adapter none): every node is origin explicit (plus one editorial 流通 in the Kuiji runs); no inferred nodes, so whatever the formula parser misses is simply absent.",
+  "Listed-only nodes (announced = explained) are 34–60% of nodes (guanjing 26/47, Kuiji 27/46, Zhiyi 10/29, qixin 27/45); they get no text span, which is by design but leaves the text in the parent's preamble or the elder sibling's leaf.",
+  "Detection is the bottleneck off the dev set: where the parser misses later siblings, one leaf swallows the rest of the text (Zhiyi 55%, guanjing 27% + 17%, qixin 23%), and downstream chunk topic labels inherit that.",
+  "Root-span anchoring works on Kuiji's 經「A至B」 lemmas but fails on 善導's 從A下至B已來 lemmas (12 lemma-not-found) and on most Zhiyi nodes (24/29 unmapped).",
+  "Chunk sizes are well behaved everywhere (no chunk over 6 sentences; only two chunks over 180 chars, each a single over-long sentence unit); tiny chunks (< 20 chars) are mostly titles, closing formulas or the CBETA header, 1–4 per run."
+ ]
+}

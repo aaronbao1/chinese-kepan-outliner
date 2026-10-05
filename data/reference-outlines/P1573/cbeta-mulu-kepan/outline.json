@@ -1,0 +1,5419 @@
+{
+ "metadata": {
+  "outline_profile": "zh-kepan",
+  "id_convention": "zh-kepan: each id token is <sibling_index>_<level> in decimal, tokens joined by '.', e.g. '2_1.1_2.3_3' = second top node -> its first child -> that child's third child; sibling order is the source's order.",
+  "source_file": "data/raw/cbeta/xml-p5/P/P167/P167n1573.xml",
+  "source_sha256": "296df96888af8d9e48c3fb44e25d700fcaefe8f1d77d0bde9d4c1251d8468197",
+  "text_id": "P1573",
+  "text_title_src": "修懺要旨",
+  "text_title_en": "",
+  "author": "宋 知禮述",
+  "source_language": "lzh",
+  "format_note": "Imported from CBETA's own cb:mulu type=\"科判\" markup in P167n1573 (R02 F15/F28), via chinese_workflow.ingest.lines. One node per cb:mulu, in document order; heading_src is the mulu's resolved text verbatim (gaiji resolved, punctuation kept, CLAUDE.md). locations.commentary.announced and .explained are both the line's own-canon linehead (CBETA's TOC-style markup gives one position per node), which in self-outlining mode is already a position in the root text itself. locations.root_text is resolved on every node (node_class sutra-span throughout): start = that same linehead (\"the lb preceding a CBETA cb:mulu 科判 node\", basis cbeta-mulu, checked to be offset 0 of its line on all nodes of all three files); end = the inclusive last own-canon line before the next node that is not this node's descendant (end_basis next-node), computed bottom-up so a child's span always lies inside its parent's; the file's very last node (and its rightmost ancestors) end at the file's last own-canon line instead (end_basis null, noted). See this module's docstring. Nesting follows the source's cb:mulu @level, attaching each node to the nearest node whose source level is smaller (never inventing an intermediate node); a gap greater than 1 (a level jump, or a node opening at a source level other than 1 with no shallower node pending) is flagged irregular_label with a note giving the source level, and the output level is always structural (parent level + 1). child_count_announced is read from a heading's trailing parenthesised CJK numeral (\"初序分(二)\" -> 2), flagging count_mismatch when it disagrees with the children actually present; a bare trailing numeral (no parentheses, D14n8842's own convention) is kept only when it already equals the children present (self-verified), otherwise left null. display_label is null (the source's ordinal is fused to the heading with no delimiter). origin: imported, source_node_id = \"<cbeta id>#<ordinal>\" (1-based position among this file's 科判 nodes, document order); gold_status: imported-unchecked (not checked against the printed 首楞嚴經指文科節 chart or any secondary source, R02 F28).",
+  "origin_note": "Every node is origin 'imported' from CBETA's own cb:mulu markup and unchecked against any secondary source (gold_status imported-unchecked); node_class is sutra-span on every node (self-outlining mode: this file's own cb:mulu markup states its outline over itself), with locations.root_text resolved directly from the markup (basis cbeta-mulu, the schema's own name for this case, R02 F28; see this module's docstring, 'node_class / outline_mode').",
+  "generated_by": "chinese_workflow.eval.gold.cbeta_mulu",
+  "anomalies": [],
+  "source_document": {
+   "kind": "root-text",
+   "text_id": "P167n1573",
+   "title": "修懺要旨 (P167n1573, 宋 知禮述)",
+   "url": null,
+   "notes": [
+    "CBETA cb:mulu type=\"科判\" markup, whose markup it is is unrecorded in the file (R02 F28); this is the schema's own named example for source_document.kind 'root-text' (\"a self-outlining treatise; CBETA cb:mulu type=科判 markup as in X11n0268\", context/baseline/outline-schema-zh.json)."
+   ]
+  },
+  "outline_mode": "self-outlining",
+  "root_text_id": "P167n1573",
+  "commentary_id": null,
+  "scheme_id": "cbeta-mulu-kepan",
+  "seeded_by": null,
+  "gold_status": "imported-unchecked",
+  "licence": {
+   "id": "CC-BY-NC-SA-4.0",
+   "holder": "CBETA Foundation (財團法人佛教電子佛典基金會)",
+   "statement": "Derived from CBETA 電子佛典 (xml-p5 release 2026R2); headings are verbatim CBETA cb:mulu text and every location is a CBETA linehead. Released under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0), with CBETA's 版權宣告 attached (data/reference-outlines/NOTICE; snapshot data/raw/cbeta/LICENCE-NOTICE.txt). Non-commercial use only; never relicensed permissively. Whether an outline table of headings and lineheads counts as 改作 under CBETA's notice is an open question to CBETA (R02 F29, G8).",
+   "evidence": "context/research/R02-cbeta-xml-structure-markup/findings.md F7, F15, F28, F29 (S14, S63)"
+  },
+  "eval_only": false,
+  "cbeta_release": "2026R2",
+  "display_label_rule": "null on every node: the source's own ordinal (初/二/三…) is fused to the heading text with no delimiter and is not split out (see this module's docstring)",
+  "node_count": 127,
+  "max_depth": 14,
+  "nodes_per_level": {
+   "1": 2,
+   "2": 5,
+   "3": 10,
+   "4": 12,
+   "5": 9,
+   "6": 6,
+   "7": 9,
+   "8": 17,
+   "9": 9,
+   "10": 12,
+   "11": 12,
+   "12": 7,
+   "13": 8,
+   "14": 9
+  }
+ },
+ "nodes": [
+  {
+   "id": "1_1",
+   "level": 1,
+   "path": [
+    "1_1"
+   ],
+   "parent_id": null,
+   "order": 1,
+   "sibling_index": 1,
+   "heading_src": "○要旨分二",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#1",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [
+    "irregular_label"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0841b06",
+     "explained": "P167n1573_p0841b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0841b06",
+     "end": "P167n1573_p0857a06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0841b06 to P167n1573_p0857a06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"2\" on P167n1573_p0841b06: \"○要旨分二\"",
+   "notes": [
+    "cb:mulu level=\"2\" with no preceding shallower 科判 node in the source (document start, or a fresh top-level run); read as a document root (structural level 1), never inventing the missing levels"
+   ]
+  },
+  {
+   "id": "1_1.1_2",
+   "level": 2,
+   "path": [
+    "1_1",
+    "1_2"
+   ],
+   "parent_id": "1_1",
+   "order": 2,
+   "sibling_index": 1,
+   "heading_src": "初緫題(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#2",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0841b06",
+     "explained": "P167n1573_p0841b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0841b06",
+     "end": "P167n1573_p0841b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0841b06 to P167n1573_p0841b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"3\" on P167n1573_p0841b06: \"初緫題(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.1_2.1_3",
+   "level": 3,
+   "path": [
+    "1_1",
+    "1_2",
+    "1_3"
+   ],
+   "parent_id": "1_1.1_2",
+   "order": 3,
+   "sibling_index": 1,
+   "heading_src": "初題目",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#3",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0841b06",
+     "explained": "P167n1573_p0841b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0841b06",
+     "end": "P167n1573_p0841b06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0841b06 to P167n1573_p0841b06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0841b06: \"初題目\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.1_2.2_3",
+   "level": 3,
+   "path": [
+    "1_1",
+    "1_2",
+    "2_3"
+   ],
+   "parent_id": "1_1.1_2",
+   "order": 4,
+   "sibling_index": 2,
+   "heading_src": "二述人",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#4",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0841b07",
+     "explained": "P167n1573_p0841b07"
+    },
+    "root_text": {
+     "start": "P167n1573_p0841b07",
+     "end": "P167n1573_p0841b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0841b07 to P167n1573_p0841b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0841b07: \"二述人\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.1_2.3_3",
+   "level": 3,
+   "path": [
+    "1_1",
+    "1_2",
+    "3_3"
+   ],
+   "parent_id": "1_1.1_2",
+   "order": 5,
+   "sibling_index": 3,
+   "heading_src": "三緣起",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#5",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0841b08",
+     "explained": "P167n1573_p0841b08"
+    },
+    "root_text": {
+     "start": "P167n1573_p0841b08",
+     "end": "P167n1573_p0841b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0841b08 to P167n1573_p0841b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0841b08: \"三緣起\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2",
+   "level": 2,
+   "path": [
+    "1_1",
+    "2_2"
+   ],
+   "parent_id": "1_1",
+   "order": 6,
+   "sibling_index": 2,
+   "heading_src": "二正文(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#6",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0841b10",
+     "explained": "P167n1573_p0841b10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0841b10",
+     "end": "P167n1573_p0857a06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0841b10 to P167n1573_p0857a06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"3\" on P167n1573_p0841b10: \"二正文(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.1_3",
+   "level": 3,
+   "path": [
+    "1_1",
+    "2_2",
+    "1_3"
+   ],
+   "parent_id": "1_1.2_2",
+   "order": 7,
+   "sibling_index": 1,
+   "heading_src": "初通敘四行(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#7",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0841b10",
+     "explained": "P167n1573_p0841b10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0841b10",
+     "end": "P167n1573_p0842b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0841b10 to P167n1573_p0842b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0841b10: \"初通敘四行(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.1_3.1_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "2_2",
+    "1_3",
+    "1_4"
+   ],
+   "parent_id": "1_1.2_2.1_3",
+   "order": 8,
+   "sibling_index": 1,
+   "heading_src": "初標行門緫攝",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#8",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0841b10",
+     "explained": "P167n1573_p0841b10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0841b10",
+     "end": "P167n1573_p0842a02",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0841b10 to P167n1573_p0842a02"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0841b10: \"初標行門緫攝\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.1_3.2_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "2_2",
+    "1_3",
+    "2_4"
+   ],
+   "parent_id": "1_1.2_2.1_3",
+   "order": 9,
+   "sibling_index": 2,
+   "heading_src": "二列行名期限",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#9",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0842a03",
+     "explained": "P167n1573_p0842a03"
+    },
+    "root_text": {
+     "start": "P167n1573_p0842a03",
+     "end": "P167n1573_p0842b01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0842a03 to P167n1573_p0842b01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0842a03: \"二列行名期限\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.1_3.3_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "2_2",
+    "1_3",
+    "3_4"
+   ],
+   "parent_id": "1_1.2_2.1_3",
+   "order": 10,
+   "sibling_index": 3,
+   "heading_src": "三論定日用心(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#10",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0842b02",
+     "explained": "P167n1573_p0842b02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0842b02",
+     "end": "P167n1573_p0842b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0842b02 to P167n1573_p0842b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0842b02: \"三論定日用心(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.1_3.3_4.1_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "2_2",
+    "1_3",
+    "3_4",
+    "1_5"
+   ],
+   "parent_id": "1_1.2_2.1_3.3_4",
+   "order": 11,
+   "sibling_index": 1,
+   "heading_src": "初定日期破顯",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#11",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0842b02",
+     "explained": "P167n1573_p0842b02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0842b02",
+     "end": "P167n1573_p0842b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0842b02 to P167n1573_p0842b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"6\" on P167n1573_p0842b02: \"初定日期破顯\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.1_3.3_4.2_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "2_2",
+    "1_3",
+    "3_4",
+    "2_5"
+   ],
+   "parent_id": "1_1.2_2.1_3.3_4",
+   "order": 12,
+   "sibling_index": 2,
+   "heading_src": "二用心無久近",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#12",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0842b05",
+     "explained": "P167n1573_p0842b05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0842b05",
+     "end": "P167n1573_p0842b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0842b05 to P167n1573_p0842b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"6\" on P167n1573_p0842b05: \"二用心無久近\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3",
+   "level": 3,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3"
+   ],
+   "parent_id": "1_1.2_2",
+   "order": 13,
+   "sibling_index": 2,
+   "heading_src": "二正明法華(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#13",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0842b10",
+     "explained": "P167n1573_p0842b10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0842b10",
+     "end": "P167n1573_p0856b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0842b10 to P167n1573_p0856b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0842b10: \"二正明法華(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.1_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "1_4"
+   ],
+   "parent_id": "1_1.2_2.2_3",
+   "order": 14,
+   "sibling_index": 1,
+   "heading_src": "初標功能",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#14",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0842b10",
+     "explained": "P167n1573_p0842b10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0842b10",
+     "end": "P167n1573_p0843a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0842b10 to P167n1573_p0843a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0842b10: \"初標功能\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4"
+   ],
+   "parent_id": "1_1.2_2.2_3",
+   "order": 15,
+   "sibling_index": 2,
+   "heading_src": "二正觧釋(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#15",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a02",
+     "explained": "P167n1573_p0843a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a02",
+     "end": "P167n1573_p0856b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a02 to P167n1573_p0856b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0843a02: \"二正觧釋(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4",
+   "order": 16,
+   "sibling_index": 1,
+   "heading_src": "初別示懺修處法(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#16",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a02",
+     "explained": "P167n1573_p0843a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a02",
+     "end": "P167n1573_p0844b10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a02 to P167n1573_p0844b10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"6\" on P167n1573_p0843a02: \"初別示懺修處法(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.1_6",
+   "level": 6,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "1_6"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5",
+   "order": 17,
+   "sibling_index": 1,
+   "heading_src": "初標示",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#17",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a02",
+     "explained": "P167n1573_p0843a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a02",
+     "end": "P167n1573_p0843a03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a02 to P167n1573_p0843a03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"7\" on P167n1573_p0843a02: \"初標示\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6",
+   "level": 6,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5",
+   "order": 18,
+   "sibling_index": 2,
+   "heading_src": "二正明(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#18",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a04",
+     "explained": "P167n1573_p0843a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a04",
+     "end": "P167n1573_p0844b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a04 to P167n1573_p0844b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"7\" on P167n1573_p0843a04: \"二正明(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7",
+   "level": 7,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6",
+   "order": 19,
+   "sibling_index": 1,
+   "heading_src": "初懺悔處(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#19",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a04",
+     "explained": "P167n1573_p0843a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a04",
+     "end": "P167n1573_p0844a04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a04 to P167n1573_p0844a04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"8\" on P167n1573_p0843a04: \"初懺悔處(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "1_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7",
+   "order": 20,
+   "sibling_index": 1,
+   "heading_src": "初約信示處(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#20",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a04",
+     "explained": "P167n1573_p0843a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a04",
+     "end": "P167n1573_p0844a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a04 to P167n1573_p0844a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0843a04: \"初約信示處(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9",
+   "level": 9,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "1_8",
+    "1_9"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8",
+   "order": 21,
+   "sibling_index": 1,
+   "heading_src": "初妙境(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#21",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a04",
+     "explained": "P167n1573_p0843a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a04",
+     "end": "P167n1573_p0843b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a04 to P167n1573_p0843b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"10\" on P167n1573_p0843a04: \"初妙境(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9.1_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "1_8",
+    "1_9",
+    "1_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9",
+   "order": 22,
+   "sibling_index": 1,
+   "heading_src": "初徵起",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#22",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a04",
+     "explained": "P167n1573_p0843a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a04",
+     "end": "P167n1573_p0843a04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a04 to P167n1573_p0843a04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0843a04: \"初徵起\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9.2_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "1_8",
+    "1_9",
+    "2_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9",
+   "order": 23,
+   "sibling_index": 2,
+   "heading_src": "二正示(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#23",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a05",
+     "explained": "P167n1573_p0843a05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a05",
+     "end": "P167n1573_p0843b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a05 to P167n1573_p0843b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0843a05: \"二正示(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9.2_10.1_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "1_8",
+    "1_9",
+    "2_10",
+    "1_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9.2_10",
+   "order": 24,
+   "sibling_index": 1,
+   "heading_src": "初緫明事理",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#24",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843a05",
+     "explained": "P167n1573_p0843a05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843a05",
+     "end": "P167n1573_p0843a10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843a05 to P167n1573_p0843a10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0843a05: \"初緫明事理\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9.2_10.2_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "1_8",
+    "1_9",
+    "2_10",
+    "2_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9.2_10",
+   "order": 25,
+   "sibling_index": 2,
+   "heading_src": "二結成圓融",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#25",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843b01",
+     "explained": "P167n1573_p0843b01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843b01",
+     "end": "P167n1573_p0843b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843b01 to P167n1573_p0843b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0843b01: \"二結成圓融\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9.3_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "1_8",
+    "1_9",
+    "3_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.1_9",
+   "order": 26,
+   "sibling_index": 3,
+   "heading_src": "三結顯",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#26",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843b05",
+     "explained": "P167n1573_p0843b05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843b05",
+     "end": "P167n1573_p0843b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843b05 to P167n1573_p0843b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0843b05: \"三結顯\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8.2_9",
+   "level": 9,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "1_8",
+    "2_9"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.1_8",
+   "order": 27,
+   "sibling_index": 2,
+   "heading_src": "二九乘",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#27",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0843b06",
+     "explained": "P167n1573_p0843b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0843b06",
+     "end": "P167n1573_p0844a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0843b06 to P167n1573_p0844a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"10\" on P167n1573_p0843b06: \"二九乘\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7.2_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "1_7",
+    "2_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.1_7",
+   "order": 28,
+   "sibling_index": 2,
+   "heading_src": "二引祖垂訓",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#28",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0844a02",
+     "explained": "P167n1573_p0844a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0844a02",
+     "end": "P167n1573_p0844a04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0844a02 to P167n1573_p0844a04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0844a02: \"二引祖垂訓\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.2_7",
+   "level": 7,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "2_7"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6",
+   "order": 29,
+   "sibling_index": 2,
+   "heading_src": "二懺悔法(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#29",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0844a05",
+     "explained": "P167n1573_p0844a05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0844a05",
+     "end": "P167n1573_p0844b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0844a05 to P167n1573_p0844b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"8\" on P167n1573_p0844a05: \"二懺悔法(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.2_7.1_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "1_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.2_7",
+   "order": 30,
+   "sibling_index": 1,
+   "heading_src": "初示三懺相",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#30",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0844a05",
+     "explained": "P167n1573_p0844a05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0844a05",
+     "end": "P167n1573_p0844a10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0844a05 to P167n1573_p0844a10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0844a05: \"初示三懺相\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.2_7.2_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "2_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.2_7",
+   "order": 31,
+   "sibling_index": 2,
+   "heading_src": "二示三懺意",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#31",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0844b01",
+     "explained": "P167n1573_p0844b01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0844b01",
+     "end": "P167n1573_p0844b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0844b01 to P167n1573_p0844b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0844b01: \"二示三懺意\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.2_6.2_7.3_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "2_6",
+    "2_7",
+    "3_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5.2_6.2_7",
+   "order": 32,
+   "sibling_index": 3,
+   "heading_src": "三示三懺用",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#32",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0844b06",
+     "explained": "P167n1573_p0844b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0844b06",
+     "end": "P167n1573_p0844b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0844b06 to P167n1573_p0844b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0844b06: \"三示三懺用\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.1_5.3_6",
+   "level": 6,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "1_5",
+    "3_6"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.1_5",
+   "order": 33,
+   "sibling_index": 3,
+   "heading_src": "三結勸",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#33",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0844b10",
+     "explained": "P167n1573_p0844b10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0844b10",
+     "end": "P167n1573_p0844b10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0844b10 to P167n1573_p0844b10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"7\" on P167n1573_p0844b10: \"三結勸\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5",
+   "level": 5,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4",
+   "order": 34,
+   "sibling_index": 2,
+   "heading_src": "二正明本文軌儀(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#34",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0845a01",
+     "explained": "P167n1573_p0845a01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0845a01",
+     "end": "P167n1573_p0856b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0845a01 to P167n1573_p0856b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"6\" on P167n1573_p0845a01: \"二正明本文軌儀(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.1_6",
+   "level": 6,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "1_6"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5",
+   "order": 35,
+   "sibling_index": 1,
+   "heading_src": "初依文標列",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#35",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0845a01",
+     "explained": "P167n1573_p0845a01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0845a01",
+     "end": "P167n1573_p0845a07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0845a01 to P167n1573_p0845a07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"7\" on P167n1573_p0845a01: \"初依文標列\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.2_6",
+   "level": 6,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "2_6"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5",
+   "order": 36,
+   "sibling_index": 2,
+   "heading_src": "二指所教示",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#36",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0845a08",
+     "explained": "P167n1573_p0845a08"
+    },
+    "root_text": {
+     "start": "P167n1573_p0845a08",
+     "end": "P167n1573_p0845b01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0845a08 to P167n1573_p0845b01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"7\" on P167n1573_p0845a08: \"二指所教示\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6",
+   "level": 6,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5",
+   "order": 37,
+   "sibling_index": 3,
+   "heading_src": "三正辯十科(七)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#37",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 7,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0845b02",
+     "explained": "P167n1573_p0845b02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0845b02",
+     "end": "P167n1573_p0856b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0845b02 to P167n1573_p0856b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"7\" on P167n1573_p0845b02: \"三正辯十科(七)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.1_7",
+   "level": 7,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "1_7"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6",
+   "order": 38,
+   "sibling_index": 1,
+   "heading_src": "初略標指初二兩科",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#38",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0845b02",
+     "explained": "P167n1573_p0845b02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0845b02",
+     "end": "P167n1573_p0845b03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0845b02 to P167n1573_p0845b03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"8\" on P167n1573_p0845b02: \"初略標指初二兩科\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.2_7",
+   "level": 7,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "2_7"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6",
+   "order": 39,
+   "sibling_index": 2,
+   "heading_src": "二示第三三業供養",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#39",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0845b04",
+     "explained": "P167n1573_p0845b04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0845b04",
+     "end": "P167n1573_p0846a03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0845b04 to P167n1573_p0846a03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"8\" on P167n1573_p0845b04: \"二示第三三業供養\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.3_7",
+   "level": 7,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "3_7"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6",
+   "order": 40,
+   "sibling_index": 3,
+   "heading_src": "三標第四五六三科",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#40",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0846a04",
+     "explained": "P167n1573_p0846a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0846a04",
+     "end": "P167n1573_p0846a05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0846a04 to P167n1573_p0846a05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"8\" on P167n1573_p0846a04: \"三標第四五六三科\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.4_7",
+   "level": 7,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "4_7"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6",
+   "order": 41,
+   "sibling_index": 4,
+   "heading_src": "四示第六禮三寶法(四)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#41",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0846a06",
+     "explained": "P167n1573_p0846a06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0846a06",
+     "end": "P167n1573_p0847b02",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0846a06 to P167n1573_p0847b02"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"8\" on P167n1573_p0846a06: \"四示第六禮三寶法(四)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.4_7.1_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "4_7",
+    "1_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.4_7",
+   "order": 42,
+   "sibling_index": 1,
+   "heading_src": "初禮佛寶法",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#42",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0846a06",
+     "explained": "P167n1573_p0846a06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0846a06",
+     "end": "P167n1573_p0846b01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0846a06 to P167n1573_p0846b01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0846a06: \"初禮佛寶法\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.4_7.2_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "4_7",
+    "2_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.4_7",
+   "order": 43,
+   "sibling_index": 2,
+   "heading_src": "二禮法寶法",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#43",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0846b02",
+     "explained": "P167n1573_p0846b02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0846b02",
+     "end": "P167n1573_p0846b06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0846b02 to P167n1573_p0846b06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0846b02: \"二禮法寶法\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.4_7.3_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "4_7",
+    "3_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.4_7",
+   "order": 44,
+   "sibling_index": 3,
+   "heading_src": "三禮僧寶法",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#44",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0846b07",
+     "explained": "P167n1573_p0846b07"
+    },
+    "root_text": {
+     "start": "P167n1573_p0846b07",
+     "end": "P167n1573_p0847a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0846b07 to P167n1573_p0847a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0846b07: \"三禮僧寶法\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.4_7.4_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "4_7",
+    "4_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.4_7",
+   "order": 45,
+   "sibling_index": 4,
+   "heading_src": "四運普懺心",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#45",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0847a02",
+     "explained": "P167n1573_p0847a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0847a02",
+     "end": "P167n1573_p0847b02",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0847a02 to P167n1573_p0847b02"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0847a02: \"四運普懺心\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7",
+   "level": 7,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6",
+   "order": 46,
+   "sibling_index": 5,
+   "heading_src": "五示第七懺悔方法(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#46",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0847b03",
+     "explained": "P167n1573_p0847b03"
+    },
+    "root_text": {
+     "start": "P167n1573_p0847b03",
+     "end": "P167n1573_p0853b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0847b03 to P167n1573_p0853b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"8\" on P167n1573_p0847b03: \"五示第七懺悔方法(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.1_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "1_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7",
+   "order": 47,
+   "sibling_index": 1,
+   "heading_src": "初標章",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#47",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0847b03",
+     "explained": "P167n1573_p0847b03"
+    },
+    "root_text": {
+     "start": "P167n1573_p0847b03",
+     "end": "P167n1573_p0847b03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0847b03 to P167n1573_p0847b03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0847b03: \"初標章\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.2_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "2_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7",
+   "order": 48,
+   "sibling_index": 2,
+   "heading_src": "二示意",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#48",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0847b04",
+     "explained": "P167n1573_p0847b04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0847b04",
+     "end": "P167n1573_p0847b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0847b04 to P167n1573_p0847b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0847b04: \"二示意\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7",
+   "order": 49,
+   "sibling_index": 3,
+   "heading_src": "三釋相(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#49",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0847b06",
+     "explained": "P167n1573_p0847b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0847b06",
+     "end": "P167n1573_p0853b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0847b06 to P167n1573_p0853b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0847b06: \"三釋相(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9",
+   "level": 9,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8",
+   "order": 50,
+   "sibling_index": 1,
+   "heading_src": "初懺六根法(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#50",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0847b06",
+     "explained": "P167n1573_p0847b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0847b06",
+     "end": "P167n1573_p0850b08",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0847b06 to P167n1573_p0850b08"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"10\" on P167n1573_p0847b06: \"初懺六根法(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.1_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "1_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9",
+   "order": 51,
+   "sibling_index": 1,
+   "heading_src": "初示懺悔意",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#51",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0847b06",
+     "explained": "P167n1573_p0847b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0847b06",
+     "end": "P167n1573_p0848a03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0847b06 to P167n1573_p0848a03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0847b06: \"初示懺悔意\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.2_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "2_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9",
+   "order": 52,
+   "sibling_index": 2,
+   "heading_src": "二明運十心(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#52",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0848a04",
+     "explained": "P167n1573_p0848a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0848a04",
+     "end": "P167n1573_p0848b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0848a04 to P167n1573_p0848b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0848a04: \"二明運十心(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.2_10.1_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "2_10",
+    "1_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.2_10",
+   "order": 53,
+   "sibling_index": 1,
+   "heading_src": "初十心逆願",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#53",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0848a04",
+     "explained": "P167n1573_p0848a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0848a04",
+     "end": "P167n1573_p0848b03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0848a04 to P167n1573_p0848b03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0848a04: \"初十心逆願\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.2_10.2_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "2_10",
+    "2_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.2_10",
+   "order": 54,
+   "sibling_index": 2,
+   "heading_src": "二十心功能",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#54",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0848b04",
+     "explained": "P167n1573_p0848b04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0848b04",
+     "end": "P167n1573_p0848b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0848b04 to P167n1573_p0848b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0848b04: \"二十心功能\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9",
+   "order": 55,
+   "sibling_index": 3,
+   "heading_src": "三正明懺法(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#55",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0848b08",
+     "explained": "P167n1573_p0848b08"
+    },
+    "root_text": {
+     "start": "P167n1573_p0848b08",
+     "end": "P167n1573_p0850b08",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0848b08 to P167n1573_p0850b08"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0848b08: \"三正明懺法(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.1_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "1_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10",
+   "order": 56,
+   "sibling_index": 1,
+   "heading_src": "初結前生後",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#56",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0848b08",
+     "explained": "P167n1573_p0848b08"
+    },
+    "root_text": {
+     "start": "P167n1573_p0848b08",
+     "end": "P167n1573_p0848b08",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0848b08 to P167n1573_p0848b08"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0848b08: \"初結前生後\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10",
+   "order": 57,
+   "sibling_index": 2,
+   "heading_src": "二正示懺法(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#57",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0848b09",
+     "explained": "P167n1573_p0848b09"
+    },
+    "root_text": {
+     "start": "P167n1573_p0848b09",
+     "end": "P167n1573_p0850b06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0848b09 to P167n1573_p0850b06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0848b09: \"二正示懺法(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12",
+   "level": 12,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "1_12"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11",
+   "order": 58,
+   "sibling_index": 1,
+   "heading_src": "初聖師教示(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#58",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0848b09",
+     "explained": "P167n1573_p0848b09"
+    },
+    "root_text": {
+     "start": "P167n1573_p0848b09",
+     "end": "P167n1573_p0849b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0848b09 to P167n1573_p0849b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"13\" on P167n1573_p0848b09: \"初聖師教示(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.1_13",
+   "level": 13,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "1_12",
+    "1_13"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12",
+   "order": 59,
+   "sibling_index": 1,
+   "heading_src": "初說所示法",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#59",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0848b09",
+     "explained": "P167n1573_p0848b09"
+    },
+    "root_text": {
+     "start": "P167n1573_p0848b09",
+     "end": "P167n1573_p0849a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0848b09 to P167n1573_p0849a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"14\" on P167n1573_p0848b09: \"初說所示法\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.2_13",
+   "level": 13,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "1_12",
+    "2_13"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12",
+   "order": 60,
+   "sibling_index": 2,
+   "heading_src": "二明能見知(四)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#60",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0849a02",
+     "explained": "P167n1573_p0849a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0849a02",
+     "end": "P167n1573_p0849b01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0849a02 to P167n1573_p0849b01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"14\" on P167n1573_p0849a02: \"二明能見知(四)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.2_13.1_14",
+   "level": 14,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "1_12",
+    "2_13",
+    "1_14"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.2_13",
+   "order": 61,
+   "sibling_index": 1,
+   "heading_src": "初見起妄",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#61",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0849a02",
+     "explained": "P167n1573_p0849a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0849a02",
+     "end": "P167n1573_p0849a03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0849a02 to P167n1573_p0849a03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"15\" on P167n1573_p0849a02: \"初見起妄\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.2_13.2_14",
+   "level": 14,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "1_12",
+    "2_13",
+    "2_14"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.2_13",
+   "order": 62,
+   "sibling_index": 2,
+   "heading_src": "二知本真",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#62",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0849a04",
+     "explained": "P167n1573_p0849a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0849a04",
+     "end": "P167n1573_p0849a06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0849a04 to P167n1573_p0849a06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"15\" on P167n1573_p0849a04: \"二知本真\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.2_13.3_14",
+   "level": 14,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "1_12",
+    "2_13",
+    "3_14"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.2_13",
+   "order": 63,
+   "sibling_index": 3,
+   "heading_src": "三愍迷倒",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#63",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0849a07",
+     "explained": "P167n1573_p0849a07"
+    },
+    "root_text": {
+     "start": "P167n1573_p0849a07",
+     "end": "P167n1573_p0849a08",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0849a07 to P167n1573_p0849a08"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"15\" on P167n1573_p0849a07: \"三愍迷倒\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.2_13.4_14",
+   "level": 14,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "1_12",
+    "2_13",
+    "4_14"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.2_13",
+   "order": 64,
+   "sibling_index": 4,
+   "heading_src": "四示復本",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#64",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0849a09",
+     "explained": "P167n1573_p0849a09"
+    },
+    "root_text": {
+     "start": "P167n1573_p0849a09",
+     "end": "P167n1573_p0849b01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0849a09 to P167n1573_p0849b01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"15\" on P167n1573_p0849a09: \"四示復本\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12.3_13",
+   "level": 13,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "1_12",
+    "3_13"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.1_12",
+   "order": 65,
+   "sibling_index": 3,
+   "heading_src": "三述所顯德",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#65",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0849b02",
+     "explained": "P167n1573_p0849b02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0849b02",
+     "end": "P167n1573_p0849b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0849b02 to P167n1573_p0849b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"14\" on P167n1573_p0849b02: \"三述所顯德\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12",
+   "level": 12,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "2_12"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11",
+   "order": 66,
+   "sibling_index": 2,
+   "heading_src": "二能修解行(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#66",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0849b06",
+     "explained": "P167n1573_p0849b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0849b06",
+     "end": "P167n1573_p0850b06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0849b06 to P167n1573_p0850b06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"13\" on P167n1573_p0849b06: \"二能修解行(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.1_13",
+   "level": 13,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "2_12",
+    "1_13"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12",
+   "order": 67,
+   "sibling_index": 1,
+   "heading_src": "初無生妙解(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#67",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0849b06",
+     "explained": "P167n1573_p0849b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0849b06",
+     "end": "P167n1573_p0850a03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0849b06 to P167n1573_p0850a03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"14\" on P167n1573_p0849b06: \"初無生妙解(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.1_13.1_14",
+   "level": 14,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "2_12",
+    "1_13",
+    "1_14"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.1_13",
+   "order": 68,
+   "sibling_index": 1,
+   "heading_src": "初性具染惡本融",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#68",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0849b06",
+     "explained": "P167n1573_p0849b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0849b06",
+     "end": "P167n1573_p0850a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0849b06 to P167n1573_p0850a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"15\" on P167n1573_p0849b06: \"初性具染惡本融\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.1_13.2_14",
+   "level": 14,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "2_12",
+    "1_13",
+    "2_14"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.1_13",
+   "order": 69,
+   "sibling_index": 2,
+   "heading_src": "二引經二懺結顯",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#69",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0850a02",
+     "explained": "P167n1573_p0850a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0850a02",
+     "end": "P167n1573_p0850a03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0850a02 to P167n1573_p0850a03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"15\" on P167n1573_p0850a02: \"二引經二懺結顯\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.2_13",
+   "level": 13,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "2_12",
+    "2_13"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12",
+   "order": 70,
+   "sibling_index": 2,
+   "heading_src": "二正助妙行(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#70",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0850a04",
+     "explained": "P167n1573_p0850a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0850a04",
+     "end": "P167n1573_p0850b06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0850a04 to P167n1573_p0850b06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"14\" on P167n1573_p0850a04: \"二正助妙行(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.2_13.1_14",
+   "level": 14,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "2_12",
+    "2_13",
+    "1_14"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.2_13",
+   "order": 71,
+   "sibling_index": 1,
+   "heading_src": "初約法明",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#71",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0850a04",
+     "explained": "P167n1573_p0850a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0850a04",
+     "end": "P167n1573_p0850a08",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0850a04 to P167n1573_p0850a08"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"15\" on P167n1573_p0850a04: \"初約法明\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.2_13.2_14",
+   "level": 14,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "2_12",
+    "2_13",
+    "2_14"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.2_13",
+   "order": 72,
+   "sibling_index": 2,
+   "heading_src": "二以喻顯",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#72",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0850a09",
+     "explained": "P167n1573_p0850a09"
+    },
+    "root_text": {
+     "start": "P167n1573_p0850a09",
+     "end": "P167n1573_p0850a10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0850a09 to P167n1573_p0850a10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"15\" on P167n1573_p0850a09: \"二以喻顯\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.2_13.3_14",
+   "level": 14,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "2_11",
+    "2_12",
+    "2_13",
+    "3_14"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.2_11.2_12.2_13",
+   "order": 73,
+   "sibling_index": 3,
+   "heading_src": "三結功過",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#73",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0850b01",
+     "explained": "P167n1573_p0850b01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0850b01",
+     "end": "P167n1573_p0850b06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0850b01 to P167n1573_p0850b06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"15\" on P167n1573_p0850b01: \"三結功過\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10.3_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "1_9",
+    "3_10",
+    "3_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.1_9.3_10",
+   "order": 74,
+   "sibling_index": 3,
+   "heading_src": "三勸誡行者",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#74",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0850b07",
+     "explained": "P167n1573_p0850b07"
+    },
+    "root_text": {
+     "start": "P167n1573_p0850b07",
+     "end": "P167n1573_p0850b08",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0850b07 to P167n1573_p0850b08"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0850b07: \"三勸誡行者\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9",
+   "level": 9,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8",
+   "order": 75,
+   "sibling_index": 2,
+   "heading_src": "二明四悔法(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#75",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0850b09",
+     "explained": "P167n1573_p0850b09"
+    },
+    "root_text": {
+     "start": "P167n1573_p0850b09",
+     "end": "P167n1573_p0853b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0850b09 to P167n1573_p0853b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"10\" on P167n1573_p0850b09: \"二明四悔法(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.1_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "1_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9",
+   "order": 76,
+   "sibling_index": 1,
+   "heading_src": "初標列",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#76",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0850b09",
+     "explained": "P167n1573_p0850b09"
+    },
+    "root_text": {
+     "start": "P167n1573_p0850b09",
+     "end": "P167n1573_p0850b10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0850b09 to P167n1573_p0850b10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0850b09: \"初標列\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.2_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "2_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9",
+   "order": 77,
+   "sibling_index": 2,
+   "heading_src": "二示義",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#77",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0851a01",
+     "explained": "P167n1573_p0851a01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0851a01",
+     "end": "P167n1573_p0851a05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0851a01 to P167n1573_p0851a05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0851a01: \"二示義\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9",
+   "order": 78,
+   "sibling_index": 3,
+   "heading_src": "三隨釋(四)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#78",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 4,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0851a06",
+     "explained": "P167n1573_p0851a06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0851a06",
+     "end": "P167n1573_p0853b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0851a06 to P167n1573_p0853b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0851a06: \"三隨釋(四)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.1_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10",
+    "1_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10",
+   "order": 79,
+   "sibling_index": 1,
+   "heading_src": "初勸請",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#79",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0851a06",
+     "explained": "P167n1573_p0851a06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0851a06",
+     "end": "P167n1573_p0851b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0851a06 to P167n1573_p0851b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0851a06: \"初勸請\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.2_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10",
+    "2_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10",
+   "order": 80,
+   "sibling_index": 2,
+   "heading_src": "二隨喜",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#80",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0851b06",
+     "explained": "P167n1573_p0851b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0851b06",
+     "end": "P167n1573_p0852a02",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0851b06 to P167n1573_p0852a02"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0851b06: \"二隨喜\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.3_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10",
+    "3_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10",
+   "order": 81,
+   "sibling_index": 3,
+   "heading_src": "三回向",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#81",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0852a03",
+     "explained": "P167n1573_p0852a03"
+    },
+    "root_text": {
+     "start": "P167n1573_p0852a03",
+     "end": "P167n1573_p0852b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0852a03 to P167n1573_p0852b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0852a03: \"三回向\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10",
+    "4_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10",
+   "order": 82,
+   "sibling_index": 4,
+   "heading_src": "四發願(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#82",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0852b06",
+     "explained": "P167n1573_p0852b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0852b06",
+     "end": "P167n1573_p0853b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0852b06 to P167n1573_p0853b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0852b06: \"四發願(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11.1_12",
+   "level": 12,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10",
+    "4_11",
+    "1_12"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11",
+   "order": 83,
+   "sibling_index": 1,
+   "heading_src": "初通標四誓指前",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#83",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0852b06",
+     "explained": "P167n1573_p0852b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0852b06",
+     "end": "P167n1573_p0852b10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0852b06 to P167n1573_p0852b10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"13\" on P167n1573_p0852b06: \"初通標四誓指前\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11.2_12",
+   "level": 12,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10",
+    "4_11",
+    "2_12"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11",
+   "order": 84,
+   "sibling_index": 2,
+   "heading_src": "二別要淨土今說(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#84",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0853a01",
+     "explained": "P167n1573_p0853a01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0853a01",
+     "end": "P167n1573_p0853b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0853a01 to P167n1573_p0853b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"13\" on P167n1573_p0853a01: \"二別要淨土今說(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11.2_12.1_13",
+   "level": 13,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10",
+    "4_11",
+    "2_12",
+    "1_13"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11.2_12",
+   "order": 85,
+   "sibling_index": 1,
+   "heading_src": "初標文",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#85",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0853a01",
+     "explained": "P167n1573_p0853a01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0853a01",
+     "end": "P167n1573_p0853a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0853a01 to P167n1573_p0853a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"14\" on P167n1573_p0853a01: \"初標文\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11.2_12.2_13",
+   "level": 13,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10",
+    "4_11",
+    "2_12",
+    "2_13"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11.2_12",
+   "order": 86,
+   "sibling_index": 2,
+   "heading_src": "二示意",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#86",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0853a02",
+     "explained": "P167n1573_p0853a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0853a02",
+     "end": "P167n1573_p0853a10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0853a02 to P167n1573_p0853a10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"14\" on P167n1573_p0853a02: \"二示意\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11.2_12.3_13",
+   "level": 13,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "5_7",
+    "3_8",
+    "2_9",
+    "3_10",
+    "4_11",
+    "2_12",
+    "3_13"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.5_7.3_8.2_9.3_10.4_11.2_12",
+   "order": 87,
+   "sibling_index": 3,
+   "heading_src": "三誡勸",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#87",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0853b01",
+     "explained": "P167n1573_p0853b01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0853b01",
+     "end": "P167n1573_p0853b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0853b01 to P167n1573_p0853b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"14\" on P167n1573_p0853b01: \"三誡勸\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7",
+   "level": 7,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "6_7"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6",
+   "order": 88,
+   "sibling_index": 6,
+   "heading_src": "六示八九旋誦方法(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#88",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0853b05",
+     "explained": "P167n1573_p0853b05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0853b05",
+     "end": "P167n1573_p0854a04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0853b05 to P167n1573_p0854a04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"8\" on P167n1573_p0853b05: \"六示八九旋誦方法(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7.1_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "6_7",
+    "1_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7",
+   "order": 89,
+   "sibling_index": 1,
+   "heading_src": "初標二科",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#89",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0853b05",
+     "explained": "P167n1573_p0853b05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0853b05",
+     "end": "P167n1573_p0853b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0853b05 to P167n1573_p0853b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0853b05: \"初標二科\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7.2_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "6_7",
+    "2_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7",
+   "order": 90,
+   "sibling_index": 2,
+   "heading_src": "二示二法(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#90",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0853b06",
+     "explained": "P167n1573_p0853b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0853b06",
+     "end": "P167n1573_p0854a04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0853b06 to P167n1573_p0854a04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0853b06: \"二示二法(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7.2_8.1_9",
+   "level": 9,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "6_7",
+    "2_8",
+    "1_9"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7.2_8",
+   "order": 91,
+   "sibling_index": 1,
+   "heading_src": "初正示",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#91",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0853b06",
+     "explained": "P167n1573_p0853b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0853b06",
+     "end": "P167n1573_p0854a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0853b06 to P167n1573_p0854a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"10\" on P167n1573_p0853b06: \"初正示\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7.2_8.2_9",
+   "level": 9,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "6_7",
+    "2_8",
+    "2_9"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7.2_8",
+   "order": 92,
+   "sibling_index": 2,
+   "heading_src": "二引證",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#92",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0854a02",
+     "explained": "P167n1573_p0854a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0854a02",
+     "end": "P167n1573_p0854a03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0854a02 to P167n1573_p0854a03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"10\" on P167n1573_p0854a02: \"二引證\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7.2_8.3_9",
+   "level": 9,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "6_7",
+    "2_8",
+    "3_9"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.6_7.2_8",
+   "order": 93,
+   "sibling_index": 3,
+   "heading_src": "三結歎",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#93",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0854a04",
+     "explained": "P167n1573_p0854a04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0854a04",
+     "end": "P167n1573_p0854a04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0854a04 to P167n1573_p0854a04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"10\" on P167n1573_p0854a04: \"三結歎\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7",
+   "level": 7,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6",
+   "order": 94,
+   "sibling_index": 7,
+   "heading_src": "七示第十坐禪觀法(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#94",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0854a05",
+     "explained": "P167n1573_p0854a05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0854a05",
+     "end": "P167n1573_p0856b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0854a05 to P167n1573_p0856b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"8\" on P167n1573_p0854a05: \"七示第十坐禪觀法(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.1_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "1_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7",
+   "order": 95,
+   "sibling_index": 1,
+   "heading_src": "初結前生後",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#95",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0854a05",
+     "explained": "P167n1573_p0854a05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0854a05",
+     "end": "P167n1573_p0854a09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0854a05 to P167n1573_p0854a09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0854a05: \"初結前生後\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7",
+   "order": 96,
+   "sibling_index": 2,
+   "heading_src": "二正明禪觀(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#96",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0854a10",
+     "explained": "P167n1573_p0854a10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0854a10",
+     "end": "P167n1573_p0856b02",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0854a10 to P167n1573_p0856b02"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0854a10: \"二正明禪觀(二)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.1_9",
+   "level": 9,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8",
+    "1_9"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8",
+   "order": 97,
+   "sibling_index": 1,
+   "heading_src": "初雙標",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#97",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0854a10",
+     "explained": "P167n1573_p0854a10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0854a10",
+     "end": "P167n1573_p0854a10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0854a10 to P167n1573_p0854a10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"10\" on P167n1573_p0854a10: \"初雙標\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9",
+   "level": 9,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8",
+    "2_9"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8",
+   "order": 98,
+   "sibling_index": 2,
+   "heading_src": "二隨示(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#98",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0854b01",
+     "explained": "P167n1573_p0854b01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0854b01",
+     "end": "P167n1573_p0856b02",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0854b01 to P167n1573_p0856b02"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"10\" on P167n1573_p0854b01: \"二隨示(二)\"",
+   "notes": [
+    "cb:mulu heading announces 2 children in parentheses; 3 present in this gold's tree"
+   ]
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.1_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8",
+    "2_9",
+    "1_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9",
+   "order": 99,
+   "sibling_index": 1,
+   "heading_src": "初坐相",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#99",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0854b01",
+     "explained": "P167n1573_p0854b01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0854b01",
+     "end": "P167n1573_p0855a04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0854b01 to P167n1573_p0855a04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0854b01: \"初坐相\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.2_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8",
+    "2_9",
+    "2_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9",
+   "order": 100,
+   "sibling_index": 2,
+   "heading_src": "二觀門(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#100",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [
+    "count_mismatch"
+   ],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0855a05",
+     "explained": "P167n1573_p0855a05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0855a05",
+     "end": "P167n1573_p0856a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0855a05 to P167n1573_p0856a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0855a05: \"二觀門(二)\"",
+   "notes": [
+    "cb:mulu heading announces 2 children in parentheses; 1 present in this gold's tree"
+   ]
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.2_10.1_11",
+   "level": 11,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8",
+    "2_9",
+    "2_10",
+    "1_11"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.2_10",
+   "order": 101,
+   "sibling_index": 1,
+   "heading_src": "初的示識心觀(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#101",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0855a05",
+     "explained": "P167n1573_p0855a05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0855a05",
+     "end": "P167n1573_p0856a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0855a05 to P167n1573_p0856a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"12\" on P167n1573_p0855a05: \"初的示識心觀(三)\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.2_10.1_11.1_12",
+   "level": 12,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8",
+    "2_9",
+    "2_10",
+    "1_11",
+    "1_12"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.2_10.1_11",
+   "order": 102,
+   "sibling_index": 1,
+   "heading_src": "初法",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#102",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0855a05",
+     "explained": "P167n1573_p0855a05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0855a05",
+     "end": "P167n1573_p0855b02",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0855a05 to P167n1573_p0855b02"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"13\" on P167n1573_p0855a05: \"初法\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.2_10.1_11.2_12",
+   "level": 12,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8",
+    "2_9",
+    "2_10",
+    "1_11",
+    "2_12"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.2_10.1_11",
+   "order": 103,
+   "sibling_index": 2,
+   "heading_src": "二喻",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#103",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0855b03",
+     "explained": "P167n1573_p0855b03"
+    },
+    "root_text": {
+     "start": "P167n1573_p0855b03",
+     "end": "P167n1573_p0855b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0855b03 to P167n1573_p0855b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"13\" on P167n1573_p0855b03: \"二喻\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.2_10.1_11.3_12",
+   "level": 12,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8",
+    "2_9",
+    "2_10",
+    "1_11",
+    "3_12"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.2_10.1_11",
+   "order": 104,
+   "sibling_index": 3,
+   "heading_src": "三合",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#104",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0855b08",
+     "explained": "P167n1573_p0855b08"
+    },
+    "root_text": {
+     "start": "P167n1573_p0855b08",
+     "end": "P167n1573_p0856a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0855b08 to P167n1573_p0856a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"13\" on P167n1573_p0855b08: \"三合\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9.3_10",
+   "level": 10,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "2_8",
+    "2_9",
+    "3_10"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.2_8.2_9",
+   "order": 105,
+   "sibling_index": 3,
+   "heading_src": "三結成不思議境",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#105",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0856a02",
+     "explained": "P167n1573_p0856a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0856a02",
+     "end": "P167n1573_p0856b02",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0856a02 to P167n1573_p0856b02"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"11\" on P167n1573_p0856a02: \"三結成不思議境\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7.3_8",
+   "level": 8,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "2_4",
+    "2_5",
+    "3_6",
+    "7_7",
+    "3_8"
+   ],
+   "parent_id": "1_1.2_2.2_3.2_4.2_5.3_6.7_7",
+   "order": 106,
+   "sibling_index": 3,
+   "heading_src": "三結歎功能",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#106",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0856b03",
+     "explained": "P167n1573_p0856b03"
+    },
+    "root_text": {
+     "start": "P167n1573_p0856b03",
+     "end": "P167n1573_p0856b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0856b03 to P167n1573_p0856b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"9\" on P167n1573_p0856b03: \"三結歎功能\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.2_3.3_4",
+   "level": 4,
+   "path": [
+    "1_1",
+    "2_2",
+    "2_3",
+    "3_4"
+   ],
+   "parent_id": "1_1.2_2.2_3",
+   "order": 107,
+   "sibling_index": 3,
+   "heading_src": "三結約略",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#107",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0856b08",
+     "explained": "P167n1573_p0856b08"
+    },
+    "root_text": {
+     "start": "P167n1573_p0856b08",
+     "end": "P167n1573_p0856b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0856b08 to P167n1573_p0856b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0856b08: \"三結約略\"",
+   "notes": []
+  },
+  {
+   "id": "1_1.2_2.3_3",
+   "level": 3,
+   "path": [
+    "1_1",
+    "2_2",
+    "3_3"
+   ],
+   "parent_id": "1_1.2_2",
+   "order": 108,
+   "sibling_index": 3,
+   "heading_src": "三結歸止觀",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#108",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0856b10",
+     "explained": "P167n1573_p0856b10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0856b10",
+     "end": "P167n1573_p0857a06",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0856b10 to P167n1573_p0857a06"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0856b10: \"三結歸止觀\"",
+   "notes": []
+  },
+  {
+   "id": "2_1",
+   "level": 1,
+   "path": [
+    "2_1"
+   ],
+   "parent_id": null,
+   "order": 109,
+   "sibling_index": 2,
+   "heading_src": "分三",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#109",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [
+    "irregular_label"
+   ],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857a07",
+     "explained": "P167n1573_p0857a07"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857a07",
+     "end": "P167n1573_p0858a10",
+     "basis": "cbeta-mulu",
+     "end_basis": null,
+     "raw": "cb:mulu-preceding lb P167n1573_p0857a07 to P167n1573_p0858a10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"2\" on P167n1573_p0857a07: \"分三\"",
+   "notes": [
+    "cb:mulu level=\"2\" with no preceding shallower 科判 node in the source (document start, or a fresh top-level run); read as a document root (structural level 1), never inventing the missing levels",
+    "last cb:mulu type=\"科判\" node in the file (no following node to bound it); root_text.end is the file's last own-canon line"
+   ]
+  },
+  {
+   "id": "2_1.1_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "1_2"
+   ],
+   "parent_id": "2_1",
+   "order": 110,
+   "sibling_index": 1,
+   "heading_src": "初體性元徧",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#110",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857a07",
+     "explained": "P167n1573_p0857a07"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857a07",
+     "end": "P167n1573_p0857a07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857a07 to P167n1573_p0857a07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"3\" on P167n1573_p0857a07: \"初體性元徧\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.2_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "2_2"
+   ],
+   "parent_id": "2_1",
+   "order": 111,
+   "sibling_index": 2,
+   "heading_src": "二體德圓具(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#111",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857a08",
+     "explained": "P167n1573_p0857a08"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857a08",
+     "end": "P167n1573_p0857b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857a08 to P167n1573_p0857b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"3\" on P167n1573_p0857a08: \"二體德圓具(二)\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.2_2.1_3",
+   "level": 3,
+   "path": [
+    "2_1",
+    "2_2",
+    "1_3"
+   ],
+   "parent_id": "2_1.2_2",
+   "order": 112,
+   "sibling_index": 1,
+   "heading_src": "初互具六塵",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#112",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857a08",
+     "explained": "P167n1573_p0857a08"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857a08",
+     "end": "P167n1573_p0857b01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857a08 to P167n1573_p0857b01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0857a08: \"初互具六塵\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.2_2.2_3",
+   "level": 3,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3"
+   ],
+   "parent_id": "2_1.2_2",
+   "order": 113,
+   "sibling_index": 2,
+   "heading_src": "二互具諸塵(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#113",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b02",
+     "explained": "P167n1573_p0857b02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b02",
+     "end": "P167n1573_p0857b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b02 to P167n1573_p0857b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0857b02: \"二互具諸塵(二)\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4"
+   ],
+   "parent_id": "2_1.2_2.2_3",
+   "order": 114,
+   "sibling_index": 1,
+   "heading_src": "初互具(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#114",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b02",
+     "explained": "P167n1573_p0857b02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b02",
+     "end": "P167n1573_p0857b03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b02 to P167n1573_p0857b03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0857b02: \"初互具(二)\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.1_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "1_5"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4",
+   "order": 115,
+   "sibling_index": 1,
+   "heading_src": "初互出五塵",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#115",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b02",
+     "explained": "P167n1573_p0857b02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b02",
+     "end": "P167n1573_p0857b02",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b02 to P167n1573_p0857b02"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"6\" on P167n1573_p0857b02: \"初互出五塵\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.2_2.2_3.1_4.2_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "1_4",
+    "2_5"
+   ],
+   "parent_id": "2_1.2_2.2_3.1_4",
+   "order": 116,
+   "sibling_index": 2,
+   "heading_src": "二互出法塵",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#116",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b03",
+     "explained": "P167n1573_p0857b03"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b03",
+     "end": "P167n1573_p0857b03",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b03 to P167n1573_p0857b03"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"6\" on P167n1573_p0857b03: \"二互出法塵\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.2_2.2_3.2_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "2_2",
+    "2_3",
+    "2_4"
+   ],
+   "parent_id": "2_1.2_2.2_3",
+   "order": 117,
+   "sibling_index": 2,
+   "heading_src": "二互嚴",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#117",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b04",
+     "explained": "P167n1573_p0857b04"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b04",
+     "end": "P167n1573_p0857b04",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b04 to P167n1573_p0857b04"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0857b04: \"二互嚴\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.3_2",
+   "level": 2,
+   "path": [
+    "2_1",
+    "3_2"
+   ],
+   "parent_id": "2_1",
+   "order": 118,
+   "sibling_index": 3,
+   "heading_src": "三體量隨徧(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#118",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b05",
+     "explained": "P167n1573_p0857b05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b05",
+     "end": "P167n1573_p0858a10",
+     "basis": "cbeta-mulu",
+     "end_basis": null,
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b05 to P167n1573_p0858a10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"3\" on P167n1573_p0857b05: \"三體量隨徧(二)\"",
+   "notes": [
+    "last cb:mulu type=\"科判\" node in the file (no following node to bound it); root_text.end is the file's last own-canon line"
+   ]
+  },
+  {
+   "id": "2_1.3_2.1_3",
+   "level": 3,
+   "path": [
+    "2_1",
+    "3_2",
+    "1_3"
+   ],
+   "parent_id": "2_1.3_2",
+   "order": 119,
+   "sibling_index": 1,
+   "heading_src": "初徧供三寶(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#119",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b05",
+     "explained": "P167n1573_p0857b05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b05",
+     "end": "P167n1573_p0857b10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b05 to P167n1573_p0857b10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0857b05: \"初徧供三寶(二)\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.3_2.1_3.1_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "3_2",
+    "1_3",
+    "1_4"
+   ],
+   "parent_id": "2_1.3_2.1_3",
+   "order": 120,
+   "sibling_index": 1,
+   "heading_src": "初徧十方(三)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#120",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 3,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b05",
+     "explained": "P167n1573_p0857b05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b05",
+     "end": "P167n1573_p0857b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b05 to P167n1573_p0857b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0857b05: \"初徧十方(三)\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.3_2.1_3.1_4.1_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "3_2",
+    "1_3",
+    "1_4",
+    "1_5"
+   ],
+   "parent_id": "2_1.3_2.1_3.1_4",
+   "order": 121,
+   "sibling_index": 1,
+   "heading_src": "初所修供徧",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#121",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b05",
+     "explained": "P167n1573_p0857b05"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b05",
+     "end": "P167n1573_p0857b05",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b05 to P167n1573_p0857b05"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"6\" on P167n1573_p0857b05: \"初所修供徧\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.3_2.1_3.1_4.2_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "3_2",
+    "1_3",
+    "1_4",
+    "2_5"
+   ],
+   "parent_id": "2_1.3_2.1_3.1_4",
+   "order": 122,
+   "sibling_index": 2,
+   "heading_src": "二能修人徧",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#122",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b06",
+     "explained": "P167n1573_p0857b06"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b06",
+     "end": "P167n1573_p0857b07",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b06 to P167n1573_p0857b07"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"6\" on P167n1573_p0857b06: \"二能修人徧\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.3_2.1_3.1_4.3_5",
+   "level": 5,
+   "path": [
+    "2_1",
+    "3_2",
+    "1_3",
+    "1_4",
+    "3_5"
+   ],
+   "parent_id": "2_1.3_2.1_3.1_4",
+   "order": 123,
+   "sibling_index": 3,
+   "heading_src": "三各徧互徧",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#123",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b08",
+     "explained": "P167n1573_p0857b08"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b08",
+     "end": "P167n1573_p0857b09",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b08 to P167n1573_p0857b09"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"6\" on P167n1573_p0857b08: \"三各徧互徧\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.3_2.1_3.2_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "3_2",
+    "1_3",
+    "2_4"
+   ],
+   "parent_id": "2_1.3_2.1_3",
+   "order": 124,
+   "sibling_index": 2,
+   "heading_src": "二徧來際",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#124",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0857b10",
+     "explained": "P167n1573_p0857b10"
+    },
+    "root_text": {
+     "start": "P167n1573_p0857b10",
+     "end": "P167n1573_p0857b10",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0857b10 to P167n1573_p0857b10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0857b10: \"二徧來際\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.3_2.2_3",
+   "level": 3,
+   "path": [
+    "2_1",
+    "3_2",
+    "2_3"
+   ],
+   "parent_id": "2_1.3_2",
+   "order": 125,
+   "sibling_index": 2,
+   "heading_src": "二徧熏眾生(二)",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#125",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": 2,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0858a01",
+     "explained": "P167n1573_p0858a01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0858a01",
+     "end": "P167n1573_p0858a10",
+     "basis": "cbeta-mulu",
+     "end_basis": null,
+     "raw": "cb:mulu-preceding lb P167n1573_p0858a01 to P167n1573_p0858a10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"4\" on P167n1573_p0858a01: \"二徧熏眾生(二)\"",
+   "notes": [
+    "last cb:mulu type=\"科判\" node in the file (no following node to bound it); root_text.end is the file's last own-canon line"
+   ]
+  },
+  {
+   "id": "2_1.3_2.2_3.1_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "3_2",
+    "2_3",
+    "1_4"
+   ],
+   "parent_id": "2_1.3_2.2_3",
+   "order": 126,
+   "sibling_index": 1,
+   "heading_src": "初所熏境",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#126",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0858a01",
+     "explained": "P167n1573_p0858a01"
+    },
+    "root_text": {
+     "start": "P167n1573_p0858a01",
+     "end": "P167n1573_p0858a01",
+     "basis": "cbeta-mulu",
+     "end_basis": "next-node",
+     "raw": "cb:mulu-preceding lb P167n1573_p0858a01 to P167n1573_p0858a01"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0858a01: \"初所熏境\"",
+   "notes": []
+  },
+  {
+   "id": "2_1.3_2.2_3.2_4",
+   "level": 4,
+   "path": [
+    "2_1",
+    "3_2",
+    "2_3",
+    "2_4"
+   ],
+   "parent_id": "2_1.3_2.2_3",
+   "order": 127,
+   "sibling_index": 2,
+   "heading_src": "二能熏誓",
+   "heading_en": "",
+   "display_label": null,
+   "source_node_id": "P167n1573#127",
+   "origin": "imported",
+   "node_class": "sutra-span",
+   "flags": [],
+   "child_count_announced": null,
+   "extent_announced": null,
+   "locations": {
+    "scheme": "cbeta-kepan",
+    "commentary": {
+     "announced": "P167n1573_p0858a02",
+     "explained": "P167n1573_p0858a02"
+    },
+    "root_text": {
+     "start": "P167n1573_p0858a02",
+     "end": "P167n1573_p0858a10",
+     "basis": "cbeta-mulu",
+     "end_basis": null,
+     "raw": "cb:mulu-preceding lb P167n1573_p0858a02 to P167n1573_p0858a10"
+    }
+   },
+   "evidence": "CBETA cb:mulu type=\"科判\" level=\"5\" on P167n1573_p0858a02: \"二能熏誓\"",
+   "notes": [
+    "last cb:mulu type=\"科判\" node in the file (no following node to bound it); root_text.end is the file's last own-canon line"
+   ]
+  }
+ ]
+}

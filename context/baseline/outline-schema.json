@@ -1,0 +1,185 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/aaronbao/chinese-workflow/context/baseline/outline-schema.json",
+  "title": "Independent outline document",
+  "description": "General shape for an *independent outline* (a term of Kurt Keutzer's Tibetan translation workflow: the outline extracted on its own, to be plugged back into the input-text to guide chunking). Usable for a Tibetan sa bcad outline and for a Chinese kēpàn outline produced by the chinese-kepan-outliner. Every node is either 'explicit' (the text or its commentarial tradition marks the division) or 'inferred' (the outliner proposed it; then confidence and evidence are mandatory). Field semantics are given in the property descriptions below.",
+  "type": "object",
+  "required": ["metadata", "nodes"],
+  "additionalProperties": false,
+  "properties": {
+    "metadata": { "$ref": "#/$defs/metadata" },
+    "nodes": {
+      "type": "array",
+      "description": "All outline nodes in document order (order strictly increasing).",
+      "items": { "$ref": "#/$defs/node" }
+    },
+    "unindexed_entries": {
+      "type": "array",
+      "description": "Bracketed entries in the source outline that carry no indicator and therefore no id/path (e.g. the COLOPHON line, or headings given only with a page reference). Kept out of `nodes` so the node tree stays well-formed.",
+      "items": { "$ref": "#/$defs/unindexed_entry" }
+    }
+  },
+  "$defs": {
+    "metadata": {
+      "type": "object",
+      "required": ["source_file", "text_title_src", "text_title_en", "source_language", "format_note", "node_count", "max_depth", "generated_by"],
+      "additionalProperties": true,
+      "properties": {
+        "source_file": { "type": "string", "description": "Repo-relative path of the source the outline was derived from (e.g. a docx outline, or a CBETA XML file)." },
+        "source_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "text_id": { "type": ["string", "null"], "description": "Canonical id of the text: Toh number for Tibetan (e.g. 'Toh 5302'), Taishō number for Chinese (e.g. 'T0262')." },
+        "text_title_src": { "type": "string", "description": "Title in the source language as it appears in the source (for a Tibetan source, e.g. its Wylie transliteration)." },
+        "text_title_bo": { "type": ["string", "null"], "description": "Alias of text_title_src for Tibetan documents, kept for backward compatibility; prefer text_title_src." },
+        "text_title_en": { "type": "string" },
+        "author": { "type": ["string", "null"] },
+        "source_language": { "type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$", "description": "BCP-47-style code of the language the headings are in: 'bo' Tibetan, 'zh' Chinese (classical Buddhist Chinese), 'lzh' if one wants to be precise." },
+        "format_note": { "type": "string", "description": "The producer's own one-paragraph statement of the entry format (for a docx source: its front-matter sentence, verbatim)." },
+        "origin_note": { "type": "string", "description": "What 'explicit' means for this document (who extracted the outline and from what)." },
+        "id_convention": { "type": "string", "description": "How node ids are formed from indicators (see node.id)." },
+        "node_count": { "type": "integer", "minimum": 0 },
+        "max_depth": { "type": "integer", "minimum": 0 },
+        "nodes_per_level": { "type": "object", "additionalProperties": { "type": "integer" }, "description": "Keys are levels as strings ('1', '2', ...)." },
+        "generated_by": { "type": "string" },
+        "chapters": { "type": "array", "items": { "$ref": "#/$defs/chapter" } },
+        "parts": { "type": "array", "items": { "$ref": "#/$defs/part" } },
+        "anomalies": { "type": "array", "items": { "type": "string" }, "description": "Document-level irregularities found in the source (not parser errors)." }
+      }
+    },
+    "chapter": {
+      "type": "object",
+      "description": "A chapter heading of the *translation* (e.g. a translation's Roman-numeral chapter titles). Chapters are not outline nodes; they are a second, independent segmentation that the nodes are keyed to via node.chapter.",
+      "required": ["order", "raw", "numeral_raw", "number", "title"],
+      "additionalProperties": true,
+      "properties": {
+        "order": { "type": "integer", "minimum": 1 },
+        "paragraph_index": { "type": "integer", "minimum": 0 },
+        "raw": { "type": "string", "description": "Heading text exactly as in the source (whitespace normalised). This is the string node.chapter points at." },
+        "numeral_raw": { "type": "string" },
+        "number": { "type": ["integer", "null"], "description": "Chapter number read literally from numeral_raw (null if it cannot be read)." },
+        "number_inferred": { "type": ["integer", "null"], "description": "Chapter number implied by the sequence when the literal one is missing or out of sequence; null when the literal one is fine." },
+        "title": { "type": "string" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "part": {
+      "type": "object",
+      "required": ["order", "raw", "number", "title"],
+      "additionalProperties": true,
+      "properties": {
+        "order": { "type": "integer", "minimum": 1 },
+        "paragraph_index": { "type": "integer", "minimum": 0 },
+        "raw": { "type": "string" },
+        "number": { "type": ["integer", "null"] },
+        "title": { "type": "string" },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "location": {
+      "type": "object",
+      "description": "Where the node sits in a specific edition. One object per node; the scheme selects the fields.",
+      "required": ["scheme"],
+      "oneOf": [
+        {
+          "properties": {
+            "scheme": { "const": "acip-folio" },
+            "edition": { "type": ["string", "null"], "description": "ACIP edition id, e.g. 'S05302'." },
+            "first": { "type": ["string", "null"], "pattern": "^\\d+[AB]$", "description": "Folio where the entry first appears (in its parent's division)." },
+            "explained": { "type": ["string", "null"], "pattern": "^\\d+[AB]$", "description": "Folio where the entry is itself taken up and explained." },
+            "raw": { "type": "string" }
+          },
+          "required": ["scheme", "first", "explained"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "scheme": { "const": "cbeta-line" },
+            "text_id": { "type": ["string", "null"], "description": "CBETA text id, e.g. 'T09n0262'." },
+            "start": { "type": "string", "pattern": "^[A-Z]+\\d+n[0-9A-Za-z]+_p\\d{4}[a-c]\\d{2}$", "description": "CBETA line reference, e.g. 'T09n0262_p0001c05' (volume, text number, page, register a/b/c, line). This pattern admits Taishō-style ids only; outline-schema-zh.json widens it to every CBETA canon (#/$defs/cbeta_ref)." },
+            "end": { "type": ["string", "null"], "pattern": "^[A-Z]+\\d+n[0-9A-Za-z]+_p\\d{4}[a-c]\\d{2}$" },
+            "raw": { "type": "string" }
+          },
+          "required": ["scheme", "start"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "scheme": { "const": "page" },
+            "edition": { "type": ["string", "null"], "description": "Which printed edition the page belongs to, if known." },
+            "page": { "type": "integer", "minimum": 1 },
+            "raw": { "type": "string" }
+          },
+          "required": ["scheme", "page"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "scheme": { "const": "unparsed" },
+            "raw": { "type": "string", "description": "The bracketed location text as found, when it matches no known scheme." }
+          },
+          "required": ["scheme", "raw"],
+          "additionalProperties": false
+        },
+        {
+          "properties": {
+            "scheme": { "const": "none" }
+          },
+          "required": ["scheme"],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "node": {
+      "type": "object",
+      "required": ["id", "level", "path", "parent_id", "order", "heading_src", "heading_en", "origin", "locations", "evidence", "notes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[0-9A-Z]+_[0-9]+(\\.[0-9A-Z]+_[0-9]+)*$",
+          "description": "Indicator with subscripts flattened: each token is <value>_<level>, tokens joined by '.', e.g. '1_1.B_2.2_3.A_4' for 1₁B₂2₃A₄. Unique within the document."
+        },
+        "indicator_display": { "type": "string", "description": "The indicator as displayed, with Unicode subscript digits, e.g. '1₁B₂2₃A₄'." },
+        "level": { "type": "integer", "minimum": 1, "description": "Depth = last subscript = len(path)." },
+        "path": { "type": "array", "minItems": 1, "items": { "type": "string", "pattern": "^[0-9A-Z]+_[0-9]+$" } },
+        "parent_id": {
+          "type": ["string", "null"],
+          "description": "id of the nearest ancestor node present in the document: normally the structural parent (path[:-1]); when the structural parent is absent from the source, the nearest present ancestor, with a note. null at level 1."
+        },
+        "order": { "type": "integer", "minimum": 1, "description": "1-based position in document order." },
+        "paragraph_index": { "type": ["integer", "null"], "description": "0-based index of the source paragraph (w:p in document.xml for docx sources)." },
+        "chapter": { "type": ["string", "null"], "description": "raw text of the nearest preceding chapter heading of the translation, or null." },
+        "part": { "type": ["string", "null"], "description": "raw text of the nearest preceding Part heading of the translation, or null." },
+        "heading_src": { "type": "string", "description": "Heading in the source language (Tibetan for sa bcad, Chinese for kēpàn). Empty string when the source gives none." },
+        "heading_en": { "type": "string", "description": "English wording (for a translated source: the translation's). May be empty for an inferred node before translation." },
+        "source_language": { "type": "string", "pattern": "^[a-z]{2,3}(-[A-Za-z0-9]+)*$" },
+        "folio_first": { "type": ["string", "null"], "pattern": "^\\d+[AB]$", "description": "Convenience copy of locations.first for acip-folio; null otherwise." },
+        "folio_explained": { "type": ["string", "null"], "pattern": "^\\d+[AB]$", "description": "Convenience copy of locations.explained for acip-folio; null otherwise." },
+        "locations": { "$ref": "#/$defs/location" },
+        "dagger": { "type": "boolean", "default": false, "description": "True when the source marks the entry with † (e.g. a deep sub-heading absent from the earlier outline the source builds on, its explained folio taken from the nearest preceding heading)." },
+        "origin": { "type": "string", "enum": ["explicit", "inferred"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1, "description": "Required when origin is 'inferred'." },
+        "evidence": { "type": "string", "description": "The span or marker that justifies the node: for an explicit node the source entry itself (for a docx source the entry paragraph, whitespace-normalised, subscripts rendered as Unicode); for an inferred node the textual cue the outliner relied on." },
+        "topic_category": { "type": ["string", "null"], "description": "What the node supplies for context retrieval (Kurt's term); optional." },
+        "notes": { "type": "array", "items": { "type": "string" }, "description": "Anything odd about this entry, one string per observation. Empty array when nothing." }
+      },
+      "if": { "properties": { "origin": { "const": "inferred" } }, "required": ["origin"] },
+      "then": { "required": ["confidence", "evidence"] }
+    },
+    "unindexed_entry": {
+      "type": "object",
+      "required": ["kind", "paragraph_index", "text", "locations"],
+      "additionalProperties": true,
+      "properties": {
+        "kind": { "type": "string", "enum": ["colophon", "heading-without-indicator", "other"] },
+        "paragraph_index": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string", "description": "The bracketed label, e.g. 'COLOPHON'." },
+        "heading_src": { "type": "string" },
+        "locations": { "$ref": "#/$defs/location" },
+        "after_node_id": { "type": ["string", "null"], "description": "id of the last node before this entry in document order." },
+        "chapter": { "type": ["string", "null"] },
+        "indent_level_guess": { "type": ["integer", "null"], "description": "Depth implied by the paragraph indent (docx: left twips / 144 + 1), when available." },
+        "notes": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}

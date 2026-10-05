@@ -1,0 +1,33 @@
+# outline — input-text → independent outline + outlined-text (the kēpàn outliner)
+
+Kurt's step: Agentic 1.0 §1f Step 1 (`outliner-skill`). Design: `docs/outliner-design.md` §5 (this file is the contract; the design has the algorithms). Skill: `skills/chinese-kepan-outliner/`.
+
+**Input:** the CBETA P5 XML of the text the outline is stated in — the designated commentary in *sūtra mode* (e.g. T34n1723 for T09n0262), the text itself in *self-outlining mode* — and, in sūtra mode, the root text; a span (inclusive lineheads) the parser reads; a `scheme_id`; optionally the scheme's level 1 (`[[scheme.level1]]` of the project file). Read through `chinese_workflow.ingest.text.InputText`.
+
+**Output** (`python -m chinese_workflow.outline build … --out DIR`):
+- `outline.json` — the **independent outline**, a zh-kepan document (`context/baseline/outline-schema-zh.json`, D15) with `gold_status: prediction`; validated by `scripts/validate_outline.py`.
+- `outline.md`, `outline.docx` — the same in Kurt Keutzer's independent-outline format (`outline.render`; the format is described in `docs/outliner-design.md`, "Output formats").
+- `outlined-text.json` (`pipeline/schemas/outlined-text.schema.json`) and `outlined-text.md` — the **outlined-text**: the outline plugged back into the target text (the commentary or the root, `target_role`), node → character spans that tile the text; `target.txt` is the text the offsets index.
+- `outline-report.json` — tier-1 anomalies, the parser report (announcements it could not attach), doctrinal lists it rejected, the genre gate, scheme-prior, anchor, out-of-span classification, resolver and gloss reports, validator findings, `degraded` (local validator errors repaired by `repair.py` and how; absent when none), the split-guard log.
+
+## Parts
+
+| Module | Role | Origin of its nodes |
+|---|---|---|
+| `tier1.py` | CBETA `cb:mulu` table of contents (卷 kept apart; 品 / 序 / 分 / 科判 as nodes, `@type` in `part_type`); the root text's 品 table, and commentary 品 aligned to root 品 (`basis: chapter`); a 品 whose mulu line is before a span build is carried as an editorial ancestor | explicit; editorial (carried pins) |
+| `tier2/` | the stateful formula parser over commentary prose: lemma units, announcements, entry markers, gates, wrapper nodes at 品 level, doctrinal-list filter, genre gate, self-outlining root-text mode (`references/formula-table.md` of the skill) | explicit |
+| `scheme.py` | the scheme prior: the commentator's level 1 declared in the project when the run does not read it | editorial |
+| `merge.py` | tier-2 drafts under their 品; order = document order of `commentary.explained` | — |
+| `anchor.py` | lemma → root spans (monotone, inside the parent; `unmapped` when not found, or, when the cursor is exactly the elder sibling's lemma end and that end was found as a B (an incipit-only elder gives none), the node starts there (basis `interpolated`)); the outlined-text sidecar and view | — |
+| `classify.py` | after the pre-resolver repair, before the resolver: unmapped nodes whose announced extent (品 counts, 〈品〉 names, 訖經; a mere mention of a 品 is none) lies beyond their 品 get note `out-of-span: …` and are not resolver candidates | — |
+| `repair.py` | local validator errors ([sibling-order], [child-outside-parent], [cbeta-order]) repaired before the resolver, and again after it when it or the gloss ran: out-of-order siblings demoted, children clipped or parents' ends raised, inverted spans nulled; every change noted on the node and listed under `degraded` | — |
+| `resolver.py`, `gloss.py` | model-assisted: root spans of `unmapped` nodes, subdivision of long leaves, adjudication of parser-report entries; `heading_en` (adapters `none` / `replay` / `claude` / `interactive`, `chinese_workflow.llm`) | inferred |
+| `render.py` | Kurt-style `.md` / `.docx` of the independent outline | — |
+| `oracle.py` | the readable part of the Kuiji gold (levels 1–2 + the dev subtree) as drafts, for format samples (plan SK); refuses test/reserve nodes | (gold's) |
+| `pipeline.py`, `__main__.py` | one build: tier 1 → tier 2 → merge → scheme prior → number → root spans → validate/repair → out-of-span classification → resolver/gloss → validate/repair (when they ran) → span starts (`common.outline_doc.fill_span_starts`) → validate → outlined-text → render; fails (`OutlineValidationError`, after writing every artefact; a hybrid build skips the resolver and gloss then) only on errors `repair.py` does not cover | — |
+
+**Invariants.** Explicit, imported and editorial nodes are never changed by a later step (`common.outline_doc.assert_explicit_unchanged`; plan gate "0 explicit nodes modified"), with one exception: `repair.py` runs before the resolver's snapshot (and once more after the resolver and the gloss when either ran; the explicit fingerprint is asserted after that pass too, and covers headings, levels and commentary locators, not `root_text`) and may null an explicit node's out-of-order `commentary.explained` (self-outlining sibling order) or `root_text` span, raise an explicit parent's `root_text.end`, and clip an explicit child's span to its parent's, each change noted on the node and listed under `degraded`. Inferred nodes carry `confidence` < 1, a rationale in `evidence` and a `scheme_id`. Test and reserve spans of T1718 / T1723 are refused unless `--frozen <tag>` (`common.splits.SplitGuard`).
+
+**Modes** (D3, D11): *sūtra mode* — the parser reads the designated commentary; `locations.commentary {announced, explained}` are commentary lines (Kurt's first-appears / explained pair) and `locations.root_text` the sūtra span the node governs. *Self-outlining mode* — the text announces its own divisions (說有N分 / 已說…次說, 嗢拕南曰, 科判-typed `cb:mulu`); `commentary.explained` and `root_text.start` are the same line. Every node with a commentary position also carries `commentary.span_start` / `span_start_inherited`, its text-span start under sdp's anchor rule (a first child inherits its parent's start, unless the parent is editorial or its start lies before the build's first line; `data/EVAL-SETS.md` item 3), written once after the last tree edit by `common.outline_doc.fill_span_starts`; `python -m chinese_workflow.outline span-start` adds the pair to a saved outline.
+
+**CBETA facts tier 1 relies on** (R02): T09n0262 = 7 卷 + 32 level-1 `cb:mulu` (28 品, 3 序, 1 附文) + 1 level-2 序 (F20); T34n1723 = 20 卷 + 28 品 + 10 untyped level-2 per-卷 continuation markers, which are not outline nodes (F27); 分 in a sūtra file is the text's own section unit, a sibling of 品/會/經, and only a label saying 序分/正宗分/流通分 marks the exegetical three parts (F2, F17); 科判-typed `cb:mulu` exists in 4 of 5,017 files (F15, F28).

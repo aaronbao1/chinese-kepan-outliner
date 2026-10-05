@@ -1,0 +1,9 @@
+# translate — chunk + context bundle → draft
+
+**Status:** stub; the package holds only `__init__.py` (`pipeline/README.md`).
+
+Adapters only: which model translates is the project's choice (the Tibetan workflow uses either Dharmamitra's translation or Claude directly). Three adapters are designed (statuses from research thread R05):
+- `claude` — the first to build: Messages API with Project Instructions from Manual 2.2 §2a–2b as the system prompt.
+- `dharmamitra` — documented public, key-less endpoint `POST https://dharmamitra.org/api-search/cat-translate/v1/translate` (fields `input_chinese`, `context`, `focus: "chinese"`, `target_language`, `style_instruction`, optional `highlight_term`; response `{"translation": "<text>"}` per Dharmamitra's toolkit, untyped in the OpenAPI document, R05 F23 PARTIAL; 3–8 s synchronous; the official toolkit paces at 0.4 s with HTTP 429 backoff; use a 90 s timeout). A second route, `POST https://dharmamitra.org/api-search/chat-translate/v1/chat/completions`, offers `english-explained` and `buddhist-chinese` outputs (R05 F23, PARTIAL; the leaderboard harness's route, site use inferred). **No published terms of use, licence or rate limit** — gate behind a `terms_confirmed` flag until scripted use is confirmed to be permitted (R05 H1 PARTIAL). No live call made (repo policy).
+- `mitra-local` — `buddhist-nlp/mitra-qwen35-translate` (9B, Qwen3.5-9B base, Apache 2.0) covers Buddhist Chinese (R05 H5 VERIFIED, F5). Dharmamitra's News page says the hosted Translate engine switched to this model in August 2026 (R05 F17, VERIFIED; this closes F13, the inconsistent descriptions of the hosted engine). Whether the hosted routes run it exactly, and whether local output matches the hosted tool, is not known.
+Stitching drafts back in outline order is also here.

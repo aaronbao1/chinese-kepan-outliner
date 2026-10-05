@@ -1,0 +1,32 @@
+# Offline hybrid twin of projects/lotus-kuiji-dharani-comm: tier 2 + resolver + gloss, with the
+# model answers replayed from a cassette. The XML comes from the committed dev excerpts, so the test
+# runs without data/raw/; tier 1 sees one 品 per file, so the prior's level-1 node takes 陀羅尼品's lines.
+id = "dharani-offline-hybrid"
+mode = "sutra"
+root = "T09n0262"
+commentary = "T34n1723"
+scheme_id = "kuiji-xuanzan"
+target_role = "commentary"
+span = "dev"
+source = "hybrid"
+
+[xml]
+T34n1723 = "tests/fixtures/cbeta-xml-p5/T34n1723-excerpt-p0850a19-p0850b19.xml"
+T09n0262 = "tests/fixtures/cbeta-xml-p5/T09n0262-excerpt-p0058b08-p0059b27.xml"
+
+[[scheme.level1]]
+heading_src = "流通"
+from_pin = "陀羅尼品"
+to_pin = "陀羅尼品"
+source = "offline fixture: 陀羅尼品 alone stands for Kuiji's 流通 range (projects/lotus-kuiji-dharani-comm)"
+
+# The resolver and gloss answers are the ones a Claude Code session wrote through the interactive adapter
+# for this dev chapter (skills/chinese-kepan-outliner/SKILL.md step 3), replayed from the cassette. The
+# gloss answers are the first recording's (2026-09-28). The root-spans answer is a fresh agent's (record date
+# 2026-10-02) and has been carried to nine later request hashes since, each time only request.system changed
+# (formula-table rows); its `carried_from` field in the cassette has the original hash. Re-answer it with
+# --adapter interactive before the next freeze tag (tests/e2e/test_outliner_e2e.py docstring).
+[resolver]
+adapter = "replay"
+model = "claude-code-session"
+cassette = "tests/fixtures/llm-cassettes/dharani-dev-interactive.jsonl"

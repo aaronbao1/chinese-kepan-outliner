@@ -1,0 +1,72 @@
+{
+ "registry": "eval-sets-synthetic",
+ "registry_version": 1,
+ "description": "SYNTHETIC registry for tests/unit/test_eval_score.py, in the shape of data/eval-sets.json (read through chinese_workflow.eval.registry). The texts T99n9998 (commentary) and T99n9999 (root text) are fictional; every span, dataset and scope below is invented to exercise the scorer's split, scope and OOD rules and says nothing about a real text or a real split.",
+ "splits": {
+  "convention": "As data/eval-sets.json: start inclusive, end exclusive, end null = to the end of the file; unlisted lines are reserve.",
+  "texts": {
+   "T9998": {
+    "file": "T99n9998",
+    "title": "SYNTHETIC commentary",
+    "unlisted": "reserve",
+    "spans": [
+     {"split": "dev", "start": "T99n9998_p0001a01", "end": "T99n9998_p0002a01", "label": "synthetic dev"},
+     {"split": "validation", "start": "T99n9998_p0002a01", "end": "T99n9998_p0002c01", "label": "synthetic validation"},
+     {"split": "test", "start": "T99n9998_p0002c01", "end": "T99n9998_p0003a01", "label": "synthetic test"},
+     {"split": "reserve", "start": "T99n9998_p0003a01", "end": null, "label": "synthetic reserve"}
+    ]
+   }
+  }
+ },
+ "datasets": [
+  {
+   "id": "synthetic-commentary",
+   "kind": "gold",
+   "format": "zh-kepan-outline",
+   "path": "tests/fixtures/scorer/T99n9998.synthetic-gold.outline.json",
+   "anchors": "commentary+root",
+   "split_scope": {"text": "T9998", "by": "locations.commentary.explained"}
+  },
+  {
+   "id": "synthetic-root",
+   "kind": "gold",
+   "format": "zh-kepan-outline",
+   "path": "tests/fixtures/scorer/T99n9998.synthetic-gold.outline.json",
+   "anchors": "root",
+   "split_scope": {"text": "T9998", "by": "locations.commentary.explained (the linked commentary line); the root text itself is not split"}
+  },
+  {
+   "id": "synthetic-served",
+   "kind": "gold",
+   "format": "zh-kepan-outline",
+   "path": "tests/fixtures/scorer/T99n9998.synthetic-gold.outline.json",
+   "anchors": "commentary",
+   "split_scope": {"text": "T9998", "by": "locations.commentary.explained"},
+   "scoring_scope": {
+    "key": "locations.commentary.explained",
+    "text": "T9998",
+    "restrict_to": "served_juan_halves",
+    "served_juan_halves": [
+     {"half": "1a", "start": null, "end": "T99n9998_p0001b01"},
+     {"half": "2a", "start": "T99n9998_p0002a01", "end": null}
+    ]
+   }
+  },
+  {
+   "id": "synthetic-ood",
+   "kind": "gold",
+   "format": "zh-kepan-outline",
+   "path": "tests/fixtures/scorer/T99n9998.synthetic-gold.outline.json",
+   "anchors": "self",
+   "split": "out-of-domain"
+  },
+  {
+   "id": "synthetic-structure",
+   "kind": "gold",
+   "format": "zh-kepan-outline",
+   "path": "tests/fixtures/scorer/T99n9998.synthetic-gold.outline.json",
+   "anchors": "structure-only",
+   "split": "out-of-domain"
+  }
+ ]
+}

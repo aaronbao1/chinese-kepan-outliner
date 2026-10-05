@@ -1,0 +1,339 @@
+{
+ "note": "Every validation-row score computed by run_e06.py (a cached re-read is not a new score). kind `look` = a (set, row, arm, outline sha256, gold sha256) scored for the first time; kind `recompute` = a re-score of one already seen (e.g. after a score-cache key change): no new information. Each score run appends one entry per set with new looks to experiments/E01-explicit-recovery/looks.json (e01_entry = that entry's date); arms_not_yet_scorable lists the set's arms that were still pending at that look.",
+ "format": 2,
+ "migrated_from_format_1": "2026-10-01T10:10:02+00:00",
+ "e01_entries": [
+  {
+   "date": "2026-10-01T09:40:51+00:00",
+   "split": "validation",
+   "set": "T1718-validation",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "tier1",
+    "tier2"
+   ],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "date": "2026-10-01T09:40:51+00:00",
+   "split": "validation",
+   "set": "T0262-xu-root",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "tier1",
+    "tier2"
+   ],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "date": "2026-10-01T10:58:25+00:00",
+   "split": "validation",
+   "set": "T1718-validation",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "hybrid"
+   ],
+   "outline_sha256": {
+    "hybrid": "61e1869149b0d34ebb56f9e4207aa3d23d49e80fc1196d4a6ce5eade4252f1f7"
+   },
+   "scored_at": [
+    "2026-10-01T10:58:25+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01; continues the E06 entry of 2026-10-01T09:40:51+00:00 for this set (arms scored in a later pass)"
+  },
+  {
+   "date": "2026-10-01T10:58:25+00:00",
+   "split": "validation",
+   "set": "T1718-devval",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "hybrid",
+    "tier1",
+    "tier2"
+   ],
+   "outline_sha256": {
+    "tier1": "7dfa7c4f7d47e5ad7b0ebbcd0c98b707a56f02fa1776d820c34a10027b8ed012",
+    "tier2": "2dd6d7e611b1ab09473db7c76d6273ba9a12b7967d4bff146db6aa16d16aa038",
+    "hybrid": "101412e6228067fb7ce7afe5a8a24b1a1564041a1485122c45a069cf636aa48f"
+   },
+   "scored_at": [
+    "2026-10-01T10:58:25+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "date": "2026-10-01T10:58:25+00:00",
+   "split": "validation",
+   "set": "T0262-xu-root",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "hybrid",
+    "model-only"
+   ],
+   "outline_sha256": {
+    "hybrid": "8cd1a492fc2fa60f88186c6fe7a91e046d1e3ca51141337a7bebb469968b1ad3",
+    "model-only": "54dc31b514e70d4453e73b66d52a6017f89ec1ee9b85a3c0cc17dc02b1dde086"
+   },
+   "scored_at": [
+    "2026-10-01T10:58:25+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01; continues the E06 entry of 2026-10-01T09:40:51+00:00 for this set (arms scored in a later pass)"
+  }
+ ],
+ "events": [
+  {
+   "date": "2026-10-01T09:40:50+00:00",
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "0af35dea5e9c0715d38d0ffa8e59cdf312eb1ffba380f4518336178bfc5a19c0",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "kind": "look",
+   "e01_entry": "2026-10-01T09:40:51+00:00",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "gold_sha256_from": "score cache at migration"
+  },
+  {
+   "date": "2026-10-01T09:40:50+00:00",
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "f16d0167815a0122fc6bb0729ddc8489bf701a5d30dfe51739cf338a45a82cbf",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "kind": "look",
+   "e01_entry": "2026-10-01T09:40:51+00:00",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "gold_sha256_from": "score cache at migration"
+  },
+  {
+   "date": "2026-10-01T09:40:51+00:00",
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "7dfa7c4f7d47e5ad7b0ebbcd0c98b707a56f02fa1776d820c34a10027b8ed012",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "kind": "look",
+   "e01_entry": "2026-10-01T09:40:51+00:00",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "gold_sha256_from": "score cache at migration"
+  },
+  {
+   "date": "2026-10-01T09:40:51+00:00",
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "2dd6d7e611b1ab09473db7c76d6273ba9a12b7967d4bff146db6aa16d16aa038",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "kind": "look",
+   "e01_entry": "2026-10-01T09:40:51+00:00",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "gold_sha256_from": "score cache at migration"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "0af35dea5e9c0715d38d0ffa8e59cdf312eb1ffba380f4518336178bfc5a19c0",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-01T10:10:02+00:00",
+   "kind": "recompute",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "f16d0167815a0122fc6bb0729ddc8489bf701a5d30dfe51739cf338a45a82cbf",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-01T10:10:02+00:00",
+   "kind": "recompute",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "7dfa7c4f7d47e5ad7b0ebbcd0c98b707a56f02fa1776d820c34a10027b8ed012",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-01T10:10:02+00:00",
+   "kind": "recompute",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "2dd6d7e611b1ab09473db7c76d6273ba9a12b7967d4bff146db6aa16d16aa038",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-01T10:10:02+00:00",
+   "kind": "recompute",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "hybrid",
+   "outline_sha256": "61e1869149b0d34ebb56f9e4207aa3d23d49e80fc1196d4a6ce5eade4252f1f7",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-01T10:58:25+00:00",
+   "kind": "look",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-01T10:58:25+00:00"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "7dfa7c4f7d47e5ad7b0ebbcd0c98b707a56f02fa1776d820c34a10027b8ed012",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-01T10:58:25+00:00",
+   "kind": "look",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-01T10:58:25+00:00"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "2dd6d7e611b1ab09473db7c76d6273ba9a12b7967d4bff146db6aa16d16aa038",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-01T10:58:25+00:00",
+   "kind": "look",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-01T10:58:25+00:00"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation",
+   "arm": "hybrid",
+   "outline_sha256": "101412e6228067fb7ce7afe5a8a24b1a1564041a1485122c45a069cf636aa48f",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-01T10:58:25+00:00",
+   "kind": "look",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-01T10:58:25+00:00"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "hybrid",
+   "outline_sha256": "8cd1a492fc2fa60f88186c6fe7a91e046d1e3ca51141337a7bebb469968b1ad3",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-01T10:58:25+00:00",
+   "kind": "look",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-01T10:58:25+00:00"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "model-only",
+   "outline_sha256": "54dc31b514e70d4453e73b66d52a6017f89ec1ee9b85a3c0cc17dc02b1dde086",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-01T10:58:25+00:00",
+   "kind": "look",
+   "registry_sha256": "6b7d67cf71d64d888c99e43fc3f473649401a9b39ff987fbf8375cf5349c13a9",
+   "scorer": "tag:8498eb38fab2e65b003899547faa2bdb7e48636c",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "tag": "outliner-v0-frozen-2026-10-01",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-01T10:58:25+00:00"
+  }
+ ]
+}

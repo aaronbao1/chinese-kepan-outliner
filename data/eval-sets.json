@@ -1,0 +1,1025 @@
+{
+  "registry": "eval-sets",
+  "registry_version": 1,
+  "updated": "2026-09-22",
+  "description": "Machine-readable registry of the kēpàn-outliner evaluation datasets built on branch eval-datasets (plan docs/plans/2026-09-22-eval-datasets.md, Tasks 1-9) and the single source of truth for the dev / validation / test / reserve split spans (plan Global Constraint 5). Human guide: data/EVAL-SETS.md. Each dataset's `file_metadata` and `counts` blocks are computed from the files, and `scoring_scope.served_juan_halves` from splits.texts.T1718.juan_halves, by `python3 scripts/eval_sets.py --write` (a wrapper over chinese_workflow.eval.registry, which also gives a scorer read access: split_of, dataset, served_juan_halves, in_scoring_scope) and checked by `--check` and tests/unit/test_gold_registry.py; every other field is hand-written. Eval-only files live under data/raw/ (gitignored): their blocks keep the last computed values and are re-checked whenever the files are present.",
+  "splits": {
+    "convention": "Spans are CBETA lineheads at release 2026R2 (composed {xml:id}_p{lb@n}), start inclusive, end exclusive; end null = to the end of the file. A line of a split text that no listed span holds is `unlisted` (reserve for both texts). Within one of these files, string order of lineheads is document order (tests/unit/test_kepan_cases.py::test_split_files_are_monotonic). Gold spans are different: locations.root_text.end and metadata.coverage_spans ends are inclusive.",
+    "quoting_rule": "Parser test cases and fixtures may quote only dev spans or texts outside T1718 / T1723 (e.g. T1721, T1724, T1735, T1736). No validation- or test-span text in any case or fixture. Reserve: do not look at it while developing.",
+    "texts": {
+      "T1718": {
+        "file": "T34n1718",
+        "title": "妙法蓮華經文句 (智顗 說, 灌頂 記)",
+        "unlisted": "reserve",
+        "spans": [
+          {
+            "split": "dev",
+            "start": "T34n1718_p0001b18",
+            "end": "T34n1718_p0016b02",
+            "label": "卷第一上–卷第一下"
+          },
+          {
+            "split": "validation",
+            "start": "T34n1718_p0016b02",
+            "end": "T34n1718_p0036a26",
+            "label": "卷第二上 to the start of 釋方便品"
+          },
+          {
+            "split": "test",
+            "start": "T34n1718_p0036a26",
+            "end": "T34n1718_p0063b11",
+            "label": "釋方便品"
+          },
+          {
+            "split": "reserve",
+            "start": "T34n1718_p0063b11",
+            "end": null,
+            "label": "from p0063b11 to the end of the file"
+          }
+        ],
+        "juan_halves": {
+          "note": "Start line of each 卷-half (the file's cb:mulu type=卷 entries, read with chinese_workflow.ingest.lines via eval.gold.sdp_check.juan_half_boundaries; each half ends where the next starts) and whether sdp.chibs.edu.tw serves its HTML (Task 1: 9 of 20 served; the others fail server-side). tests/unit/test_gold_registry.py re-derives both when data/raw/ is present.",
+          "starts": {
+            "1a": "T34n1718_p0001b18",
+            "1b": "T34n1718_p0009b07",
+            "2a": "T34n1718_p0016b02",
+            "2b": "T34n1718_p0023a20",
+            "3a": "T34n1718_p0030b10",
+            "3b": "T34n1718_p0037b11",
+            "4a": "T34n1718_p0045c12",
+            "4b": "T34n1718_p0052c02",
+            "5a": "T34n1718_p0060c14",
+            "5b": "T34n1718_p0067b07",
+            "6a": "T34n1718_p0074c04",
+            "6b": "T34n1718_p0082a15",
+            "7a": "T34n1718_p0090b20",
+            "7b": "T34n1718_p0098a06",
+            "8a": "T34n1718_p0106a02",
+            "8b": "T34n1718_p0112c16",
+            "9a": "T34n1718_p0120b23",
+            "9b": "T34n1718_p0127a14",
+            "10a": "T34n1718_p0135b02",
+            "10b": "T34n1718_p0141c02"
+          },
+          "served_by_sdp": [
+            "1a",
+            "2a",
+            "2b",
+            "3a",
+            "3b",
+            "4a",
+            "4b",
+            "5b",
+            "6b"
+          ]
+        }
+      },
+      "T1723": {
+        "file": "T34n1723",
+        "title": "妙法蓮華經玄贊 (窺基 撰)",
+        "unlisted": "reserve",
+        "spans": [
+          {
+            "split": "dev",
+            "start": "T34n1723_p0850a19",
+            "end": "T34n1723_p0850b20",
+            "label": "陀羅尼品"
+          },
+          {
+            "split": "test",
+            "start": "T34n1723_p0651a06",
+            "end": "T34n1723_p0694b22",
+            "label": "序品, levels 1–3 below the 品 node (outline levels 3–5 of the Kuiji gold)"
+          },
+          {
+            "split": "test",
+            "start": "T34n1723_p0734b07",
+            "end": "T34n1723_p0737b04",
+            "label": "譬喻品 opening"
+          }
+        ]
+      }
+    },
+    "out_of_domain": {
+      "note": "Global Constraint 5 names X11n0268's 科判 tree and the YBh T1605 / T1602 outlines (structure only) as out-of-domain. P167n1573 and D14n8842 are not named there; this registry files them with X11n0268 (same builder, same kind of source, texts outside T1718 / T1723) — a Task 10 decision, open to review.",
+      "datasets": [
+        "cbeta-mulu-X0268",
+        "ybh-T1605",
+        "ybh-T1602",
+        "cbeta-mulu-P1573",
+        "cbeta-mulu-D8842"
+      ]
+    }
+  },
+  "datasets": [
+    {
+      "id": "sdp-T1718-zhiyi-wenju",
+      "title": "Zhiyi's 法華文句 科判 as served by sdp.chibs.edu.tw, anchored in the commentary",
+      "kind": "gold",
+      "format": "zh-kepan-outline",
+      "path": "data/raw/dila-sdp/gold/T1718.zhiyi-wenju-sdp.outline.json",
+      "committed": false,
+      "anchors": "commentary",
+      "anchors_note": "Primary locator: locations.commentary.explained = a T34n1718 line, sdp's anchor rule = the line where the node's own text span starts (not the line of Zhiyi's announcing formula, which can come lines or pages later). locations.root_text = the T09n0262 span of the T0262 node that links to this node (borrowed, only where the link is corroborated by a shared heading).",
+      "licence": "none published (R04 F32): eval-only — written only under data/raw/dila-sdp/gold/, never committed, never used as prompt or training material; only aggregate counts may appear in committed files (Global Constraint 1).",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.sdp (inputs: data/raw/dila-sdp/ from scripts/fetch_dila_sdp.sh; data/raw/cbeta/T09n0262.xml, T34n1718.xml)",
+      "split_scope": {
+        "text": "T1718",
+        "by": "locations.commentary.explained"
+      },
+      "scoring_scope": {
+        "key": "locations.commentary.explained",
+        "text": "T1718",
+        "restrict_to": "served_juan_halves",
+        "rule": "E01 scores a predicted node only if its key locator (its explained line in T34n1718) lies in a 卷-half sdp serves; a prediction elsewhere is out of scope, neither TP nor FP, because this gold has no node there. Split membership (split_of) applies on top. chinese_workflow.eval.registry.in_scoring_scope implements the test; served_juan_halves is computed (start inclusive, end exclusive); first_half_from_file_start: sdp's page for 卷一上 opens at T34n1718_p0001a01, the file's first line, so it also serves the preface before 卷一上's 卷 mulu (start null = the start of the file; the preface is reserve by split). The T0262 sdp gold has no such restriction: root-text scoring against it covers all of T0262 (data/EVAL-SETS.md, 'Using these sets' item 5).",
+        "first_half_from_file_start": true,
+        "served_juan_halves": [
+          {
+            "half": "1a",
+            "start": null,
+            "end": "T34n1718_p0009b07"
+          },
+          {
+            "half": "2a",
+            "start": "T34n1718_p0016b02",
+            "end": "T34n1718_p0023a20"
+          },
+          {
+            "half": "2b",
+            "start": "T34n1718_p0023a20",
+            "end": "T34n1718_p0030b10"
+          },
+          {
+            "half": "3a",
+            "start": "T34n1718_p0030b10",
+            "end": "T34n1718_p0037b11"
+          },
+          {
+            "half": "3b",
+            "start": "T34n1718_p0037b11",
+            "end": "T34n1718_p0045c12"
+          },
+          {
+            "half": "4a",
+            "start": "T34n1718_p0045c12",
+            "end": "T34n1718_p0052c02"
+          },
+          {
+            "half": "4b",
+            "start": "T34n1718_p0052c02",
+            "end": "T34n1718_p0060c14"
+          },
+          {
+            "half": "5b",
+            "start": "T34n1718_p0067b07",
+            "end": "T34n1718_p0074c04"
+          },
+          {
+            "half": "6b",
+            "start": "T34n1718_p0082a15",
+            "end": "T34n1718_p0090b20"
+          }
+        ]
+      },
+      "experiments": [
+        {
+          "id": "E01",
+          "role": "answer key for explicit-structure recovery on T1718: develop on dev, tune on validation, report on test; reserve untouched"
+        }
+      ],
+      "gaps": [
+        "sdp serves 9 of T1718's 20 卷-halves (splits.texts.T1718.juan_halves); nodes in the other 11 have no explained line and carry flag unmapped (counts.by_split['no locator']). Dev: only 卷一上 T34n1718_p0001b18–p0009b07 is served, and the gold has no node whose explained line falls in 卷一下 (p0009b07–p0016b02). Validation (2a, 2b and 3a up to p0036a26) is fully served. Test lacks 卷五上's part T34n1718_p0060c14–p0063b11 (no node there). Most of the reserve is unserved.",
+        "27 tree nodes came back fetch_error from sdp's getTreeNode (Task 1): 1 subtree was recovered from the HTML; the 26 whose subtree is unknown carry flag truncated (counts.flags.truncated).",
+        "Headings are sdp's, with sdp's leading ordinal kept in heading_src (display_label repeats it); Task 3's automated check finds only a minority verbatim in Zhiyi's wording (dataset sdp-T1718-heading-check). Score structure and locators; do not treat heading_src as Zhiyi's words.",
+        "Nodes without root_text (counts.nodes − counts.with_root_text: uncorroborated or misnested link, or no T0262 link) keep flag unmapped because the schema's sūtra-mode rule requires it, so unmapped is not the same as 'no explained line' (counts.by_split shows flagged nodes that do have one).",
+        "Scoring scope (E01, keyed on commentary.explained): only the served 卷-halves — of dev only 卷一上 (T34n1718_p0001b18–p0009b07), and the test split without T34n1718_p0060c14–p0063b11; a prediction in an unserved region is neither TP nor FP (machine-readable: scoring_scope; data/EVAL-SETS.md, 'Using these sets' item 5)."
+      ],
+      "file_metadata": {
+        "text_id": "T1718",
+        "scheme_id": "zhiyi-wenju-sdp",
+        "outline_mode": "sutra",
+        "root_text_id": "T09n0262",
+        "commentary_id": "T34n1718",
+        "gold_status": "imported-unchecked",
+        "seeded_by": null,
+        "eval_only": true,
+        "cbeta_release": "2026R2",
+        "licence_id": null,
+        "outline_profile": "zh-kepan"
+      },
+      "counts": {
+        "nodes": 1458,
+        "max_depth": 19,
+        "leaves": 908,
+        "node_class": {
+          "sutra-span": 1458
+        },
+        "origin": {
+          "imported": 1458
+        },
+        "flags": {
+          "anchor_inherited": 9,
+          "truncated": 26,
+          "unmapped": 1018
+        },
+        "with_commentary_explained": 445,
+        "with_root_text": 1375,
+        "root_text_basis": {
+          "sdp-anchor": 1375
+        },
+        "root_text_end_basis": {
+          "next-node": 1375
+        },
+        "by_split": {
+          "dev": {
+            "nodes": 12,
+            "flags": {
+              "unmapped": 2
+            }
+          },
+          "no locator": {
+            "nodes": 1013,
+            "flags": {
+              "truncated": 26,
+              "unmapped": 1013
+            }
+          },
+          "reserve": {
+            "nodes": 181,
+            "flags": {
+              "anchor_inherited": 3,
+              "unmapped": 2
+            }
+          },
+          "test": {
+            "nodes": 151,
+            "flags": {
+              "anchor_inherited": 6,
+              "unmapped": 1
+            }
+          },
+          "validation": {
+            "nodes": 101,
+            "flags": {}
+          }
+        }
+      }
+    },
+    {
+      "id": "sdp-T0262-zhiyi-wenju",
+      "title": "The same sdp 科判, anchored in the root text T0262",
+      "kind": "gold",
+      "format": "zh-kepan-outline",
+      "path": "data/raw/dila-sdp/gold/T0262.zhiyi-wenju-sdp.outline.json",
+      "committed": false,
+      "anchors": "root",
+      "anchors_note": "Primary locator: locations.root_text {start, end} in T09n0262 from sdp's line anchors (end inclusive, end_basis next-node). locations.commentary.explained = the T1718 line of the first corroborated sdp 文句 link, where that T1718 node is served.",
+      "licence": "none published (R04 F32): eval-only, as sdp-T1718-zhiyi-wenju.",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.sdp (same run as sdp-T1718-zhiyi-wenju)",
+      "split_scope": {
+        "text": "T1718",
+        "by": "locations.commentary.explained (the linked T1718 line); T0262 itself is not split — see data/EVAL-SETS.md, 'Root-text experiments and the splits'"
+      },
+      "experiments": [
+        {
+          "id": "E02",
+          "role": "reference for the model-only outline of T0262 (scheme zhiyi-wenju-sdp)"
+        },
+        {
+          "id": "E03",
+          "role": "reference for the hybrid parser + resolver over T0262 (scheme zhiyi-wenju-sdp)"
+        }
+      ],
+      "gaps": [
+        "Covers the whole sūtra (every node has a root span), but only nodes whose linked T1718 node is served carry commentary.explained (counts.with_commentary_explained).",
+        "Some start lines are inherited rather than observed (counts.flags.anchor_inherited: no own anchor, verse after the block's first line, heading-only nodes).",
+        "sdp's level 1 (正宗分 2–20品) is editorial, not Zhiyi's 15½-品 division (R03 F23); the tree differs from the Kuiji scheme at level 1 for ch. 10–20.",
+        "Scoring scope for root-text scoring (E02/E03, keyed on root_text.start): all of T0262 — sdp serves all seven 卷 and every node has a root span; the unserved T1718 halves only leave nodes without commentary.explained."
+      ],
+      "file_metadata": {
+        "text_id": "T0262",
+        "scheme_id": "zhiyi-wenju-sdp",
+        "outline_mode": "sutra",
+        "root_text_id": "T09n0262",
+        "commentary_id": "T34n1718",
+        "gold_status": "imported-unchecked",
+        "seeded_by": null,
+        "eval_only": true,
+        "cbeta_release": "2026R2",
+        "licence_id": null,
+        "outline_profile": "zh-kepan"
+      },
+      "counts": {
+        "nodes": 2048,
+        "max_depth": 19,
+        "leaves": 1345,
+        "node_class": {
+          "sutra-span": 2048
+        },
+        "origin": {
+          "imported": 2048
+        },
+        "flags": {
+          "anchor_inherited": 264
+        },
+        "with_commentary_explained": 440,
+        "with_root_text": 2048,
+        "root_text_basis": {
+          "sdp-anchor": 2048
+        },
+        "root_text_end_basis": {
+          "next-node": 2047,
+          "sdp-anchor": 1
+        },
+        "by_split": {
+          "dev": {
+            "nodes": 10,
+            "flags": {
+              "anchor_inherited": 1
+            }
+          },
+          "no locator": {
+            "nodes": 1608,
+            "flags": {
+              "anchor_inherited": 203
+            }
+          },
+          "reserve": {
+            "nodes": 179,
+            "flags": {
+              "anchor_inherited": 36
+            }
+          },
+          "test": {
+            "nodes": 150,
+            "flags": {
+              "anchor_inherited": 6
+            }
+          },
+          "validation": {
+            "nodes": 101,
+            "flags": {
+              "anchor_inherited": 18
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "sdp-crosswalk-T0262-T1718",
+      "title": "sdp 文句 links, one row per (T0262 node, T1718 id)",
+      "kind": "gold-aux",
+      "format": "crosswalk-tsv",
+      "path": "data/raw/dila-sdp/gold/crosswalk-T0262-T1718.tsv",
+      "committed": false,
+      "licence_id": null,
+      "licence": "none published: eval-only.",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.sdp",
+      "split_follows": "sdp-T0262-zhiyi-wenju",
+      "experiments": [
+        {
+          "id": "E03",
+          "role": "maps T0262 gold nodes to T1718 gold nodes (status located / gap / not-in-tree / uncorroborated)"
+        }
+      ],
+      "counts": {
+        "rows": 1728,
+        "status": {
+          "gap": 1010,
+          "located": 440,
+          "not-in-tree": 276,
+          "uncorroborated": 2
+        },
+        "corroborated": {
+          "n/a": 276,
+          "no": 74,
+          "yes": 1378
+        },
+        "t0262_nodes": 1722
+      }
+    },
+    {
+      "id": "sdp-T1718-heading-check",
+      "title": "Automated check of the sdp T1718 gold's headings against Zhiyi's wording (Task 3)",
+      "kind": "gold-aux",
+      "format": "heading-check",
+      "path": "data/raw/dila-sdp/gold/heading-check.tsv",
+      "extra_paths": [
+        "data/raw/dila-sdp/gold/HEADING-CHECK.md"
+      ],
+      "committed": false,
+      "licence_id": null,
+      "licence": "derived from sdp: eval-only; aggregate counts only in committed files.",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.sdp_check",
+      "split_follows": "sdp-T1718-zhiyi-wenju",
+      "experiments": [
+        {
+          "id": "E01",
+          "role": "how far sdp's headings are Zhiyi's own words: verbatim / partial (LCS ≥ 0.6) / absent / no-text, per window kind and split; noise baseline = a random other node's heading against the same windows"
+        }
+      ],
+      "counts": {
+        "nodes": 1458,
+        "class": {
+          "absent": 969,
+          "no-text": 116,
+          "partial": 279,
+          "verbatim": 94
+        },
+        "window_kind": {
+          "inherited": 897,
+          "no-text": 116,
+          "own": 445
+        },
+        "by_split": {
+          "inherited window (location unknown)": {
+            "absent": 876,
+            "partial": 19,
+            "verbatim": 2
+          },
+          "no-text": {
+            "no-text": 116
+          },
+          "own window, dev": {
+            "absent": 5,
+            "partial": 5,
+            "verbatim": 2
+          },
+          "own window, outside every split (mostly reserve)": {
+            "absent": 38,
+            "partial": 115,
+            "verbatim": 28
+          },
+          "own window, test": {
+            "absent": 38,
+            "partial": 80,
+            "verbatim": 33
+          },
+          "own window, validation": {
+            "absent": 12,
+            "partial": 60,
+            "verbatim": 29
+          }
+        },
+        "noise_baseline": {
+          "verbatim": 10,
+          "partial": 129,
+          "absent": 1196
+        }
+      }
+    },
+    {
+      "id": "kuiji-xuanzan",
+      "title": "Kuiji's 妙法蓮華經玄贊 科判 over T0262 (first whole-sūtra scheme), hand-drafted",
+      "kind": "gold",
+      "format": "zh-kepan-outline",
+      "path": "data/reference-outlines/T0262/kuiji-xuanzan/outline.json",
+      "extra_paths": [
+        "data/reference-outlines/T0262/kuiji-xuanzan/outline.txt",
+        "data/reference-outlines/T0262/kuiji-xuanzan/PROVENANCE.md"
+      ],
+      "committed": true,
+      "anchors": "commentary+root",
+      "anchors_note": "locations.commentary {announced, explained} = T34n1723 lines (explained = the line of Kuiji's topic marker 此初 / 下明… / 第二…; a 品's cb:mulu line); locations.root_text = the T09n0262 span Kuiji's lemma (經「A至B」) or the annotator's cut fixes, end inclusive; commentary-internal nodes (gates) have no root span.",
+      "licence": "CC BY-NC-SA 4.0 + CBETA's notice + release 2026R2 (data/reference-outlines/NOTICE). eval_only false (the licence permits redistribution); split discipline is separate: do not use it as prompt or training material for a system evaluated on its dev/test spans (metadata.split_notes).",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.authored ../data/reference-outlines/T0262/kuiji-xuanzan/outline.txt -o ../data/reference-outlines/T0262/kuiji-xuanzan/outline.json (outline.txt is the source of truth)",
+      "split_scope": {
+        "text": "T1723",
+        "by": "locations.commentary.explained"
+      },
+      "experiments": [
+        {
+          "id": "E01",
+          "role": "second E01 text (NEXT_STEPS §5): the explicit parser on T1723 — develop on 陀羅尼品 (dev), report on 序品 and the 譬喻品 opening (test)"
+        },
+        {
+          "id": "E02",
+          "role": "reference for the model-only outline of T0262 序品 (scheme kuiji-xuanzan; test split)"
+        },
+        {
+          "id": "E03",
+          "role": "reference for the hybrid parser + resolver (scheme kuiji-xuanzan): develop on 陀羅尼品 (dev), report on 序品 and the 譬喻品 opening (test)"
+        },
+        {
+          "id": "E04",
+          "role": "Chinese side of the cross-lingual check, ch. 1–11 only (the Tibetan D4017 ends after Kuiji's 見寶塔品 commentary, R03 F5/F20): the 序品 and 譬喻品-opening subtrees plus levels 1–2"
+        }
+      ],
+      "gaps": [
+        "Draft, not reviewed (gold_status draft-unreviewed, seeded_by claude-opus-5-5): no headline score before Aaron's review (R06 F19); a Claude-based outliner's score must say that Claude seeded the gold, even after review. Review-first list in PROVENANCE.md.",
+        "Coverage (metadata.coverage_spans; counts.coverage_spans gives the nodes per entry): levels 1–2 complete; 序品 to outline level 5; 譬喻品 opening and 陀羅尼品 full depth; the other 25 品 level 2 only (flag truncated).",
+        "Spans the commentary does not fix (counts.root_text_basis.manual, counts.root_text_end_basis.manual / extent-formula): sub-items Kuiji lists without a lemma (陀羅尼品), starts cut by hand where Kuiji's lemma differs from T09n0262 (序品), one hand-set end and the ends fixed by stanza counts (譬喻品 opening)."
+      ],
+      "file_metadata": {
+        "text_id": "T0262",
+        "scheme_id": "kuiji-xuanzan",
+        "outline_mode": "sutra",
+        "root_text_id": "T09n0262",
+        "commentary_id": "T34n1723",
+        "gold_status": "draft-unreviewed",
+        "seeded_by": "claude-opus-5-5 (SDD draft 2026-09-22)",
+        "eval_only": false,
+        "cbeta_release": "2026R2",
+        "licence_id": "CC-BY-NC-SA-4.0",
+        "outline_profile": "zh-kepan"
+      },
+      "counts": {
+        "nodes": 149,
+        "max_depth": 11,
+        "leaves": 104,
+        "node_class": {
+          "commentary-internal": 26,
+          "sutra-span": 123
+        },
+        "origin": {
+          "explicit": 149
+        },
+        "flags": {
+          "count_mismatch": 19,
+          "truncated": 46
+        },
+        "with_commentary_explained": 149,
+        "with_root_text": 123,
+        "root_text_basis": {
+          "chapter": 31,
+          "lemma": 59,
+          "manual": 33
+        },
+        "root_text_end_basis": {
+          "chapter": 5,
+          "extent-formula": 6,
+          "manual": 1,
+          "next-node": 19,
+          "null": 92
+        },
+        "by_split": {
+          "dev": {
+            "nodes": 45,
+            "flags": {}
+          },
+          "reserve": {
+            "nodes": 27,
+            "flags": {
+              "truncated": 25
+            }
+          },
+          "test": {
+            "nodes": 77,
+            "flags": {
+              "count_mismatch": 19,
+              "truncated": 21
+            }
+          }
+        },
+        "coverage_spans": [
+          {
+            "node_id": null,
+            "heading_src": null,
+            "max_level": 2,
+            "nodes": 31
+          },
+          {
+            "node_id": "1_1.1_2",
+            "heading_src": "序品",
+            "max_level": 5,
+            "nodes": 39
+          },
+          {
+            "node_id": "2_1.2_2",
+            "heading_src": "譬喻品",
+            "max_level": null,
+            "nodes": 37
+          },
+          {
+            "node_id": "3_1.17_2",
+            "heading_src": "陀羅尼品",
+            "max_level": null,
+            "nodes": 45
+          }
+        ]
+      }
+    },
+    {
+      "id": "cbeta-mulu-X0268",
+      "title": "楞嚴經集註 (X11n0268) 科判 from CBETA's own cb:mulu type=科判 markup",
+      "kind": "gold",
+      "format": "zh-kepan-outline",
+      "path": "data/reference-outlines/X0268/cbeta-mulu-kepan/outline.json",
+      "extra_paths": [
+        "data/reference-outlines/X0268/cbeta-mulu-kepan/PROVENANCE.md"
+      ],
+      "committed": true,
+      "anchors": "self",
+      "anchors_note": "Self-outlining: the tree is marked up on the outlined text itself; commentary.explained = root_text.start = the X11n0268 line the cb:mulu sits on (root_text.basis cbeta-mulu, end = the last line before the next non-descendant node, inclusive). R017 lineheads on the same lines are notes only.",
+      "licence": "CC BY-NC-SA 4.0 + CBETA's notice + release 2026R2 (卍新纂續藏經, CBETA category A); eval_only false.",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.cbeta_mulu (input data/raw/cbeta/xml-p5/X/X11/X11n0268.xml from scripts/fetch_cbeta_xml_p5.sh)",
+      "split": "out-of-domain",
+      "experiments": [
+        {
+          "id": "self-outlining mode",
+          "role": "out-of-domain reference for the outliner's self-outlining mode (the text states its own 科判); the largest explicit tree in the corpus (R02 F15/F28)"
+        }
+      ],
+      "gaps": [
+        "Whose 科判 the markup encodes (思坦's own, a later chart, or CBETA/DILA editors) is unrecorded (R02 F28): imported-unchecked.",
+        "No alignment to the sūtra itself (T0945): spans are over X11n0268's own lines.",
+        "The XML's sha256 is stated in PROVENANCE.md, computed from the xml-p5 clone pinned by commit in scripts/fetch_cbeta_xml_p5.sh; no scripts/CHECKSUMS line is needed (that script pins the clone by commit, not per file)."
+      ],
+      "file_metadata": {
+        "text_id": "X0268",
+        "scheme_id": "cbeta-mulu-kepan",
+        "outline_mode": "self-outlining",
+        "root_text_id": "X11n0268",
+        "commentary_id": null,
+        "gold_status": "imported-unchecked",
+        "seeded_by": null,
+        "eval_only": false,
+        "cbeta_release": "2026R2",
+        "licence_id": "CC-BY-NC-SA-4.0",
+        "outline_profile": "zh-kepan"
+      },
+      "counts": {
+        "nodes": 2611,
+        "max_depth": 28,
+        "leaves": 1505,
+        "node_class": {
+          "sutra-span": 2611
+        },
+        "origin": {
+          "imported": 2611
+        },
+        "flags": {
+          "count_mismatch": 7,
+          "merged_range": 1
+        },
+        "with_commentary_explained": 2611,
+        "with_root_text": 2611,
+        "root_text_basis": {
+          "cbeta-mulu": 2611
+        },
+        "root_text_end_basis": {
+          "next-node": 2609,
+          "null": 2
+        }
+      }
+    },
+    {
+      "id": "cbeta-mulu-P1573",
+      "title": "修懺要旨 (P167n1573) 科判 from CBETA's cb:mulu type=科判 markup",
+      "kind": "gold",
+      "format": "zh-kepan-outline",
+      "path": "data/reference-outlines/P1573/cbeta-mulu-kepan/outline.json",
+      "extra_paths": [
+        "data/reference-outlines/P1573/cbeta-mulu-kepan/PROVENANCE.md"
+      ],
+      "committed": true,
+      "anchors": "self",
+      "anchors_note": "As cbeta-mulu-X0268.",
+      "licence": "CC BY-NC-SA 4.0 + CBETA's notice + release 2026R2 (永樂北藏, CBETA category A); eval_only false.",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.cbeta_mulu",
+      "split": "out-of-domain",
+      "experiments": [
+        {
+          "id": "self-outlining mode",
+          "role": "small out-of-domain reference (not named in the plan's split list)"
+        }
+      ],
+      "gaps": [
+        "The source tree opens at level 2 twice with no level-1 node: two roots flagged irregular_label; structural depth is one less than the source's level numbers.",
+        "XML sha256 in PROVENANCE.md only (clone pinned by commit), as X0268."
+      ],
+      "file_metadata": {
+        "text_id": "P1573",
+        "scheme_id": "cbeta-mulu-kepan",
+        "outline_mode": "self-outlining",
+        "root_text_id": "P167n1573",
+        "commentary_id": null,
+        "gold_status": "imported-unchecked",
+        "seeded_by": null,
+        "eval_only": false,
+        "cbeta_release": "2026R2",
+        "licence_id": "CC-BY-NC-SA-4.0",
+        "outline_profile": "zh-kepan"
+      },
+      "counts": {
+        "nodes": 127,
+        "max_depth": 14,
+        "leaves": 80,
+        "node_class": {
+          "sutra-span": 127
+        },
+        "origin": {
+          "imported": 127
+        },
+        "flags": {
+          "count_mismatch": 2,
+          "irregular_label": 2
+        },
+        "with_commentary_explained": 127,
+        "with_root_text": 127,
+        "root_text_basis": {
+          "cbeta-mulu": 127
+        },
+        "root_text_end_basis": {
+          "next-node": 123,
+          "null": 4
+        }
+      }
+    },
+    {
+      "id": "cbeta-mulu-D8842",
+      "title": "般若心經註解 (D14n8842) 科判 from CBETA's cb:mulu type=科判 markup",
+      "kind": "gold",
+      "format": "zh-kepan-outline",
+      "path": "data/reference-outlines/D8842/cbeta-mulu-kepan/outline.json",
+      "extra_paths": [
+        "data/reference-outlines/D8842/cbeta-mulu-kepan/PROVENANCE.md"
+      ],
+      "committed": true,
+      "anchors": "self",
+      "anchors_note": "As cbeta-mulu-X0268.",
+      "licence": "CC BY-NC-SA 4.0 + CBETA's notice + release 2026R2 (國家圖書館善本佛典, CBETA category A); eval_only false.",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.cbeta_mulu",
+      "split": "out-of-domain",
+      "experiments": [
+        {
+          "id": "self-outlining mode",
+          "role": "smallest out-of-domain reference (not named in the plan's split list); a quick smoke test"
+        }
+      ],
+      "gaps": [
+        "XML sha256 in PROVENANCE.md only (clone pinned by commit), as X0268."
+      ],
+      "file_metadata": {
+        "text_id": "D8842",
+        "scheme_id": "cbeta-mulu-kepan",
+        "outline_mode": "self-outlining",
+        "root_text_id": "D14n8842",
+        "commentary_id": null,
+        "gold_status": "imported-unchecked",
+        "seeded_by": null,
+        "eval_only": false,
+        "cbeta_release": "2026R2",
+        "licence_id": "CC-BY-NC-SA-4.0",
+        "outline_profile": "zh-kepan"
+      },
+      "counts": {
+        "nodes": 40,
+        "max_depth": 10,
+        "leaves": 24,
+        "node_class": {
+          "sutra-span": 40
+        },
+        "origin": {
+          "imported": 40
+        },
+        "flags": {},
+        "with_commentary_explained": 40,
+        "with_root_text": 40,
+        "root_text_basis": {
+          "cbeta-mulu": 40
+        },
+        "root_text_end_basis": {
+          "next-node": 35,
+          "null": 5
+        }
+      }
+    },
+    {
+      "id": "ybh-T1605",
+      "title": "大乘阿毘達磨集論 (T31n1605) 科判 from DILA's YBh download, structure only",
+      "kind": "gold",
+      "format": "zh-kepan-outline",
+      "path": "data/reference-outlines/T1605/ybh-dila/outline.json",
+      "extra_paths": [
+        "data/reference-outlines/T1605/ybh-dila/PROVENANCE.md"
+      ],
+      "committed": true,
+      "anchors": "structure-only",
+      "anchors_note": "No Taishō anchors in DILA's -kp.txt: every node has locations.scheme none and flag unmapped. Only the tree (parent, order, depth), headings, DILA labels (display_label) and announced counts (child_count_announced) can be scored.",
+      "licence": "CC BY-SA 4.0 per the DILA download-page footer (R04 F29); the CHIBS mirror's 'CC BY-SA 3.0 台灣' is unreconciled (R06 S45; PROVENANCE.md). eval_only false.",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.ybh ../data/raw/dila-ybh/T1605-kp.txt",
+      "split": "out-of-domain",
+      "experiments": [
+        {
+          "id": "self-outlining mode",
+          "role": "out-of-domain structure-only reference: the outliner reads the treatise alone. The gold's outline_mode is sutra (case b): the outline is stated in 韓清淨's 集論科文別釋, a work with no CBETA id"
+        }
+      ],
+      "gaps": [
+        "Structure only (no locators): a locator-keyed metric (S-F1 over explained locator) cannot run; needs a structure-only match (heading + depth + parent path, or tree edit distance).",
+        "The count_mismatch nodes (counts.flags) are disagreements in DILA's own data (announced （分N） vs children present), not import errors.",
+        "T1606-kp.txt is byte-identical to T1605-kp.txt (R04); T1579 is not imported (label forms ybh.py does not parse)."
+      ],
+      "file_metadata": {
+        "text_id": "T1605",
+        "scheme_id": "ybh-dila",
+        "outline_mode": "sutra",
+        "root_text_id": "T31n1605",
+        "commentary_id": null,
+        "gold_status": "imported-unchecked",
+        "seeded_by": null,
+        "eval_only": false,
+        "cbeta_release": "2026R2",
+        "licence_id": "CC-BY-SA-4.0",
+        "outline_profile": "zh-kepan"
+      },
+      "counts": {
+        "nodes": 2605,
+        "max_depth": 24,
+        "leaves": 1688,
+        "node_class": {
+          "sutra-span": 2605
+        },
+        "origin": {
+          "imported": 2605
+        },
+        "flags": {
+          "count_mismatch": 7,
+          "unmapped": 2605
+        },
+        "with_commentary_explained": 0,
+        "with_root_text": 0,
+        "root_text_basis": {},
+        "root_text_end_basis": {}
+      }
+    },
+    {
+      "id": "ybh-T1602",
+      "title": "顯揚聖教論 (T31n1602) 科判 from DILA's YBh download, structure only",
+      "kind": "gold",
+      "format": "zh-kepan-outline",
+      "path": "data/reference-outlines/T1602/ybh-dila/outline.json",
+      "extra_paths": [
+        "data/reference-outlines/T1602/ybh-dila/PROVENANCE.md"
+      ],
+      "committed": true,
+      "anchors": "structure-only",
+      "anchors_note": "As ybh-T1605. T1602 never uses （分N）, so child_count_announced is null throughout.",
+      "licence": "CC BY-SA 4.0 per the DILA footer; CHIBS mirror 3.0 台灣 unreconciled (PROVENANCE.md). eval_only false.",
+      "built_by": "cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.ybh ../data/raw/dila-ybh/T1602-kp.txt",
+      "split": "out-of-domain",
+      "experiments": [
+        {
+          "id": "self-outlining mode",
+          "role": "as ybh-T1605; the outline follows 早島理・毛利俊英 1990 (outline_mode sutra, case b)"
+        }
+      ],
+      "gaps": [
+        "Structure only, as ybh-T1605.",
+        "merged_range nodes (DILA labels such as K5-9) stand for several original siblings: a prediction that splits them is not wrong."
+      ],
+      "file_metadata": {
+        "text_id": "T1602",
+        "scheme_id": "ybh-dila",
+        "outline_mode": "sutra",
+        "root_text_id": "T31n1602",
+        "commentary_id": null,
+        "gold_status": "imported-unchecked",
+        "seeded_by": null,
+        "eval_only": false,
+        "cbeta_release": "2026R2",
+        "licence_id": "CC-BY-SA-4.0",
+        "outline_profile": "zh-kepan"
+      },
+      "counts": {
+        "nodes": 2594,
+        "max_depth": 20,
+        "leaves": 1885,
+        "node_class": {
+          "sutra-span": 2594
+        },
+        "origin": {
+          "imported": 2594
+        },
+        "flags": {
+          "merged_range": 14,
+          "unmapped": 2594
+        },
+        "with_commentary_explained": 0,
+        "with_root_text": 0,
+        "root_text_basis": {},
+        "root_text_end_basis": {}
+      }
+    },
+    {
+      "id": "kepan-formulae-cases",
+      "title": "Labelled cases for the tier-2 explicit-division parser (Task 9)",
+      "kind": "parser-cases",
+      "format": "cases-jsonl",
+      "path": "tests/fixtures/kepan-formulae/cases.jsonl",
+      "extra_paths": [
+        "tests/fixtures/kepan-formulae/README.md"
+      ],
+      "committed": true,
+      "licence_id": "CC-BY-NC-SA-4.0",
+      "licence": "CBETA text excerpts (CC BY-NC-SA 4.0 + notice + release 2026R2; README).",
+      "split": "dev",
+      "split_note": "Dev material: T1718 / T1723 cases start and end inside the dev spans; other texts are unrestricted; no case shares more than 8 consecutive characters with a validation or test span (tests/unit/test_kepan_cases.py).",
+      "experiments": [
+        {
+          "id": "E01",
+          "role": "unit cases for the tier-2 formula parser: division (child count, labels, anaphor), not-division (doctrinal 「有N」 lists), genre gate (註 genre, T1775)"
+        }
+      ],
+      "gaps": [
+        "Labels are a machine draft: Aaron reviews them, starting with the README's 'Review first' section, and the case ids are frozen after that review, before any parser is scored on them."
+      ],
+      "counts": {
+        "cases": 148,
+        "kind": {
+          "close": 3,
+          "division": 112,
+          "genre-gate": 5,
+          "not-division": 28
+        },
+        "formula_slugs": 33,
+        "source": {
+          "T1530": 2,
+          "T1579": 3,
+          "T1602": 3,
+          "T1666": 8,
+          "T1667": 1,
+          "T1699": 1,
+          "T1700": 1,
+          "T1718": 13,
+          "T1721": 11,
+          "T1723": 13,
+          "T1724": 8,
+          "T1735": 13,
+          "T1736": 2,
+          "T1744": 1,
+          "T1745": 3,
+          "T1746": 1,
+          "T1753": 22,
+          "T1757": 2,
+          "T1758": 1,
+          "T1759": 1,
+          "T1763": 2,
+          "T1764": 2,
+          "T1772": 7,
+          "T1775": 5,
+          "T1782": 11,
+          "T1798": 1,
+          "T1804": 2,
+          "T1829": 2,
+          "T1830": 1,
+          "T1832": 1,
+          "X0231": 2,
+          "X0577": 1,
+          "X0584": 1
+        }
+      }
+    },
+    {
+      "id": "cbeta-excerpt-T1723-dharani",
+      "title": "T34n1723 陀羅尼品 commentary, verbatim CBETA XML excerpt with header",
+      "kind": "fixture",
+      "format": "tei-xml-excerpt",
+      "path": "tests/fixtures/cbeta-xml-p5/T34n1723-excerpt-p0850a19-p0850b19.xml",
+      "extra_paths": [
+        "tests/fixtures/cbeta-xml-p5/README.md"
+      ],
+      "committed": true,
+      "licence_id": "CC-BY-NC-SA-4.0",
+      "licence": "CBETA CC BY-NC-SA 4.0, header intact (60 KB: over the ~50 KB fixture guideline because the unmodified teiHeader alone is 56,505 bytes).",
+      "split": "dev",
+      "split_note": "T34n1723_p0850a19–p0850b19 = the whole T1723 dev span (end-exclusive p0850b20).",
+      "experiments": [
+        {
+          "id": "E01",
+          "role": "offline smoke test for the parser; the Kuiji gold's 陀羅尼品 subtree compiles against it (tests/unit/test_gold_authored.py)"
+        }
+      ],
+      "counts": {
+        "bytes": 60407,
+        "sha256": "8ef50108e70bc786cc68f3f652dfd9a4553776e0a0f2632082b1dfe72faeaa81"
+      }
+    },
+    {
+      "id": "cbeta-excerpt-T0262-dharani",
+      "title": "T09n0262 陀羅尼品, verbatim CBETA XML excerpt with header",
+      "kind": "fixture",
+      "format": "tei-xml-excerpt",
+      "path": "tests/fixtures/cbeta-xml-p5/T09n0262-excerpt-p0058b08-p0059b27.xml",
+      "extra_paths": [
+        "tests/fixtures/cbeta-xml-p5/README.md"
+      ],
+      "committed": true,
+      "licence_id": "CC-BY-NC-SA-4.0",
+      "licence": "CBETA CC BY-NC-SA 4.0, header intact.",
+      "split": "dev",
+      "split_note": "The root text the dev commentary span comments on (T0262 itself is not split).",
+      "experiments": [
+        {
+          "id": "E01",
+          "role": "root text for the dev smoke test (lemma → span resolution)"
+        }
+      ],
+      "counts": {
+        "bytes": 42742,
+        "sha256": "63d80b12a5cdcdf842f96f4cd5f63be474ca6b0e42b9fb07bbd696a3c6133cf8"
+      }
+    }
+  ]
+}

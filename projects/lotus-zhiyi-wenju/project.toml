@@ -1,0 +1,22 @@
+# Zhiyi's 法華文句 (T1718) as the stating commentary of the Lotus Sūtra: E01's T1718 runs. The span
+# is the T1718 dev span. E01 set span = "validation" in experiments/E01-explicit-recovery/run_e01.py
+# for its read-out; every validation run is a look, logged in that experiment's looks.json. The
+# runner has no --span flag: change `span` here, or build the outline stage alone with
+#   python -m chinese_workflow.outline build --project ... --span ... --out ...
+# No scheme prior: Zhiyi's whole-sūtra division (分文為三) cuts inside 分別功德品, which a 品-range prior
+# cannot express, and sdp's level 1 is editorial (data/EVAL-SETS.md).
+# Data: CBETA T09n0262 and T34n1718 in data/raw/cbeta/ (gitignored). Fetch them and run this project with
+#   bash scripts/quickstart.sh lotus-zhiyi-wenju
+# or only fetch them with  bash scripts/fetch_cbeta.sh T09n0262 T34n1718
+id = "lotus-zhiyi-wenju"
+title = "Lotus Sūtra with Zhiyi's Fahua wenju"
+mode = "sutra"
+root = "T09n0262"
+commentary = "T34n1718"
+scheme_id = "zhiyi-wenju"
+target_role = "commentary"
+span = "dev"
+source = "tier2"
+
+[resolver]
+adapter = "none"

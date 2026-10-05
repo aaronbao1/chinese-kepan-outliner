@@ -1,0 +1,1106 @@
+{
+ "note": "Every validation-row score computed by run_e07.py (a cached re-read is not a new score). kind `look` = a (set, row, arm, outline sha256, gold sha256) scored for the first time; kind `recompute` = a re-score of one already seen (e.g. after a score-cache key change): no new information. Each score run appends one entry per set with new looks to experiments/E01-explicit-recovery/looks.json (e01_entry = that entry's date); arms_not_yet_scorable lists the set's arms that were still pending at that look.",
+ "format": 2,
+ "e01_entries": [
+  {
+   "date": "2026-10-04T04:47:50+00:00",
+   "split": "validation",
+   "set": "T1718-validation",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "arms": [
+    "hybrid",
+    "tier1",
+    "tier2"
+   ],
+   "outline_sha256": {
+    "tier1": "97e622dc2091c816201835643bcce9bb73ea151e4bed13e3c84d288856a8f4ce",
+    "tier2": "6ada64f14805c19c5c7aca7b024f462da520d39763b16fd9aef8746ca8988bdc",
+    "hybrid": "b264ec23bfc9ef982dd11f75985313f034bf9449a5b859b4ea6a2c86a961f891"
+   },
+   "scored_at": [
+    "2026-10-04T04:47:47+00:00",
+    "2026-10-04T04:47:48+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E07 look #3, frozen outliner-v1-frozen-2026-10-03"
+  },
+  {
+   "date": "2026-10-04T04:47:50+00:00",
+   "split": "validation",
+   "set": "T1718-devval",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "arms": [
+    "hybrid",
+    "tier1",
+    "tier2"
+   ],
+   "outline_sha256": {
+    "tier1": "ed6779279ae88ec7ca01dfb50627261e1dbe74726126f5b74f0e7b47413c7e71",
+    "tier2": "19b597299e071dd1d5e7e2f07594ec5e6f1dd05ac889a4dee6472890b35cddd9",
+    "hybrid": "e77f3f7719c3943059cffcc8462a3ff43037b6f939e3aedcc4cb3395919446f0"
+   },
+   "scored_at": [
+    "2026-10-04T04:47:48+00:00",
+    "2026-10-04T04:47:49+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E07 look #3, frozen outliner-v1-frozen-2026-10-03"
+  },
+  {
+   "date": "2026-10-04T04:47:50+00:00",
+   "split": "validation",
+   "set": "T0262-xu-root",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "arms": [
+    "hybrid",
+    "model-only",
+    "tier1",
+    "tier2"
+   ],
+   "outline_sha256": {
+    "tier1": "ed6779279ae88ec7ca01dfb50627261e1dbe74726126f5b74f0e7b47413c7e71",
+    "tier2": "19b597299e071dd1d5e7e2f07594ec5e6f1dd05ac889a4dee6472890b35cddd9",
+    "hybrid": "e77f3f7719c3943059cffcc8462a3ff43037b6f939e3aedcc4cb3395919446f0",
+    "model-only": "c384637456b50fc8d9c60ce7e7d6bbbee339f558b3d0478f4e2e9113d472ba0e"
+   },
+   "scored_at": [
+    "2026-10-04T04:47:49+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E07 look #3, frozen outliner-v1-frozen-2026-10-03"
+  }
+ ],
+ "events": [
+  {
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "0af35dea5e9c0715d38d0ffa8e59cdf312eb1ffba380f4518336178bfc5a19c0",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation-span",
+   "arm": "tier1",
+   "outline_sha256": "0af35dea5e9c0715d38d0ffa8e59cdf312eb1ffba380f4518336178bfc5a19c0",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "f16d0167815a0122fc6bb0729ddc8489bf701a5d30dfe51739cf338a45a82cbf",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation-span",
+   "arm": "tier2",
+   "outline_sha256": "f16d0167815a0122fc6bb0729ddc8489bf701a5d30dfe51739cf338a45a82cbf",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "hybrid",
+   "outline_sha256": "61e1869149b0d34ebb56f9e4207aa3d23d49e80fc1196d4a6ce5eade4252f1f7",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation-span",
+   "arm": "hybrid",
+   "outline_sha256": "61e1869149b0d34ebb56f9e4207aa3d23d49e80fc1196d4a6ce5eade4252f1f7",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "7dfa7c4f7d47e5ad7b0ebbcd0c98b707a56f02fa1776d820c34a10027b8ed012",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation-span",
+   "arm": "tier1",
+   "outline_sha256": "7dfa7c4f7d47e5ad7b0ebbcd0c98b707a56f02fa1776d820c34a10027b8ed012",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "2dd6d7e611b1ab09473db7c76d6273ba9a12b7967d4bff146db6aa16d16aa038",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation-span",
+   "arm": "tier2",
+   "outline_sha256": "2dd6d7e611b1ab09473db7c76d6273ba9a12b7967d4bff146db6aa16d16aa038",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation",
+   "arm": "hybrid",
+   "outline_sha256": "101412e6228067fb7ce7afe5a8a24b1a1564041a1485122c45a069cf636aa48f",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation-span",
+   "arm": "hybrid",
+   "outline_sha256": "101412e6228067fb7ce7afe5a8a24b1a1564041a1485122c45a069cf636aa48f",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "7dfa7c4f7d47e5ad7b0ebbcd0c98b707a56f02fa1776d820c34a10027b8ed012",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-04T04:13:25+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "2dd6d7e611b1ab09473db7c76d6273ba9a12b7967d4bff146db6aa16d16aa038",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "hybrid",
+   "outline_sha256": "8cd1a492fc2fa60f88186c6fe7a91e046d1e3ca51141337a7bebb469968b1ad3",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "model-only",
+   "outline_sha256": "54dc31b514e70d4453e73b66d52a6017f89ec1ee9b85a3c0cc17dc02b1dde086",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-X0268",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "57653b86f0880ab5538c2fe074679e97be543651215858e14f6c6dbe8bece340",
+   "gold_sha256": "e809b392570b3542cdbbcb351eb3b12d87d47297c3b91f62f009b4964523b15f",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-X0268",
+   "row": "whole",
+   "arm": "tier2",
+   "outline_sha256": "86b0f7384bccb27797bea87de653a20fbb0ce8e237a45fe0bd826b297fd9189d",
+   "gold_sha256": "e809b392570b3542cdbbcb351eb3b12d87d47297c3b91f62f009b4964523b15f",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-X0268",
+   "row": "whole",
+   "arm": "hybrid",
+   "outline_sha256": "fd0556293a3ecc84c13e78a81f98bc687a8f69d058291b518c9370b98b495595",
+   "gold_sha256": "e809b392570b3542cdbbcb351eb3b12d87d47297c3b91f62f009b4964523b15f",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-P1573",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "e283ef680c7941dce4f93626b026aad71e2c2380fa63f80d934c6063240e9c30",
+   "gold_sha256": "51a26ff90f2e14af00bf2ff678ec743e6c50c3982e574df2b703cbbb57f89faf",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-P1573",
+   "row": "whole",
+   "arm": "tier2",
+   "outline_sha256": "33c8a61a15843ad59e7dde13c503e56a4595e7b1f24c25e0428c9745f6301001",
+   "gold_sha256": "51a26ff90f2e14af00bf2ff678ec743e6c50c3982e574df2b703cbbb57f89faf",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-P1573",
+   "row": "whole",
+   "arm": "hybrid",
+   "outline_sha256": "3cfb4a2c147de81be33797b5b85d21e1f392a58858755beb557e0f47a672e546",
+   "gold_sha256": "51a26ff90f2e14af00bf2ff678ec743e6c50c3982e574df2b703cbbb57f89faf",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-D8842",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "bafb21840a9d0f1f098e3eb815696a6c70061ea1b59b95d7545f29d2d1b8c73f",
+   "gold_sha256": "91d4757cab5a64b6f2d75a52cee07986625d4869f3b864138d9541fc61687698",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-D8842",
+   "row": "whole",
+   "arm": "tier2",
+   "outline_sha256": "883c1a32d7f0b52e698ec976a3a5e645baa0e8e55e974c6c32d4ffd1afd79950",
+   "gold_sha256": "91d4757cab5a64b6f2d75a52cee07986625d4869f3b864138d9541fc61687698",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-D8842",
+   "row": "whole",
+   "arm": "hybrid",
+   "outline_sha256": "3a3336cceb67641a20d889db1c816b051e6a9e51460acdaf222bb553223bef17",
+   "gold_sha256": "91d4757cab5a64b6f2d75a52cee07986625d4869f3b864138d9541fc61687698",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-T1605",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "84ac9a408f499faa71de05afbf76507eb9094a20ab7ec224484843656707ea4d",
+   "gold_sha256": "dccbb6344c1dffc745f73862ff8008fa5cd59ad1be5adbce4326d26e3b9e3d66",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-T1605",
+   "row": "whole",
+   "arm": "tier2",
+   "outline_sha256": "a3762e1af67e906466bb8b99aeb35daa7aa20c6a837e222fab2ab4ad3eba3d26",
+   "gold_sha256": "dccbb6344c1dffc745f73862ff8008fa5cd59ad1be5adbce4326d26e3b9e3d66",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-T1605",
+   "row": "whole",
+   "arm": "hybrid",
+   "outline_sha256": "fd0060385f08f92b10b7903e97c63fa4c396bc3dd155e84e9154eaa794fa1409",
+   "gold_sha256": "dccbb6344c1dffc745f73862ff8008fa5cd59ad1be5adbce4326d26e3b9e3d66",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "OOD-T1602",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "c91a042d9c1500a515e85fea4a51259e1dfc67e2091ec62846ee73c1189e15b3",
+   "gold_sha256": "81014a18e3d7f08ca6eb60bd099731b55c776b051a1dba2d2684f06be1c5d64a",
+   "date": "2026-10-04T04:13:26+00:00",
+   "kind": "recompute-e06",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "note": "E06's saved outline (frozen v0) rescored by the v1 scorer; no new system output"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "97e622dc2091c816201835643bcce9bb73ea151e4bed13e3c84d288856a8f4ce",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:47+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation-span",
+   "arm": "tier1",
+   "outline_sha256": "97e622dc2091c816201835643bcce9bb73ea151e4bed13e3c84d288856a8f4ce",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:47+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "6ada64f14805c19c5c7aca7b024f462da520d39763b16fd9aef8746ca8988bdc",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:47+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation-span",
+   "arm": "tier2",
+   "outline_sha256": "6ada64f14805c19c5c7aca7b024f462da520d39763b16fd9aef8746ca8988bdc",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:47+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation",
+   "arm": "hybrid",
+   "outline_sha256": "b264ec23bfc9ef982dd11f75985313f034bf9449a5b859b4ea6a2c86a961f891",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:48+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-validation",
+   "row": "validation-span",
+   "arm": "hybrid",
+   "outline_sha256": "b264ec23bfc9ef982dd11f75985313f034bf9449a5b859b4ea6a2c86a961f891",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:48+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "ed6779279ae88ec7ca01dfb50627261e1dbe74726126f5b74f0e7b47413c7e71",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:48+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation-span",
+   "arm": "tier1",
+   "outline_sha256": "ed6779279ae88ec7ca01dfb50627261e1dbe74726126f5b74f0e7b47413c7e71",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:48+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "19b597299e071dd1d5e7e2f07594ec5e6f1dd05ac889a4dee6472890b35cddd9",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:48+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation-span",
+   "arm": "tier2",
+   "outline_sha256": "19b597299e071dd1d5e7e2f07594ec5e6f1dd05ac889a4dee6472890b35cddd9",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:48+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation",
+   "arm": "hybrid",
+   "outline_sha256": "e77f3f7719c3943059cffcc8462a3ff43037b6f939e3aedcc4cb3395919446f0",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:48+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T1718-devval",
+   "row": "validation-span",
+   "arm": "hybrid",
+   "outline_sha256": "e77f3f7719c3943059cffcc8462a3ff43037b6f939e3aedcc4cb3395919446f0",
+   "gold_sha256": "90899205c945a9adcbc7b4401182be736b0b2e12ef8a7f60e713f6acef1f24ef",
+   "date": "2026-10-04T04:47:49+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "tier1",
+   "outline_sha256": "ed6779279ae88ec7ca01dfb50627261e1dbe74726126f5b74f0e7b47413c7e71",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-04T04:47:49+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "tier2",
+   "outline_sha256": "19b597299e071dd1d5e7e2f07594ec5e6f1dd05ac889a4dee6472890b35cddd9",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-04T04:47:49+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "hybrid",
+   "outline_sha256": "e77f3f7719c3943059cffcc8462a3ff43037b6f939e3aedcc4cb3395919446f0",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-04T04:47:49+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "T0262-xu-root",
+   "row": "validation",
+   "arm": "model-only",
+   "outline_sha256": "c384637456b50fc8d9c60ce7e7d6bbbee339f558b3d0478f4e2e9113d472ba0e",
+   "gold_sha256": "dae9c25595270d71243120412a9a85d5e8987af530b6dd520fa2ce019cbd09cb",
+   "date": "2026-10-04T04:47:49+00:00",
+   "kind": "look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": "2026-10-04T04:47:50+00:00"
+  },
+  {
+   "set": "OOD-X0268",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "ee7989345649f156d857e3f69d619f67c8440a4c66e38373fa3ceda4ab7c28bb",
+   "gold_sha256": "e809b392570b3542cdbbcb351eb3b12d87d47297c3b91f62f009b4964523b15f",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-X0268",
+   "row": "whole",
+   "arm": "tier2",
+   "outline_sha256": "11db4cc139914383f6b9d54a264728b036d1b2ab1b68006a8137be5a83ce59f4",
+   "gold_sha256": "e809b392570b3542cdbbcb351eb3b12d87d47297c3b91f62f009b4964523b15f",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-X0268",
+   "row": "whole",
+   "arm": "hybrid",
+   "outline_sha256": "e88ca56ca0e837e5c500c5b366a971d1324b555e39a9e5042fe999d40428e429",
+   "gold_sha256": "e809b392570b3542cdbbcb351eb3b12d87d47297c3b91f62f009b4964523b15f",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-P1573",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "7f7502c4b5163a38447317037201765c50b5ba1da4f7d0452e194f3a4ee76fe1",
+   "gold_sha256": "51a26ff90f2e14af00bf2ff678ec743e6c50c3982e574df2b703cbbb57f89faf",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-P1573",
+   "row": "whole",
+   "arm": "tier2",
+   "outline_sha256": "868ded42780a23b5f86b83d8899337a2dd464f4ffbaf657e609c0441d44d9617",
+   "gold_sha256": "51a26ff90f2e14af00bf2ff678ec743e6c50c3982e574df2b703cbbb57f89faf",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-P1573",
+   "row": "whole",
+   "arm": "hybrid",
+   "outline_sha256": "5016d9f9f57b0edff658e6aea2d606e1ee364bcfaf882732fb0eb33abcf811d1",
+   "gold_sha256": "51a26ff90f2e14af00bf2ff678ec743e6c50c3982e574df2b703cbbb57f89faf",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-D8842",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "b3a40f096585e79b5626b8dd3b419368c01df89b9743e27dd1f5037b1a599463",
+   "gold_sha256": "91d4757cab5a64b6f2d75a52cee07986625d4869f3b864138d9541fc61687698",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-D8842",
+   "row": "whole",
+   "arm": "tier2",
+   "outline_sha256": "4f710adcdd1eb2e868a595924334cf331e0ae97b3a52f8933a86e135f2910e90",
+   "gold_sha256": "91d4757cab5a64b6f2d75a52cee07986625d4869f3b864138d9541fc61687698",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-D8842",
+   "row": "whole",
+   "arm": "hybrid",
+   "outline_sha256": "b4c7ff24974208cfb9cee11b527d26d00ab1f7dc4fd152cd42198d1a05993756",
+   "gold_sha256": "91d4757cab5a64b6f2d75a52cee07986625d4869f3b864138d9541fc61687698",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-T1605",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "ec92f029f83428cf8b2fb71281dd9d4678abd95de88998d67250f3ad16a17ae7",
+   "gold_sha256": "dccbb6344c1dffc745f73862ff8008fa5cd59ad1be5adbce4326d26e3b9e3d66",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-T1605",
+   "row": "whole",
+   "arm": "tier2",
+   "outline_sha256": "353c10d3bcbf00f55e264d7fb597b5adb6a2825b5deda69eb05e97f531c458c7",
+   "gold_sha256": "dccbb6344c1dffc745f73862ff8008fa5cd59ad1be5adbce4326d26e3b9e3d66",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-T1605",
+   "row": "whole",
+   "arm": "hybrid",
+   "outline_sha256": "e3dd926551873c9a56597b582921681d315c266c01fa5238a0e5a3d45499895f",
+   "gold_sha256": "dccbb6344c1dffc745f73862ff8008fa5cd59ad1be5adbce4326d26e3b9e3d66",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-T1602",
+   "row": "whole",
+   "arm": "tier1",
+   "outline_sha256": "c5fc613392831c64e45e16fbc73610d55218d5b1e08e972e8439cc6b72dda4f8",
+   "gold_sha256": "81014a18e3d7f08ca6eb60bd099731b55c776b051a1dba2d2684f06be1c5d64a",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-T1602",
+   "row": "whole",
+   "arm": "tier2",
+   "outline_sha256": "573dd72f57fbd729acbbd03327909739f0af456036273fa18307c5cf0a9c246f",
+   "gold_sha256": "81014a18e3d7f08ca6eb60bd099731b55c776b051a1dba2d2684f06be1c5d64a",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  },
+  {
+   "set": "OOD-T1602",
+   "row": "whole",
+   "arm": "hybrid",
+   "outline_sha256": "d7a3be8a39db43c213a5852fa59f41238e6f0ef07b47c1b0c66deb687d3f233b",
+   "gold_sha256": "81014a18e3d7f08ca6eb60bd099731b55c776b051a1dba2d2684f06be1c5d64a",
+   "date": "2026-10-04T04:47:50+00:00",
+   "kind": "ood-look",
+   "registry_sha256": "018d879d189aeca8a39c3b5da14f33bc74f8a796418efacfb6aeb64f9fa16850",
+   "scorer": "tag:014c125e138b4bab9d465fa1206296f7c48444e3",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "tag": "outliner-v1-frozen-2026-10-03",
+   "arms_not_yet_scorable": [],
+   "e01_entry": null
+  }
+ ]
+}

@@ -1,0 +1,111 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "chinese-workflow/pipeline/schemas/resolver-adjudicate.schema.json",
+ "title": "resolver task adjudicate (resolver-adjudicate/1)",
+ "description": "Structured output of the resolver's adjudicate task (docs/outliner-design.md §5.6): a decision on each parser-report entry the rules could not settle (ambiguous target, list vs division). 'attach' names the node the announcement divides and gives its children in text order; 'ignore' leaves the outline unchanged. Merge rules (outline/resolver.py): the target must exist; the children must lie inside the target's span and must not interleave with the target's existing children; each child confidence < 1 with a non-empty rationale.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "decisions"
+ ],
+ "properties": {
+  "decisions": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "report_id",
+     "decision",
+     "target_node_id",
+     "children",
+     "confidence",
+     "rationale"
+    ],
+    "properties": {
+     "report_id": {
+      "type": "string",
+      "description": "A report_id listed under 'Parser-report entries'."
+     },
+     "decision": {
+      "enum": [
+       "attach",
+       "ignore"
+      ]
+     },
+     "target_node_id": {
+      "anyOf": [
+       {
+        "type": "string"
+       },
+       {
+        "type": "null"
+       }
+      ],
+      "description": "attach: the node the announcement divides; ignore: null."
+     },
+     "children": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "additionalProperties": false,
+       "required": [
+        "heading_src",
+        "start",
+        "end",
+        "explained",
+        "confidence",
+        "rationale"
+       ],
+       "properties": {
+        "heading_src": {
+         "type": "string",
+         "description": "Short classical Chinese heading in kepan style (e.g. 初明…, 次…, 後…)."
+        },
+        "start": {
+         "type": "string",
+         "description": "First line of the child's span, a linehead exactly as shown in the request (no ':offset'): root text in sutra mode, the outlined text in self-outlining mode, the commentary for commentary-internal targets."
+        },
+        "end": {
+         "type": "string",
+         "description": "Last line of the child's span (inclusive), a linehead from the same text as start."
+        },
+        "explained": {
+         "anyOf": [
+          {
+           "type": "string"
+          },
+          {
+           "type": "null"
+          }
+         ],
+         "description": "Sutra mode: the commentary linehead where the commentary takes this child up, or null. Self-outlining mode: the line inside the child's span where the text's own treatment of it begins, when that is not its first line; null = its start."
+        },
+        "confidence": {
+         "type": "number",
+         "minimum": 0,
+         "maximum": 1,
+         "description": "Calibrated probability that this child is right; the pipeline accepts only values below 1."
+        },
+        "rationale": {
+         "type": "string",
+         "description": "The textual cue relied on, quoting the Chinese; stored as the node's evidence. Must not be empty."
+        }
+       }
+      },
+      "description": "attach: the announced children in text order; ignore: []."
+     },
+     "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+     },
+     "rationale": {
+      "type": "string",
+      "description": "Why the entry is (not) a division of that node, quoting the Chinese."
+     }
+    }
+   }
+  }
+ }
+}

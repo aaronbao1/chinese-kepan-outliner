@@ -1,0 +1,302 @@
+# Kuiji 妙法蓮華經玄贊 (T34n1723) 科判 over the Lotus Sūtra (T09n0262) — scheme kuiji-xuanzan.
+# Source of truth for outline.json in this folder: edit this file, then recompile:
+#   cd pipeline && .venv/bin/python -m chinese_workflow.eval.gold.authored \
+#     ../data/reference-outlines/T0262/kuiji-xuanzan/outline.txt \
+#     -o ../data/reference-outlines/T0262/kuiji-xuanzan/outline.json
+# Format: pipeline/src/chinese_workflow/eval/gold/README.md ("Authored golds").
+# Every heading is copied from chinese_workflow.ingest.lines output of data/raw/cbeta/T34n1723.xml
+# (CBETA 2026R2); the compiler re-checks each one against the XML. Status: DRAFT, NOT REVIEWED.
+#
+# Conventions for every Kuiji chapter (controller decision, 2026-09-22):
+# - A 品 node's children are its gate node(s) (三門分別 / 六門料簡 …, commentary-internal, the gates
+#   as their children) and, when Kuiji announces a division of the chapter text itself (陀羅尼品
+#   「品文分三」, 譬喻品 「就此品中大文分二」), one sutra-span node whose heading is that announcing
+#   phrase verbatim (品文分三), @n = the announced count, @root = the span it divides; the N
+#   divisions are its children.
+# - @exp = the line of the node's topic marker (此初 / 下明… / 第二… / …者; a 品's cb:mulu line);
+#   @ann = the line of the parent's announcement; a sub-item Kuiji only lists has @ann = @exp.
+# - Lemma divisions (經「A至B」) have @lemma + @basis=lemma; sub-items Kuiji lists without a lemma
+#   have the annotator's @cut + @basis=manual (the compiler checks both against T09n0262).
+# - When a node's topic marker (此初也 …) stands more than two lines after the 經 line that quotes its
+#   lemma (Kuiji quotes the lemma once, then announces several levels), @exp stays the marker's line
+#   and @lemsrc gives the 經 line (added in Task 5; the compiler checks the lemma there).
+# - Stop marker and scoring scope (controller decisions 2026-09-22; schema amendment, D15 addendum).
+#   Flag truncated = the gold does not encode all of this node's source children (depth limit or
+#   covered-span end); it keeps any announced @n, plus count_mismatch. Flag coarsened keeps the
+#   schema's meaning (Kuiji himself stops subdividing a long span); no node of this gold carries it.
+#   Scope: the coverage_span lines below (-> metadata.coverage_spans; spans inclusive; max_level =
+#   absolute outline level, full = no limit) alone decide what is scored: a predicted node is in
+#   scope iff its start locator (commentary.explained; in sūtra-mode root-text scoring,
+#   root_text.start) lies in an entry's span and its level <= that entry's max_level. Start in span,
+#   not whole span: an entry's root_text bounds the covered leaves, not every node's span (大文分二's
+#   span runs to the end of 譬喻品). In-scope predictions that match no gold node are FP, also under a
+#   truncated node; out-of-scope predictions are neither TP nor FP. A truncated node's encoded
+#   descendants are scored normally and its unencoded source children are not FN; in this gold the
+#   flag is informational, since the scope already excludes what it marks. Tree edit distance: prune
+#   the out-of-scope predicted subtrees.
+# - A covered span that stops inside a 品 (the 譬喻品 opening ends at T34n1723_p0737b04): a division
+#   is a node only if Kuiji takes it up before that line. A node whose announced children run past it
+#   carries flag truncated; a comment next to it lists the children left out.
+# - A depth-limited subtree (序品: levels 3–5, added in Task 6): a level-5 node under which Kuiji
+#   announces, lists or quotes (經「…」) further divisions carries flag truncated, with @n and
+#   count_mismatch where Kuiji announces a count for it; when what lies below is only a gate formula
+#   (「如是我聞」等，以三門分別), the count belongs to that formula and the node has no @n. Its note
+#   names what is left out. The 25 品 without a subtree carry flag truncated (level 2 only).
+# - Ratified by the controller (2026-09-22): an explicit announcement node (品文-style, heading =
+#   Kuiji's announcing phrase) is created only when a part has its own gate formula (commentary-
+#   internal gate node(s)) alongside the division of its text; gate node and announcement node are
+#   then siblings, even when Kuiji states the text division inside his last gate. This happens at the
+#   品 level (陀羅尼品 三門分別 + 品文分三; 序品 略以六門料簡 + 七種成就, the latter stated inside gate
+#   六釋經之本文) and in 眾成就 (以五門解釋 + 眾成中有二段). Otherwise the divisions Kuiji announces
+#   are the node's direct children: 成就 四–七 (「故此分三」, 「此中有三」, 「文段有三」, 「大分為三」),
+#   陀羅尼品 後答 (「答中有三」).
+# - Ratified by the controller (2026-09-22): where Kuiji's lemma differs from T09n0262's wording
+#   (序品: 白豪 for 白毫, 照於東方 for 照東方, 充足求佛道 for 充足求道者), the compiler cannot match it,
+#   so the start is the annotator's @cut in T09n0262's words (@basis=manual) and the note quotes
+#   Kuiji's lemma.
+scheme_id: kuiji-xuanzan
+outline_mode: sutra
+root_text_id: T09n0262
+commentary_id: T34n1723
+text_id: T0262
+text_title_src: 妙法蓮華經
+text_title_en: Lotus Sūtra (Kumārajīva's translation)
+author: null
+source_kind: commentary
+source_title: 妙法蓮華經玄贊 (T34n1723, 唐 窺基撰): the 科判 embedded in its 贊曰 glosses
+seeded_by: claude-opus-5-5 (SDD draft 2026-09-22)
+gold_status: draft-unreviewed
+licence_id: CC-BY-NC-SA-4.0
+licence_holder: CBETA Foundation (財團法人佛教電子佛典基金會), successor since 2023-08-07 to CBETA (中華電子佛典協會)
+licence_statement: Derived from CBETA 電子佛典 (xml-p5 release 2026R2: T34n1723 妙法蓮華經玄贊, T09n0262 妙法蓮華經); headings are verbatim CBETA text and every location is a CBETA linehead. Released under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0), with CBETA's 版權宣告 attached (data/reference-outlines/NOTICE; snapshot data/raw/cbeta/LICENCE-NOTICE.txt). Non-commercial use only; never relicensed permissively. Whether an outline table counts as 改作 under CBETA's notice is an open question to CBETA (R02 F29, G8).
+licence_evidence: context/research/R02-cbeta-xml-structure-markup/findings.md F7, F29 (S14, S15, S63)
+eval_only: false
+cbeta_release: 2026R2
+origin_note: explicit = the heading is Kuiji's own wording in T34n1723 (or, for a 品 node, the CBETA cb:mulu label of that 品 in T34n1723), copied from ingest.lines output and re-checked by the compiler; no node is inferred or editorial. The tree was drafted by a model (seeded_by) and has not been reviewed.
+coverage: level 1: complete. Kuiji's first whole-sūtra scheme 序分 / 正宗 / 流通 (T34n1723_p0661b10–b27; R03 F22).
+coverage: level 2: complete. The 28 品, headings = T34n1723's cb:mulu type=品 labels, spans = T09n0262 品.
+coverage: 陀羅尼品 (commentary T34n1723_p0850a19–p0850b19): full depth, levels 2–7, every division Kuiji announces: the 三門分別 gate node with its three gates, the 品文分三 node (Kuiji's division of the chapter text) and every lemma-level division under it with its announced sub-items.
+coverage: 譬喻品 opening (commentary T34n1723_p0734b07 up to, not including, p0737b04): full depth, levels 2–11, over every division Kuiji takes up in that span: the 三門分別 gate node (three gates; the two items of 來意有二; the three numbered 釋妨 questions) and the 大文分二 node down to 初一頌具相降魔德 (level 11; p0737b01–b02), the last division taken up before p0737b04. Root text covered by leaves: T09n0262_p0010b29–p0010c27 (舍利弗's 領解 prose and the first 6 of his 25½ stanzas of verse). Divisions announced in the span but taken up after it are not nodes; the nodes they would hang under carry flag truncated, plus count_mismatch where Kuiji announces a count (see the comments in the 譬喻品 subtree).
+coverage: 序品 (commentary T34n1723_p0651a06 up to, not including, p0694b22, the start of 方便品): levels 2–5 (the 品 node is level 2). Level 3: the gate node 略以六門料簡 (p0651b01) and the 七種成就 node (p0661c09, Kuiji's division of the chapter text by the 法華論's seven 成就). Level 4: the six gates and the seven 成就. Level 5: the five 義 of gate 一; the four 序成 items; 眾成就's gate node 以五門解釋 and its text node 眾成中有二段; and the parts Kuiji announces for 成就 四–七 (三種軌儀; 放光 / 照境 / 所見; 文段有三; 大分為三). Level-5 nodes under which Kuiji divides further carry flag truncated (plus count_mismatch where he announces a count); their notes name what is left out. The whole-sūtra division that stands in gate 六 (p0661b10) is level 1 of the outline and is not repeated.
+coverage: every other 品: level 2 only (no subtree yet); each of these 25 品 nodes carries flag truncated.
+coverage_span: root=document commentary=T34n1723_p0651a01..T34n1723_p0854b24 root_text=T09n0262_p0001c18..T09n0262_p0062a29 max_level=2
+coverage_span: root=序品@T34n1723_p0651a06 commentary=T34n1723_p0651a06..T34n1723_p0694b21 root_text=T09n0262_p0001c18..T09n0262_p0005b23 max_level=5
+coverage_span: root=譬喻品@T34n1723_p0734b07 commentary=T34n1723_p0734b07..T34n1723_p0737b03 root_text=T09n0262_p0010b28..T09n0262_p0010c27 max_level=full
+coverage_span: root=陀羅尼品@T34n1723_p0850a19 commentary=T34n1723_p0850a19..T34n1723_p0850b19 root_text=T09n0262_p0058b08..T09n0262_p0059b27 max_level=full
+split_note: This outline contains dev-split material (陀羅尼品, commentary T34n1723_p0850a19–p0850b20) and two test-split answer keys (序品 outline levels 3–5, the plan's levels 1–3 below the 品 node, T34n1723_p0651a06–p0694b22; 譬喻品 opening, T34n1723_p0734b07–p0737b04). Do not use it as prompt or training material for any system evaluated on those spans; the split registry is data/eval-sets.json (guide data/EVAL-SETS.md). Split spans are start-inclusive, end-exclusive lineheads. eval_only stays false because the licence permits redistribution; the split restriction is separate from the licence.
+format_note: metadata.coverage_spans lists the subtrees this gold encodes and defines the scoring scope: node_id (null = the whole document) and heading_src of the subtree root, the commentary and root-text spans it covers (inclusive lineheads; the split spans of the eval manifest are end-exclusive, so their end is the line after commentary.end), and max_level, the absolute outline level down to which the subtree is complete (null = full depth: every division the commentary takes up in the span). A predicted node is in scope iff its start locator (commentary.explained; in sūtra-mode root-text scoring, root_text.start) lies inside an entry's span and its level is at most that entry's max_level (null = no limit). Scope alone decides: in-scope predictions that match no gold node are FP, including under a node flagged truncated; out-of-scope predictions are neither TP nor FP. An entry's root_text bounds the covered leaves, not every node's span: a covered node's own root span may run past it. Flag truncated: the gold does not encode all of this node's source children; its encoded descendants are scored normally and its unencoded source children are not FN. In this gold the flag is informational, since the scope already excludes what it marks. Tree edit distance: prune the out-of-scope predicted subtrees.
+anomaly: T09n0262 inserts its 附文 (御製觀世音普門品經序 and translator lines, T09n0262_p0198a10–p0198b11) between 妙音菩薩品 and 觀世音菩薩普門品 in document order; those lines are in a `w` div, not a 品 div, and lie inside no node's root_text span.
+anomaly: 序分: commentary.announced (T34n1723_p0661b10) comes after commentary.explained (T34n1723_p0651a06, the 序品 cb:mulu line where the work opens), because Kuiji states the whole-sūtra division inside his 序品 commentary; scripts/validate_outline.py reports it as warning announce-after-explain.
+source_note: scheme: Kuiji's first whole-sūtra scheme (序分 = 序品; 正宗 = 方便品–授學無學人記品; 流通 = 法師品–普賢菩薩勸發品), chosen per R03 F22 (Kuiji ranks it higher at T34n1723_p0816a15; 慧沼 T1724 0863b19–21 adopts it). The second scheme is recorded as a comment in outline.txt, not as nodes.
+
+# ------------------------------------------------------------------------------------------------
+# ALTERNATIVE SCHEME (not encoded as nodes; R03 F22). Kuiji's second whole-sūtra division, introduced
+# with 或 at T34n1723_p0661b27–c08: 序分 as in the first scheme (「或初序分如前無別」, b27); 正宗 =
+# 方便品 to 常不輕菩薩品 (ch. 2–20): 「從〈方便品〉下至〈持品〉合十二品，明一乘境」 (b27–b28),
+# 「〈安樂行品〉、〈從地涌出品〉此之二品，明一乘行」 (b28–b29), 「〈如來壽量品〉下至〈常不輕品〉，
+# 合此五品說一乘果」 (b29–c01); 流通 = 「〈神力品〉下皆名流通」 (c07–c08), ch. 21–28. It coincides
+# with 淨法師's 1/19/8 scheme quoted at b08–b09. Encoding it = re-parent ch. 10–20 under 正宗 and set
+# 正宗 @n=19, 流通 @n=8 under a second scheme_id.
+# Sub-variant of the first scheme, also not encoded: 「或并〈法師品〉半八品半為正宗」 (b21–b22).
+# ------------------------------------------------------------------------------------------------
+
+序分 @ann=T34n1723_p0661b10 @src=T34n1723_p0661b10 @exp=T34n1723_p0651a06 @root=T09n0262_p0001c18..T09n0262_p0005b23 @basis=chapter @n=1 @ext=一品 @note=Kuiji: 「今為二解：初一品名序分」 (T34n1723_p0661b10). @exp = the 序品 cb:mulu line, where Kuiji's commentary on this part begins; the announcement comes later, inside that commentary.
+  序品 @exp=T34n1723_p0651a06 @root=T09n0262_p0001c18..T09n0262_p0005b23 @basis=chapter @note=Children: the gate node 略以六門料簡 (T34n1723_p0651b01, commentary-internal; R03 F1: 序品's gate scheme, parallel to other chapters' 三門分別) and the node for Kuiji's division of the chapter text, 七種成就 (T34n1723_p0661c09), per the 品文 convention in the header comment. Subtree covers the test-split span T34n1723_p0651a06–p0694b22, outline levels 3–5, three below this node (header coverage and coverage_span).
+    # ---------------------------------------------------------------------------------------------
+    # 序品 — TEST SPLIT (T34n1723_p0651a06 up to, not including, p0694b22), outline levels 3–5 only
+    # (three below the 品 node). Answer key for E01/E04; do not use as prompt or training material
+    # for systems evaluated on this span. Every heading, @exp/@ann and lemma was read from
+    # ingest.lines output. Depth limit: level 3 = the gate node and the 品文 node (七種成就). A
+    # level-5 node under which Kuiji announces, lists or quotes (經「…」) further divisions carries
+    # flag truncated, plus @n and count_mismatch where Kuiji announces a count; its note names what is
+    # left out.
+    # note: the whole-sūtra division 「今為二解：初一品名序分，次八品名正宗…」 (p0661b10) stands in
+    #   gate 六釋經之本文 (p0661a28). It is not repeated here: it is level 1 of this outline (序分 /
+    #   正宗 / 流通, top of the file).
+    # note: 「初眾分四：一聲聞眾，二菩薩眾，三八部眾，四諸王眾」 (p0666c16–c17; R03 F23) is not a
+    #   node: it orders the fifteen 眾 inside gate 四明次第 of 眾成就's 以五門解釋 (the gate would be
+    #   level 6, the four level 7). Kuiji divides the 眾 text itself by 「經明眾成中有二段」
+    #   (p0667a22) and nested binary splits (內護眾／外護眾 p0667a24–a25; 「上明內護五眾，下明外護
+    #   十眾」 p0675a25).
+    # Not nodes (content lists inside a treatment): gate 二's 四宗 / 教三 / 宗八 (p0657a08–b06),
+    # gate 三's 品名 「總為四例」 (p0658c23–p0659a16), gate 四's 「理有八違」 (p0659b23–p0660a06), the
+    # 論's 十事 / 五對 in 次正答所徵 (p0688b06–b22), and the many 「有N義」 glosses.
+    # ---------------------------------------------------------------------------------------------
+    略以六門料簡 @exp=T34n1723_p0651b01 @class=commentary-internal @n=6 @note=Kuiji's gate formula for this 品 (R03 F1, F25): 「經「如是我聞」。贊曰：初釋經文略以六門料簡：一敘經起之意，二明經之宗旨，三解經品得名，四顯經品廢立，五彰品之次第，六釋經之本文」 (b01–b04). Gates 一–五 concern the whole sūtra (Kuiji's preamble); R03 F4 compares them with the four topics of the Tibetan translation (Toh 4017).
+      一敘經起之意 @ann=T34n1723_p0651b02 @exp=T34n1723_p0651b04 @class=commentary-internal @n=5 @note=Taken up as 「第一敘經起意者，略由五義」 (b04–b05; 起意, not 起之意); runs to p0657a07.
+        一為酬因請 @ann=T34n1723_p0651b05 @exp=T34n1723_p0651b06 @class=commentary-internal @n=2 @flags=truncated,count_mismatch @note=@exp = 「酬因請中有二：一酬因，二酬請」 (b06–b07). Not encoded (level 6): 一酬因 (「初酬因有六：一酬行因…六酬說因」, b07–b09) and 二酬請 (「後酬請者」, p0652a17).
+        二為破疑執 @ann=T34n1723_p0651b05 @exp=T34n1723_p0652b19 @class=commentary-internal @n=2 @flags=truncated,count_mismatch @note=@exp = 「破疑執中有二：一破疑，二破執」 (b19); the two are not encoded (level 6).
+        三為彰記行 @ann=T34n1723_p0651b05 @exp=T34n1723_p0653b28 @class=commentary-internal @n=2 @flags=truncated,count_mismatch @note=@exp = 「彰記行中有二：一彰記，二彰行」 (b28); the two are not encoded (level 6).
+        四為利今後 @ann=T34n1723_p0651b06 @exp=T34n1723_p0653c26 @class=commentary-internal @n=2 @flags=truncated,count_mismatch @note=@exp = 「利今後中有二：一利今，二利後」 (c26); the two are not encoded (level 6).
+        五為顯時機 @ann=T34n1723_p0651b06 @exp=T34n1723_p0655a02 @class=commentary-internal @n=2 @flags=truncated,count_mismatch @note=@exp = 「顯時機中有二：一顯時，二顯機」 (a02); the two are not encoded (level 6).
+      二明經之宗旨 @ann=T34n1723_p0651b02 @exp=T34n1723_p0657a08 @class=commentary-internal @note=Taken up as 「第二明經宗旨」 (a08); runs to p0657c02 and concludes 「故此定以一乘為宗」 (c01). Its numbered lists are doxography, content rather than parts of the gate: the 先德's 四宗 (a08–a13), 「教但有三」 and 「宗乃有八」 (a23–b06).
+      三解經品得名 @ann=T34n1723_p0651b02 @exp=T34n1723_p0657c03 @class=commentary-internal @note=Taken up as 「第三解經品得名者」 (c03); runs to p0659a16. Two unnumbered topics, not nodes: the sūtra's title (「且經題目妙法蓮華經名者」, c03–c04) and the 品 names (「其品得名者」, p0658c15), which sorts the 28 names 「總為四例」 (p0658c23–c25).
+      四顯經品廢立 @ann=T34n1723_p0651b03 @exp=T34n1723_p0659a17 @class=commentary-internal @note=Taken up as 「第四顯經品廢立者」 (a17); runs to p0660b03: the 提婆達多品 missing from Kumārajīva's text, the place of 囑累品 (with a list of objections, 「理有八違」, p0659b23–b24), the verses of 普門品 and other differences between the versions.
+      五彰品之次第 @ann=T34n1723_p0651b03 @exp=T34n1723_p0660b04 @class=commentary-internal @note=Taken up as 「第五彰品次第者」 (b04); runs to p0661a15: the order of the 28 品, with 囑累品 placed last after the 正法華 and the 論 (p0661a13–a15).
+      六釋經之本文 @ann=T34n1723_p0651b04 @exp=T34n1723_p0661a28 @class=commentary-internal @note=Taken up as 「第六釋經本文者」 (a28), after the 卷第一末 title; this gate runs on through the rest of the commentary. It opens with the whole-sūtra divisions of 古遵法師, 吉藏 and 淨法師 (a28–b10) and Kuiji's own two (「今為二解」, p0661b10: level 1 of this outline, 序分 / 正宗 / 流通, not repeated here), then gives the division of this 品's text (「論說〈序品〉有七種成就」, c09), encoded as the sibling node 七種成就 per the 品文 convention.
+    七種成就 @exp=T34n1723_p0661c09 @lemsrc=T34n1723_p0651b01 @lemma=如是我聞 @root=T09n0262_p0001c19..T09n0262_p0005b23 @basis=lemma @endbasis=chapter @n=7 @note=Kuiji's division of the chapter text: 「論說〈序品〉有七種成就」 (c09), the 法華論's seven, each listed with the sūtra words where it starts (c11–c25; R03 F23). The span is the text it divides, from 如是我聞 (the lemma Kuiji quotes at p0651b01, before the gates) to the end of the 品; the 品's title line T09n0262_p0001c18 is outside it. @note=Not a level here: Kuiji groups the seven 「七中分二，初二通序，後五別序」 (c25–c26) and lists the 通序 as five items whose fifth, 五所被機, 「此入眾成」 (c26–c28). He takes the text up by the seven (「七成就中，自下第二眾成就也」 p0666a15–a16 … 「下第七文殊師利答成就」 p0688a21), so the seven are this node's children. The grouping is treated differently from 陀羅尼品's 「有五，合為三類」 (T34n1723_p0850b04), where the three classes are a level because Kuiji takes the text up by class (「下二天」 b08, 「此十神」 b14; 「此初聖」 b05 takes up the first class's first item): 通序 / 別序 occur only in the grouping statement at c26 and never as a take-up marker in the 序品 commentary.
+      一序分成就 @ann=T34n1723_p0661c11 @exp=T34n1723_p0661c28 @lemsrc=T34n1723_p0651b01 @lemma=如是我聞 @root=T09n0262_p0001c19..T09n0262_p0001c19 @basis=lemma @endbasis=next-node @n=4 @note=@exp = 「序成但四，「如是我聞」即為初也」 (c28–c29): the first four of the five 通序 items (c26–c28) make up this 成就; they are its children. The 論 itself names two, 「論本但說序二成就：一者城，二者山」 (c29–p0662a01).
+        一總顯已聞 @ann=T34n1723_p0661c26 @exp=T34n1723_p0661c28 @lemsrc=T34n1723_p0651b01 @lemma=如是我聞 @root=T09n0262_p0001c19..T09n0262_p0001c19 @basis=lemma @flags=truncated @note=Listed in 「通序有五：一總顯已聞…」 (c26–c27); @exp = 「「如是我聞」即為初也」 (c28–c29). The treatment (p0662a04–p0664a08) is 「「如是我聞」等，以三門分別：一說之所由，二立之所以，三正釋其文」 (a04–a05); the three gates are not encoded (level 6; flag truncated, no @n, since the count belongs to that gate formula).
+        二說教時 @ann=T34n1723_p0661c27 @exp=T34n1723_p0664a09 @lemma=一時 @root=T09n0262_p0001c19..T09n0262_p0001c19 @basis=lemma @note=@exp = 「經「一時」。贊曰：第二說教時分也」 (a09).
+        三說教主 @ann=T34n1723_p0661c27 @exp=T34n1723_p0664c07 @lemma=佛 @root=T09n0262_p0001c19..T09n0262_p0001c19 @basis=lemma @note=@exp = 「經「佛」。贊曰：第三說教主也」 (c07).
+        四所化處 @ann=T34n1723_p0661c27 @exp=T34n1723_p0665a08 @lemma=住王舍城耆闍崛山中 @root=T09n0262_p0001c19..T09n0262_p0001c19 @basis=lemma @note=@exp = 「贊曰：第四所化處也」 (a08).
+      二眾成就 @ann=T34n1723_p0661c13 @exp=T34n1723_p0666a16 @lemma=與大比丘眾萬二千人俱 @root=T09n0262_p0001c20..T09n0262_p0002b07 @basis=lemma @endbasis=next-node @note=@exp = 「七成就中，自下第二眾成就也」 (a15–a16); = the fifth 通序 item, 五所被機 (p0661c28). Children, as for a 品: the gate node 以五門解釋 (a16) and the node for Kuiji's division of this 成就's text, 眾成中有二段 (p0667a22), which he states inside the fifth gate.
+        以五門解釋 @exp=T34n1723_p0666a16 @class=commentary-internal @n=5 @flags=truncated,count_mismatch @note=「眾成就以五門解釋：一顯來意，二彰權實，三定多小，四明次第，五依論解」 (a16–a18). The five gates are not encoded (level 6): 來意有五 (a18), 二者彰權實 (b12), 三定多少者 (b20: fifteen 眾, plus six in later 品), 四明次第者 (c15–c16), 五依論釋解眾成就 (p0667a03: the 論's four, 數 / 行 / 攝功德 / 威儀如法住). Gate 四明次第 holds 「初眾分四：一聲聞眾，二菩薩眾，三八部眾，四諸王眾」 (c16–c17; R03 F23), which orders the fifteen 眾 (level 7).
+        眾成中有二段 @exp=T34n1723_p0667a22 @lemsrc=T34n1723_p0666a15 @lemma=與大比丘眾萬二千人俱 @root=T09n0262_p0001c20..T09n0262_p0002b07 @basis=lemma @endbasis=next-node @n=2 @flags=truncated,count_mismatch @note=Kuiji's division of this 成就's text, inside gate 五: 「然經明眾成中有二段：初別明十五眾，後明威儀」 (a22–a23). Not encoded (level 6): 初別明十五眾 (T09n0262_p0001c20–p0002b06; its nested binary splits 初別列眾／後明禮佛各各退坐, 內護眾／外護眾 … follow at a23–a29) and 後明威儀 (lemma 爾時世尊至尊重讚歎, taken up at p0677a05: 「眾成就中文段為二：上來列眾，此明佛所威儀」).
+      三如來欲說法時至成就 @ann=T34n1723_p0661c15 @exp=T34n1723_p0677a25 @lemma=為諸菩薩至佛所護念 @root=T09n0262_p0002b07..T09n0262_p0002b09 @basis=lemma @note=@exp = 「此即第三如來欲說法時至成就」 (a25–a26). One lemma block; its 「略有三義」 (a26) are content.
+      四所依說法隨順威儀住成就 @ann=T34n1723_p0661c17 @exp=T34n1723_p0678c22 @lemma=佛說此經已至身心不動 @root=T09n0262_p0002b09..T09n0262_p0002b16 @basis=lemma @endbasis=next-node @n=3 @note=@exp = 「下文第四所依說法隨順威儀住成就」 (c22–c23). The division: 「今依三種軌儀：一依三昧成就…二依器世間…三依眾生世間…故此分三」 (p0679a03–a07).
+        一依三昧成就 @ann=T34n1723_p0679a03 @exp=T34n1723_p0679a03 @lemsrc=T34n1723_p0678c22 @lemma=佛說此經已至身心不動 @root=T09n0262_p0002b09..T09n0262_p0002b10 @basis=lemma @note=Listed with its text, 「一依三昧成就，故入於三昧身心不動是」 (a03–a04), inside the treatment of its lemma (p0678c22–p0679b28).
+        二依器世間 @ann=T34n1723_p0679a04 @exp=T34n1723_p0679b29 @lemma=是時天雨至及諸大眾 @root=T09n0262_p0002b10..T09n0262_p0002b12 @basis=lemma @endbasis=next-node @n=2 @flags=truncated,count_mismatch @note=@exp = 「下明器世間有二：一雨華，二動地」 (b29–c01). Not encoded (level 6): its two lemma divisions, 雨華 (b29) and 動地 (經「普佛世界六種震動」, c22).
+        三依眾生世間 @ann=T34n1723_p0679a05 @exp=T34n1723_p0680a19 @lemma=爾時會中至一心觀佛 @root=T09n0262_p0002b12..T09n0262_p0002b16 @basis=lemma @n=4 @flags=truncated,count_mismatch @note=@exp = 「此眾生世間有四：一四眾，二八部，三二王，後結歡喜」 (a19–a20); the four are not encoded (level 6).
+      五依止說因成就 @ann=T34n1723_p0661c19 @exp=T34n1723_p0680b11 @cut=爾時佛放眉間白毫相光 @root=T09n0262_p0002b16..T09n0262_p0002b24 @basis=manual @n=3 @note=@exp = 「下第五依止說因成就」 (b11–b12); the division: 「此中有三：一放光、二照境、三所見」 (b28). START BY @cut: Kuiji's lemma reads 經「爾時佛放眉間白豪相光」 (b11) where T09n0262 has 白毫 (p0002b16–b17; its apparatus, note 0002056, gives 「毫＝豪【博】下同」); the compiler matches lemmata literally.
+        一放光 @ann=T34n1723_p0680b28 @exp=T34n1723_p0680b28 @cut=爾時佛放眉間白毫相光 @root=T09n0262_p0002b16..T09n0262_p0002b17 @basis=manual @note=@exp = 「此初也」 (b28). Kuiji's lemma is 經「爾時佛放眉間白豪相光」 (b11; 豪 for T09n0262's 毫), hence @cut.
+        二照境 @ann=T34n1723_p0680b28 @exp=T34n1723_p0680c23 @cut=照東方 @root=T09n0262_p0002b17..T09n0262_p0002b18 @basis=manual @note=@exp = 「第二照境也」 (c23). Kuiji's lemma 經「照於東方至阿迦尼吒天」 (c23) reads 照於東方 where T09n0262 has 照東方 (p0002b17; no variant recorded there), hence @cut; its end words 阿迦尼吒天 end on p0002b18.
+        三所見 @ann=T34n1723_p0680b28 @exp=T34n1723_p0681a20 @lemma=於此世界至六趣眾生 @root=T09n0262_p0002b18..T09n0262_p0002b24 @basis=lemma @endbasis=next-node @n=3 @flags=truncated,count_mismatch @note=Taken up as 「下明所照有七：一六趣、二佛、三法、四四眾、五菩薩、六入涅槃、七起塔。此七分三：一覩生死沈淪，二覩三寶出現，三覩滅後行化」 (a20–a23); @n counts the three groups (此七分三). Not encoded (level 6): the three groups (lemma divisions at a20, p0681c03, p0681c09, p0682a20).
+      六大眾生現前欲聞法成就 @ann=T34n1723_p0661c21 @exp=T34n1723_p0683a05 @lemma=爾時彌勒至而有此瑞 @root=T09n0262_p0002b24..T09n0262_p0003c10 @basis=lemma @endbasis=next-node @n=3 @note=Heading as listed (c21–c22); taken up as 「第六大段大眾現前欲聞法成就。文段有三：初彌勒示相懷疑，次眾人實生心惑，後慈氏雙申兩意」 (a05–a07; 大眾現前, without 生).
+        初彌勒示相懷疑 @ann=T34n1723_p0683a06 @exp=T34n1723_p0683a15 @lemsrc=T34n1723_p0683a05 @lemma=爾時彌勒至而有此瑞 @root=T09n0262_p0002b24..T09n0262_p0002b29 @basis=lemma @endbasis=next-node @n=4 @flags=truncated,count_mismatch @note=After glossing the three names (a08–a15), Kuiji takes this part up as 「初中有四：一牒瑞徵因，二舉奇詢答，三推功上德，四謙己方陳，此初文也」 (a15–a16). Not encoded (level 6): the four (lemma divisions at a05, a20 and a26; 三 and 四 share the lemma 復作此念至我今當問).
+        次眾人實生心惑 @ann=T34n1723_p0683a07 @exp=T34n1723_p0683c02 @lemma=爾時比丘至今當問誰 @root=T09n0262_p0002b29..T09n0262_p0002c03 @basis=lemma @note=@exp = 「眾人實生心惑也」 (c02–c03). One lemma block.
+        後慈氏雙申兩意發問先因 @ann=T34n1723_p0683a07 @exp=T34n1723_p0683c09 @lemma=爾時彌勒至文殊師利言 @root=T09n0262_p0002c03..T09n0262_p0003c10 @basis=lemma @endbasis=next-node @n=2 @flags=truncated,count_mismatch @note=@exp = 「下第三段雙申兩意發問先因有二：初長行，後重頌」 (c09–c10). Not encoded (level 6): 初長行 (two lemma divisions, 雙申兩意 c09 and 發問先因 c12) and 後重頌 (62 stanzas from p0684a05: 「分之為二：初五十四頌頌前瑞相，後八頌頌正興問」 a11–a13; Kuiji calls the second part 「大文第二段」 at p0688a01). @note=HEADING: the listing reads 「後慈氏雙申兩意。發問先因，彌勒道滿…」 (a07–a08), with CBETA's 。 after 兩意; the heading takes 發問先因 into the label because Kuiji takes this part up as 「下第三段雙申兩意發問先因有二」 (c09–c10), names its prose halves 雙申兩意 / 發問先因 (c11, c12), and explains the third name as 「彌勒挾自他之兩意發問，文殊一人徵先所由」 (a13–a14), parallel to the first two names (reviewer, 2026-09-22). The compiler matches the heading with punctuation ignored and says so in a warning.
+      七文殊師利答成就 @ann=T34n1723_p0661c23 @exp=T34n1723_p0688a21 @lemma=爾時文殊至及諸大士 @root=T09n0262_p0003c11..T09n0262_p0005b23 @basis=lemma @endbasis=chapter @n=3 @note=@exp = 「下第七文殊師利答成就」 (a21–a22); the division: 「大分為三：初標名總告，次正答所徵，後有二頌語眾勸知陳佛今說」 (b02–b04; the third is called 「大文第三」 at p0694b05).
+        初標名總告 @ann=T34n1723_p0688b02 @exp=T34n1723_p0688b04 @lemsrc=T34n1723_p0688a21 @lemma=爾時文殊至及諸大士 @root=T09n0262_p0003c11..T09n0262_p0003c12 @basis=lemma @note=@exp = 「此即初也」 (b04).
+        次正答所徵 @ann=T34n1723_p0688b03 @exp=T34n1723_p0688b05 @lemma=善男子等如我惟忖至演大法義 @root=T09n0262_p0003c12..T09n0262_p0005b19 @basis=lemma @endbasis=next-node @n=4 @flags=truncated,count_mismatch @note=@exp = 「正答所徵也」 (b05–b06). Kuiji maps the 論's 十事 (b06–b18; 「總為五對」 b21) and divides: 「此中總分為四：一示相籌量答，二舉古成今答，三指陳別事答，四古今相即答」 (b23–b25). Not encoded (level 6): the four 答 in prose (p0688b05–p0692c02; after the first two, 「下有八因總為二文：初長行，後偈頌」 p0689a22) and the 43 stanzas that restate 三 and 四 (「下有四十三頌，頌前指陳別事古今相即」 p0692c03; T09n0262_p0004b18–p0005b19).
+        後有二頌語眾勸知陳佛今說 @ann=T34n1723_p0688b03 @exp=T34n1723_p0694b05 @cut=諸人今當知 @root=T09n0262_p0005b20..T09n0262_p0005b23 @basis=manual @endbasis=chapter @n=2 @ext=二頌 @flags=truncated,count_mismatch @note=@exp = 「下之二頌大文第三語眾勸知陳佛今說，有二：初一頌…後一頌…此初也」 (b05–b08). Kuiji's lemma 經「諸人今當知至充足求佛道」 (b04) ends 充足求佛道 where T09n0262 reads 充足求道者 (p0005b21; no variant recorded there), hence @cut. Not encoded (level 6): its two stanzas (lemma divisions at b04 and b09).
+正宗 @ann=T34n1723_p0661b10 @src=T34n1723_p0661b11 @exp=T34n1723_p0694b22 @root=T09n0262_p0005b24..T09n0262_p0030b27 @basis=chapter @n=8 @ext=八品 @note=Kuiji: 「次八品名正宗，正說一乘授三根記」 (T34n1723_p0661b11); heading as written (正宗, not 正宗分).
+  方便品 @exp=T34n1723_p0694b22 @root=T09n0262_p0005b24..T09n0262_p0010b20 @basis=chapter @flags=truncated
+  譬喻品 @exp=T34n1723_p0734b07 @root=T09n0262_p0010b28..T09n0262_p0016b06 @basis=chapter @note=Children: the gate node 三門分別 (T34n1723_p0734b08, commentary-internal) and the node for Kuiji's division of the chapter text, 大文分二 (T34n1723_p0735b21), per the 品文 convention in the header comment. Subtree covers the test-split span T34n1723_p0734b07–p0737b04 only (header coverage).
+    # ---------------------------------------------------------------------------------------------
+    # 譬喻品 OPENING — TEST SPLIT (T34n1723_p0734b07 up to, not including, p0737b04). Answer key for
+    # E01/E04; do not use as prompt or training material for systems evaluated on this span.
+    # Seed: tests/fixtures/R03-piyu-opening/alignment.md §1; every heading, @exp/@ann and lemma was
+    # re-read from ingest.lines output of the XML. Notes on the seed:
+    # note: alignment.md §1 hangs 「於中有二：初長行、後偈頌」 directly under 大文分二 and lists the four
+    #   釋歡喜之所以 lemmata beside 長行 (a three-level flattening). Here 於中有二 divides 第二鶖子聞法領解
+    #   (舍利弗's prose and verse, T09n0262_p0010b29–p0011b08) only, so two levels are inserted:
+    #   初鶖子聞法領喜述成得記 (b22) and 第二鶖子聞法領解 (b24–b25); the four items sit under 後釋歡喜之所以.
+    # note: no wording in alignment.md §1 differs from the XML. Its line citations are start lines: the
+    #   quotations at 0736b08, 0737a21 and 0737b03 run on to b09, a22 and b04; 「十無上有二十一品」 (b25)
+    #   reads 「其十無上有二十一品」 in the XML; the 疑／悔 問答 cited as 0736a26–b07 opens with 問 on a27.
+    # note: the text itself labels the second part of 釋歡喜之所以 「二處小階而起歡」 (p0735c09–c10) but
+    #   takes it up as 「下處小階而起歎」 (p0735c19) and repeats 「處小階而起歎」 in the verse (p0737a14);
+    #   the heading keeps the announced 起歡 (verbatim), a note records 歎.
+    # Not nodes (content lists inside a treatment, not divisions of the text): the 法華論 apparatus in
+    # 來意's item 二 (七譬喻在七品, 三平等有九品, 十無上有二十一品 with 二力/七力, 上殘/下殘, 殘有二義,
+    # 七喻者, 無上義者, 七種具足煩惱眾生者; p0734b16–p0735b03), 又由三義所以歡喜 (p0735c03–c07),
+    # 或因謂菩提心略為三種 (p0736a09–a12), 《瑜伽》八十四 六句 (p0736b09–c18). Each is noted on its node.
+    # ---------------------------------------------------------------------------------------------
+    三門分別 @exp=T34n1723_p0734b08 @class=commentary-internal @n=3 @note=Kuiji's gate formula for this 品 is the variant 「三門分別：一敘來意，二解品名，三釋妨難」 (b08; R03 F25), not the 「一來意，二釋名，三解妨」 of 22 other chapters.
+      一敘來意 @ann=T34n1723_p0734b08 @exp=T34n1723_p0734b09 @class=commentary-internal @n=2 @note=Taken up as 「來意有二」 (b09).
+        一鶖子上根聞法說而已悟 @ann=T34n1723_p0734b09 @exp=T34n1723_p0734b09 @class=commentary-internal @note=Heading = the item's first clause (Kuiji gives it no separate label); the item runs b09–b11 and closes 「故此品來」.
+        二論云 @ann=T34n1723_p0734b09 @exp=T34n1723_p0734b11 @class=commentary-internal @note=Heading = the item's opening words; the item quotes the 法華論 (「自此已下為七種具足煩惱性眾生，說七譬喻…說三平等」, 「餘殘修多羅明十無上義」, b11–b15) and runs to 「說此車喻，故此品來」 (p0735b03). Its enumerations are content lists that assign 品 of the whole sūtra to the 論's three 義, not divisions of this text, so they are not nodes: 七譬喻在七品 (b16), 三平等有九品 (b20–b21), 其十無上有二十一品 (b25) with 二力 (c02: 法力有三品 c03, 修行力中復有七力 c04), 上殘／下殘 (c11–c15), 殘有二義 (c15), 其七喻者 (c20), 無上義者 (c28), 七種具足煩惱眾生者 (p0735a03–a04).
+      二解品名 @ann=T34n1723_p0734b08 @exp=T34n1723_p0735b04 @class=commentary-internal @note=Taken up as 「解品名者」 (b04): glosses of 譬 and 喻 with the 《玉篇》, b04–b08.
+      三釋妨難 @ann=T34n1723_p0734b08 @exp=T34n1723_p0735b08 @class=commentary-internal @note=Taken up as 「釋妨者」 (b08–b09): three numbered question–answer pairs; no count is announced, so no @n.
+        一問 @exp=T34n1723_p0735b09 @class=commentary-internal @note=b09–b13: why not call the previous 品 法品.
+        二問 @exp=T34n1723_p0735b13 @class=commentary-internal @note=b13–b15: why only this one of the seven parables names its 品 譬喻.
+        三問 @exp=T34n1723_p0735b15 @class=commentary-internal @note=b15–b20: why 鶖子's 領解 and 記 are told at the head of this 品.
+    # 大文分二 announces two parts; only the first is taken up before p0737b04. Left out (beyond the
+    # covered span): 「後佛廣以譬喻化彼中根」 (announced p0735b23). Flags: truncated,count_mismatch on
+    # 大文分二 (1 of 2 announced parts present) and truncated on 初鶖子聞法領喜述成得記 (see its note).
+    大文分二 @exp=T34n1723_p0735b21 @lemma=爾時舍利弗至得未曾有 @root=T09n0262_p0010b29..T09n0262_p0016b06 @basis=lemma @endbasis=chapter @n=2 @flags=truncated,count_mismatch @note=Kuiji's division of the chapter text, 「贊曰：就此品中大文分二：初鶖子聞法領喜述成得記，後佛廣以譬喻化彼中根」 (b21–b23; 大文分二 itself stands on b22). The span is the text it divides, from the first division's lemma (quoted on b21) to the end of the 品; the 品's title line T09n0262_p0010b28 is outside it. @note=Second part 後佛廣以譬喻化彼中根 not encoded: Kuiji takes it up after T34n1723_p0737b04, outside the covered span.
+      初鶖子聞法領喜述成得記 @ann=T34n1723_p0735b22 @exp=T34n1723_p0735b23 @lemma=爾時舍利弗至得未曾有 @root=T09n0262_p0010b29..T09n0262_p0012b01 @basis=lemma @endbasis=manual @flags=truncated @note=@exp = 「初文屬前第一周法說一乘」 (b23). Kuiji places this part in the cross-chapter 周 structure: 「初周有四，上法說訖，自下第二鶖子聞法領解」 (b24–b25); the chapter-first tree keeps the 周 in this note. @note=Only its first part, 第二鶖子聞法領解, is taken up before T34n1723_p0737b04; the parts its label also names (述成, 得記) are taken up later and are not encoded (flag truncated; no @n, because Kuiji announces no count for this part itself: 初周有四 counts the 周, whose first part is 方便品). @note=END IS THE ANNOTATOR'S (end_basis manual): the covered commentary does not say where 後佛廣以譬喻化彼中根 starts. Reading: 述成 = T09n0262_p0011b09 ff., 得記 = p0011b16–p0012a06, and the 四眾's rejoicing at the 記 (p0012a07–b01) closes this part; 舍利弗's request for the 中根 (p0012b02 「爾時舍利弗白佛言」) opens the next (where Zhiyi's 四眾歡喜 ends, R03 F23). Alternative: end at p0012a06 (end of the 授記 verses). Re-check against T34n1723 after p0737b04 when that span is released.
+        第二鶖子聞法領解 @exp=T34n1723_p0735b24 @lemsrc=T34n1723_p0735b21 @lemma=爾時舍利弗至得未曾有 @root=T09n0262_p0010b29..T09n0262_p0011b08 @basis=lemma @endbasis=extent-formula @n=2 @note=「自下第二鶖子聞法領解，自責而生喜，於中有二：初長行、後偈頌」 (b24–b26); 第二 is its place among the four parts of the first 周. End = the end of its verse part, fixed by 「二十五頌半」 (p0736c24).
+          初長行 @ann=T34n1723_p0735b25 @exp=T34n1723_p0735b26 @lemsrc=T34n1723_p0735b21 @lemma=爾時舍利弗至得未曾有 @root=T09n0262_p0010b29..T09n0262_p0010c14 @basis=lemma @endbasis=next-node @n=2 @note=@exp = 「長行有二：初標聞法以喜生，後釋歡喜之所以」 (b26–b27).
+            初標聞法以喜生 @ann=T34n1723_p0735b26 @exp=T34n1723_p0735b27 @lemsrc=T34n1723_p0735b21 @lemma=爾時舍利弗至得未曾有 @root=T09n0262_p0010b29..T09n0262_p0010c02 @basis=lemma @note=@exp = 「此初也」 (b27). The treatment adds 「又由三義所以歡喜：一…二…三…」 (c03–c07), three reasons for the joy, kept as content, not as nodes.
+            後釋歡喜之所以 @ann=T34n1723_p0735b27 @exp=T34n1723_p0735c08 @lemma=所以者何至無量知見 @root=T09n0262_p0010c02..T09n0262_p0010c14 @basis=lemma @endbasis=next-node @n=4 @note=@exp = 「下釋歡喜之所以，有四」 (c08–c09).
+              一失大法以興嗟 @ann=T34n1723_p0735c09 @exp=T34n1723_p0735c11 @lemsrc=T34n1723_p0735c08 @lemma=所以者何至無量知見 @root=T09n0262_p0010c02..T09n0262_p0010c04 @basis=lemma @note=@exp = 「此初也」 (c11).
+              二處小階而起歡 @ann=T34n1723_p0735c09 @exp=T34n1723_p0735c19 @lemma=世尊我常獨處至而見濟度 @root=T09n0262_p0010c04..T09n0262_p0010c10 @basis=lemma @endbasis=next-node @n=2 @note=Heading as announced (c09–c10, 起歡); Kuiji takes it up as 「下處小階而起歎，有二」 (c19–c20) and the verse part repeats 處小階而起歎 (p0737a14). No variant reading is marked in the XML.
+                初歎住小 @ann=T34n1723_p0735c20 @exp=T34n1723_p0735c21 @lemma=世尊我常獨處至而見濟度 @root=T09n0262_p0010c04..T09n0262_p0010c07 @basis=lemma @note=@exp = 「此初也」 (c21).
+                後自責躬 @ann=T34n1723_p0735c20 @exp=T34n1723_p0735c26 @lemma=是我等咎非世尊也 @root=T09n0262_p0010c07..T09n0262_p0010c10 @basis=lemma @endbasis=next-node @n=3 @note=@exp = 「下自責躬，有三：初標，次釋，後成」 (c26–c27). The lemma has no 至 (「是我等咎非世尊也」).
+                  初標 @ann=T34n1723_p0735c27 @exp=T34n1723_p0735c27 @lemma=是我等咎非世尊也 @root=T09n0262_p0010c07..T09n0262_p0010c07 @basis=lemma @note=@exp = 「此標也」 (c27).
+                  次釋 @ann=T34n1723_p0735c27 @exp=T34n1723_p0736a01 @lemma=所以者何至而得度脫 @root=T09n0262_p0010c07..T09n0262_p0010c09 @basis=lemma @note=@exp = 「此釋所由」 (a01). The treatment adds 「或因謂菩提心，略為三種」 (a09–a12), content, not nodes.
+                  後成 @ann=T34n1723_p0735c27 @exp=T34n1723_p0736a13 @lemma=然我等至思惟取證 @root=T09n0262_p0010c09..T09n0262_p0010c10 @basis=lemma @note=@exp = 「此成自責」 (a13).
+              三喜今聞而惱盡 @ann=T34n1723_p0735c10 @exp=T34n1723_p0736a17 @lemma=世尊至快得安隱 @root=T09n0262_p0010c10..T09n0262_p0010c13 @basis=lemma @note=@exp = 「贊曰：喜今聞而惱盡」 (a17). The lemma's 世尊 is split over T09n0262_p0010c10–c11 (世｜尊); the span starts on c10 (R03 F23's cut 0010c10).
+              四知佛子而道成 @ann=T34n1723_p0735c10 @exp=T34n1723_p0736b08 @lemma=今日乃知至得佛法分 @root=T09n0262_p0010c13..T09n0262_p0010c14 @basis=lemma @note=@exp = 「贊曰：知佛子而道成也」 (b08–b09). The treatment reads the six phrases of 《瑜伽》八十四 (b09–c18) as content, not as nodes.
+          後偈頌 @ann=T34n1723_p0735b26 @exp=T34n1723_p0736c24 @lemma=爾時舍利弗至疑網皆已除 @root=T09n0262_p0010c14..T09n0262_p0011b08 @basis=lemma @endbasis=extent-formula @n=2 @note=@exp = 「贊曰：二十五頌半分二：初二頌半頌標，二十三頌頌釋」 (c24–c25). End fixed by 二十五頌半: 51 verse lines T09n0262_p0010c16–p0011b08 (the span also takes in the verse introduction c14–c15, which the lemma quotes). The extent is not in @ext because the compiler checks @ext beside the heading's line (b26).
+            初二頌半頌標 @ann=T34n1723_p0736c25 @exp=T34n1723_p0736c26 @lemma=爾時舍利弗至疑網皆已除 @root=T09n0262_p0010c14..T09n0262_p0010c20 @basis=lemma @endbasis=next-node @n=2 @ext=二頌半 @note=@exp = 「初文有二」 (c26). 2½ stanzas = T09n0262_p0010c16–c20.
+              初一頌頌標中得未曾有心喜疑除 @ann=T34n1723_p0736c26 @exp=T34n1723_p0736c27 @lemsrc=T34n1723_p0736c24 @lemma=爾時舍利弗至疑網皆已除 @root=T09n0262_p0010c14..T09n0262_p0010c17 @basis=lemma @ext=一頌 @note=@exp = 「此初也」 (此 on c27, 初也 on c28).
+              後一頌半釋得未曾有彰憂悔盡 @ann=T34n1723_p0736c27 @exp=T34n1723_p0737a01 @lemma=昔來蒙佛教至聞亦除憂惱 @root=T09n0262_p0010c18..T09n0262_p0010c20 @basis=lemma @ext=一頌半 @note=@exp = 「贊曰：釋得未曾有彰憂悔盡」 (a01–a02).
+            # 二十三頌頌釋 announces four parts (分四, p0737a13–a16); Kuiji takes up the first two before
+            # p0737b04. Left out (beyond the covered span): 「次十四頌喜今聞而惱盡」 (a15–a16; by stanza count
+            # T09n0262_p0011a08–p0011b06) and 「後一頌知佛子而道成」 (a16; p0011b07–b08).
+            二十三頌頌釋 @ann=T34n1723_p0736c25 @exp=T34n1723_p0737a13 @lemma=我處於山谷至云何而自欺 @root=T09n0262_p0010c21..T09n0262_p0011b08 @basis=lemma @endbasis=extent-formula @n=4 @ext=二十三頌 @flags=truncated,count_mismatch @note=@exp = 「下頌前釋，分四：初二頌半處小階而起歎，次五頌半失大法以興嗟，次十四頌喜今聞而惱盡，後一頌知佛子而道成，與前長行前後不同」 (a13–a17). End fixed by 二十三頌: 46 verse lines T09n0262_p0010c21–p0011b08. @note=Parts 3 and 4 (次十四頌喜今聞而惱盡, 後一頌知佛子而道成) not encoded: Kuiji takes them up after T34n1723_p0737b04, outside the covered span.
+              初二頌半處小階而起歎 @ann=T34n1723_p0737a14 @exp=T34n1723_p0737a17 @lemsrc=T34n1723_p0737a13 @lemma=我處於山谷至云何而自欺 @root=T09n0262_p0010c21..T09n0262_p0010c25 @basis=lemma @endbasis=next-node @n=2 @ext=二頌半 @note=@exp = 「故初中有二：初一頌半歎居小位，後之一頌頌所歎事」 (a17–a18).
+                初一頌半歎居小位 @ann=T34n1723_p0737a17 @exp=T34n1723_p0737a18 @lemsrc=T34n1723_p0737a13 @lemma=我處於山谷至云何而自欺 @root=T09n0262_p0010c21..T09n0262_p0010c23 @basis=lemma @ext=一頌半 @note=@exp = 「此初也」 (a18).
+                後之一頌頌所歎事 @ann=T34n1723_p0737a18 @exp=T34n1723_p0737a21 @lemma=我等亦佛子至演說無上道 @root=T09n0262_p0010c24..T09n0262_p0010c25 @basis=lemma @ext=一頌 @note=@exp = 「贊曰：此一頌頌所歎事」 (a21–a22).
+              # The last division Kuiji takes up before p0737b04. Its announcement (a25–b02) nests three
+              # binary splits; only the first branch of each is taken up before p0737b04 (此初也, b02). Left
+              # out (beyond the covered span), with their stanza-count spans in T09n0262:
+              # 「後之二頌明自興嗟」 (a27; p0011a04–a07), 「後一頌半名利高廣德」 (a28; p0011a01–a03),
+              # 「後一頌好滿不共德」 (b01–b02; p0010c28–c29).
+              次五頌半失大法以興嗟 @ann=T34n1723_p0737a14 @exp=T34n1723_p0737a25 @lemma=金色三十二至而不得此事 @root=T09n0262_p0010c26..T09n0262_p0011a07 @basis=lemma @endbasis=extent-formula @n=2 @ext=五頌半 @flags=truncated,count_mismatch @note=@exp = 「贊曰：下五頌半失大法以興嗟，中分二：初三頌半所失大法，後之二頌明自興嗟」 (a25–a27). End fixed by 五頌半: 11 verse lines T09n0262_p0010c26–p0011a07. @note=Part 2 (後之二頌明自興嗟) not encoded: taken up after T34n1723_p0737b04.
+                初三頌半所失大法 @ann=T34n1723_p0737a26 @exp=T34n1723_p0737a27 @lemma=金色三十二至而不得此事 @root=T09n0262_p0010c26..T09n0262_p0011a03 @basis=lemma @endbasis=extent-formula @n=2 @ext=三頌半 @flags=truncated,count_mismatch @note=@exp = 「初中復二：初之二頌內外莊嚴德，後一頌半名利高廣德」 (a27–a28). End fixed by 三頌半: T09n0262_p0010c26–p0011a03. @note=Part 2 (後一頌半名利高廣德) not encoded: taken up after T34n1723_p0737b04.
+                  初之二頌內外莊嚴德 @ann=T34n1723_p0737a27 @exp=T34n1723_p0737b01 @lemsrc=T34n1723_p0737a25 @lemma=金色三十二至而不得此事 @root=T09n0262_p0010c26..T09n0262_p0010c29 @basis=lemma @endbasis=extent-formula @n=2 @ext=二頌 @flags=truncated,count_mismatch @note=@exp = 「初中復二：初一頌具相降魔德，後一頌好滿不共德」 (b01–b02). End fixed by 二頌: T09n0262_p0010c26–c29. @note=Part 2 (後一頌好滿不共德) not encoded: taken up after T34n1723_p0737b04.
+                    初一頌具相降魔德 @ann=T34n1723_p0737b01 @exp=T34n1723_p0737b02 @lemsrc=T34n1723_p0737a25 @lemma=金色三十二至而不得此事 @root=T09n0262_p0010c26..T09n0262_p0010c27 @basis=lemma @ext=一頌 @note=@exp = 「此初也」 (b02). Its treatment runs past T34n1723_p0737b04 (the 《大般若經》 quotation on the thirty-two marks opens at b03; per tests/fixtures/R03-piyu-opening/README.md it runs to p0737c25); no division of it is announced before p0737b04, so it is a leaf here and is not flagged.
+  信解品 @exp=T34n1723_p0770b23 @root=T09n0262_p0016b07..T09n0262_p0019a11 @basis=chapter @flags=truncated
+  藥草喻品 @exp=T34n1723_p0781a03 @root=T09n0262_p0019a18..T09n0262_p0020b24 @basis=chapter @flags=truncated
+  授記品 @exp=T34n1723_p0786c24 @root=T09n0262_p0020b25..T09n0262_p0022a17 @basis=chapter @flags=truncated
+  化城喻品 @exp=T34n1723_p0789b15 @root=T09n0262_p0022a18..T09n0262_p0027b08 @basis=chapter @flags=truncated
+  五百弟子受記品 @exp=T34n1723_p0801c21 @root=T09n0262_p0027b16..T09n0262_p0029b21 @basis=chapter @flags=truncated
+  授學無學人記品 @exp=T34n1723_p0805c07 @root=T09n0262_p0029b22..T09n0262_p0030b27 @basis=chapter @flags=truncated
+流通 @ann=T34n1723_p0661b10 @src=T34n1723_p0661b26 @exp=T34n1723_p0806c24 @root=T09n0262_p0030b28..T09n0262_p0062a29 @basis=chapter @n=19 @ext=十九品 @note=Kuiji: 「餘十九品總名流通，讚證受命付令行故」 (T34n1723_p0661b26–b27). @src: the name stands 16 lines after the announcement's first line (@ann, 今為二解).
+  法師品 @exp=T34n1723_p0806c24 @root=T09n0262_p0030b28..T09n0262_p0032b15 @basis=chapter @flags=truncated
+  見寶塔品 @exp=T34n1723_p0811a12 @root=T09n0262_p0032b16..T09n0262_p0034b22 @basis=chapter @flags=truncated
+  提婆達多品 @exp=T34n1723_p0815a12 @root=T09n0262_p0034b23..T09n0262_p0035c26 @basis=chapter @flags=truncated
+  持品 @exp=T34n1723_p0817b03 @root=T09n0262_p0035c27..T09n0262_p0037a01 @basis=chapter @flags=truncated @note=T09n0262 cb:mulu: 13 勸持品
+  安樂行品 @exp=T34n1723_p0818c19 @root=T09n0262_p0037a09..T09n0262_p0039c17 @basis=chapter @flags=truncated
+  從地涌出品 @exp=T34n1723_p0825c27 @root=T09n0262_p0039c18..T09n0262_p0042a28 @basis=chapter @flags=truncated @note=T09n0262 cb:mulu: 15 從地踊出品
+  壽量品 @exp=T34n1723_p0828b09 @root=T09n0262_p0042a29..T09n0262_p0044a04 @basis=chapter @flags=truncated @note=T09n0262 cb:mulu: 16 如來壽量品
+  分別功德品 @exp=T34n1723_p0833b24 @root=T09n0262_p0044a05..T09n0262_p0046b13 @basis=chapter @flags=truncated
+  隨喜功德品 @exp=T34n1723_p0836a27 @root=T09n0262_p0046b21..T09n0262_p0047c01 @basis=chapter @flags=truncated
+  法師功德品 @exp=T34n1723_p0837a25 @root=T09n0262_p0047c02..T09n0262_p0050b22 @basis=chapter @flags=truncated
+  常不輕菩薩品 @exp=T34n1723_p0839b10 @root=T09n0262_p0050b23..T09n0262_p0051c07 @basis=chapter @flags=truncated
+  如來神力品 @exp=T34n1723_p0841a06 @root=T09n0262_p0051c08..T09n0262_p0052c02 @basis=chapter @flags=truncated
+  囑累品 @exp=T34n1723_p0842b17 @root=T09n0262_p0052c03..T09n0262_p0053a03 @basis=chapter @flags=truncated
+  藥王菩薩本事品 @exp=T34n1723_p0843b16 @root=T09n0262_p0053a04..T09n0262_p0055a08 @basis=chapter @flags=truncated
+  妙音菩薩品 @exp=T34n1723_p0845b04 @root=T09n0262_p0055a16..T09n0262_p0056c01 @basis=chapter @flags=truncated
+  觀世音普門品 @exp=T34n1723_p0846c07 @root=T09n0262_p0056c02..T09n0262_p0058b07 @basis=chapter @flags=truncated @note=T09n0262 cb:mulu: 25 觀世音菩薩普門品
+  陀羅尼品 @exp=T34n1723_p0850a19 @root=T09n0262_p0058b08..T09n0262_p0059b27 @basis=chapter @note=Children: the gate node 三門分別 (T34n1723_p0850a20, commentary-internal) and the node for Kuiji's division of the chapter text, 品文分三 (T34n1723_p0850a29), per the 品文 convention in the header comment.
+    三門分別 @exp=T34n1723_p0850a20 @class=commentary-internal @n=3
+      一來意 @ann=T34n1723_p0850a20 @exp=T34n1723_p0850a20 @class=commentary-internal @note=Treatment 「來意者，論云「為護眾生諸難」，如前已釋。」 (a20–a21).
+      二釋名 @ann=T34n1723_p0850a20 @exp=T34n1723_p0850a21 @class=commentary-internal @note=Treatment 「釋名者，梵云陀羅尼，此云總持…故名陀羅尼品。」 (a21–a25).
+      三解妨 @ann=T34n1723_p0850a20 @exp=T34n1723_p0850a25 @class=commentary-internal @note=Treatment 「解妨者，問：…答：…」 (a25–a28), one question and answer, not a division.
+    品文分三 @exp=T34n1723_p0850a29 @lemma=爾時藥王至功德甚多 @root=T09n0262_p0058b09..T09n0262_p0059b27 @basis=lemma @endbasis=chapter @n=3 @note=Kuiji's division of the chapter text, 「贊曰：品文分三：初明持經之福，次明神呪之方，後明時眾獲益」 (a29–b01). The span is the text it divides, from the first division's lemma (quoted on the same line) to the end of the 品; the 品's title line T09n0262_p0058b08 is outside it.
+      初明持經之福 @ann=T34n1723_p0850a30 @exp=T34n1723_p0850b01 @lemma=爾時藥王至功德甚多 @root=T09n0262_p0058b09..T09n0262_p0058b17 @basis=lemma @n=2 @note=Announced in 「品文分三」 (a29–b01); @exp = 「此初。」 (b01), the lemma being quoted at a29.
+        初問 @ann=T34n1723_p0850b01 @exp=T34n1723_p0850b01 @cut=爾時藥王菩薩即從座起 @root=T09n0262_p0058b09..T09n0262_p0058b12 @basis=manual
+        後答 @ann=T34n1723_p0850b01 @exp=T34n1723_p0850b01 @cut=佛告藥王 @root=T09n0262_p0058b12..T09n0262_p0058b17 @basis=manual @n=3 @note=Treatment 「答中有三」 (b01).
+          一返問 @ann=T34n1723_p0850b01 @exp=T34n1723_p0850b01 @cut=佛告藥王 @root=T09n0262_p0058b12..T09n0262_p0058b14 @basis=manual @note=Annotator's reading: 返問 = the Buddha's counter-question 「若有善男子…寧為多不？」.
+          二直答 @ann=T34n1723_p0850b02 @exp=T34n1723_p0850b02 @cut=甚多世尊 @root=T09n0262_p0058b14..T09n0262_p0058b14 @basis=manual @note=Annotator's reading: 直答 = 藥王's reply 「甚多，世尊。」.
+          三佛說 @ann=T34n1723_p0850b02 @exp=T34n1723_p0850b02 @cut=佛言若善男子 @root=T09n0262_p0058b15..T09n0262_p0058b17 @basis=manual
+      次明神呪之方 @ann=T34n1723_p0850a30 @exp=T34n1723_p0850b03 @lemma=爾時藥王至多所饒益 @root=T09n0262_p0058b17..T09n0262_p0059b26 @basis=lemma @endbasis=next-node @n=3 @note=Kuiji: 「有五，合為三類：初二聖，次二天，後十神」 (b04): five dhāraṇī speakers in three classes; @n counts the three classes. The lemma (b03) is that of the first class's first member and fixes the start only.
+        初二聖 @ann=T34n1723_p0850b04 @exp=T34n1723_p0850b05 @lemma=爾時藥王至多所饒益 @root=T09n0262_p0058b17..T09n0262_p0059a06 @basis=lemma @endbasis=next-node @n=2 @note=@n from the class name 二聖 (two sages: 藥王, 勇施); @exp = 「此初聖」 (b05), where the class is entered.
+          初聖 @exp=T34n1723_p0850b05 @lemma=爾時藥王至多所饒益 @root=T09n0262_p0058b17..T09n0262_p0058c08 @basis=lemma @n=4 @note=Heading from 「此初聖」 (b05); 藥王菩薩.
+            一標 @ann=T34n1723_p0850b05 @exp=T34n1723_p0850b05 @cut=爾時藥王菩薩白佛言 @root=T09n0262_p0058b17..T09n0262_p0058b18 @basis=manual
+            二說 @ann=T34n1723_p0850b05 @exp=T34n1723_p0850b05 @cut=即說呪曰 @root=T09n0262_p0058b18..T09n0262_p0058c03 @basis=manual
+            三結勝 @ann=T34n1723_p0850b05 @exp=T34n1723_p0850b05 @cut=世尊是陀羅尼神咒 @root=T09n0262_p0058c04..T09n0262_p0058c06 @basis=manual
+            四佛讚 @ann=T34n1723_p0850b05 @exp=T34n1723_p0850b05 @cut=時釋迦牟尼佛讚藥王菩薩言 @root=T09n0262_p0058c06..T09n0262_p0058c08 @basis=manual
+          第二聖 @exp=T34n1723_p0850b06 @lemma=爾時勇施至是諸佛已 @root=T09n0262_p0058c09..T09n0262_p0059a06 @basis=lemma @n=4 @note=勇施菩薩.
+            初標 @ann=T34n1723_p0850b07 @exp=T34n1723_p0850b07 @cut=爾時勇施菩薩白佛言 @root=T09n0262_p0058c09..T09n0262_p0058c10 @basis=manual
+            二功能 @ann=T34n1723_p0850b07 @exp=T34n1723_p0850b07 @cut=若此法師得是陀羅尼 @root=T09n0262_p0058c10..T09n0262_p0058c13 @basis=manual
+            三正說 @ann=T34n1723_p0850b07 @exp=T34n1723_p0850b07 @cut=即於佛前而說呪曰 @root=T09n0262_p0058c13..T09n0262_p0059a03 @basis=manual
+            四結勝 @ann=T34n1723_p0850b07 @exp=T34n1723_p0850b07 @cut=世尊是陀羅尼神呪恒河沙 @root=T09n0262_p0059a04..T09n0262_p0059a06 @basis=manual
+        次二天 @ann=T34n1723_p0850b04 @exp=T34n1723_p0850b08 @lemma=爾時毘沙門至無諸衰患 @root=T09n0262_p0059a07..T09n0262_p0059a21 @basis=lemma @endbasis=next-node @n=2 @note=@n from the class name 二天 (毘沙門, 持國); @exp = 「下二天」 (b08).
+          初文 @exp=T34n1723_p0850b09 @lemma=爾時毘沙門至無諸衰患 @root=T09n0262_p0059a07..T09n0262_p0059a13 @basis=lemma @n=3 @note=Heading from 「中初文有三」 (b09): Kuiji's name for the first 天 (毘沙門天王).
+            初標 @ann=T34n1723_p0850b09 @exp=T34n1723_p0850b09 @cut=爾時毘沙門天王護世者白佛言 @root=T09n0262_p0059a07..T09n0262_p0059a09 @basis=manual @note=Kuiji glosses 毘沙門 here: 「「毘沙門」者此云多聞，四天王中北方之天也，常讚佛法。」 (b09–b11).
+            次說 @ann=T34n1723_p0850b09 @exp=T34n1723_p0850b09 @cut=即說呪曰 @root=T09n0262_p0059a09..T09n0262_p0059a11 @basis=manual
+            後結勝 @ann=T34n1723_p0850b09 @exp=T34n1723_p0850b09 @cut=世尊以是神呪擁護法師 @root=T09n0262_p0059a12..T09n0262_p0059a13 @basis=manual
+          第二天王 @exp=T34n1723_p0850b12 @lemma=爾時持國至是諸佛已 @root=T09n0262_p0059a13..T09n0262_p0059a21 @basis=lemma @n=3 @note=「此即東面天王」 (b13): 持國天王.
+            初標 @ann=T34n1723_p0850b13 @exp=T34n1723_p0850b13 @cut=爾時持國天王 @root=T09n0262_p0059a13..T09n0262_p0059a16 @basis=manual
+            次說 @ann=T34n1723_p0850b13 @exp=T34n1723_p0850b13 @cut=即說呪曰 @root=T09n0262_p0059a16..T09n0262_p0059a19 @basis=manual
+            後結勝 @ann=T34n1723_p0850b13 @exp=T34n1723_p0850b13 @cut=世尊是陀羅尼神呪四十二億 @root=T09n0262_p0059a20..T09n0262_p0059a21 @basis=manual
+        後十神 @ann=T34n1723_p0850b04 @exp=T34n1723_p0850b14 @lemma=爾時有羅剎女至如是法師 @root=T09n0262_p0059a22..T09n0262_p0059b26 @basis=lemma @n=7 @note=The class is a single lemma; @exp = 「此十神。有七」 (b14–b15).
+          一標名 @ann=T34n1723_p0850b15 @exp=T34n1723_p0850b15 @cut=爾時有羅剎女等 @root=T09n0262_p0059a22..T09n0262_p0059a27 @basis=manual
+          二請說 @ann=T34n1723_p0850b15 @exp=T34n1723_p0850b15 @cut=同聲白佛言 @root=T09n0262_p0059a27..T09n0262_p0059a29 @basis=manual
+          三正說 @ann=T34n1723_p0850b15 @exp=T34n1723_p0850b15 @cut=即於佛前而說呪曰 @root=T09n0262_p0059a29..T09n0262_p0059b04 @basis=manual @note=Annotator's cut: 「即於佛前，而說呪曰」 is taken as the opening of the spell (as 「即於佛前而說偈言」 opens item 五).
+          四勸勿惱法師 @ann=T34n1723_p0850b15 @exp=T34n1723_p0850b15 @cut=寧上我頭上 @root=T09n0262_p0059b05..T09n0262_p0059b11 @basis=manual
+          五更說偈喻罪 @ann=T34n1723_p0850b16 @exp=T34n1723_p0850b16 @cut=即於佛前而說偈言 @root=T09n0262_p0059b11..T09n0262_p0059b16 @basis=manual
+          六請身護 @ann=T34n1723_p0850b16 @exp=T34n1723_p0850b16 @cut=諸羅剎女說此偈已 @root=T09n0262_p0059b17..T09n0262_p0059b19 @basis=manual
+          七佛讚揚 @ann=T34n1723_p0850b16 @exp=T34n1723_p0850b17 @cut=佛告諸羅剎女 @root=T09n0262_p0059b19..T09n0262_p0059b26 @basis=manual @n=3 @note=@exp = 「有三：初總讚，次別讚，後勸讚」 (b17), the item's own subdivision.
+            初總讚 @ann=T34n1723_p0850b17 @exp=T34n1723_p0850b17 @cut=佛告諸羅剎女 @root=T09n0262_p0059b19..T09n0262_p0059b20 @basis=manual @note=Annotator's reading: 總讚 = 「善哉，善哉！」.
+            次別讚 @ann=T34n1723_p0850b17 @exp=T34n1723_p0850b17 @cut=汝等但能擁護 @root=T09n0262_p0059b20..T09n0262_p0059b25 @basis=manual @note=Annotator's reading: 別讚 = 「汝等但能擁護受持法華名者，福不可量，何況…百千種供養者」. Alternative reading: 總讚 runs to 「福不可量」 and 別讚 starts at 「何況」 (then 總讚 ends, and 別讚 starts, on T09n0262_p0059b21).
+            後勸讚 @ann=T34n1723_p0850b17 @exp=T34n1723_p0850b17 @cut=睪帝汝等及眷屬 @root=T09n0262_p0059b25..T09n0262_p0059b26 @basis=manual
+      後明時眾獲益 @ann=T34n1723_p0850a30 @exp=T34n1723_p0850b18 @lemma=說是陀羅尼至無生法忍 @root=T09n0262_p0059b26..T09n0262_p0059b27 @basis=lemma @note=@exp = 「品第三段時眾獲益」 (b18).
+  妙莊嚴王本事品 @exp=T34n1723_p0850b20 @root=T09n0262_p0059b28..T09n0262_p0061a04 @basis=chapter @flags=truncated
+  普賢菩薩勸發品 @exp=T34n1723_p0852a21 @root=T09n0262_p0061a05..T09n0262_p0062a29 @basis=chapter @flags=truncated

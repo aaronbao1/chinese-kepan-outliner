@@ -1,0 +1,15 @@
+[{"id": "T9999D01_001", "text": "SYNTHETIC 合成序", "leaf": true, "children": []},
+ {"id": "T9999D01_002", "text": "序品第一", "leaf": false, "children": [
+  {"id": "T9999D02_001", "text": "1 通序", "leaf": false, "children": [
+   {"id": "T9999D03_001", "text": "1 如是", "leaf": true, "children": []},
+   {"id": "T9999D03_002", "text": "2 我聞", "leaf": true, "children": []}]},
+  {"id": "T9999D02_002", "text": "2 別序", "leaf": false, "children": [
+   {"id": "T9999D03_003", "text": "1 長行", "leaf": true, "children": []},
+   {"id": "T9999D03_004", "text": "2 偈頌前分", "leaf": true, "children": []},
+   {"id": "T9999D03_005", "text": "3 偈頌後分", "leaf": true, "children": []}]}]},
+ {"id": "T9999D01_003", "text": "正宗分第二", "leaf": false, "children": [
+  {"id": "T9999D02_003", "text": "1 開顯", "leaf": true, "children": []},
+  {"id": "T9999D02_004", "text": "2 授記", "leaf": false, "children": [
+   {"id": "T9999D03_006", "text": "1 授記長行", "leaf": true, "children": []},
+   {"id": "T9999D03_007", "text": "2 偈頌", "leaf": true, "children": []}]},
+  {"id": "T9999D02_005", "text": "3 空節", "leaf": true, "children": []}]}]

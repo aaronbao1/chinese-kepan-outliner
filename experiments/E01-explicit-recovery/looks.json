@@ -1,0 +1,188 @@
+{
+ "note": "Every scoring run on a validation or test split is appended here by run_e01.py (EVAL-SETS: report the number of looks). Dev runs are not counted.",
+ "looks": [
+  {
+   "date": "2026-09-28T02:28:26+00:00",
+   "split": "validation",
+   "set": "T1718-validation",
+   "commit": {
+    "commit": "685a8a47a673ab864908f73a144e0dece60f756f",
+    "dirty": true
+   },
+   "arms": [
+    "tier1",
+    "tier2"
+   ]
+  },
+  {
+   "date": "2026-10-01T09:40:51+00:00",
+   "split": "validation",
+   "set": "T1718-validation",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "tier1",
+    "tier2"
+   ],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "date": "2026-10-01T09:40:51+00:00",
+   "split": "validation",
+   "set": "T0262-xu-root",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "tier1",
+    "tier2"
+   ],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "date": "2026-10-01T10:58:25+00:00",
+   "split": "validation",
+   "set": "T1718-validation",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "hybrid"
+   ],
+   "outline_sha256": {
+    "hybrid": "61e1869149b0d34ebb56f9e4207aa3d23d49e80fc1196d4a6ce5eade4252f1f7"
+   },
+   "scored_at": [
+    "2026-10-01T10:58:25+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01; continues the E06 entry of 2026-10-01T09:40:51+00:00 for this set (arms scored in a later pass)"
+  },
+  {
+   "date": "2026-10-01T10:58:25+00:00",
+   "split": "validation",
+   "set": "T1718-devval",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "hybrid",
+    "tier1",
+    "tier2"
+   ],
+   "outline_sha256": {
+    "tier1": "7dfa7c4f7d47e5ad7b0ebbcd0c98b707a56f02fa1776d820c34a10027b8ed012",
+    "tier2": "2dd6d7e611b1ab09473db7c76d6273ba9a12b7967d4bff146db6aa16d16aa038",
+    "hybrid": "101412e6228067fb7ce7afe5a8a24b1a1564041a1485122c45a069cf636aa48f"
+   },
+   "scored_at": [
+    "2026-10-01T10:58:25+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01"
+  },
+  {
+   "date": "2026-10-01T10:58:25+00:00",
+   "split": "validation",
+   "set": "T0262-xu-root",
+   "commit": {
+    "commit": "8498eb38fab2e65b003899547faa2bdb7e48636c",
+    "dirty": true
+   },
+   "arms": [
+    "hybrid",
+    "model-only"
+   ],
+   "outline_sha256": {
+    "hybrid": "8cd1a492fc2fa60f88186c6fe7a91e046d1e3ca51141337a7bebb469968b1ad3",
+    "model-only": "54dc31b514e70d4453e73b66d52a6017f89ec1ee9b85a3c0cc17dc02b1dde086"
+   },
+   "scored_at": [
+    "2026-10-01T10:58:25+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E06 look #2, frozen outliner-v0-frozen-2026-10-01; continues the E06 entry of 2026-10-01T09:40:51+00:00 for this set (arms scored in a later pass)"
+  },
+  {
+   "date": "2026-10-04T04:47:50+00:00",
+   "split": "validation",
+   "set": "T1718-validation",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "arms": [
+    "hybrid",
+    "tier1",
+    "tier2"
+   ],
+   "outline_sha256": {
+    "tier1": "97e622dc2091c816201835643bcce9bb73ea151e4bed13e3c84d288856a8f4ce",
+    "tier2": "6ada64f14805c19c5c7aca7b024f462da520d39763b16fd9aef8746ca8988bdc",
+    "hybrid": "b264ec23bfc9ef982dd11f75985313f034bf9449a5b859b4ea6a2c86a961f891"
+   },
+   "scored_at": [
+    "2026-10-04T04:47:47+00:00",
+    "2026-10-04T04:47:48+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E07 look #3, frozen outliner-v1-frozen-2026-10-03"
+  },
+  {
+   "date": "2026-10-04T04:47:50+00:00",
+   "split": "validation",
+   "set": "T1718-devval",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "arms": [
+    "hybrid",
+    "tier1",
+    "tier2"
+   ],
+   "outline_sha256": {
+    "tier1": "ed6779279ae88ec7ca01dfb50627261e1dbe74726126f5b74f0e7b47413c7e71",
+    "tier2": "19b597299e071dd1d5e7e2f07594ec5e6f1dd05ac889a4dee6472890b35cddd9",
+    "hybrid": "e77f3f7719c3943059cffcc8462a3ff43037b6f939e3aedcc4cb3395919446f0"
+   },
+   "scored_at": [
+    "2026-10-04T04:47:48+00:00",
+    "2026-10-04T04:47:49+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E07 look #3, frozen outliner-v1-frozen-2026-10-03"
+  },
+  {
+   "date": "2026-10-04T04:47:50+00:00",
+   "split": "validation",
+   "set": "T0262-xu-root",
+   "commit": {
+    "commit": "014c125e138b4bab9d465fa1206296f7c48444e3",
+    "dirty": false
+   },
+   "arms": [
+    "hybrid",
+    "model-only",
+    "tier1",
+    "tier2"
+   ],
+   "outline_sha256": {
+    "tier1": "ed6779279ae88ec7ca01dfb50627261e1dbe74726126f5b74f0e7b47413c7e71",
+    "tier2": "19b597299e071dd1d5e7e2f07594ec5e6f1dd05ac889a4dee6472890b35cddd9",
+    "hybrid": "e77f3f7719c3943059cffcc8462a3ff43037b6f939e3aedcc4cb3395919446f0",
+    "model-only": "c384637456b50fc8d9c60ce7e7d6bbbee339f558b3d0478f4e2e9113d472ba0e"
+   },
+   "scored_at": [
+    "2026-10-04T04:47:49+00:00"
+   ],
+   "arms_not_yet_scorable": [],
+   "note": "E07 look #3, frozen outliner-v1-frozen-2026-10-03"
+  }
+ ]
+}
